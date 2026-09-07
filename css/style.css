@@ -670,8 +670,8 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 
 /* ============ PREMIUM MOBILE HEADER — HOMEPAGE ONLY ============ */
 @media (max-width:1240px){
-  body.page-home .nav{padding:0 16px 0 20px; height:116px;}
-  body.page-home .brand-logo{height:104px; width:auto; object-fit:unset;}
+  body.page-home .nav{padding:0 16px 0 20px; height:80px;}
+  body.page-home .brand-logo{height:60px; width:auto; object-fit:unset;}
   body.page-home .nav-toggle{color:#0F2747;}
   body.page-home .lang-flag{display:none;}
   body.page-home .lang-pills{
@@ -710,12 +710,13 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
       linear-gradient(180deg, rgba(15,39,71,0.20) 0%, rgba(15,39,71,0) 34%),
       linear-gradient(180deg, rgba(15,39,71,0.16) 0%, rgba(15,39,71,0.36) 55%, rgba(15,39,71,0.5) 100%);
   }
+  body.page-home .hero{padding-top:56px;}
   body.page-home .hero-inner{position:relative; z-index:3;}
-  body.page-home .hero .eyebrow{color:rgba(255,255,255,0.92); letter-spacing:0.3em; margin-bottom:28px;}
+  body.page-home .hero .eyebrow{color:rgba(255,255,255,0.92); letter-spacing:0.18em; margin-bottom:12px;}
   body.page-home .hero .eyebrow::before{background:#4F8FC4;}
-  body.page-home .hero h1{margin-bottom:26px; line-height:1.2;}
+  body.page-home .hero h1{font-size:2.05rem; line-height:1.18; margin-bottom:12px;}
   body.page-home .hero h1 em{color:#1F5A8A;}
-  body.page-home .hero p.lead{margin-bottom:40px;}
+  body.page-home .hero p.lead{margin-bottom:22px;}
   body.page-home .hero .btn-gold.btn-hero{
     background:#0F2747; border-color:#0F2747;
     box-shadow:0 10px 24px rgba(15,39,71,0.28);
