@@ -116,7 +116,7 @@ header{
 }
 
 .brand{grid-area:brand; display:flex; align-items:center; gap:12px;}
-.brand-logo{width:60px; height:60px; object-fit:contain; flex-shrink:0;}
+.brand-logo{width:auto; height:48px; object-fit:contain; flex-shrink:0;}
 
 .nav-links{grid-area:links; justify-self:center; display:flex; gap:30px; font-size:0.76rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;}
 .nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px;}
@@ -162,7 +162,7 @@ header{
   }
   .nav-links{display:none;}
   .brand-logo{
-    height:80px; width:auto; object-fit:unset;
+    height:64px; width:auto; object-fit:contain;
   }
   .nav-toggle{display:block; font-size:2rem;}
 }
