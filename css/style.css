@@ -670,7 +670,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 
 /* ============ PREMIUM MOBILE HEADER — HOMEPAGE ONLY ============ */
 @media (max-width:1240px){
-  body.page-home .nav{padding:0 16px 0 20px;}
+  body.page-home .nav{padding:0 16px 0 20px; height:116px;}
   body.page-home .brand-logo{height:104px; width:auto; object-fit:unset;}
   body.page-home .nav-toggle{color:#0F2747;}
   body.page-home .lang-flag{display:none;}
