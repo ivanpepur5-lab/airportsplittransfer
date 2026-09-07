@@ -1,0 +1,31 @@
+# Transfer Split Airport
+
+> Private airport transfers and taxi service from Split Airport (SPU) to destinations across the Dalmatian coast, Croatia. Fixed prices, professional drivers, 24/7 availability.
+
+Transfer Split Airport provides private, fixed-price vehicle transfers between Split Airport and Split, Kaštela, Trogir, Podstrana, Omiš, Primošten, Makarska, Brela, Baška Voda, Šibenik, Vodice, Zadar, Plitvice Lakes, and Dubrovnik. Vehicles: sedan (up to 4 passengers), business van (up to 7 passengers), and van (up to 8 passengers). Online booking with instant fixed pricing, WhatsApp contact, and Netlify Forms-based reservation.
+
+## Key pages
+
+- [Homepage & Booking](/): Book a transfer with live address autocomplete and instant fixed pricing
+- [Fleet](/fleet): Vehicle classes, capacity and pricing
+- [Services](/services): Full list of transfer services offered
+- [All Destinations](/destinations): Every route served with fixed one-way prices
+- [Blog](/blog/): Travel guides for Split Airport transfers and the Dalmatian coast
+- [Contact](/contact): Phone, WhatsApp, and email contact details
+
+## Fixed one-way pricing from Split Airport
+
+- Split / Kaštela / Trogir: €40
+- Podstrana: €45
+- Omiš: €55
+- Primošten: €65
+- Makarska: €75
+- Brela: €80
+- Baška Voda: €80
+- Šibenik: €85
+- Vodice: €95
+- Zadar: €150
+- Plitvice Lakes: €180
+- Dubrovnik: €240
+
+Return trips are billed as two one-way transfers (no round-trip discount).
