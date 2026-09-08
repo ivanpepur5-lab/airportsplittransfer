@@ -58,7 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function scrollToIndex(i) {
       activeIndex = (i + items.length) % items.length;
-      items[activeIndex].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      const item = items[activeIndex];
+      // Scroll only the carousel's own scrollLeft — never scrollIntoView(),
+      // which walks up to the document and yanks the whole page's vertical
+      // scroll position toward this section even when it's off-screen.
+      const target = item.offsetLeft - (track.clientWidth - item.clientWidth) / 2;
+      track.scrollTo({ left: target, behavior: "smooth" });
       updateDots();
     }
 
@@ -96,8 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     track.addEventListener("touchstart", stopAutoplay, { passive: true });
 
+    let isVisible = false;
+
     function startAutoplay() {
-      if (reducedMotion || !mq.matches) return;
+      if (reducedMotion || !mq.matches || !isVisible) return;
       stopAutoplay();
       timer = setInterval(() => scrollToIndex(activeIndex + 1), autoplayMs);
     }
@@ -106,7 +113,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     buildDots();
-    startAutoplay();
+
+    // Only autoplay while the carousel is actually on screen — besides being
+    // the sane behavior, this also guarantees the very first automatic
+    // advance can never happen before the visitor has scrolled anywhere near it.
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) startAutoplay(); else stopAutoplay();
+        });
+      }, { threshold: 0.4 }).observe(track);
+    } else {
+      isVisible = true;
+      startAutoplay();
+    }
+
     mq.addEventListener("change", (e) => { if (e.matches) startAutoplay(); else stopAutoplay(); });
   }
 
