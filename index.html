@@ -60,6 +60,12 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1280px;margin:0 auto;padding:0 40px;}
+@media (max-width:640px){
+  .wrap{padding:0 10px;}
+  .breadcrumb{padding-left:10px; padding-right:10px;}
+  .page-hero{padding-left:10px; padding-right:10px;}
+  footer{padding-left:10px; padding-right:10px;}
+}
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
   outline:1px solid var(--gold);
   outline-offset:3px;
@@ -622,6 +628,7 @@ function updateSummary(){
   document.getElementById('summary-empty').style.display = state === 'empty' ? 'block' : 'none';
   document.getElementById('summary-priced').style.display = state === 'priced' ? 'block' : 'none';
   document.getElementById('summary-unpriced').style.display = state === 'unpriced' ? 'block' : 'none';
+  document.getElementById('summary-box').classList.toggle('is-empty', state === 'empty');
   if(state === 'priced'){
     document.getElementById('sum-route').textContent = pickupText + ' \u2192 ' + dropoffText;
     document.getElementById('sum-trip').textContent = isReturn ? 'Return' : 'One way';

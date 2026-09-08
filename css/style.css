@@ -605,7 +605,11 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 .summary-total b{font-family:'Poppins',sans-serif; font-size:2.2rem; color:var(--gold-text);}
 .summary-note{font-size:0.76rem; color:var(--gray); margin-top:16px;}
 
-@media (max-width:960px){.booking-layout{grid-template-columns:1fr;} .summary-box{position:static;}}
+@media (max-width:960px){
+  .booking-layout{grid-template-columns:1fr;}
+  .summary-box{position:static;}
+  .summary-box.is-empty{display:none;}
+}
 
 .confirm-panel{
   display:none; border:1px solid var(--gold); background:rgba(0,87,193,0.06); padding:30px; margin-top:24px; text-align:center;
@@ -728,4 +732,21 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home .hero-feature-grid{gap:14px 22px;}
   body.page-home .hero-feature{border-bottom:1px solid rgba(255,255,255,0.10); padding-bottom:12px;}
   body.page-home .hero-feature-icon{width:18px; height:18px;}
+}
+
+/* ============ GLOBAL MOBILE WIDTH — SITE-WIDE ============ */
+/* section/.section-tight normally wrap a .wrap inside them — zero their own
+   side padding on mobile so only one gutter (the innermost container)
+   applies, instead of two paddings compounding into a narrow column. */
+@media (max-width:640px){
+  section{padding-left:0; padding-right:0;}
+  .section-tight{padding-left:0; padding-right:0;}
+  .wrap{padding:0 10px;}
+  .breadcrumb{padding-left:10px; padding-right:10px;}
+  .page-hero{padding-left:10px; padding-right:10px;}
+  footer{padding-left:10px; padding-right:10px;}
+  .article-hero{padding-left:10px; padding-right:10px;}
+  .article-body{padding-left:10px; padding-right:10px;}
+  .trust-mini{padding-left:10px; padding-right:10px;}
+  .wa-banner{padding-left:10px; padding-right:10px;}
 }
