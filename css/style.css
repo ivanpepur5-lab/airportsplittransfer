@@ -374,6 +374,7 @@ section{padding:120px 40px;}
 .why-card p{font-size:0.9rem; color:var(--gray);}
 @media (max-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
+@media (min-width:901px){.why-grid.why-grid-3col{grid-template-columns:repeat(3,1fr);}}
 
 .why-mini-row{display:flex; justify-content:center; gap:48px; flex-wrap:wrap; text-align:center;}
 .why-mini-item{display:flex; flex-direction:column; align-items:center; gap:10px; max-width:200px;}
@@ -504,12 +505,12 @@ section{padding:120px 40px;}
 @media (max-width:900px){.testi-grid{grid-template-columns:1fr;}}
 
 /* ============ TRUST STRIP ============ */
-.trust-strip{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.trust-strip{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
 .trust-item{padding:36px 30px; border-left:1px solid var(--line); text-align:center;}
 .trust-item:first-child{border-left:none;}
 .trust-item b{font-family:'Poppins',sans-serif; font-size:1.8rem; color:var(--gold); display:block; margin-bottom:6px;}
 .trust-item span{font-size:0.76rem; color:var(--gray); text-transform:uppercase; letter-spacing:0.06em;}
-@media (max-width:800px){.trust-strip{grid-template-columns:1fr 1fr;} .trust-item{border-left:none; border-top:1px solid var(--line);} .trust-item:nth-child(1),.trust-item:nth-child(2){border-top:none;}}
+@media (max-width:640px){.trust-item{padding:18px 6px;} .trust-item b{font-size:1.15rem; margin-bottom:3px;} .trust-item span{font-size:0.62rem;}}
 
 /* ============ BOOKING PAGE ============ */
 .booking-layout{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start;}
@@ -749,4 +750,59 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   .article-body{padding-left:10px; padding-right:10px;}
   .trust-mini{padding-left:10px; padding-right:10px;}
   .wa-banner{padding-left:10px; padding-right:10px;}
+  section{padding-top:56px; padding-bottom:56px;}
+  .section-tight{padding-top:40px; padding-bottom:40px;}
+}
+
+/* ============ MOBILE 2-UP GRIDS — VEHICLES & DESTINATIONS ============ */
+@media (max-width:640px){
+  .fleet-grid{grid-template-columns:1fr 1fr; gap:10px;}
+  .fleet-card{min-width:0;}
+  .price-table{font-size:0.68rem;}
+  .price-table th, .price-table td{padding:6px 8px;}
+  .price-table td.num{font-size:0.85rem;}
+  .fleet-media{padding:14px;}
+  .fleet-body{padding:16px 14px 18px;}
+  .fleet-card h3{font-size:1.05rem; margin-bottom:4px;}
+  .fleet-class{font-size:0.56rem; margin-bottom:6px;}
+  .fleet-card .fleet-model{font-size:0.68rem; margin-bottom:6px;}
+  .fleet-card .fleet-sub{font-size:0.72rem; line-height:1.4; margin-bottom:12px;}
+  .fleet-spec-icons{gap:6px; margin-bottom:10px;}
+  .fleet-spec-icon{font-size:0.66rem; gap:3px;}
+  .fleet-spec-icon svg{width:14px; height:14px;}
+  .fleet-body .btn{padding:12px 6px; font-size:0.6rem; letter-spacing:0.04em;}
+
+  .dest-grid{grid-template-columns:1fr 1fr; gap:10px;}
+  .dest-body{padding:16px 14px;}
+  .dest-card h3{font-size:1rem; margin-bottom:12px;}
+  .dest-body .btn{padding:12px 6px; font-size:0.6rem; letter-spacing:0.04em;}
+}
+
+/* ============ MOBILE SWIPE CAROUSELS — REVIEWS & JOURNAL ============ */
+@media (max-width:640px){
+  .testi-grid, .blog-grid-carousel{
+    display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory;
+    gap:14px; padding-bottom:4px; margin:0 -2px; scrollbar-width:none;
+  }
+  .testi-grid::-webkit-scrollbar, .blog-grid-carousel::-webkit-scrollbar{display:none;}
+  .testi-grid .testi-card{scroll-snap-align:center; flex:0 0 88%;}
+  .blog-grid-carousel .blog-card{scroll-snap-align:center; flex:0 0 88%;}
+}
+.carousel-dots{display:none;}
+@media (max-width:640px){
+  .carousel-dots{display:flex; justify-content:center; gap:8px; margin-top:18px;}
+  .carousel-dots button{
+    width:8px; height:8px; border-radius:50%; border:none; padding:0;
+    background:var(--line-strong); cursor:pointer;
+    transition:background-color .2s ease, transform .2s ease;
+  }
+  .carousel-dots button.active{background:var(--gold); transform:scale(1.35);}
+}
+
+/* ============ MOBILE CARD PADDING — BOOKING/PRICE CARDS ============ */
+/* Same border-radius, tighter inner padding so these cards use more of
+   the now-wider mobile column instead of eating it back with padding. */
+@media (max-width:640px){
+  .booking-form-box{padding:22px;}
+  .summary-box{padding:22px;}
 }
