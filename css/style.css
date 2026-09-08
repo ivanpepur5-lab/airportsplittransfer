@@ -673,19 +673,25 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
 
-/* ============ PREMIUM MOBILE HEADER — HOMEPAGE ONLY ============ */
+/* ============ PREMIUM MOBILE HEADER — HOMEPAGE-SPECIFIC SIZING ============ */
 @media (max-width:1240px){
   body.page-home .nav{padding:0 16px 0 20px; height:80px;}
   body.page-home .brand-logo{height:60px; width:auto; object-fit:unset;}
   body.page-home .nav-toggle{color:#0F2747;}
-  body.page-home .lang-flag{display:none;}
-  body.page-home .lang-pills{
+}
+
+/* ============ LANGUAGE PILLS — SITE-WIDE, MOBILE/TABLET ============ */
+/* Replaces the circular flag with EN/DE pills on every page below the
+   desktop nav breakpoint; desktop keeps the original circular flag. */
+@media (max-width:1240px){
+  .lang-flag{display:none;}
+  .lang-pills{
     grid-area:langflag;
     display:flex;
     align-items:center;
     gap:8px;
   }
-  body.page-home .lang-pill{
+  .lang-pill{
     display:inline-flex; align-items:center; justify-content:center;
     height:32px; padding:0 14px;
     border-radius:999px;
@@ -695,8 +701,8 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
     background:transparent;
     transition:background-color .2s ease, color .2s ease, border-color .2s ease;
   }
-  body.page-home .lang-pill.active{background:#0F2747; color:#FFFFFF; border-color:#0F2747;}
-  body.page-home .lang-pill:hover:not(.active){border-color:#0F2747;}
+  .lang-pill.active{background:#0F2747; color:#FFFFFF; border-color:#0F2747;}
+  .lang-pill:hover:not(.active){border-color:#0F2747;}
 }
 
 /* ============ PREMIUM MOBILE HERO — HOMEPAGE ONLY ============ */
