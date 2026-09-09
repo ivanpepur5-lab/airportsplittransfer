@@ -416,7 +416,7 @@ header{
           <div id="trip-edit-view">
             <div class="toggle-group">
               <button type="button" class="toggle-opt active" id="trip-oneway" onclick="setTripType('oneway')">One Way</button>
-              <button type="button" class="toggle-opt" id="trip-return" onclick="setTripType('return')">Return <span class="toggle-badge" tabindex="0">-10%<span class="toggle-tooltip">10% off the return leg</span></span></button>
+              <button type="button" class="toggle-opt" id="trip-return" onclick="setTripType('return')">Return <span class="toggle-badge" tabindex="0">-5%<span class="toggle-tooltip">5% off the total price</span></span></button>
             </div>
             <fieldset>
               <legend>Route</legend>
@@ -655,7 +655,7 @@ function updateSummary(){
     document.getElementById('sum-pax').textContent = pax;
     document.getElementById('sum-total').textContent = formatEUR(total);
     document.getElementById('sum-note').textContent = isReturn
-      ? 'Return fare — includes an automatic 10% discount on the return leg.'
+      ? 'Return fare — includes an automatic 5% discount on the total price.'
       : `${currentDistanceKm.toFixed(1)} km · fixed price, all-inclusive.`;
   }
 
