@@ -63,7 +63,8 @@ const VEHICLES = {
   }
 };
 
-const RETURN_MULTIPLIER = 2; // no discount — a return transfer is billed as two one-way transfers
+const RETURN_MULTIPLIER = 2;
+const RETURN_DISCOUNT = 0.10; // 10% off the combined return-trip total
 
 /**
  * Human-readable, geocodable place names for the `?to=` query-param links
@@ -144,12 +145,12 @@ function priceForDistance(distanceKm, vehicleKey) {
 
 /**
  * Full trip total including trip type. Return trips are billed as two
- * one-way transfers — no round-trip discount.
+ * one-way transfers, then get an automatic 10% discount on the combined total.
  */
 function calculateTotal(distanceKm, vehicleKey, tripType) {
   const base = priceForDistance(distanceKm, vehicleKey);
   if (base === null) return null;
-  if (tripType === "return") return base * RETURN_MULTIPLIER;
+  if (tripType === "return") return roundToNearest5(base * RETURN_MULTIPLIER * (1 - RETURN_DISCOUNT));
   return base;
 }
 
