@@ -583,6 +583,13 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 .live-price-bar .custom-quote-msg{padding:0; font-size:0.86rem;}
 .custom-quote-msg a{color:var(--gold-text); font-weight:600; border-bottom:1px solid var(--gold-dim);}
 
+/* Above 960px the sticky "Price Summary" sidebar is always visible, so this
+   compact inline bar (meant to stand in for it on mobile, where the sidebar
+   is hidden until priced) would just duplicate the same message. */
+@media (min-width:961px){
+  .live-price-bar{display:none;}
+}
+
 .vehicle-picker{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
 .vehicle-opt{border:1px solid var(--line-strong); padding:16px; border-radius:var(--radius); cursor:pointer; transition:all .2s ease; text-align:center;}
 .vehicle-opt.active{border-color:var(--gold); background:rgba(0,87,193,0.06);}
