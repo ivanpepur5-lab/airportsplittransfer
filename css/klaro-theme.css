@@ -123,11 +123,18 @@
   color: #fff;
 }
 
+/* Sit above any fixed corner widgets (e.g. the host's own badge) so the
+   buttons are never obscured or unclickable. */
+.klaro .cookie-notice,
+.klaro .cookie-modal {
+  z-index: 2147483647 !important;
+}
+
 @media (max-width: 640px) {
   .klaro .cookie-notice {
     right: 10px;
     left: 10px;
-    bottom: 10px;
+    bottom: 70px;
     max-width: none;
     width: auto;
   }
