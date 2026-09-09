@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WL56VBBSX9"></script>
+<!-- Google Consent Mode v2 — default state, set before anything else -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+</script>
+<!-- Google tag (gtag.js) — blocked until consent (see js/consent-gate.js) -->
+<script type="text/plain" data-type="application/javascript" data-name="google-analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-WL56VBBSX9"></script>
+<script type="text/plain" data-type="application/javascript" data-name="google-analytics">
   gtag('js', new Date());
-
   gtag('config', 'G-WL56VBBSX9');
 </script>
+<script src="../../js/consent-gate.js" data-base="../../" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Transfer Flughafen Split nach Split City Center / Ferry Port | Transfer Split Airport</title>
@@ -232,7 +242,7 @@ document.getElementById('d-pax').addEventListener('change', function(){
   </div>
   <div class="footer-bottom">
     <span>&copy; 2026 Transfer Split Airport. Alle Rechte vorbehalten.</span>
-    <span><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms &amp; Conditions</a></span>
+    <span><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms &amp; Conditions</a> &middot; <button type="button" class="cookie-settings-link" onclick="window.openCookiePreferences()">Cookie Preferences</button></span>
   </div>
 </footer>
 <script src="../../js/pricing.js" defer></script>
