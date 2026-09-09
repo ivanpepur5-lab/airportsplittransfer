@@ -655,7 +655,7 @@ function updateSummary(){
     document.getElementById('sum-pax').textContent = pax;
     document.getElementById('sum-total').textContent = formatEUR(total);
     document.getElementById('sum-note').textContent = isReturn
-      ? 'Rückfahrtpreis — enthält automatisch 10% Rabatt auf die kombinierten Einzelfahrten.'
+      ? 'Rückfahrtpreis — enthält automatisch 10% Rabatt auf die Rückfahrt-Etappe.'
       : `${currentDistanceKm.toFixed(1)} km · fixed price, all-inclusive.`;
   }
 

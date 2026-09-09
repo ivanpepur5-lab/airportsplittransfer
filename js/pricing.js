@@ -63,8 +63,7 @@ const VEHICLES = {
   }
 };
 
-const RETURN_MULTIPLIER = 2;
-const RETURN_DISCOUNT = 0.10; // 10% off the combined return-trip total
+const RETURN_DISCOUNT = 0.10; // discount applied to the return leg only
 
 /**
  * Human-readable, geocodable place names for the `?to=` query-param links
@@ -144,13 +143,13 @@ function priceForDistance(distanceKm, vehicleKey) {
 }
 
 /**
- * Full trip total including trip type. Return trips are billed as two
- * one-way transfers, then get an automatic 10% discount on the combined total.
+ * Full trip total including trip type. Return trips are billed as the
+ * outbound leg at full price plus the return leg at a 10% discount.
  */
 function calculateTotal(distanceKm, vehicleKey, tripType) {
   const base = priceForDistance(distanceKm, vehicleKey);
   if (base === null) return null;
-  if (tripType === "return") return roundToNearest5(base * RETURN_MULTIPLIER * (1 - RETURN_DISCOUNT));
+  if (tripType === "return") return roundToNearest5(base + base * (1 - RETURN_DISCOUNT));
   return base;
 }
 
