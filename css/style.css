@@ -518,11 +518,16 @@ section{padding:120px 40px;}
 .booking-form-box h2{font-size:1.6rem; margin-bottom:8px;}
 .booking-form-box .sub{color:var(--gray); font-size:0.9rem; margin-bottom:34px;}
 
-.toggle-group{display:flex; border:1px solid var(--line-strong); border-radius:var(--radius); overflow:hidden; margin-bottom:28px; width:fit-content;}
+.toggle-group{display:flex; border:1px solid var(--line-strong); border-radius:var(--radius); margin-bottom:28px; width:fit-content;}
 .toggle-opt{padding:11px 24px; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; background:transparent; border:none; color:var(--gray); transition:all .2s ease;}
+.toggle-opt:first-child{border-radius:var(--radius) 0 0 var(--radius);}
+.toggle-opt:last-child{border-radius:0 var(--radius) var(--radius) 0;}
 .toggle-opt.active{background:var(--gold); color:var(--bg); font-weight:600;}
-.toggle-badge{display:inline-block; margin-left:6px; padding:2px 6px; border-radius:999px; font-size:0.65rem; font-weight:700; letter-spacing:0.02em; text-transform:none; background:var(--navy); color:#fff; vertical-align:1px;}
+.toggle-badge{position:relative; display:inline-block; margin-left:6px; padding:2px 6px; border-radius:999px; font-size:0.65rem; font-weight:700; letter-spacing:0.02em; text-transform:none; background:var(--navy); color:#fff; vertical-align:1px; cursor:help;}
 .toggle-opt.active .toggle-badge{background:#fff; color:var(--navy);}
+.toggle-tooltip{position:absolute; top:calc(100% + 9px); left:50%; transform:translateX(-50%); background:var(--cream); color:#fff; font-size:0.68rem; font-weight:500; letter-spacing:normal; text-transform:none; padding:7px 11px; border-radius:8px; white-space:nowrap; opacity:0; visibility:hidden; transition:opacity .15s ease; pointer-events:none; z-index:20;}
+.toggle-tooltip::after{content:""; position:absolute; bottom:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-bottom-color:var(--cream);}
+.toggle-badge:hover .toggle-tooltip, .toggle-badge:focus .toggle-tooltip{opacity:1; visibility:visible;}
 
 fieldset{border:none; margin-bottom:30px; padding-top:20px; border-top:1px solid var(--line);}
 fieldset:first-of-type{padding-top:0; border-top:none;}
