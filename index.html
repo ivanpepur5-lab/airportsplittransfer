@@ -733,6 +733,12 @@ function initPlacesAutocomplete(){
     }
     maybeFetchDistance();
   });
+
+  // Maps just became ready — if a route was already typed/prefilled before
+  // this finished loading (e.g. the ?to= deep-link case), the earlier
+  // maybeFetchDistance() call would have silently no-opped on google.maps
+  // being undefined with no retry. Give it one more shot now.
+  maybeFetchDistance();
 }
 // If the Google Maps script hasn't loaded yet (or the API key isn't set), this
 // callback simply never fires — the fields still work as plain text inputs,
@@ -865,6 +871,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
   updateSummary();
 
   if(gotEnough){
+    if(window.loadGoogleMaps) window.loadGoogleMaps(); // no field interaction to trigger this otherwise
     maybeFetchDistance(); // resolve the real price for the pre-filled route too
   }
 
@@ -880,12 +887,16 @@ document.addEventListener('DOMContentLoaded', function prefill(){
 });
 
 // --- Lazy-load Google Maps (Places + Distance Matrix) ---------------------
-// This is the single heaviest script on the page. The booking widget
-// overlaps the hero by design, so it's always near the initial viewport —
-// an IntersectionObserver on it would fire almost immediately and defer
-// nothing. Instead, load on genuine user interaction with the address
-// fields, or after a short idle delay as a safety net, keeping this
-// off the critical first-second load path for most visitors.
+// This is the single heaviest script on the page (300KB+ of mostly-unused
+// JS for any visitor who never touches the address fields) — a blind
+// setTimeout fallback used to force-load it a few seconds after every page
+// load "just in case", but that meant it always fired for automated,
+// non-interactive visits (Lighthouse/PageSpeed included), tanking Total
+// Blocking Time for every single audit. Load only on genuine interaction
+// with the address fields or first scroll; window.loadGoogleMaps is also
+// exposed so the `?to=` deep-link prefill (below) can request it
+// immediately for the one real case where a price is needed with no
+// interaction at all.
 (function(){
   let mapsRequested = false;
   function loadGoogleMaps(){
@@ -896,6 +907,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
     s.async = true;
     document.head.appendChild(s);
   }
+  window.loadGoogleMaps = loadGoogleMaps;
   ['focus', 'touchstart', 'mousedown'].forEach(function(evt){
     const pu = document.getElementById('b-pickup');
     const doff = document.getElementById('b-dropoff');
@@ -904,9 +916,6 @@ document.addEventListener('DOMContentLoaded', function prefill(){
   });
   // First scroll is a reasonable signal the visitor is engaging with the page.
   window.addEventListener('scroll', loadGoogleMaps, {once: true, passive: true});
-  // Safety net — never leave the form permanently non-functional, even for
-  // visitors who neither scroll nor touch the fields right away.
-  window.addEventListener('load', function(){ setTimeout(loadGoogleMaps, 3000); });
 })();
 </script><section class="bg-2">
   <div class="wrap">
