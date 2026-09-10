@@ -746,7 +746,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home .hero h1 em{color:#fff;}
   body.page-home .hero p.lead{margin-bottom:22px;}
   body.page-home .hero .btn-gold.btn-hero{
-    background:var(--navy); border-color:rgba(255,255,255,0.7);
+    background:var(--navy); border-color:#FFFFFF;
     box-shadow:0 10px 24px rgba(7,38,76,0.28);
   }
   body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.8);}
