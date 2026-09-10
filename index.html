@@ -180,12 +180,17 @@ header{
   padding:150px 40px 130px;
   overflow:hidden;
   background-color:var(--navy);
-  background-image:url('../assets/hero.webp');
-  background-image:-webkit-image-set(url('../assets/hero.avif') type('image/avif'), url('../assets/hero.webp') type('image/webp'));
-  background-image:image-set(url('../assets/hero.avif') type('image/avif'), url('../assets/hero.webp') type('image/webp'));
-  background-size:cover;
-  background-position:center 60%;
-  background-repeat:no-repeat;
+}
+.hero-photo{
+  position:absolute;
+  inset:0;
+}
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 60%;
+  display:block;
 }
 .hero-photo-overlay{
   position:absolute;
@@ -198,11 +203,9 @@ header{
   .hero{
     min-height:auto;
     padding:96px 24px 50px;
-    background-image:url('../assets/hero-mobile.webp');
-    background-image:-webkit-image-set(url('../assets/hero-mobile.avif') type('image/avif'), url('../assets/hero-mobile.webp') type('image/webp'));
-    background-image:image-set(url('../assets/hero-mobile.avif') type('image/avif'), url('../assets/hero-mobile.webp') type('image/webp'));
-    background-size:cover;
-    background-position:center;
+  }
+  .hero-photo img{
+    object-position:center;
   }
 }
 .hero-inner{position:relative; z-index:3; max-width:1280px; margin:0 auto; width:100%;}
@@ -355,6 +358,13 @@ header{
 </header>
 <main>
 <section class="hero">
+  <picture class="hero-photo">
+    <source media="(max-width:640px)" srcset="assets/hero-mobile.avif" type="image/avif">
+    <source media="(max-width:640px)" srcset="assets/hero-mobile.webp" type="image/webp">
+    <source srcset="assets/hero.avif" type="image/avif">
+    <source srcset="assets/hero.webp" type="image/webp">
+    <img src="assets/hero.webp" alt="" fetchpriority="high">
+  </picture>
   <div class="hero-photo-overlay"></div>
   <div class="hero-inner">
     <div class="eyebrow reveal">Private Transfers in Croatia</div>
