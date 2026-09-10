@@ -616,6 +616,7 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 .summary-note{font-size:0.76rem; color:var(--gray); margin-top:16px;}
 
 .booking-layout{grid-template-columns:1fr; max-width:720px; margin:0 auto;}
+.booking-wrap{padding:0;}
 @media (max-width:960px){
   .summary-box{position:static;}
   .summary-box.is-empty{display:none;}
