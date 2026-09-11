@@ -621,6 +621,7 @@ function onPaxChange(){
   });
   if(!eligible.includes(currentVehicle)){
     currentVehicle = eligible[0];
+    document.getElementById('b-vehicle').value = currentVehicle || '';
     document.querySelectorAll('.vehicle-opt').forEach(el => el.classList.remove('active'));
     if(currentVehicle) document.getElementById('vopt-' + currentVehicle).classList.add('active');
   }
@@ -839,6 +840,19 @@ function fetchDistance(pickupText, dropoffText){
 
 function submitBooking(e){
   e.preventDefault();
+  // Safety net: never submit a vehicle that can't actually fit the entered
+  // passengers/suitcases, even if some path failed to keep the hidden
+  // b-vehicle field in sync with the visible selection.
+  const submitPax = parseInt(document.getElementById('b-pax').value, 10);
+  const submitSuitcases = parseInt(document.getElementById('b-suitcases').value, 10);
+  const vehicleFits = key => VEHICLES[key] && submitPax >= VEHICLES[key].minPax && submitPax <= VEHICLES[key].maxPax && submitSuitcases <= VEHICLES[key].suitcases;
+  if(!vehicleFits(currentVehicle)){
+    const fallbackVehicle = Object.keys(VEHICLES).find(vehicleFits);
+    if(fallbackVehicle){
+      currentVehicle = fallbackVehicle;
+      document.getElementById('b-vehicle').value = fallbackVehicle;
+    }
+  }
   const pickupText = document.getElementById('b-pickup').value.trim();
   const dropoffText = document.getElementById('b-dropoff').value.trim();
   if(pickupText && dropoffText && pickupText.toLowerCase() === dropoffText.toLowerCase()){
