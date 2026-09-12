@@ -745,6 +745,23 @@ function swapAddresses(){
  * Restricted to Croatia. Selecting a suggestion fills the field with a
  * clean formatted address and immediately kicks off a real distance lookup.
  */
+// For most addresses place.formatted_address is already a good, specific
+// display value. But for large natural-feature POIs (national parks,
+// lakes, mountains...) Google often has no street-level address for it and
+// formatted_address collapses to just the country (e.g. "Hrvatska") —
+// silently dropping the place name itself. Prepending place.name whenever
+// it isn't already part of the address keeps those cases readable, e.g.
+// "Nacionalni park Krka, Hrvatska" instead of a bare "Hrvatska".
+function placeDisplayValue(place){
+  if(!place) return '';
+  const name = (place.name || '').trim();
+  const address = (place.formatted_address || '').trim();
+  if(name && address && !address.toLowerCase().includes(name.toLowerCase())){
+    return name + ', ' + address;
+  }
+  return address || name || '';
+}
+
 function initPlacesAutocomplete(){
   if(typeof google === 'undefined' || !google.maps || !google.maps.places) return;
 
@@ -755,7 +772,8 @@ function initPlacesAutocomplete(){
   const pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
   pickupAutocomplete.addListener('place_changed', () => {
     const place = pickupAutocomplete.getPlace();
-    if(place && place.formatted_address) pickupInput.value = place.formatted_address;
+    const display = placeDisplayValue(place);
+    if(display) pickupInput.value = display;
     if(place && place.geometry && place.geometry.location){
       document.getElementById('b-pickup-lat').value = place.geometry.location.lat();
       document.getElementById('b-pickup-lng').value = place.geometry.location.lng();
@@ -766,7 +784,8 @@ function initPlacesAutocomplete(){
   const dropoffAutocomplete = new google.maps.places.Autocomplete(dropoffInput, options);
   dropoffAutocomplete.addListener('place_changed', () => {
     const place = dropoffAutocomplete.getPlace();
-    if(place && place.formatted_address) dropoffInput.value = place.formatted_address;
+    const display = placeDisplayValue(place);
+    if(display) dropoffInput.value = display;
     if(place && place.geometry && place.geometry.location){
       document.getElementById('b-dropoff-lat').value = place.geometry.location.lat();
       document.getElementById('b-dropoff-lng').value = place.geometry.location.lng();
