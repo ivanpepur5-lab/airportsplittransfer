@@ -1,0 +1,380 @@
+<!--
+  AIRPORT SPLIT TRANSFER — CUSTOMER BOOKING CONFIRMATION EMAIL
+  =============================================================
+  Suggested subject line:
+    ✅ Booking Confirmed — {{date}} at {{pickup_time}} | Airport Split Transfer
+
+  This file is a MERGE TEMPLATE, not a page — it is meant to be sent through
+  a transactional email service (Postmark, SendGrid, Mailgun, Resend, etc.)
+  or an automation tool (Zapier/Make) triggered off the existing Netlify
+  Forms "booking" submission. No booking/back-end logic was changed; this
+  only defines the look of the email and maps it to the form's existing
+  field names.
+
+  FIELD MAPPING (Netlify Forms field -> template token):
+    full_name        -> {{full_name}}
+    email            -> {{email}}
+    phone            -> {{phone}}
+    date             -> {{date}}
+    time             -> {{pickup_time}}
+    pickup           -> {{pickup}}
+    dropoff          -> {{dropoff}}
+    passengers       -> {{passengers}}
+    vehicle          -> {{vehicle}}          (pass the human-readable label,
+                                               see README for the key->label
+                                               mapping, e.g. "skoda" -> "Sedan
+                                               — Škoda Superb or similar")
+    calculated_price -> {{price}}            (numeric, e.g. "45.00" — the €
+                                               sign is already in the markup)
+    flight_number    -> {{flight_number}}    (optional)
+    return_date      -> {{return_date}}      (optional, round trips only)
+    return_time      -> {{return_time}}      (optional, round trips only)
+    (none today)     -> {{booking_reference}} (optional — the form does not
+                                               generate one yet; the row
+                                               hides itself if not supplied)
+
+  HIDE-IF-EMPTY RULE:
+  Every optional row below is wrapped in {{#if field}} ... {{/if}}
+  (Handlebars-style conditionals, understood natively by Postmark, SendGrid
+  dynamic templates, Mailgun and Mailchimp Transactional). If your merge
+  tool cannot evaluate {{#if}}, either pre-process the HTML with a tiny
+  Handlebars render step before sending, or simply omit the corresponding
+  <tr> row for that send. See email-templates/README.md for details.
+-->
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Booking Confirmed — Airport Split Transfer</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<style>
+  table {border-collapse:collapse;}
+</style>
+<![endif]-->
+<style>
+  body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+  table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;}
+  img{-ms-interpolation-mode:bicubic;border:0;outline:none;text-decoration:none;display:block;}
+  body{margin:0;padding:0;width:100%!important;height:100%!important;background:#F1F5F9;}
+  a{color:#0EA5E9;}
+  @media screen and (max-width:600px){
+    .email-container{width:100%!important;}
+    .px-mobile{padding-left:20px!important;padding-right:20px!important;}
+    .h1-mobile{font-size:24px!important;}
+    .card-pad{padding:20px!important;}
+    .stack{display:block!important;width:100%!important;text-align:left!important;padding-bottom:10px!important;}
+    .stack-right{display:block!important;width:100%!important;text-align:left!important;}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#F1F5F9;">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;opacity:0;">
+  Your private transfer from Split Airport is confirmed. See your trip details, driver info and what's included inside.
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
+<center style="width:100%;background:#F1F5F9;">
+<!--[if mso]>
+<table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+<![endif]-->
+<div style="max-width:600px;margin:0 auto;" class="email-container">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;">
+
+    <!-- outer spacing -->
+    <tr><td style="height:24px;line-height:24px;font-size:1px;">&nbsp;</td></tr>
+
+    <!-- CARD START -->
+    <tr>
+      <td style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(7,38,76,0.08);">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER: logo on navy-to-sky gradient -->
+          <tr>
+            <td align="center" style="background-color:#07264C;background-image:linear-gradient(135deg,#07264C 0%,#0B3A6E 100%);padding:32px 24px;" class="px-mobile">
+              <img src="https://www.airportsplittransfer.com/assets/logo-white.png" width="200" height="71" alt="Airport Split Transfer" style="display:block;width:200px;max-width:200px;height:auto;border:0;">
+            </td>
+          </tr>
+
+          <!-- accent bar -->
+          <tr>
+            <td style="background:#0EA5E9;height:4px;line-height:4px;font-size:1px;">&nbsp;</td>
+          </tr>
+
+          <!-- CONFIRMATION HEADLINE -->
+          <tr>
+            <td align="center" style="padding:40px 32px 8px;" class="px-mobile">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="width:56px;height:56px;border-radius:50%;background:rgba(14,165,233,0.12);">
+                    <div style="width:56px;height:56px;line-height:56px;text-align:center;font-size:28px;color:#0EA5E9;font-family:Arial,Helvetica,sans-serif;">&#10003;</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:16px 32px 4px;" class="px-mobile">
+              <h1 class="h1-mobile" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:28px;line-height:1.25;font-weight:800;color:#07264C;">Booking Confirmed</h1>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:6px 32px 28px;" class="px-mobile">
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#5B6672;">Thank you for choosing Airport Split Transfer.</p>
+            </td>
+          </tr>
+
+          {{#if booking_reference}}
+          <!-- booking reference chip -->
+          <tr>
+            <td align="center" style="padding:0 32px 28px;" class="px-mobile">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:999px;">
+                <tr>
+                  <td style="padding:10px 22px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0.06em;color:#5B6672;text-transform:uppercase;">
+                    Booking reference&nbsp; <span style="color:#07264C;font-weight:700;font-size:13px;letter-spacing:0;text-transform:none;">{{booking_reference}}</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {{/if}}
+
+          <!-- TRIP DETAILS CARD -->
+          <tr>
+            <td style="padding:0 32px 24px;" class="px-mobile">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:14px;">
+                <tr>
+                  <td class="card-pad" style="padding:24px 26px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0EA5E9;text-transform:uppercase;">Trip Details</td>
+                      </tr>
+
+                      {{#if booking_reference}}
+                      <tr><td style="border-top:1px solid #E5E7EB;padding-top:12px;"></td></tr>
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Booking reference</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{booking_reference}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Date</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{date}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Pickup time</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{pickup_time}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;vertical-align:top;">Pickup location</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{pickup}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;vertical-align:top;">Destination</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{dropoff}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      {{#if return_date}}
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Return date</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{return_date}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                      {{#if return_time}}
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Return time</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{return_time}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Passengers</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{passengers}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;vertical-align:top;">Vehicle</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{vehicle}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr><td style="border-top:1px solid #E5E7EB;padding-top:14px;"></td></tr>
+                      <tr>
+                        <td style="font-family:Arial,Helvetica,sans-serif;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td style="font-size:14px;color:#5B6672;font-weight:600;">Price</td>
+                            <td align="right" style="font-size:22px;font-weight:800;color:#0EA5E9;">€{{price}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- PASSENGER CARD -->
+          <tr>
+            <td style="padding:0 32px 24px;" class="px-mobile">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:14px;">
+                <tr>
+                  <td class="card-pad" style="padding:24px 26px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0EA5E9;text-transform:uppercase;">Passenger</td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Name</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{full_name}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Email</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{email}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="{{#if flight_number}}padding-bottom:12px;{{/if}}font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Phone</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{phone}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      {{#if flight_number}}
+                      <tr>
+                        <td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Flight number</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{flight_number}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- WHAT'S INCLUDED CARD -->
+          <tr>
+            <td style="padding:0 32px 32px;" class="px-mobile">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#07264C;border-radius:14px;">
+                <tr>
+                  <td class="card-pad" style="padding:24px 26px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0EA5E9;text-transform:uppercase;">What's Included</td>
+                      </tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Professional driver</td></tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Flight monitoring</td></tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Meet &amp; Greet</td></tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Free waiting time</td></tr>
+                      <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Fixed price</td></tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td align="center" style="padding:8px 32px 36px;" class="px-mobile">
+              <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#07264C;">Need to change your booking?</p>
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#5B6672;">
+                <a href="mailto:info@airportsplittransfer.com" style="color:#0EA5E9;text-decoration:none;font-weight:600;">info@airportsplittransfer.com</a>
+                &nbsp;&middot;&nbsp;
+                <a href="tel:+385917856056" style="color:#0EA5E9;text-decoration:none;font-weight:600;">+385 91 785 6056</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+    <!-- CARD END -->
+
+    <!-- Sub-footer, outside the white card -->
+    <tr>
+      <td align="center" style="padding:24px 32px 8px;" class="px-mobile">
+        <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#94A3B8;">
+          Airport Split Transfer &middot; Split, Croatia<br>
+          Private airport transfers across the Dalmatian coast.
+        </p>
+      </td>
+    </tr>
+    <tr><td style="height:24px;line-height:24px;font-size:1px;">&nbsp;</td></tr>
+
+  </table>
+</div>
+<!--[if mso]>
+</td></tr></table>
+<![endif]-->
+</center>
+</body>
+</html>
