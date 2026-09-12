@@ -1,0 +1,141 @@
+/* ==========================================================================
+   KLARO THEME — matches the site's white / dark navy / accent palette.
+   Klaro exposes its whole palette as CSS custom properties (scoped to
+   .klaro), so this file mostly just repoints those at the site's own
+   design tokens from css/style.css instead of Klaro's default green/blue.
+   ========================================================================== */
+
+.klaro {
+  --font-family: 'Inter', sans-serif;
+  --title-font-family: 'Poppins', sans-serif;
+  --font-size: 0.92rem;
+  --border-radius: 14px;
+  --border-style: solid;
+  --border-width: 1px;
+  --button-text-color: #FFFFFF;
+
+  /* notice/modal surfaces + text */
+  --light1: var(--cream, #07264C);   /* headings / body text on light bg */
+  --light2: var(--line, #E5E7EB);    /* dividers */
+  --light3: var(--gray, #5B6672);    /* secondary/description text */
+  --white2: var(--bg-2, #F8FAFC);    /* toggle track (off) */
+  --white3: var(--line, #E5E7EB);    /* toggle knob shadow */
+  --dark1: #FFFFFF;                  /* notice/modal background */
+  --dark2: var(--navy, #07264C);     /* default (decline) button background */
+  --dark3: var(--gray, #5B6672);
+
+  /* accept / manage / toggle accent */
+  --green1: var(--gold, #0057C1);
+  --green2: var(--gold, #0057C1);
+  --green3: var(--gold, #0057C1);
+  --blue1: transparent;              /* "manage preferences" button — outline style below */
+  --blue2: var(--gold, #0057C1);
+
+  --notice-max-width: 460px;
+  --notice-bottom: 20px;
+  --notice-right: 20px;
+  --notice-left: auto;
+  --box-shadow-color: rgba(7, 38, 76, 0.18);
+}
+
+/* Notice + modal container: white card, site's card shadow/radius language */
+.klaro .cookie-notice,
+.klaro .cookie-modal .cm-modal {
+  box-shadow: 0 12px 40px rgba(11, 31, 74, 0.14);
+  border: 1px solid var(--line, #E5E7EB);
+}
+
+.klaro .cookie-notice .cn-body h2,
+.klaro .cookie-modal .cm-modal h1,
+.klaro .cookie-modal .cm-modal h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: var(--navy, #07264C);
+}
+
+.klaro .cn-buttons,
+.klaro .cm-footer-buttons {
+  gap: 10px;
+}
+
+/* Buttons: uppercase, letter-spaced, matching the site's .btn pattern */
+.klaro .cm-btn {
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 12px 20px;
+  border-radius: 999px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.klaro .cm-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Accept All — solid navy, the site's primary CTA style */
+.klaro .cm-btn.cm-btn-success {
+  background-color: var(--navy, #07264C) !important;
+  border: 1px solid var(--navy, #07264C);
+}
+
+/* Reject Non-Essential — outline style */
+.klaro .cm-btn.cm-btn-decline,
+.klaro .cookie-notice .cm-btn:not(.cm-btn-success):not(.cm-btn-info) {
+  background-color: transparent !important;
+  color: var(--navy, #07264C) !important;
+  border: 1px solid var(--line-strong, rgba(7, 38, 76, 0.3));
+}
+
+/* Manage Preferences ("learn more") — text link in the accent color */
+.klaro .cm-btn.cm-btn-info,
+.klaro .cm-btn.cm-btn-lern-more {
+  background-color: transparent !important;
+  color: var(--gold, #0057C1) !important;
+  border: 1px solid var(--gold, #0057C1);
+}
+
+/* Save/close in the detailed modal footer */
+.klaro .cm-modal .cm-btn-success {
+  background-color: var(--navy, #07264C) !important;
+}
+
+.klaro .cm-list-title {
+  font-family: 'Poppins', sans-serif;
+  color: var(--cream, #07264C);
+}
+
+.klaro .cm-list-description {
+  color: var(--gray, #5B6672);
+}
+
+/* Footer "Cookie Preferences" trigger link, shown next to Privacy/Terms */
+.footer-bottom .cookie-settings-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  text-decoration: none;
+}
+.footer-bottom .cookie-settings-link:hover {
+  color: #fff;
+}
+
+/* Sit above any fixed corner widgets (e.g. the host's own badge) so the
+   buttons are never obscured or unclickable. */
+.klaro .cookie-notice,
+.klaro .cookie-modal {
+  z-index: 2147483647 !important;
+}
+
+@media (max-width: 640px) {
+  .klaro .cookie-notice {
+    right: 10px;
+    left: 10px;
+    bottom: 70px;
+    max-width: none;
+    width: auto;
+  }
+}

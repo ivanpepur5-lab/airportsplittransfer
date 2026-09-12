@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Consent Mode v2 — default state, set before anything else -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+</script>
+<!-- Google tag (gtag.js) — blocked until consent (see js/consent-gate.js) -->
+<script type="text/plain" data-type="application/javascript" data-name="google-analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-WL56VBBSX9"></script>
+<script type="text/plain" data-type="application/javascript" data-name="google-analytics">
+  gtag('js', new Date());
+  gtag('config', 'G-WL56VBBSX9');
+</script>
+<script src="../js/consent-gate.js" data-base="../" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Visiting Plitvice Lakes from Split: What to Know Before You Go | Transfer Split Airport</title>
 <meta name="description" content="Plitvice is a full day trip from Split — here's how to plan it so the drive doesn't eat into your time at the park.">
 <link rel="canonical" href="https://www.airportsplittransfer.com/blog/visiting-plitvice">
+<link rel="alternate" hreflang="en" href="https://www.airportsplittransfer.com/blog/visiting-plitvice">
+<link rel="alternate" hreflang="sv" href="https://www.airportsplittransfer.com/sv/blog/visiting-plitvice">
+<link rel="alternate" hreflang="x-default" href="https://www.airportsplittransfer.com/blog/visiting-plitvice">
 <meta property="og:title" content="Visiting Plitvice Lakes from Split: What to Know Before You Go | Transfer Split Airport">
 <meta property="og:description" content="Plitvice is a full day trip from Split — here's how to plan it so the drive doesn't eat into your time at the park.">
 <meta property="og:type" content="website">
@@ -25,7 +47,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Visiting Plitvice Lakes from Split: What to Know Before You Go", "description": "Plitvice is a full day trip from Split — here's how to plan it so the drive doesn't eat into your time at the park.", "author": {"@type": "Organization", "name": "Transfer Split Airport"}, "publisher": {"@type": "Organization", "name": "Transfer Split Airport"}, "datePublished": "March 2026", "mainEntityOfPage": "https://www.airportsplittransfer.com/blog/visiting-plitvice"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Visiting Plitvice Lakes from Split: What to Know Before You Go", "description": "Plitvice is a full day trip from Split — here's how to plan it so the drive doesn't eat into your time at the park.", "author": {"@type": "Organization", "name": "Transfer Split Airport"}, "publisher": {"@type": "Organization", "name": "Transfer Split Airport"}, "datePublished": "2026-09-08", "mainEntityOfPage": "https://www.airportsplittransfer.com/blog/visiting-plitvice"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.airportsplittransfer.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.airportsplittransfer.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Visiting Plitvice Lakes from Split: What to Know Before You Go", "item": "https://www.airportsplittransfer.com/blog/visiting-plitvice"}]}</script>
 </head>
 <body class="">
@@ -35,20 +57,30 @@
       <picture>
         <source srcset="../assets/logo-icon.avif" type="image/avif">
         <source srcset="../assets/logo-icon.webp" type="image/webp">
-        <img src="../assets/logo-icon.png" alt="Transfer Split Airport" class="brand-logo" width="270" height="191" fetchpriority="high">
+        <img src="../assets/logo-icon.png" alt="Transfer Split Airport" class="brand-logo" width="280" height="99" fetchpriority="high">
       </picture>
     </a>
     <div class="nav-links">
       <a href="../index.html">Home</a>
       <a href="../index.html#booking">Booking</a>
       <a href="../destinations.html">Routes</a>
+      <a href="../day-trips.html">Day Trips</a>
       <a href="../fleet.html">Vehicles</a>
       <a href="../services.html">Services</a>
       <a href="../blog/index.html">Blog</a>
       <a href="../about.html">About Us</a>
       <a href="../contact.html">Contact</a>
     </div>
-    <a href="../de/index.html" class="lang-flag" aria-label="Deutsch" title="Deutsch">&#127465;&#127466;</a>
+    <div class="lang-dropdown">
+      <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+        <span>EN</span>
+        <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-dropdown-menu">
+        <a href="visiting-plitvice.html" class="lang-option active" aria-current="page">English</a>
+        <a href="../sv/blog/visiting-plitvice.html" class="lang-option">Svenska</a>
+      </div>
+    </div>
     <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
   </nav>
   <div class="mobile-nav">
@@ -56,12 +88,13 @@
     <a href="../index.html">Home</a>
       <a href="../index.html#booking">Booking</a>
       <a href="../destinations.html">Routes</a>
+      <a href="../day-trips.html">Day Trips</a>
       <a href="../fleet.html">Vehicles</a>
       <a href="../services.html">Services</a>
       <a href="../blog/index.html">Blog</a>
       <a href="../about.html">About Us</a>
       <a href="../contact.html">Contact</a>
-    <a href="../de/index.html" class="lang-switch-mobile">&#127465;&#127466; Deutsch</a>
+    <a href="../sv/blog/visiting-plitvice.html" class="lang-switch-mobile">&#127480;&#127466; Svenska</a>
   </div>
 </header>
 <main>
@@ -96,10 +129,9 @@
 <div class="wa-banner">
   <div class="wa-banner-inner">
     <div class="wa-banner-left">
-      <div class="wa-banner-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg></div>
       <div><b>Need help or a custom offer?</b><span>Contact us on WhatsApp — we reply in minutes!</span></div>
     </div>
-    <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-gold" style="display:flex; align-items:center; gap:8px;"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg>Chat on WhatsApp</a>
+    <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-gold">Chat on WhatsApp</a>
   </div>
 </div>
 <footer>
@@ -109,7 +141,7 @@
         <picture>
           <source srcset="../assets/logo-white.avif" type="image/avif">
           <source srcset="../assets/logo-white.webp" type="image/webp">
-          <img src="../assets/logo-white.png" alt="Transfer Split Airport" class="footer-brand-logo" width="270" height="183" loading="lazy">
+          <img src="../assets/logo-white.png" alt="Transfer Split Airport" class="footer-brand-logo" width="280" height="99" loading="lazy">
         </picture>
       </a>
       <p>Private transfers and tours across Croatia. Your journey, our priority.</p>
@@ -124,6 +156,7 @@
       <h4>Quick Links</h4>
       <a href="../index.html">Home</a>
       <a href="../destinations.html">Routes</a>
+      <a href="../day-trips.html">Day Trips</a>
       <a href="../fleet.html">Prices</a>
       <a href="../fleet.html">Vehicles</a>
       <a href="../about.html">About Us</a>
@@ -141,14 +174,14 @@
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="tel:+385917856056">+385 91 785 6056</a>
-      <a href="mailto:booking@airportsplittransfer.com">booking@airportsplittransfer.com</a>
+      <a href="mailto:info@airportsplittransfer.com">info@airportsplittransfer.com</a>
       <a href="#">Split, Croatia</a>
       <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>&copy; 2026 Transfer Split Airport. All rights reserved.</span>
-    <span><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms &amp; Conditions</a></span>
+    <span><a href="../privacy.html">Privacy Policy</a> &middot; <a href="../terms.html">Terms &amp; Conditions</a> &middot; <button type="button" class="cookie-settings-link" onclick="window.openCookiePreferences()">Cookie Preferences</button></span>
   </div>
 </footer>
 <script src="../js/pricing.js" defer></script>

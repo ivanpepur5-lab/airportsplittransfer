@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Consent Mode v2 — default state, set before anything else -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
+  });
+</script>
+<!-- Google tag (gtag.js) — blocked until consent (see js/consent-gate.js) -->
+<script type="text/plain" data-type="application/javascript" data-name="google-analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-WL56VBBSX9"></script>
+<script type="text/plain" data-type="application/javascript" data-name="google-analytics">
+  gtag('js', new Date());
+  gtag('config', 'G-WL56VBBSX9');
+</script>
+<script src="js/consent-gate.js" data-base="" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Private Airport Transfers in Split, Croatia | Transfer Split Airport</title>
@@ -8,6 +27,7 @@
 <link rel="canonical" href="https://www.airportsplittransfer.com/">
 <link rel="alternate" hreflang="en" href="https://www.airportsplittransfer.com/">
 <link rel="alternate" hreflang="de" href="https://www.airportsplittransfer.com/de/">
+<link rel="alternate" hreflang="sv" href="https://www.airportsplittransfer.com/sv/">
 <link rel="alternate" hreflang="x-default" href="https://www.airportsplittransfer.com/">
 <meta property="og:title" content="Private Airport Transfers in Split, Croatia | Transfer Split Airport">
 <meta property="og:description" content="Book a private, fixed-price transfer from Split Airport to anywhere on the Dalmatian coast. Professional drivers, flight monitoring, premium fleet.">
@@ -24,8 +44,8 @@
 <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" as="image" href="assets/hero-mobile.avif" type="image/avif" media="(max-width: 640px)">
-<link rel="preload" as="image" href="assets/hero.avif" type="image/avif" media="(min-width: 641px)">
+<link rel="preload" as="image" href="assets/hero-mobile.avif" type="image/avif" media="(max-width: 640px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero.avif" type="image/avif" media="(min-width: 641px)" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>:root{
@@ -35,15 +55,11 @@
   --cream: #07264C;
   --gray: #5B6672;
   --gold: #0057C1;
-  --gold-dim: #00459A;
   --gold-text: #0057C1;
   --line: #E5E7EB;
   --line-strong: rgba(7,38,76,0.18);
   --radius: 12px;
-  --blue: #0057C1;
-  --blue-dark: #00459A;
   --navy: #07264C;
-  --navy-2: #16283D;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 .sr-only{
@@ -60,6 +76,12 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 .wrap{max-width:1280px;margin:0 auto;padding:0 40px;}
+@media (max-width:640px){
+  .wrap{padding:0 10px;}
+  .breadcrumb{padding-left:10px; padding-right:10px;}
+  .page-hero{padding-left:10px; padding-right:10px;}
+  footer{padding-left:10px; padding-right:10px;}
+}
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
   outline:1px solid var(--gold);
   outline-offset:3px;
@@ -93,9 +115,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   text-align:center;
 }
 .btn-gold{background:var(--gold); color:#FFFFFF; border-color:var(--gold);}
-.btn-gold:hover{background:var(--gold-dim); border-color:var(--gold-dim); transform:translateY(-1px);}
+.btn-gold:hover{filter:brightness(0.85); transform:translateY(-1px);}
 .btn-navy{background:var(--navy); color:#FFFFFF; border-color:var(--navy);}
-.btn-navy:hover{background:#0A121F; border-color:#0A121F; transform:translateY(-1px);}
+.btn-navy:hover{filter:brightness(0.8); transform:translateY(-1px);}
 .btn-outline{background:transparent; color:var(--cream); border-color:var(--line-strong);}
 .btn-outline:hover{border-color:var(--gold); color:var(--gold);}
 .btn-block{width:100%;}
@@ -108,7 +130,7 @@ header{
 }
 .nav{
   display:grid;
-  grid-template-columns:auto 1fr auto auto;
+  grid-template-columns:max-content 1fr auto auto;
   grid-template-areas:"brand links langflag toggle";
   align-items:center;
   column-gap:24px;
@@ -118,12 +140,23 @@ header{
   margin:0 auto;
 }
 .brand{grid-area:brand; display:flex; align-items:center; gap:12px;}
-.brand-logo{width:60px; height:60px; object-fit:contain; flex-shrink:0;}
+.brand-logo{width:auto; height:48px; object-fit:contain; flex-shrink:0;}
 .nav-links{grid-area:links; justify-self:center; display:flex; gap:30px; font-size:0.76rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;}
 .nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px;}
 .nav-links a:hover, .nav-links a.active{color:var(--cream);}
 .nav-links a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
+.lang-flag{display:none;}
+.lang-dropdown{grid-area:langflag; position:relative;}
+.lang-dropdown-btn{display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 14px; border-radius:999px; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; border:1px solid #D7DEE8; color:var(--navy); background:transparent; cursor:pointer; transition:border-color .2s ease;}
+.lang-dropdown-btn:hover{border-color:var(--navy);}
+.lang-chevron{width:10px; height:10px; flex-shrink:0; transition:transform .15s ease;}
+.lang-dropdown.open .lang-chevron{transform:rotate(180deg);}
+.lang-dropdown-menu{display:none; position:absolute; top:calc(100% + 8px); right:0; min-width:150px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 40px rgba(7,38,76,0.16); padding:6px; z-index:50;}
+.lang-dropdown.open .lang-dropdown-menu{display:block;}
+.lang-option{display:block; padding:10px 12px; border-radius:9px; font-size:0.85rem; font-weight:500; color:var(--navy); text-decoration:none;}
+.lang-option:hover{background:var(--bg-2);}
+.lang-option.active{font-weight:700; color:var(--gold-text);}
 .mobile-nav{
   display:none;
   position:fixed;
@@ -139,7 +172,7 @@ header{
 .mobile-close{position:absolute; top:26px; right:32px; background:none; border:none; color:var(--cream); font-size:1.6rem; cursor:pointer;}
 @media (max-width:1240px){
   .nav{
-    grid-template-columns:auto 1fr auto auto;
+    grid-template-columns:max-content 1fr auto auto;
     grid-template-areas:"brand links langflag toggle";
     height:92px;
     padding:0 16px 0 12px;
@@ -147,7 +180,7 @@ header{
   }
   .nav-links{display:none;}
   .brand-logo{
-    height:80px; width:auto; object-fit:unset;
+    height:64px; width:auto; object-fit:contain;
   }
   .nav-toggle{display:block; font-size:2rem;}
 }
@@ -158,31 +191,33 @@ header{
   align-items:center;
   padding:150px 40px 130px;
   overflow:hidden;
-  background-color:#0A1526;
-  background-image:url('../assets/hero.webp');
-  background-image:-webkit-image-set(url('../assets/hero.avif') type('image/avif'), url('../assets/hero.webp') type('image/webp'));
-  background-image:image-set(url('../assets/hero.avif') type('image/avif'), url('../assets/hero.webp') type('image/webp'));
-  background-size:cover;
-  background-position:center 60%;
-  background-repeat:no-repeat;
+  background-color:var(--navy);
+}
+.hero-photo{
+  position:absolute;
+  inset:0;
+}
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 60%;
+  display:block;
 }
 .hero-photo-overlay{
   position:absolute;
   inset:0;
   z-index:0;
   pointer-events:none;
-  background:linear-gradient(90deg, rgba(11,31,74,.85) 0%, rgba(11,31,74,.5) 50%, rgba(11,31,74,.12) 100%);
+  background:linear-gradient(90deg, rgba(7,38,76,.85) 0%, rgba(7,38,76,.5) 50%, rgba(7,38,76,.12) 100%);
 }
-.hero-fleet-row{display:none;}
 @media (max-width:640px){
   .hero{
     min-height:auto;
     padding:96px 24px 50px;
-    background-image:url('../assets/hero-mobile.webp');
-    background-image:-webkit-image-set(url('../assets/hero-mobile.avif') type('image/avif'), url('../assets/hero-mobile.webp') type('image/webp'));
-    background-image:image-set(url('../assets/hero-mobile.avif') type('image/avif'), url('../assets/hero-mobile.webp') type('image/webp'));
-    background-size:cover;
-    background-position:center;
+  }
+  .hero-photo img{
+    object-position:center;
   }
 }
 .hero-inner{position:relative; z-index:3; max-width:1280px; margin:0 auto; width:100%;}
@@ -207,6 +242,7 @@ header{
   flex:1 1 240px; height:58px; display:inline-flex; align-items:center; justify-content:center;
   gap:10px; font-size:0.82rem;
 }
+.btn-gold.btn-hero{border-color:rgba(255,255,255,0.7);}
 .btn-icon{width:19px; height:19px; display:inline-flex; flex-shrink:0;}
 .btn-icon svg{width:100%; height:100%;}
 .hero-trust-bar{
@@ -229,14 +265,49 @@ header{
 .hero-feature-icon{width:22px; height:22px; flex-shrink:0; color:#fff;}
 .hero-feature-icon svg{width:100%; height:100%;}
 .hero .eyebrow{color:var(--gold);}
-.hero .eyebrow::before{background:var(--gold);}
+.hero .eyebrow::before{background:rgba(255,255,255,0.6);}
 .quick-booking-wrap{position:relative; z-index:10; margin-top:-70px; margin-bottom:70px;}
 @media (max-width:1024px){.quick-booking-wrap{margin-top:-40px;}}
 @media (max-width:640px){.quick-booking-wrap{margin-top:20px;}}
 .testimonials .section-head .eyebrow{color:var(--gold);}
 .testimonials .section-head .eyebrow::before{background:var(--gold);}
+.btn-whatsapp-hero{border-width:1.5px; border-color:rgba(255,255,255,0.6); color:#fff;}
+.hero-trust-stars{color:#fff; font-weight:600; font-size:0.95rem; letter-spacing:0.02em; margin-left:4px;}
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
-.reveal.in{opacity:1; transform:translateY(0);}</style>
+.reveal.in{opacity:1; transform:translateY(0);}
+@media (max-width:1240px){
+  body.page-home .nav{padding:0 16px 0 20px; height:80px;}
+  body.page-home .brand-logo{height:44px; width:auto; object-fit:contain;}
+  body.page-home .nav-toggle{color:var(--navy);}
+}
+@media (max-width:640px){
+  body.page-home header{box-shadow:none;}
+  body.page-home .hero{position:relative;}
+  body.page-home .hero::after{
+    content:''; position:absolute; top:0; left:0; right:0; height:52px;
+    background:linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
+    z-index:1; pointer-events:none;
+  }
+  body.page-home .hero-photo-overlay{
+    background:
+      linear-gradient(180deg, rgba(7,38,76,0.78) 0%, rgba(7,38,76,0.62) 40%, rgba(7,38,76,0.68) 70%, rgba(7,38,76,0.78) 100%);
+  }
+  body.page-home .hero{padding-top:56px;}
+  body.page-home .hero-inner{position:relative; z-index:3;}
+  body.page-home .hero .eyebrow{color:rgba(255,255,255,0.92); letter-spacing:0.18em; margin-bottom:12px;}
+  body.page-home .hero .eyebrow::before{background:rgba(255,255,255,0.6);}
+  body.page-home .hero h1{font-size:2.05rem; line-height:1.18; margin-bottom:12px;}
+  body.page-home .hero h1 em{color:#fff;}
+  body.page-home .hero p.lead{margin-bottom:22px;}
+  body.page-home .hero .btn-gold.btn-hero{background:var(--navy); border-color:#FFFFFF; box-shadow:0 10px 24px rgba(7,38,76,0.28);}
+  body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.8);}
+  body.page-home .btn-whatsapp-hero{border-color:#FFFFFF;}
+  body.page-home .hero-trust-bar{gap:16px; margin-top:32px; padding-top:24px;}
+  body.page-home .hero-trust-stars{color:#F4B400; margin-left:6px;}
+  body.page-home .hero-feature-grid{gap:14px 22px;}
+  body.page-home .hero-feature{border-bottom:1px solid rgba(255,255,255,0.10); padding-bottom:12px;}
+  body.page-home .hero-feature-icon{width:18px; height:18px;}
+}</style>
 <link rel="preload" href="css/style.css" as="style">
 <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'; this.onload=null;">
 <noscript><link rel="stylesheet" href="css/style.css"></noscript>
@@ -252,20 +323,31 @@ header{
       <picture>
         <source srcset="assets/logo-icon.avif" type="image/avif">
         <source srcset="assets/logo-icon.webp" type="image/webp">
-        <img src="assets/logo-icon.png" alt="Transfer Split Airport" class="brand-logo" width="270" height="191" fetchpriority="high">
+        <img src="assets/logo-icon.png" alt="Transfer Split Airport" class="brand-logo" width="280" height="99" fetchpriority="high">
       </picture>
     </a>
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="index.html#booking">Booking</a>
       <a href="destinations.html">Routes</a>
+      <a href="day-trips.html">Day Trips</a>
       <a href="fleet.html">Vehicles</a>
       <a href="services.html">Services</a>
       <a href="blog/index.html">Blog</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     </div>
-    <a href="de/index.html" class="lang-flag" aria-label="Deutsch" title="Deutsch">&#127465;&#127466;</a>
+    <div class="lang-dropdown">
+      <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+        <span>EN</span>
+        <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-dropdown-menu">
+        <a href="index.html" class="lang-option active" aria-current="page">English</a>
+        <a href="de/index.html" class="lang-option">Deutsch</a>
+        <a href="sv/index.html" class="lang-option">Svenska</a>
+      </div>
+    </div>
     <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
   </nav>
   <div class="mobile-nav">
@@ -273,16 +355,25 @@ header{
     <a href="index.html" class="active">Home</a>
       <a href="index.html#booking">Booking</a>
       <a href="destinations.html">Routes</a>
+      <a href="day-trips.html">Day Trips</a>
       <a href="fleet.html">Vehicles</a>
       <a href="services.html">Services</a>
       <a href="blog/index.html">Blog</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     <a href="de/index.html" class="lang-switch-mobile">&#127465;&#127466; Deutsch</a>
+    <a href="sv/index.html" class="lang-switch-mobile">&#127480;&#127466; Svenska</a>
   </div>
 </header>
 <main>
 <section class="hero">
+  <picture class="hero-photo">
+    <source media="(max-width:640px)" srcset="assets/hero-mobile.avif" type="image/avif">
+    <source media="(max-width:640px)" srcset="assets/hero-mobile.webp" type="image/webp">
+    <source srcset="assets/hero.avif" type="image/avif">
+    <source srcset="assets/hero.webp" type="image/webp">
+    <img src="assets/hero.webp" alt="" fetchpriority="high">
+  </picture>
   <div class="hero-photo-overlay"></div>
   <div class="hero-inner">
     <div class="eyebrow reveal">Private Transfers in Croatia</div>
@@ -290,11 +381,12 @@ header{
     <p class="lead reveal">Airport transfers and private tours along the Dalmatian coast — met at arrivals, driven with care, priced upfront.</p>
     <div class="hero-actions reveal">
       <a href="#booking" class="btn btn-gold btn-hero"><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>Book Your Transfer</a>
-      <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-outline btn-hero" style="border-width:1.5px; border-color:rgba(255,255,255,0.6); color:#fff;"><span class="btn-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg></span>Chat on WhatsApp</a>
+      <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-outline btn-hero btn-whatsapp-hero"><span class="btn-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg></span>Chat on WhatsApp</a>
     </div>
     <div class="hero-trust-bar reveal">
       <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.1-.4-4.6H24v9h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.6Z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46Z"/><path fill="#FBBC05" d="M11.8 28.3c-.45-1.3-.7-2.8-.7-4.3s.25-3 .7-4.3v-5.7H4.5A22 22 0 0 0 2 24c0 3.6.85 6.9 2.5 9.9l7.3-5.6Z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9.3 12.2-9.3Z"/></svg>
-      <span class="hero-trust-score">5.0 &#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="hero-trust-score">5.0</span>
+      <span class="hero-trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
       <span class="hero-trust-divider"></span>
       <span class="hero-trust-count">25+ Google Reviews</span>
     </div>
@@ -308,7 +400,7 @@ header{
 </section>
 <div class="quick-booking-wrap reveal" id="booking" style="scroll-margin-top:100px;">
   <h2 class="sr-only">Book Your Transfer</h2>
-  <div class="wrap" style="padding:0;">
+  <div class="wrap booking-wrap">
     <div class="booking-layout">
       <div class="booking-form-box">
 
@@ -338,7 +430,7 @@ header{
           <div id="trip-edit-view">
             <div class="toggle-group">
               <button type="button" class="toggle-opt active" id="trip-oneway" onclick="setTripType('oneway')">One Way</button>
-              <button type="button" class="toggle-opt" id="trip-return" onclick="setTripType('return')">Return</button>
+              <button type="button" class="toggle-opt" id="trip-return" onclick="setTripType('return')">Return <span class="toggle-badge" tabindex="0">-5%<span class="toggle-tooltip">5% off the total price</span></span></button>
             </div>
             <fieldset>
               <legend>Route</legend>
@@ -436,15 +528,35 @@ header{
               <span class="live-price-value" id="live-price-total">&euro;0</span>
             </div>
             <div id="live-price-unpriced" style="display:none;">
-              <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:booking@airportsplittransfer.com">email</a> for a personalised quote.</p>
+              <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
             </div>
           </div>
 
           <button type="submit" class="btn btn-navy btn-block">Book Now</button>
         </form>
-        <div class="confirm-panel" id="booking-confirm">
+        <div class="booking-success" id="booking-confirm">
+          <div class="success-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3>Booking request sent</h3>
-          <p>Thank you — a confirmation with your driver's details will be sent to your email shortly before pickup.</p>
+          <p class="success-text">Thank you! We've received your transfer request. Your driver's confirmation will be sent to your email shortly before pickup.</p>
+          <div class="success-ref" id="success-ref" style="display:none;">
+            <span>Booking reference</span>
+            <b id="success-ref-value">&mdash;</b>
+          </div>
+          <div class="success-divider"></div>
+          <div class="success-summary">
+            <div class="summary-line"><span>Route</span><span id="succ-route">&mdash;</span></div>
+            <div class="summary-line"><span>Trip type</span><span id="succ-trip">&mdash;</span></div>
+            <div class="summary-line"><span>Vehicle</span><span id="succ-vehicle">&mdash;</span></div>
+            <div class="summary-line"><span>Passengers</span><span id="succ-pax">&mdash;</span></div>
+            <div class="summary-total"><span>Total</span><b id="succ-total">&euro;0</b></div>
+          </div>
+          <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-gold btn-block" style="display:flex; align-items:center; justify-content:center; gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <p class="success-footnote">Need to change anything? <a href="https://wa.me/385917856056" target="_blank" rel="noopener">Contact us anytime.</a></p>
         </div>
       </div>
 
@@ -462,7 +574,7 @@ header{
           <p class="summary-note" id="sum-note">Fixed price, all-inclusive. No hidden fees, no taximeter.</p>
         </div>
         <div id="summary-unpriced" style="display:none;">
-          <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:booking@airportsplittransfer.com">email</a> for a personalised quote.</p>
+          <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
         </div>
         <a href="https://wa.me/385917856056" target="_blank" rel="noopener" id="wa-btn" class="btn btn-outline btn-block" style="margin-top:16px; display:flex; align-items:center; justify-content:center; gap:8px;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg>
@@ -518,6 +630,7 @@ function onPaxChange(){
   });
   if(!eligible.includes(currentVehicle)){
     currentVehicle = eligible[0];
+    document.getElementById('b-vehicle').value = currentVehicle || '';
     document.querySelectorAll('.vehicle-opt').forEach(el => el.classList.remove('active'));
     if(currentVehicle) document.getElementById('vopt-' + currentVehicle).classList.add('active');
   }
@@ -569,6 +682,7 @@ function updateSummary(){
   document.getElementById('summary-empty').style.display = state === 'empty' ? 'block' : 'none';
   document.getElementById('summary-priced').style.display = state === 'priced' ? 'block' : 'none';
   document.getElementById('summary-unpriced').style.display = state === 'unpriced' ? 'block' : 'none';
+  document.getElementById('summary-box').classList.toggle('is-empty', state === 'empty');
   if(state === 'priced'){
     document.getElementById('sum-route').textContent = pickupText + ' \u2192 ' + dropoffText;
     document.getElementById('sum-trip').textContent = isReturn ? 'Return' : 'One way';
@@ -576,7 +690,7 @@ function updateSummary(){
     document.getElementById('sum-pax').textContent = pax;
     document.getElementById('sum-total').textContent = formatEUR(total);
     document.getElementById('sum-note').textContent = isReturn
-      ? 'Return fare — billed as two one-way transfers, no discount applied.'
+      ? 'Return fare — includes an automatic 5% discount on the total price.'
       : `${currentDistanceKm.toFixed(1)} km · fixed price, all-inclusive.`;
   }
 
@@ -631,6 +745,23 @@ function swapAddresses(){
  * Restricted to Croatia. Selecting a suggestion fills the field with a
  * clean formatted address and immediately kicks off a real distance lookup.
  */
+// For most addresses place.formatted_address is already a good, specific
+// display value. But for large natural-feature POIs (national parks,
+// lakes, mountains...) Google often has no street-level address for it and
+// formatted_address collapses to just the country (e.g. "Hrvatska") —
+// silently dropping the place name itself. Prepending place.name whenever
+// it isn't already part of the address keeps those cases readable, e.g.
+// "Nacionalni park Krka, Hrvatska" instead of a bare "Hrvatska".
+function placeDisplayValue(place){
+  if(!place) return '';
+  const name = (place.name || '').trim();
+  const address = (place.formatted_address || '').trim();
+  if(name && address && !address.toLowerCase().includes(name.toLowerCase())){
+    return name + ', ' + address;
+  }
+  return address || name || '';
+}
+
 function initPlacesAutocomplete(){
   if(typeof google === 'undefined' || !google.maps || !google.maps.places) return;
 
@@ -641,7 +772,8 @@ function initPlacesAutocomplete(){
   const pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput, options);
   pickupAutocomplete.addListener('place_changed', () => {
     const place = pickupAutocomplete.getPlace();
-    if(place && place.formatted_address) pickupInput.value = place.formatted_address;
+    const display = placeDisplayValue(place);
+    if(display) pickupInput.value = display;
     if(place && place.geometry && place.geometry.location){
       document.getElementById('b-pickup-lat').value = place.geometry.location.lat();
       document.getElementById('b-pickup-lng').value = place.geometry.location.lng();
@@ -652,13 +784,20 @@ function initPlacesAutocomplete(){
   const dropoffAutocomplete = new google.maps.places.Autocomplete(dropoffInput, options);
   dropoffAutocomplete.addListener('place_changed', () => {
     const place = dropoffAutocomplete.getPlace();
-    if(place && place.formatted_address) dropoffInput.value = place.formatted_address;
+    const display = placeDisplayValue(place);
+    if(display) dropoffInput.value = display;
     if(place && place.geometry && place.geometry.location){
       document.getElementById('b-dropoff-lat').value = place.geometry.location.lat();
       document.getElementById('b-dropoff-lng').value = place.geometry.location.lng();
     }
     maybeFetchDistance();
   });
+
+  // Maps just became ready — if a route was already typed/prefilled before
+  // this finished loading (e.g. the ?to= deep-link case), the earlier
+  // maybeFetchDistance() call would have silently no-opped on google.maps
+  // being undefined with no retry. Give it one more shot now.
+  maybeFetchDistance();
 }
 // If the Google Maps script hasn't loaded yet (or the API key isn't set), this
 // callback simply never fires — the fields still work as plain text inputs,
@@ -729,6 +868,19 @@ function fetchDistance(pickupText, dropoffText){
 
 function submitBooking(e){
   e.preventDefault();
+  // Safety net: never submit a vehicle that can't actually fit the entered
+  // passengers/suitcases, even if some path failed to keep the hidden
+  // b-vehicle field in sync with the visible selection.
+  const submitPax = parseInt(document.getElementById('b-pax').value, 10);
+  const submitSuitcases = parseInt(document.getElementById('b-suitcases').value, 10);
+  const vehicleFits = key => VEHICLES[key] && submitPax >= VEHICLES[key].minPax && submitPax <= VEHICLES[key].maxPax && submitSuitcases <= VEHICLES[key].suitcases;
+  if(!vehicleFits(currentVehicle)){
+    const fallbackVehicle = Object.keys(VEHICLES).find(vehicleFits);
+    if(fallbackVehicle){
+      currentVehicle = fallbackVehicle;
+      document.getElementById('b-vehicle').value = fallbackVehicle;
+    }
+  }
   const pickupText = document.getElementById('b-pickup').value.trim();
   const dropoffText = document.getElementById('b-dropoff').value.trim();
   if(pickupText && dropoffText && pickupText.toLowerCase() === dropoffText.toLowerCase()){
@@ -747,6 +899,23 @@ function submitBooking(e){
   })
     .then(() => {
       form.style.display = 'none';
+      // Copy the already-computed trip summary into the success card — same
+      // values updateSummary() keeps in the sidebar, no recalculation. Only
+      // shown if a price actually resolved; otherwise there's nothing
+      // reliable to copy, so the trip summary block stays hidden.
+      const wasPriced = document.getElementById('summary-priced').style.display === 'block';
+      document.querySelector('.success-summary').style.display = wasPriced ? 'block' : 'none';
+      if(wasPriced){
+        const copyText = (fromId, toId) => {
+          document.getElementById(toId).textContent = document.getElementById(fromId).textContent;
+        };
+        copyText('sum-route', 'succ-route');
+        copyText('sum-trip', 'succ-trip');
+        copyText('sum-vehicle', 'succ-vehicle');
+        copyText('sum-pax', 'succ-pax');
+        copyText('sum-total', 'succ-total');
+      }
+      document.getElementById('summary-box').style.display = 'none';
       document.getElementById('booking-confirm').classList.add('show');
       document.getElementById('booking-confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
@@ -791,6 +960,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
   updateSummary();
 
   if(gotEnough){
+    if(window.loadGoogleMaps) window.loadGoogleMaps(); // no field interaction to trigger this otherwise
     maybeFetchDistance(); // resolve the real price for the pre-filled route too
   }
 
@@ -806,12 +976,16 @@ document.addEventListener('DOMContentLoaded', function prefill(){
 });
 
 // --- Lazy-load Google Maps (Places + Distance Matrix) ---------------------
-// This is the single heaviest script on the page. The booking widget
-// overlaps the hero by design, so it's always near the initial viewport —
-// an IntersectionObserver on it would fire almost immediately and defer
-// nothing. Instead, load on genuine user interaction with the address
-// fields, or after a short idle delay as a safety net, keeping this
-// off the critical first-second load path for most visitors.
+// This is the single heaviest script on the page (300KB+ of mostly-unused
+// JS for any visitor who never touches the address fields) — a blind
+// setTimeout fallback used to force-load it a few seconds after every page
+// load "just in case", but that meant it always fired for automated,
+// non-interactive visits (Lighthouse/PageSpeed included), tanking Total
+// Blocking Time for every single audit. Load only on genuine interaction
+// with the address fields or first scroll; window.loadGoogleMaps is also
+// exposed so the `?to=` deep-link prefill (below) can request it
+// immediately for the one real case where a price is needed with no
+// interaction at all.
 (function(){
   let mapsRequested = false;
   function loadGoogleMaps(){
@@ -822,6 +996,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
     s.async = true;
     document.head.appendChild(s);
   }
+  window.loadGoogleMaps = loadGoogleMaps;
   ['focus', 'touchstart', 'mousedown'].forEach(function(evt){
     const pu = document.getElementById('b-pickup');
     const doff = document.getElementById('b-dropoff');
@@ -830,9 +1005,6 @@ document.addEventListener('DOMContentLoaded', function prefill(){
   });
   // First scroll is a reasonable signal the visitor is engaging with the page.
   window.addEventListener('scroll', loadGoogleMaps, {once: true, passive: true});
-  // Safety net — never leave the form permanently non-functional, even for
-  // visitors who neither scroll nor touch the fields right away.
-  window.addEventListener('load', function(){ setTimeout(loadGoogleMaps, 3000); });
 })();
 </script><section class="bg-2">
   <div class="wrap">
@@ -890,7 +1062,6 @@ document.addEventListener('DOMContentLoaded', function prefill(){
         </div>
         <p class="fleet-sub">An elegant sedan for solo travellers, couples and business trips — quiet, comfortable and quick through traffic.</p>
         <a href="index.html#booking" class="btn btn-outline btn-block">Select Vehicle</a>
-        <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:10px; display:flex; align-items:center; justify-content:center; gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg>Chat on WhatsApp</a>
       </div>
     </div>
     <div class="fleet-card reveal">
@@ -913,7 +1084,6 @@ document.addEventListener('DOMContentLoaded', function prefill(){
         </div>
         <p class="fleet-sub">The flagship of the fleet: leather seating, cabin space and a private-driver feel for families and small groups.</p>
         <a href="index.html#booking" class="btn btn-outline btn-block">Select Vehicle</a>
-        <a href="https://wa.me/385955482972" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:10px; display:flex; align-items:center; justify-content:center; gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg>Chat on WhatsApp</a>
       </div>
     </div>
     <div class="fleet-card reveal">
@@ -936,7 +1106,6 @@ document.addEventListener('DOMContentLoaded', function prefill(){
         </div>
         <p class="fleet-sub">Built for groups — wedding parties, teams and larger families travelling together with plenty of luggage.</p>
         <a href="index.html#booking" class="btn btn-outline btn-block">Select Vehicle</a>
-        <a href="https://wa.me/385955482972" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:10px; display:flex; align-items:center; justify-content:center; gap:8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg>Chat on WhatsApp</a>
       </div>
     </div>
     
@@ -947,10 +1116,9 @@ document.addEventListener('DOMContentLoaded', function prefill(){
     </div>
   </div>
 </section><div class="trust-strip">
-  <div class="trust-item reveal"><b>24/7</b><span>Availability</span></div>
   <div class="trust-item reveal"><b>15 min</b><span>Free Waiting Time</span></div>
-  <div class="trust-item reveal"><b>Fixed</b><span>Upfront Pricing</span></div>
-  <div class="trust-item reveal"><b>10+</b><span>Dalmatian Destinations</span></div>
+  <div class="trust-item reveal"><b>Live</b><span>Flight Tracking</span></div>
+  <div class="trust-item reveal"><b>Free</b><span>Cancellation</span></div>
 </div><section class="bg-2">
   <div class="wrap">
     <div class="section-head reveal" style="display:flex; align-items:baseline; justify-content:space-between; max-width:none; flex-wrap:wrap; gap:16px;">
@@ -980,6 +1148,24 @@ document.addEventListener('DOMContentLoaded', function prefill(){
       <div class="dest-body">
         <h3>Makarska</h3>
         <a href="destinations/makarska.html" class="btn btn-outline btn-block">View Transfer &rarr;</a>
+      </div>
+    </div>
+    <div class="dest-card reveal">
+      <div class="dest-body">
+        <h3>Dubrovnik</h3>
+        <a href="destinations/dubrovnik.html" class="btn btn-outline btn-block">View Transfer &rarr;</a>
+      </div>
+    </div>
+    <div class="dest-card reveal">
+      <div class="dest-body">
+        <h3>Plitvice Lakes</h3>
+        <a href="destinations/plitvice.html" class="btn btn-outline btn-block">View Transfer &rarr;</a>
+      </div>
+    </div>
+    <div class="dest-card reveal">
+      <div class="dest-body">
+        <h3>Zadar</h3>
+        <a href="destinations/zadar.html" class="btn btn-outline btn-block">View Transfer &rarr;</a>
       </div>
     </div>
     <div class="dest-card reveal">
@@ -1049,6 +1235,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
         <cite>&mdash; Chaneze B., Google review</cite>
       </div>
     </div>
+    <div class="carousel-dots" id="testi-dots"></div>
   </div>
 </section><section class="bg-2">
   <div class="wrap">
@@ -1056,27 +1243,28 @@ document.addEventListener('DOMContentLoaded', function prefill(){
       <div class="eyebrow">From the Journal</div>
       <h2>Travel Notes &amp; Guides</h2>
     </div>
-    <div class="blog-grid">
+    <div class="blog-grid blog-grid-carousel">
       <div class="blog-card reveal">
       <span class="blog-cat">Airport Transfers</span>
       <h3><a href="blog/split-airport-transfer-guide.html">Split Airport Transfer Guide: Everything You Need to Know</a></h3>
       <p>How to get from Split Airport to the city and coast — every option compared, from public bus to private transfer.</p>
-      <div class="blog-meta">January 2026</div>
+      <div class="blog-meta">September 2026</div>
     </div>
     <div class="blog-card reveal">
       <span class="blog-cat">Travel Tips</span>
       <h3><a href="blog/flight-delay-guide.html">What Happens If Your Flight Is Delayed? A Transfer Guide</a></h3>
       <p>Flight delays happen. Here's how a properly booked private transfer handles it — and what to check before you fly.</p>
-      <div class="blog-meta">March 2026</div>
+      <div class="blog-meta">September 2026</div>
     </div>
     <div class="blog-card reveal">
       <span class="blog-cat">Split Travel Guide</span>
       <h3><a href="blog/best-time-to-visit-split.html">Best Time to Visit Split: A Season-by-Season Guide</a></h3>
       <p>Split changes considerably between March and October. Here's what to expect in each season, from crowds to prices.</p>
-      <div class="blog-meta">April 2026</div>
+      <div class="blog-meta">September 2026</div>
     </div>
-    
+
     </div>
+    <div class="carousel-dots" id="blog-dots"></div>
     <div style="margin-top:44px;"><a href="blog/index.html" class="btn btn-outline">Read the Blog</a></div>
   </div>
 </section>
@@ -1084,10 +1272,9 @@ document.addEventListener('DOMContentLoaded', function prefill(){
 <div class="wa-banner">
   <div class="wa-banner-inner">
     <div class="wa-banner-left">
-      <div class="wa-banner-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg></div>
       <div><b>Need help or a custom offer?</b><span>Contact us on WhatsApp — we reply in minutes!</span></div>
     </div>
-    <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-gold" style="display:flex; align-items:center; gap:8px;"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg>Chat on WhatsApp</a>
+    <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-gold">Chat on WhatsApp</a>
   </div>
 </div>
 <footer>
@@ -1097,7 +1284,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
         <picture>
           <source srcset="assets/logo-white.avif" type="image/avif">
           <source srcset="assets/logo-white.webp" type="image/webp">
-          <img src="assets/logo-white.png" alt="Transfer Split Airport" class="footer-brand-logo" width="270" height="183" loading="lazy">
+          <img src="assets/logo-white.png" alt="Transfer Split Airport" class="footer-brand-logo" width="280" height="99" loading="lazy">
         </picture>
       </a>
       <p>Private transfers and tours across Croatia. Your journey, our priority.</p>
@@ -1112,6 +1299,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
       <h4>Quick Links</h4>
       <a href="index.html">Home</a>
       <a href="destinations.html">Routes</a>
+      <a href="day-trips.html">Day Trips</a>
       <a href="fleet.html">Prices</a>
       <a href="fleet.html">Vehicles</a>
       <a href="about.html">About Us</a>
@@ -1129,14 +1317,14 @@ document.addEventListener('DOMContentLoaded', function prefill(){
     <div class="footer-col">
       <h4>Contact</h4>
       <a href="tel:+385917856056">+385 91 785 6056</a>
-      <a href="mailto:booking@airportsplittransfer.com">booking@airportsplittransfer.com</a>
+      <a href="mailto:info@airportsplittransfer.com">info@airportsplittransfer.com</a>
       <a href="#">Split, Croatia</a>
       <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
   <div class="footer-bottom">
     <span>&copy; 2026 Transfer Split Airport. All rights reserved.</span>
-    <span><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms &amp; Conditions</a></span>
+    <span><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms &amp; Conditions</a> &middot; <button type="button" class="cookie-settings-link" onclick="window.openCookiePreferences()">Cookie Preferences</button></span>
   </div>
 </footer>
 <script src="js/pricing.js" defer></script>
