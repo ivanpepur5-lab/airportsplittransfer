@@ -591,9 +591,9 @@ function setTripType(type){
   document.getElementById('b-trip-type').value = type;
   const isReturn = type === 'return';
   document.getElementById('return-fields-row').style.display = isReturn ? 'grid' : 'none';
-  document.getElementById('trip-details-legend').textContent = isReturn ? 'Outbound & Return' : 'Trip Details';
-  document.getElementById('b-date-label').textContent = isReturn ? 'Outbound Date' : 'Date';
-  document.getElementById('b-time-label').textContent = isReturn ? 'Outbound Time' : 'Time';
+  document.getElementById('trip-details-legend').textContent = isReturn ? 'Utresa & Retur' : 'Resedetaljer';
+  document.getElementById('b-date-label').textContent = isReturn ? 'Utresedatum' : 'Datum';
+  document.getElementById('b-time-label').textContent = isReturn ? 'Utresetid' : 'Tid';
   const rd = document.getElementById('b-return-date'), rt = document.getElementById('b-return-time');
   if(isReturn){ rd.setAttribute('required',''); rt.setAttribute('required',''); }
   else { rd.removeAttribute('required'); rt.removeAttribute('required'); rd.value=''; rt.value=''; }
@@ -669,7 +669,7 @@ function updateSummary(){
   document.getElementById('live-price-unpriced').style.display = state === 'unpriced' ? 'block' : 'none';
   if(state === 'priced'){
     document.getElementById('live-price-total').textContent = formatEUR(total);
-    document.getElementById('live-price-trip').textContent = isReturn ? '(return)' : '(one way)';
+    document.getElementById('live-price-trip').textContent = isReturn ? '(retur)' : '(enkel resa)';
   }
 
   // --- Sidebar price summary ---
@@ -685,7 +685,7 @@ function updateSummary(){
     document.getElementById('sum-total').textContent = formatEUR(total);
     document.getElementById('sum-note').textContent = isReturn
       ? 'Returpris — inkluderar automatiskt 5 % rabatt på totalpriset.'
-      : `${currentDistanceKm.toFixed(1)} km · fixed price, all-inclusive.`;
+      : `${currentDistanceKm.toFixed(1)} km · fast pris, allt inkluderat.`;
   }
 
   // --- Hidden fields so the real Netlify Forms submission carries the quote ---
@@ -866,7 +866,7 @@ function submitBooking(e){
   const form = document.getElementById('booking-form');
   const submitBtn = form.querySelector('button[type="submit"]');
   const formData = new FormData(form);
-  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Skickar...'; }
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -895,7 +895,7 @@ function submitBooking(e){
       document.getElementById('booking-confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
     .catch((error) => {
-      alert('Something went wrong sending your booking. Please try again or contact us on WhatsApp.');
+      alert('Något gick fel när din bokning skickades. Försök igen eller kontakta oss via WhatsApp.');
       console.error(error);
     })
     .finally(() => {
