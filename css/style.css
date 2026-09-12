@@ -121,13 +121,29 @@ header{
 
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
 
-.lang-flag{
-  grid-area:langflag; font-size:1.5rem; line-height:1; display:inline-flex;
-  align-items:center; justify-content:center; width:40px; height:40px;
-  border-radius:50%; border:1px solid var(--line-strong); transition:border-color .2s ease;
+/* .lang-flag was a single-icon toggle for a two-language site (click ->
+   the other language). With three languages that no longer represents a
+   binary choice, so it's retired in favor of .lang-pills at every width;
+   the markup is left in place in each page (harmless) but always hidden. */
+.lang-flag{display:none;}
+.lang-pills{
+  grid-area:langflag;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
-.lang-flag:hover{border-color:var(--navy);}
-.lang-pills{display:none;}
+.lang-pill{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:32px; padding:0 14px;
+  border-radius:999px;
+  font-size:0.72rem; font-weight:700; letter-spacing:0.06em;
+  border:1px solid #D7DEE8;
+  color:var(--navy);
+  background:transparent;
+  transition:background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.lang-pill.active{background:var(--navy); color:#FFFFFF; border-color:var(--navy);}
+.lang-pill:hover:not(.active){border-color:var(--navy);}
 .lang-switch-mobile{
   display:inline-flex; align-items:center; gap:10px; margin-top:10px; font-size:1.1rem; font-weight:600;
   color:rgba(255,255,255,0.85); border:1px solid rgba(255,255,255,0.3);
@@ -719,31 +735,6 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home .nav{padding:0 16px 0 20px; height:80px;}
   body.page-home .brand-logo{height:60px; width:auto; object-fit:unset;}
   body.page-home .nav-toggle{color:var(--navy);}
-}
-
-/* ============ LANGUAGE PILLS — SITE-WIDE, MOBILE/TABLET ============ */
-/* Replaces the circular flag with EN/DE pills on every page below the
-   desktop nav breakpoint; desktop keeps the original circular flag. */
-@media (max-width:1240px){
-  .lang-flag{display:none;}
-  .lang-pills{
-    grid-area:langflag;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  .lang-pill{
-    display:inline-flex; align-items:center; justify-content:center;
-    height:32px; padding:0 14px;
-    border-radius:999px;
-    font-size:0.72rem; font-weight:700; letter-spacing:0.06em;
-    border:1px solid #D7DEE8;
-    color:var(--navy);
-    background:transparent;
-    transition:background-color .2s ease, color .2s ease, border-color .2s ease;
-  }
-  .lang-pill.active{background:var(--navy); color:#FFFFFF; border-color:var(--navy);}
-  .lang-pill:hover:not(.active){border-color:var(--navy);}
 }
 
 /* ============ PREMIUM MOBILE HERO — HOMEPAGE ONLY ============ */
