@@ -11,32 +11,27 @@ Both are self-contained, table-based, inline-styled HTML designed to render
 correctly across Gmail, Outlook (desktop + web), Apple Mail and mobile mail
 apps, and both are mobile-responsive.
 
-## Important: these are templates, not a sending pipeline
+## Sending pipeline
 
-The site currently submits bookings straight to **Netlify Forms** — there is
-no server-side code that sends email today. Netlify's own built-in form
-notification email is a fixed plain layout; it cannot be swapped for custom
-HTML. Nothing about that submission flow was changed here, as requested.
+These are now sent automatically: `netlify/functions/submission-created.js`
+is invoked by Netlify on every Netlify Forms submission on this site (a
+built-in Netlify convention — no dashboard/webhook config, no Zapier/Make),
+reads these two files at runtime, fills in the tokens below and sends both
+emails through the [Resend](https://resend.com) API. See
+`netlify/functions/README.md` for the function itself — deploy setup,
+environment variables, error handling.
 
-To actually send these templates you need one more step, wired up outside
-this repo, that watches for new "booking" form submissions and sends mail
-through them — most commonly one of:
-
-- A Netlify outgoing webhook → Zapier/Make → your email provider (SendGrid,
-  Postmark, Mailgun, Resend...), pushing the submission fields into the
-  template.
-- A small Netlify Function subscribed to Netlify's
-  `submission-created` event that calls your email provider's API directly.
-
-Whichever you choose, it's the piece that reads the raw form submission and
-supplies the merge values below — no back-end/booking logic changes needed
-in this repo either way.
+Nothing about the booking form or Netlify Forms submission flow was
+changed — the function only reads the existing submission after the fact.
 
 ## Field mapping
 
-Both templates use `{{token}}` placeholders. Everything maps 1:1 to the
-existing Netlify Forms field names on the booking form
-(`index.html` / `de/index.html` / `sv/index.html`, form name `booking`):
+Both templates use `{{token}}` placeholders, rendered by
+`netlify/functions/lib/template.js`. Everything maps 1:1 to the existing
+Netlify Forms field names on the booking form (`index.html` /
+`de/index.html` / `sv/index.html`, form name `booking`) — the exact mapping
+logic lives in `netlify/functions/submission-created.js` and
+`netlify/functions/lib/booking.js`:
 
 | Form field (Netlify) | Customer email token | Admin email token |
 |---|---|---|
@@ -51,23 +46,26 @@ existing Netlify Forms field names on the booking form
 | `return_time` | `{{return_time}}` (optional) | — |
 | `passengers` | `{{passengers}}` | `{{passengers}}` |
 | `vehicle` | `{{vehicle}}` | `{{vehicle}}` |
-| `calculated_price` | `{{price}}` | `{{price}}` |
+| `calculated_price` | `{{price}}` / `{{price_display}}` | `{{price}}` / `{{price_display}}` |
 | `flight_number` | `{{flight_number}}` (optional) | `{{flight_number}}` (optional) |
 | `notes` | — not shown (not in the approved card list) | `{{notes}}` (optional, "Special requests") |
-| *(none yet)* | `{{booking_reference}}` (optional) | — |
+| Netlify's own `number`/`id` | `{{booking_reference}}` (optional) | — |
 
 Notes:
 
-- `{{phone_tel}}` / `{{email_addr}}` in the admin email are just `phone` /
-  `email` with formatting stripped, for clean `tel:`/`mailto:` hrefs. If your
-  automation can't produce a second cleaned value, reuse `{{phone}}` /
-  `{{email}}` directly in the `href` — for values already free of spaces it
-  makes no difference.
-- `{{booking_reference}}` has no source field yet — the booking form doesn't
-  generate one. The row hides itself automatically until a reference is
-  supplied (e.g. by the automation, or a future form change).
+- `{{phone_tel}}` / `{{email_addr}}` in the admin email are `phone` /
+  `email` with formatting stripped, for clean `tel:`/`mailto:` hrefs.
+- `{{price_display}}` is the fully formatted string (`"€45"`, or
+  `"Price to be confirmed"` if `calculated_price` was empty — see
+  `formatPrice()` in `netlify/functions/lib/booking.js`). `{{price}}` is
+  the bare number, kept only in case a future template needs it unformatted.
+- `{{booking_reference}}` comes from Netlify's own submission metadata
+  (`AST-{number}`, e.g. `AST-57`) — the booking form itself has no
+  reference field. It hides itself only in the (practically nonexistent)
+  case where Netlify didn't supply a submission number or id.
 - `vehicle` is a raw key (`skoda` / `vclass` / `trafic`) in the submitted
-  form data. Map it to a label before merging:
+  form data, mapped to a label by `VEHICLE_LABELS` in
+  `netlify/functions/lib/booking.js`:
 
   | Form value | Display label |
   |---|---|
@@ -86,17 +84,14 @@ requests) are wrapped in Handlebars-style conditionals:
 {{/if}}
 ```
 
-This syntax is understood natively by Postmark, SendGrid dynamic templates,
-Mailgun and Mailchimp Transactional (Mandrill). If your tool can't evaluate
-`{{#if}}` blocks (e.g. plain Zapier/Make merge steps without a code step),
-either:
+`netlify/functions/lib/template.js` implements exactly this one construct
+(plus plain `{{field}}` substitution, HTML-escaped) — a small
+dependency-free renderer rather than pulling in a full templating engine
+for two emails.
 
-1. Add a small "Code" step (Zapier/Make both support one) that renders the
-   template through the `handlebars` npm/pip package before sending, or
-2. Conditionally strip the relevant `<tr>...</tr>` block per-send in that
-   step instead of relying on the template engine.
+## Subject lines
 
-## Suggested subject lines
+Set in `netlify/functions/submission-created.js`, not in the templates:
 
 - Customer: `✅ Booking Confirmed — {{date}} at {{pickup_time}} | Airport Split Transfer`
 - Admin: `🚖 NEW BOOKING • {{date}} {{pickup_time}} • {{customer_name}}`
