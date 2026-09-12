@@ -130,7 +130,7 @@ header{
 }
 .nav{
   display:grid;
-  grid-template-columns:auto 1fr auto auto;
+  grid-template-columns:max-content 1fr auto auto;
   grid-template-areas:"brand links langflag toggle";
   align-items:center;
   column-gap:24px;
@@ -146,6 +146,17 @@ header{
 .nav-links a:hover, .nav-links a.active{color:var(--cream);}
 .nav-links a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
+.lang-flag{display:none;}
+.lang-dropdown{grid-area:langflag; position:relative;}
+.lang-dropdown-btn{display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 14px; border-radius:999px; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; border:1px solid #D7DEE8; color:var(--navy); background:transparent; cursor:pointer; transition:border-color .2s ease;}
+.lang-dropdown-btn:hover{border-color:var(--navy);}
+.lang-chevron{width:10px; height:10px; flex-shrink:0; transition:transform .15s ease;}
+.lang-dropdown.open .lang-chevron{transform:rotate(180deg);}
+.lang-dropdown-menu{display:none; position:absolute; top:calc(100% + 8px); right:0; min-width:150px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 40px rgba(7,38,76,0.16); padding:6px; z-index:50;}
+.lang-dropdown.open .lang-dropdown-menu{display:block;}
+.lang-option{display:block; padding:10px 12px; border-radius:9px; font-size:0.85rem; font-weight:500; color:var(--navy); text-decoration:none;}
+.lang-option:hover{background:var(--bg-2);}
+.lang-option.active{font-weight:700; color:var(--gold-text);}
 .mobile-nav{
   display:none;
   position:fixed;
@@ -161,7 +172,7 @@ header{
 .mobile-close{position:absolute; top:26px; right:32px; background:none; border:none; color:var(--cream); font-size:1.6rem; cursor:pointer;}
 @media (max-width:1240px){
   .nav{
-    grid-template-columns:auto 1fr auto auto;
+    grid-template-columns:max-content 1fr auto auto;
     grid-template-areas:"brand links langflag toggle";
     height:92px;
     padding:0 16px 0 12px;
@@ -262,24 +273,12 @@ header{
 .testimonials .section-head .eyebrow::before{background:var(--gold);}
 .btn-whatsapp-hero{border-width:1.5px; border-color:rgba(255,255,255,0.6); color:#fff;}
 .hero-trust-stars{color:#fff; font-weight:600; font-size:0.95rem; letter-spacing:0.02em; margin-left:4px;}
-.lang-pills{display:none;}
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
 @media (max-width:1240px){
   body.page-home .nav{padding:0 16px 0 20px; height:80px;}
   body.page-home .brand-logo{height:44px; width:auto; object-fit:contain;}
   body.page-home .nav-toggle{color:var(--navy);}
-  body.page-home .lang-flag{display:none;}
-  body.page-home .lang-pills{grid-area:langflag; display:flex; align-items:center; gap:8px;}
-  body.page-home .lang-pill{
-    display:inline-flex; align-items:center; justify-content:center;
-    height:32px; padding:0 14px; border-radius:999px;
-    font-size:0.72rem; font-weight:700; letter-spacing:0.06em;
-    border:1px solid #D7DEE8; color:var(--navy); background:transparent;
-    transition:background-color .2s ease, color .2s ease, border-color .2s ease;
-  }
-  body.page-home .lang-pill.active{background:var(--navy); color:#FFFFFF; border-color:var(--navy);}
-  body.page-home .lang-pill:hover:not(.active){border-color:var(--navy);}
 }
 @media (max-width:640px){
   body.page-home header{box-shadow:none;}
@@ -337,11 +336,16 @@ header{
       <a href="about.html">Über uns</a>
       <a href="contact.html">Kontakt</a>
     </div>
-    <a href="../index.html" class="lang-flag" aria-label="English" title="English">&#127468;&#127463;</a>
-    <div class="lang-pills" role="group" aria-label="Language">
-      <a href="../index.html" class="lang-pill">EN</a>
-      <a href="index.html" class="lang-pill active" aria-current="page">DE</a>
-      <a href="../sv/index.html" class="lang-pill">SV</a>
+    <div class="lang-dropdown">
+      <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+        <span>DE</span>
+        <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-dropdown-menu">
+        <a href="../index.html" class="lang-option">English</a>
+        <a href="index.html" class="lang-option active" aria-current="page">Deutsch</a>
+        <a href="../sv/index.html" class="lang-option">Svenska</a>
+      </div>
     </div>
     <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
   </nav>

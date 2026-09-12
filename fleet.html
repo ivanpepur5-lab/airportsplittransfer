@@ -69,11 +69,16 @@
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
     </div>
-    <a href="de/fleet.html" class="lang-flag" aria-label="Deutsch" title="Deutsch">&#127465;&#127466;</a>
-    <div class="lang-pills" role="group" aria-label="Language">
-      <a href="fleet.html" class="lang-pill active" aria-current="page">EN</a>
-      <a href="de/fleet.html" class="lang-pill">DE</a>
-      <a href="sv/fleet.html" class="lang-pill">SV</a>
+    <div class="lang-dropdown">
+      <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
+        <span>EN</span>
+        <svg class="lang-chevron" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="lang-dropdown-menu">
+        <a href="fleet.html" class="lang-option active" aria-current="page">English</a>
+        <a href="de/fleet.html" class="lang-option">Deutsch</a>
+        <a href="sv/fleet.html" class="lang-option">Svenska</a>
+      </div>
     </div>
     <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
   </nav>

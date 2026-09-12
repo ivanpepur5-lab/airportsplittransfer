@@ -18,6 +18,33 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
   }
 
+  // Language dropdown
+  document.querySelectorAll(".lang-dropdown").forEach((wrap) => {
+    const btn = wrap.querySelector(".lang-dropdown-btn");
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = wrap.classList.toggle("open");
+      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll(".lang-dropdown.open").forEach((wrap) => {
+      if (!wrap.contains(e.target)) {
+        wrap.classList.remove("open");
+        wrap.querySelector(".lang-dropdown-btn").setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".lang-dropdown.open").forEach((wrap) => {
+        wrap.classList.remove("open");
+        wrap.querySelector(".lang-dropdown-btn").setAttribute("aria-expanded", "false");
+      });
+    }
+  });
+
   // Scroll reveal
   const revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
