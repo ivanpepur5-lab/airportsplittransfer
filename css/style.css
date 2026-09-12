@@ -101,7 +101,7 @@ header{
 
 .nav{
   display:grid;
-  grid-template-columns:auto 1fr auto auto;
+  grid-template-columns:max-content 1fr auto auto;
   grid-template-areas:"brand links langflag toggle";
   align-items:center;
   column-gap:24px;
@@ -166,7 +166,7 @@ header{
 
 @media (max-width:1240px){
   .nav{
-    grid-template-columns:auto 1fr auto auto;
+    grid-template-columns:max-content 1fr auto auto;
     grid-template-areas:"brand links langflag toggle";
     height:92px;
     padding:0 16px 0 12px;
@@ -177,6 +177,27 @@ header{
     height:64px; width:auto; object-fit:contain;
   }
   .nav-toggle{display:block; font-size:2rem;}
+}
+
+/* Narrow phones: three language pills plus the logo no longer fit at the
+   mobile nav's normal sizing (logo was getting squeezed by the grid to
+   make room) — tighten the pills' own padding/gap instead so the logo
+   stays full-size. */
+@media (max-width:480px){
+  .nav{column-gap:10px; padding:0 12px 0 10px;}
+  .lang-pills{gap:4px;}
+  .lang-pill{padding:0 8px;}
+  .nav-toggle{font-size:1.6rem;}
+}
+@media (max-width:400px){
+  .nav{column-gap:8px; padding:0 8px 0 8px;}
+  .lang-pills{gap:3px;}
+  .lang-pill{padding:0 6px; font-size:0.66rem;}
+  /* Higher specificity than the other .brand-logo / body.page-home
+     .brand-logo rules elsewhere (both inline and in this file) so this
+     wins regardless of source order — several same-specificity rules
+     already compete for this property across breakpoints. */
+  .nav .brand-logo, body.page-home .nav .brand-logo{height:48px;}
 }
 
 /* ============ HERO ============ */
