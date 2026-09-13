@@ -864,6 +864,36 @@ function fetchDistance(pickupText, dropoffText){
   });
 }
 
+// GA4 key event, fired once the booking form has actually been accepted by
+// Netlify Forms (see the fetch().then() success handler in submitBooking()
+// below) — never on a failed/pending submission. Pushed as a plain object
+// with an "event" key, which is the shape a Google Tag Manager container's
+// Custom Event trigger listens for on window.dataLayer, so this becomes
+// visible in GTM's Preview mode the moment a GTM snippet is added to the
+// site. Today there's no GTM container installed here (GA4 loads directly
+// via gtag.js — see the consent-gated script in <head>), so gtag() is also
+// called directly to actually get the event into GA4 right now. If GTM is
+// added later and given its own GA4 event tag on this same dataLayer
+// event, drop the direct gtag() call below to avoid double-counting.
+function trackQualifyLead(){
+  const params = {
+    form_name: 'booking',
+    trip_type: (document.getElementById('b-trip-type') || {}).value || 'oneway',
+    vehicle: currentVehicle || (document.getElementById('b-vehicle') || {}).value || '',
+    passengers: (document.getElementById('b-pax') || {}).value || '',
+  };
+  const price = parseFloat((document.getElementById('b-calculated-price') || {}).value);
+  if(Number.isFinite(price) && price > 0){
+    params.value = price;
+    params.currency = 'EUR';
+  }
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(Object.assign({ event: 'qualify_lead' }, params));
+  if(typeof gtag === 'function'){
+    gtag('event', 'qualify_lead', params);
+  }
+}
+
 function submitBooking(e){
   e.preventDefault();
   // Safety net: never submit a vehicle that can't actually fit the entered
@@ -895,8 +925,17 @@ function submitBooking(e){
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(formData).toString()
   })
-    .then(() => {
+    .then((response) => {
+      // fetch() only rejects on a network-level failure — an HTTP error
+      // status (e.g. Netlify rejecting a spam-flagged or malformed
+      // submission) still resolves this .then(), so without this check
+      // both the success UI and the qualify_lead tracking below would fire
+      // on a submission that was never actually recorded.
+      if(!response.ok){
+        throw new Error('Netlify Forms submission failed with status ' + response.status);
+      }
       form.style.display = 'none';
+      trackQualifyLead();
       // Copy the already-computed trip summary into the success card — same
       // values updateSummary() keeps in the sidebar, no recalculation. Only
       // shown if a price actually resolved; otherwise there's nothing
