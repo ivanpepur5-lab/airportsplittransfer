@@ -132,6 +132,7 @@ with a verified sending domain. Visit it directly:
 https://<your-site>/.netlify/functions/booking-email-status
 https://<your-site>/.netlify/functions/booking-email-status?checkResend=1
 https://<your-site>/.netlify/functions/booking-email-status?sendTestTo=you@example.com
+https://<your-site>/.netlify/functions/booking-email-status?sendTestTo=you@example.com&fullTemplate=1
 ```
 
 The plain URL reports `resendApiKeyPresent`, a masked key prefix, the
@@ -146,19 +147,28 @@ you scope a key to) gets a 401 `"restricted to only send emails"` from
 That 401 is not evidence the key can't send — it's a different endpoint's
 permission check.
 
-`?sendTestTo=<email>` is the one that actually matters for a send-only
-key, and for the specific failure this repo has already hit once: it
-sends one real, clearly-labeled test email to that address through the
-exact same code path as a real booking, and reports Resend's actual
-response. Use it to directly reproduce **"admin gets the notification but
-a real customer address gets nothing"** — Resend's unverified-domain
-sandbox mode allows sending to your own account's registered address
-(why the admin address at `info@airportsplittransfer.com` can go through)
-but rejects any other recipient until the sending domain is verified
-(why an arbitrary customer address silently gets nothing). Point
-`sendTestTo` at an address that is *not* your Resend account's own email
-to reproduce this; the error message Resend returns will say so directly
-("verify a domain..."), fixed only in the Resend dashboard, not in code.
+`?sendTestTo=<email>` sends one real, clearly-labeled test email to that
+address through the exact same code path as a real booking, and reports
+Resend's actual response. It was added to check whether Resend's
+unverified-domain sandbox mode (which allows sending only to your own
+account's registered address until a domain is verified) explained
+**"admin gets the notification but a real customer address gets
+nothing"** — on this site it did not: a test send to a real, unrelated
+address (not the Resend account's own) succeeded and returned a real
+message id, ruling that out.
+
+Add `&fullTemplate=1` to send the actual customer confirmation template
+(with sample data) instead of a short inline test message — this checks
+whether something specific to the full ~20KB rendered HTML/text is the
+difference, rather than sending capability in general. If this also
+succeeds but a real booking still doesn't reach the customer, the
+remaining likely causes are downstream of Resend accepting the send:
+spam/junk filtering at the recipient's provider (very common for a
+sending domain's first real-world messages), or the actual submitted
+`email` field for that specific booking being mistyped/invalid — check
+**Netlify → Functions → submission-created → Logs** for the
+`[booking-email]` line for that submission, which logs Resend's own
+response id or error for that exact send.
 
 This exists because the two most likely causes of "booking emails aren't
 sending" — a missing/wrong `RESEND_API_KEY`, or an unverified sending
