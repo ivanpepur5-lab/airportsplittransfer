@@ -105,6 +105,32 @@ price formatting/fallback, and booking-reference logic.
   internal bookkeeping, not the customer's experience, so failures are
   surfaced through logs rather than response codes.
 
+## Live self-check (no dashboard access needed)
+
+`submission-created.js` is a normal function underneath the special
+form-trigger behavior, so it's also reachable directly at its own URL:
+
+```
+https://<your-site>/.netlify/functions/submission-created
+```
+
+A plain visit (GET, no body — which a real form submission never sends)
+returns a JSON report instead of trying to process a booking:
+`resendApiKeyPresent`, a masked key prefix, the configured from/admin
+addresses, and confirmation the email templates are embedded correctly.
+Add `?checkResend=1` to also make a live, harmless call to Resend's own
+`/domains` API with that exact key — this confirms both that the key
+authenticates *and* whether the sending domain shows as verified, which is
+otherwise only visible in the Resend dashboard. No real email is sent by
+either check.
+
+This exists because the two most likely causes of "booking emails aren't
+sending" — a missing/wrong `RESEND_API_KEY`, or an unverified sending
+domain — both fail silently from the function's own logs, and neither is
+checkable without either the Netlify dashboard (function logs, env vars)
+or the Resend dashboard (domain status). This endpoint answers both at
+once, from a plain URL.
+
 ## Testing without a live Resend account
 
 `lib/template.js`, `lib/booking.js` and `lib/resend.js` are plain Node
