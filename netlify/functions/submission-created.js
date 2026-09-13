@@ -35,18 +35,13 @@ exports.handler = async (event) => {
   // why booking emails not sending in production was hard to diagnose.
   console.log("[booking-email] submission-created invoked, body length:", event.body ? event.body.length : 0);
 
-  // A real Netlify form-submission invocation always has a JSON body. This
-  // function is also reachable directly at its own URL
-  // (/.netlify/functions/submission-created), which is a plain GET with no
-  // body — used here as a self-check endpoint, since there's no way to
-  // inspect this site's Netlify dashboard/function logs/env vars from
-  // outside Netlify itself. Visiting that URL answers, on the spot: is this
-  // function actually deployed, is RESEND_API_KEY present, and (with
-  // ?checkResend=1) does that key authenticate against Resend and is the
-  // sending domain verified. Never touches real booking data.
-  if (!event.body) {
-    return diagnostics(event);
-  }
+  // A direct GET to this function's own URL previously returned a small
+  // diagnostic report from here. In production that request gets HTTP 403
+  // before this handler ever runs — nothing in this repo returns 403
+  // anywhere, so that's Netlify itself restricting direct access to a
+  // function bound to the Forms submission-created convention. The same
+  // diagnostics now live at the plain, unrestricted booking-email-status
+  // function instead — see netlify/functions/booking-email-status.js.
 
   let payload;
   try {
@@ -117,61 +112,6 @@ exports.handler = async (event) => {
   // by failing the request.
   return { statusCode: 200, body: "Processed" };
 };
-
-async function diagnostics(event) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const report = {
-    ok: true,
-    message: "submission-created is deployed and reachable.",
-    resendApiKeyPresent: Boolean(apiKey),
-    resendApiKeyPrefix: apiKey ? apiKey.slice(0, 6) + "…" : null,
-    fromEmail: FROM_EMAIL,
-    adminEmail: ADMIN_EMAIL,
-    templatesEmbedded: {
-      customer: customerTemplateSrc.length > 0,
-      admin: adminTemplateSrc.length > 0,
-    },
-    nodeVersion: process.version,
-  };
-
-  const wantsResendCheck = event.queryStringParameters && event.queryStringParameters.checkResend;
-  if (wantsResendCheck) {
-    if (!apiKey) {
-      report.resendCheck = { skipped: true, reason: "RESEND_API_KEY not set" };
-    } else {
-      try {
-        const response = await fetch("https://api.resend.com/domains", {
-          headers: { Authorization: `Bearer ${apiKey}` },
-        });
-        const json = await response.json().catch(() => ({}));
-        if (response.ok) {
-          report.resendCheck = {
-            apiKeyValid: true,
-            domains: Array.isArray(json.data)
-              ? json.data.map((d) => ({ name: d.name, status: d.status }))
-              : json,
-          };
-        } else {
-          report.resendCheck = {
-            apiKeyValid: false,
-            status: response.status,
-            error: json.message || json,
-          };
-        }
-      } catch (err) {
-        report.resendCheck = { apiKeyValid: false, error: String(err) };
-      }
-    }
-  } else {
-    report.hint = "Add ?checkResend=1 to also verify the key against Resend's API and see sending-domain status.";
-  }
-
-  return {
-    statusCode: 200,
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(report, null, 2),
-  };
-}
 
 function cleanEmail(email) {
   // Emails don't need cleaning the way phone numbers do; kept as its own
