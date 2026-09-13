@@ -17,10 +17,10 @@
 // handled; submissions from any other Netlify form on the site are ignored
 // so adding a new form elsewhere later can't break this function.
 
-const { renderTemplate } = require("./lib/template");
+const { renderTemplate, renderTextTemplate } = require("./lib/template");
 const { sendEmail } = require("./lib/resend");
 const { vehicleLabel, formatDate, buildBookingReference, formatPrice, digitsAndPlus } = require("./lib/booking");
-const { CUSTOMER_TEMPLATE, ADMIN_TEMPLATE } = require("./lib/templates");
+const { CUSTOMER_TEMPLATE, ADMIN_TEMPLATE, CUSTOMER_TEMPLATE_TEXT, ADMIN_TEMPLATE_TEXT } = require("./lib/templates");
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Airport Split Transfer <booking@airportsplittransfer.com>";
 const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "info@airportsplittransfer.com";
@@ -126,6 +126,7 @@ async function sendCustomerEmail(templateData) {
     throw new Error("Submission has no customer email address — cannot send confirmation");
   }
   const html = renderTemplate(customerTemplateSrc, templateData);
+  const text = renderTextTemplate(CUSTOMER_TEMPLATE_TEXT, templateData);
   const subject = `✅ Booking Confirmed — ${templateData.date} at ${templateData.pickup_time} | Airport Split Transfer`;
   return sendEmail({
     from: FROM_EMAIL,
@@ -133,11 +134,13 @@ async function sendCustomerEmail(templateData) {
     replyTo: ADMIN_EMAIL,
     subject,
     html,
+    text,
   });
 }
 
 async function sendAdminEmail(templateData) {
   const html = renderTemplate(adminTemplateSrc, templateData);
+  const text = renderTextTemplate(ADMIN_TEMPLATE_TEXT, templateData);
   const subject = `🚖 NEW BOOKING • ${templateData.date} ${templateData.pickup_time} • ${templateData.customer_name}`;
   return sendEmail({
     from: FROM_EMAIL,
@@ -145,5 +148,6 @@ async function sendAdminEmail(templateData) {
     replyTo: templateData.email || undefined,
     subject,
     html,
+    text,
   });
 }

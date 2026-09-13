@@ -1,30 +1,42 @@
 # Booking email templates
 
-Two merge templates for the booking flow on airportsplittransfer.com:
+Two emails for the booking flow on airportsplittransfer.com, each with an
+HTML version and a plain-text fallback:
 
-- `booking-confirmation-customer.html` — sent to the customer after a
-  successful booking.
-- `booking-notification-admin.html` — sent to `info@airportsplittransfer.com`
-  so the team can act on a new booking immediately from a phone.
+- `booking-confirmation-customer.html` / `.txt` — sent to the customer
+  after a successful booking.
+- `booking-notification-admin.html` / `.txt` — sent to
+  `info@airportsplittransfer.com` so the team can act on a new booking
+  immediately from a phone.
 
-Both are self-contained, table-based, inline-styled HTML designed to render
-correctly across Gmail, Outlook (desktop + web), Apple Mail and mobile mail
-apps, and both are mobile-responsive.
+The `.html` files are self-contained, table-based, inline-styled HTML
+designed to render correctly across Gmail, Outlook (desktop + web), Apple
+Mail and mobile mail apps, and both are mobile-responsive. The `.txt`
+files are the plain-text part of the same email, sent alongside the HTML
+in every Resend call — **always send both**; a customer once received
+this site's own internal template documentation verbatim at the top of a
+real confirmation email because no explicit text part was provided, and
+whatever generated one from the raw HTML source didn't handle a large
+`<!-- -->` comment cleanly.
 
 ## Sending pipeline
 
 These are now sent automatically: `netlify/functions/submission-created.js`
 is invoked by Netlify on every Netlify Forms submission on this site (a
 built-in Netlify convention — no dashboard/webhook config, no Zapier/Make),
-fills in the tokens below and sends both emails through the
-[Resend](https://resend.com) API. See `netlify/functions/README.md` for
-the function itself — deploy setup, environment variables, error handling.
+fills in the tokens below and sends both the HTML and text parts of both
+emails through the [Resend](https://resend.com) API. See
+`netlify/functions/README.md` for the function itself — deploy setup,
+environment variables, error handling.
 
-These two `.html` files are the source of truth for the design, but the
-function doesn't read them from disk — it imports a generated
-`netlify/functions/lib/templates.js` with the HTML embedded as JS strings.
-**If you edit either template, regenerate that file** — see
-`netlify/functions/README.md` for the one command that does it.
+These files are the source of truth for the design, but the function
+doesn't read them from disk — it imports a generated
+`netlify/functions/lib/templates.js` with the content embedded as JS
+strings (the `.html` files' leading documentation comment is stripped out
+during that step — see the comment at the top of `generate-templates.js`
+for why). **If you edit any of the four template files, regenerate that
+file** — see `netlify/functions/README.md` for the one command that does
+it.
 
 Nothing about the booking form or Netlify Forms submission flow was
 changed — the function only reads the existing submission after the fact.

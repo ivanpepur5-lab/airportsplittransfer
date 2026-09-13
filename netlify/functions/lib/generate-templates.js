@@ -17,10 +17,27 @@
 // runtime file-system dependency and nothing left to get wrong about the
 // deployment layout.
 //
-// The .html files remain the source of truth for editing/reviewing the
-// email design (see email-templates/README.md) — this script is the one
-// place that needs to be re-run after changing them, and templates.js is
-// committed so the function never depends on running this at deploy time.
+// The .html/.txt files remain the source of truth for editing/reviewing
+// the email design (see email-templates/README.md) — this script is the
+// one place that needs to be re-run after changing them, and templates.js
+// is committed so the function never depends on running this at deploy
+// time.
+//
+// The .html files each start with a large `<!-- ... -->` documentation
+// comment (field mapping, hide-if-empty rules) for anyone reading the file
+// in an editor or on GitHub. That comment is stripped here before
+// embedding — it's dev-facing documentation, not part of the email, and a
+// customer received it verbatim at the top of a real confirmation email:
+// with no explicit `text` part on the Resend payload, something in the
+// send/render path was generating a plain-text fallback from the raw HTML
+// source, and a multi-paragraph comment full of "<tr>"/"<div>" mentions
+// and no real tags to balance against broke whatever naive tag-stripping
+// produced it. HTML comments are supposed to be invisible either way, but
+// the actual fix is not shipping 40 lines of internal docs inside the
+// literal payload sent to a real inbox at all — regardless of whether a
+// given renderer strips comments correctly. Only the leading comment is
+// touched; MSO conditional comments and everything else deeper in the
+// file are left exactly as they are.
 
 const fs = require("fs");
 const path = require("path");
@@ -28,18 +45,32 @@ const path = require("path");
 const TEMPLATES_DIR = path.join(__dirname, "..", "..", "..", "email-templates");
 const OUT_PATH = path.join(__dirname, "templates.js");
 
-const customerHtml = fs.readFileSync(path.join(TEMPLATES_DIR, "booking-confirmation-customer.html"), "utf8");
-const adminHtml = fs.readFileSync(path.join(TEMPLATES_DIR, "booking-notification-admin.html"), "utf8");
+function stripLeadingComment(html) {
+  return html.replace(/^\s*<!--[\s\S]*?-->\s*/, "");
+}
+
+const customerHtml = stripLeadingComment(
+  fs.readFileSync(path.join(TEMPLATES_DIR, "booking-confirmation-customer.html"), "utf8")
+);
+const adminHtml = stripLeadingComment(
+  fs.readFileSync(path.join(TEMPLATES_DIR, "booking-notification-admin.html"), "utf8")
+);
+const customerText = fs.readFileSync(path.join(TEMPLATES_DIR, "booking-confirmation-customer.txt"), "utf8");
+const adminText = fs.readFileSync(path.join(TEMPLATES_DIR, "booking-notification-admin.txt"), "utf8");
 
 const output = `// GENERATED FILE — do not edit by hand.
-// Source of truth: email-templates/*.html
+// Source of truth: email-templates/*.html and email-templates/*.txt
 // Regenerate with: node netlify/functions/lib/generate-templates.js
 
 module.exports = {
   CUSTOMER_TEMPLATE: ${JSON.stringify(customerHtml)},
   ADMIN_TEMPLATE: ${JSON.stringify(adminHtml)},
+  CUSTOMER_TEMPLATE_TEXT: ${JSON.stringify(customerText)},
+  ADMIN_TEMPLATE_TEXT: ${JSON.stringify(adminText)},
 };
 `;
 
 fs.writeFileSync(OUT_PATH, output, "utf8");
-console.log(`Wrote ${OUT_PATH} (${customerHtml.length + adminHtml.length} chars embedded)`);
+console.log(
+  `Wrote ${OUT_PATH} (${customerHtml.length + adminHtml.length + customerText.length + adminText.length} chars embedded)`
+);

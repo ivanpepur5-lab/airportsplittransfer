@@ -3,7 +3,7 @@
 
 const RESEND_API_URL = "https://api.resend.com/emails";
 
-async function sendEmail({ from, to, subject, html, replyTo }) {
+async function sendEmail({ from, to, subject, html, text, replyTo }) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     throw new Error("RESEND_API_KEY is not configured");
@@ -15,6 +15,11 @@ async function sendEmail({ from, to, subject, html, replyTo }) {
     subject,
     html,
   };
+  // Always send an explicit plain-text part rather than leaving Resend (or
+  // any downstream client) to derive one from the HTML — a customer once
+  // received this site's internal template documentation verbatim at the
+  // top of a real confirmation email because no text part was provided.
+  if (text) body.text = text;
   if (replyTo) body.reply_to = replyTo;
 
   const response = await fetch(RESEND_API_URL, {

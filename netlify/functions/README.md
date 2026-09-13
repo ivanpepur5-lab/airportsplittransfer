@@ -49,10 +49,13 @@ for native `fetch`.
 
 ## If you edit the email templates
 
-`email-templates/*.html` are the source of truth for the design, but
-`submission-created.js` doesn't read them from disk at runtime — it
-imports `lib/templates.js`, a generated file with the HTML embedded as
-plain JS strings (`CUSTOMER_TEMPLATE` / `ADMIN_TEMPLATE`). This used to be
+`email-templates/*.html` and `*.txt` are the source of truth for the
+design, but `submission-created.js` doesn't read them from disk at
+runtime — it imports `lib/templates.js`, a generated file with the
+content embedded as plain JS strings (`CUSTOMER_TEMPLATE` /
+`ADMIN_TEMPLATE` for the HTML, `CUSTOMER_TEMPLATE_TEXT` /
+`ADMIN_TEMPLATE_TEXT` for the plain-text fallback sent alongside it in
+every Resend call — see `lib/resend.js`'s `text` field). This used to be
 `fs.readFileSync()` against a path relying on `[functions].included_files`
 in `netlify.toml` to bundle the `.html` files alongside the function —
 that depends on exactly how Netlify's esbuild bundler lays out
@@ -61,10 +64,23 @@ verifiable without a real deploy, and turned out to be the reason booking
 emails silently stopped sending in production (confirmed by bundling the
 function locally with the same esbuild config Netlify uses — see the repo
 history for `netlify/functions/lib/generate-templates.js` for the
-diagnosis). Embedding the HTML as a string means esbuild bundles it as
+diagnosis). Embedding the content as a string means esbuild bundles it as
 ordinary code, with zero runtime file-system dependency.
 
-**After editing either `.html` template, regenerate `lib/templates.js`:**
+The `.html` files each start with a large `<!-- -->` documentation comment
+(field mapping, hide-if-empty rules) for anyone reading the file directly.
+`generate-templates.js` strips that comment before embedding — it's
+dev-facing documentation, not part of the email, and a customer once
+received it verbatim at the top of a real confirmation email: with no
+explicit `text` part on the Resend payload, something in the send path
+generated a plain-text fallback from the raw HTML, and didn't handle that
+comment cleanly. The two problems together (no text part + doc comment
+shipped in the HTML source) are why this repo now always sends an
+explicit, hand-written `.txt` part rather than relying on any renderer's
+comment-stripping being correct.
+
+**After editing any of the four template files, regenerate
+`lib/templates.js`:**
 
 ```
 node netlify/functions/lib/generate-templates.js

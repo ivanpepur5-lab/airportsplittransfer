@@ -1,0 +1,25 @@
+NEW BOOKING
+-----------------------------------------
+{{customer_name}}
+{{date}} - {{pickup_time}}
+
+Call: {{phone}}
+Email: {{email}}
+
+Phone: {{phone}}
+Email: {{email}}
+Pickup: {{pickup}}
+Destination: {{dropoff}}
+{{#if flight_number}}
+Flight number: {{flight_number}}
+{{/if}}
+Passengers: {{passengers}}
+Vehicle: {{vehicle}}
+{{#if notes}}
+Special requests: {{notes}}
+{{/if}}
+
+Price: {{price_display}}
+
+-----------------------------------------
+Airport Split Transfer - internal booking notification

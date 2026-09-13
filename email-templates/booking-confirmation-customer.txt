@@ -1,0 +1,46 @@
+BOOKING CONFIRMED
+Airport Split Transfer
+
+Thank you for choosing Airport Split Transfer.
+{{#if booking_reference}}
+Booking reference: {{booking_reference}}
+{{/if}}
+TRIP DETAILS
+-----------------------------------------
+Date: {{date}}
+Pickup time: {{pickup_time}}
+Pickup location: {{pickup}}
+Destination: {{dropoff}}
+{{#if return_date}}
+Return date: {{return_date}}
+{{/if}}
+{{#if return_time}}
+Return time: {{return_time}}
+{{/if}}
+Passengers: {{passengers}}
+Vehicle: {{vehicle}}
+Price: {{price_display}}
+
+PASSENGER
+-----------------------------------------
+Name: {{full_name}}
+Email: {{email}}
+Phone: {{phone}}
+{{#if flight_number}}
+Flight number: {{flight_number}}
+{{/if}}
+
+WHAT'S INCLUDED
+-----------------------------------------
+- Professional driver
+- Flight monitoring
+- Meet & Greet
+- Free waiting time
+- Fixed price
+
+Need to change your booking?
+info@airportsplittransfer.com
++385 91 785 6056
+
+Airport Split Transfer, Split, Croatia
+Private airport transfers across the Dalmatian coast.
