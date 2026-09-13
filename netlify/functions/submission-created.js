@@ -17,32 +17,24 @@
 // handled; submissions from any other Netlify form on the site are ignored
 // so adding a new form elsewhere later can't break this function.
 
-const fs = require("fs");
-const path = require("path");
 const { renderTemplate } = require("./lib/template");
 const { sendEmail } = require("./lib/resend");
 const { vehicleLabel, formatDate, buildBookingReference, formatPrice, digitsAndPlus } = require("./lib/booking");
-
-const TEMPLATES_DIR = path.join(__dirname, "..", "..", "email-templates");
-const CUSTOMER_TEMPLATE_PATH = path.join(TEMPLATES_DIR, "booking-confirmation-customer.html");
-const ADMIN_TEMPLATE_PATH = path.join(TEMPLATES_DIR, "booking-notification-admin.html");
+const { CUSTOMER_TEMPLATE, ADMIN_TEMPLATE } = require("./lib/templates");
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Airport Split Transfer <booking@airportsplittransfer.com>";
 const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "info@airportsplittransfer.com";
 
-// Read once per warm function container rather than on every invocation.
-// A missing/unreadable file is logged once here and re-checked per request
-// (see handler) rather than crashing the module at cold start.
-let customerTemplateSrc = null;
-let adminTemplateSrc = null;
-try {
-  customerTemplateSrc = fs.readFileSync(CUSTOMER_TEMPLATE_PATH, "utf8");
-  adminTemplateSrc = fs.readFileSync(ADMIN_TEMPLATE_PATH, "utf8");
-} catch (err) {
-  console.error("[booking-email] Failed to load email templates at cold start:", err);
-}
+const customerTemplateSrc = CUSTOMER_TEMPLATE;
+const adminTemplateSrc = ADMIN_TEMPLATE;
 
 exports.handler = async (event) => {
+  // Logged unconditionally, before any early return, so a real submission
+  // is always traceable in Netlify's function logs even if everything past
+  // this point is skipped — this was previously silent, which is exactly
+  // why booking emails not sending in production was hard to diagnose.
+  console.log("[booking-email] submission-created invoked, body length:", event.body ? event.body.length : 0);
+
   let payload;
   try {
     payload = JSON.parse(event.body).payload;
@@ -50,6 +42,8 @@ exports.handler = async (event) => {
     console.error("[booking-email] Could not parse Netlify submission payload:", err);
     return { statusCode: 400, body: "Invalid payload" };
   }
+
+  console.log("[booking-email] form_name:", payload && payload.form_name, "| has RESEND_API_KEY:", Boolean(process.env.RESEND_API_KEY));
 
   if (!payload || payload.form_name !== "booking") {
     // Not the booking form — ignore so other/future Netlify forms on the
@@ -60,11 +54,6 @@ exports.handler = async (event) => {
   if (!process.env.RESEND_API_KEY) {
     console.error("[booking-email] RESEND_API_KEY is not set — booking emails were NOT sent for submission", payload.id);
     return { statusCode: 200, body: "RESEND_API_KEY missing" };
-  }
-
-  if (!customerTemplateSrc || !adminTemplateSrc) {
-    console.error("[booking-email] Email templates are not loaded — booking emails were NOT sent for submission", payload.id);
-    return { statusCode: 200, body: "Templates unavailable" };
   }
 
   const data = payload.data || {};

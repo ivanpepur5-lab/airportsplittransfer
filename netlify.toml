@@ -7,7 +7,3 @@
 
 [functions]
   node_bundler = "esbuild"
-  # Bundle the email templates alongside the functions that read them at
-  # runtime (submission-created.js uses fs.readFileSync, which esbuild's
-  # static analysis can't see through on its own).
-  included_files = ["email-templates/*.html"]

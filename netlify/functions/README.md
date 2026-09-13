@@ -44,12 +44,34 @@ UI, then trigger a redeploy so the function picks them up.
 ### 3. That's it
 
 No build step, no `npm install` — the function has zero npm dependencies
-(uses Node's built-in `fetch`, `fs`, `path`). `netlify.toml` pins
-`NODE_VERSION = "18"` (for native `fetch`) and lists
-`email-templates/*.html` under `[functions].included_files` so both
-template files are bundled into the function's deployment — otherwise
-`fs.readFileSync` would fail at runtime since esbuild can't statically see
-that dependency.
+(uses Node's built-in `fetch`). `netlify.toml` pins `NODE_VERSION = "18"`
+for native `fetch`.
+
+## If you edit the email templates
+
+`email-templates/*.html` are the source of truth for the design, but
+`submission-created.js` doesn't read them from disk at runtime — it
+imports `lib/templates.js`, a generated file with the HTML embedded as
+plain JS strings (`CUSTOMER_TEMPLATE` / `ADMIN_TEMPLATE`). This used to be
+`fs.readFileSync()` against a path relying on `[functions].included_files`
+in `netlify.toml` to bundle the `.html` files alongside the function —
+that depends on exactly how Netlify's esbuild bundler lays out
+`included_files` relative to `__dirname` at runtime, which isn't something
+verifiable without a real deploy, and turned out to be the reason booking
+emails silently stopped sending in production (confirmed by bundling the
+function locally with the same esbuild config Netlify uses — see the repo
+history for `netlify/functions/lib/generate-templates.js` for the
+diagnosis). Embedding the HTML as a string means esbuild bundles it as
+ordinary code, with zero runtime file-system dependency.
+
+**After editing either `.html` template, regenerate `lib/templates.js`:**
+
+```
+node netlify/functions/lib/generate-templates.js
+```
+
+and commit the result — `lib/templates.js` is checked in (there's no build
+step to regenerate it automatically).
 
 ## How field mapping works
 
@@ -70,9 +92,12 @@ price formatting/fallback, and booking-reference logic.
 - Every failure is logged with `console.error`, prefixed `[booking-email]`,
   including the Resend API's own error message and the Netlify submission
   id, so a failed send is traceable in **Netlify → Functions → Logs**.
-- A missing `RESEND_API_KEY`, an unparsable submission payload, or a
-  missing/unreadable template file are all logged clearly and handled
-  without throwing.
+- A missing `RESEND_API_KEY` or an unparsable submission payload are both
+  logged clearly and handled without throwing.
+- Every invocation logs the form name it received and whether
+  `RESEND_API_KEY` is present *before* any early return, so a real
+  submission is always traceable in the logs even when everything past
+  that point gets skipped.
 - The function always returns HTTP 200 to Netlify. Netlify does not use a
   `submission-created` function's response to affect the original form
   submission (the visitor's browser already got its response from the

@@ -16,10 +16,15 @@ apps, and both are mobile-responsive.
 These are now sent automatically: `netlify/functions/submission-created.js`
 is invoked by Netlify on every Netlify Forms submission on this site (a
 built-in Netlify convention — no dashboard/webhook config, no Zapier/Make),
-reads these two files at runtime, fills in the tokens below and sends both
-emails through the [Resend](https://resend.com) API. See
-`netlify/functions/README.md` for the function itself — deploy setup,
-environment variables, error handling.
+fills in the tokens below and sends both emails through the
+[Resend](https://resend.com) API. See `netlify/functions/README.md` for
+the function itself — deploy setup, environment variables, error handling.
+
+These two `.html` files are the source of truth for the design, but the
+function doesn't read them from disk — it imports a generated
+`netlify/functions/lib/templates.js` with the HTML embedded as JS strings.
+**If you edit either template, regenerate that file** — see
+`netlify/functions/README.md` for the one command that does it.
 
 Nothing about the booking form or Netlify Forms submission flow was
 changed — the function only reads the existing submission after the fact.
