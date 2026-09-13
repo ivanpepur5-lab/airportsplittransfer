@@ -35,11 +35,17 @@ async function buildReport({ apiKey, fromEmail, adminEmail, customerTemplateSrc,
               : json,
           };
         } else {
+          const message = json.message || json;
           report.resendCheck = {
             apiKeyValid: false,
             status: response.status,
-            error: json.message || json,
+            error: message,
           };
+          if (response.status === 401 && String(message).toLowerCase().includes("restricted")) {
+            report.resendCheck.note =
+              "This means the key is scoped to \"sending access only\" in Resend and can't call /domains — " +
+              "it does NOT mean the key can't send. Use ?sendTestTo=<email> to test sending directly instead.";
+          }
         }
       } catch (err) {
         report.resendCheck = { apiKeyValid: false, error: String(err) };
@@ -48,6 +54,8 @@ async function buildReport({ apiKey, fromEmail, adminEmail, customerTemplateSrc,
   } else {
     report.hint = "Add ?checkResend=1 to also verify the key against Resend's API and see sending-domain status.";
   }
+
+  report.sendTestHint = "Add ?sendTestTo=<email> to send one real test email to that address and see Resend's actual response.";
 
   return report;
 }

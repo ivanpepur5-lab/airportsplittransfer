@@ -131,15 +131,34 @@ with a verified sending domain. Visit it directly:
 ```
 https://<your-site>/.netlify/functions/booking-email-status
 https://<your-site>/.netlify/functions/booking-email-status?checkResend=1
+https://<your-site>/.netlify/functions/booking-email-status?sendTestTo=you@example.com
 ```
 
 The plain URL reports `resendApiKeyPresent`, a masked key prefix, the
 configured from/admin addresses, and confirmation the email templates are
-embedded correctly. Adding `?checkResend=1` also makes one live, harmless
-call to Resend's own `/domains` API with that exact key — confirming both
-that the key authenticates *and* whether the sending domain shows as
-verified, which is otherwise only visible in the Resend dashboard. Neither
-sends a real email or touches booking data.
+embedded correctly.
+
+`?checkResend=1` makes one live, harmless call to Resend's own `/domains`
+API with that exact key. **This only works with a "full access" API key**
+— a "sending access only" key (a narrower permission level Resend lets
+you scope a key to) gets a 401 `"restricted to only send emails"` from
+`/domains` specifically, which the report calls out with a `note` field.
+That 401 is not evidence the key can't send — it's a different endpoint's
+permission check.
+
+`?sendTestTo=<email>` is the one that actually matters for a send-only
+key, and for the specific failure this repo has already hit once: it
+sends one real, clearly-labeled test email to that address through the
+exact same code path as a real booking, and reports Resend's actual
+response. Use it to directly reproduce **"admin gets the notification but
+a real customer address gets nothing"** — Resend's unverified-domain
+sandbox mode allows sending to your own account's registered address
+(why the admin address at `info@airportsplittransfer.com` can go through)
+but rejects any other recipient until the sending domain is verified
+(why an arbitrary customer address silently gets nothing). Point
+`sendTestTo` at an address that is *not* your Resend account's own email
+to reproduce this; the error message Resend returns will say so directly
+("verify a domain..."), fixed only in the Resend dashboard, not in code.
 
 This exists because the two most likely causes of "booking emails aren't
 sending" — a missing/wrong `RESEND_API_KEY`, or an unverified sending

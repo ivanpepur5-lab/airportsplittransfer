@@ -17,17 +17,32 @@
 // Visit directly:
 //   https://<your-site>/.netlify/functions/booking-email-status
 //   https://<your-site>/.netlify/functions/booking-email-status?checkResend=1
+//   https://<your-site>/.netlify/functions/booking-email-status?sendTestTo=you@example.com
 //
-// Never sends a real booking email and never touches booking data.
+// ?checkResend=1 calls Resend's /domains endpoint — this fails with 401
+// "restricted to only send emails" for a send-only scoped API key (a
+// narrower permission level Resend lets you create keys with). That 401
+// is about that endpoint specifically, not proof the key can't send.
+//
+// ?sendTestTo=<address> actually sends one real, clearly-labeled test
+// email to that address using the exact same send path as a real booking
+// (same lib/resend.js, same FROM_EMAIL) — the one thing a send-only key
+// can always be tested with directly. Use this to check the specific
+// failure mode where Resend accepts sends to your own account address
+// (so an admin notification succeeds) but rejects an arbitrary customer
+// address until the sending domain is verified.
 
 const { buildReport } = require("./lib/diagnostics");
 const { CUSTOMER_TEMPLATE, ADMIN_TEMPLATE } = require("./lib/templates");
+const { sendEmail } = require("./lib/resend");
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Airport Split Transfer <booking@airportsplittransfer.com>";
 const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "info@airportsplittransfer.com";
 
 exports.handler = async (event) => {
-  const wantsResendCheck = Boolean(event.queryStringParameters && event.queryStringParameters.checkResend);
+  const params = event.queryStringParameters || {};
+  const wantsResendCheck = Boolean(params.checkResend);
+  const sendTestTo = params.sendTestTo;
 
   const report = await buildReport({
     apiKey: process.env.RESEND_API_KEY,
@@ -37,6 +52,25 @@ exports.handler = async (event) => {
     adminTemplateSrc: ADMIN_TEMPLATE,
     wantsResendCheck,
   });
+
+  if (sendTestTo) {
+    if (!process.env.RESEND_API_KEY) {
+      report.sendTest = { to: sendTestTo, success: false, error: "RESEND_API_KEY not set" };
+    } else {
+      try {
+        const result = await sendEmail({
+          from: FROM_EMAIL,
+          to: sendTestTo,
+          subject: "Airport Split Transfer — Resend test email",
+          html: "<p>This is a test email from booking-email-status.js to check whether Resend accepts sends to this address. Safe to ignore/delete.</p>",
+          text: "This is a test email from booking-email-status.js to check whether Resend accepts sends to this address. Safe to ignore/delete.",
+        });
+        report.sendTest = { to: sendTestTo, success: true, id: result && result.id };
+      } catch (err) {
+        report.sendTest = { to: sendTestTo, success: false, error: err.message };
+      }
+    }
+  }
 
   return {
     statusCode: 200,
