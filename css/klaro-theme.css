@@ -131,11 +131,17 @@
 }
 
 @media (max-width: 640px) {
+  /* !important because Klaro injects its own base <style> at runtime,
+     landing later in the DOM than this stylesheet's <link> — its
+     .cookie-notice:not(.cookie-modal-notice){width:100%; right:0} rule
+     ties this one on specificity (both two classes) and wins the source-
+     order tiebreak, pushing the banner 10px past the right edge of the
+     viewport on mobile (left:10px + Klaro's own width:100% = overflow). */
   .klaro .cookie-notice {
-    right: 10px;
-    left: 10px;
-    bottom: 70px;
-    max-width: none;
-    width: auto;
+    right: 10px !important;
+    left: 10px !important;
+    bottom: 70px !important;
+    max-width: none !important;
+    width: auto !important;
   }
 }

@@ -37,6 +37,16 @@ h1,h2,h3,h4,.display{
   font-family:'Poppins',sans-serif;
   font-weight:600;
   letter-spacing:-0.01em;
+  /* German/Swedish compound words (e.g. "Geschäftsbedingungen") can be a
+     single unbreakable word wider than a narrow mobile heading — without
+     this it visually overflows the container (invisible in the element's
+     own getBoundingClientRect, but a real few-px horizontal scroll) rather
+     than wrapping mid-word like everything else on the line. hyphens:auto
+     breaks at real syllable boundaries (needs the page's lang attribute,
+     already set correctly on every page); overflow-wrap is the fallback
+     for the rare word hyphenation can't place a break in. */
+  hyphens:auto;
+  overflow-wrap:break-word;
 }
 
 a{color:inherit;text-decoration:none;}

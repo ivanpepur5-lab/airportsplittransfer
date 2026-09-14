@@ -3,8 +3,8 @@
    Only Google Analytics is a managed "service" here — everything else on
    the site (fonts, maps, WhatsApp links) is either essential or loaded
    without setting identifying cookies. Language is picked up from each
-   page's own <html lang> attribute so EN pages show English text and DE
-   pages show German text automatically.
+   page's own <html lang> attribute so EN, DE and SV pages each show their
+   own translated text automatically.
    ========================================================================== */
 
 var klaroConfig = {
@@ -13,7 +13,10 @@ var klaroConfig = {
   storageMethod: "cookie",
   cookieName: "klaro-consent",
   cookieExpiresAfterDays: 365,
-  lang: (document.documentElement.lang || "en").slice(0, 2) === "de" ? "de" : "en",
+  lang: (function () {
+    var pageLang = (document.documentElement.lang || "en").slice(0, 2);
+    return pageLang === "de" || pageLang === "sv" ? pageLang : "en";
+  })(),
 
   default: false,
   mustConsent: false,
@@ -121,6 +124,49 @@ var klaroConfig = {
           "Hilft uns zu verstehen, wie Besucher die Website nutzen (aufgerufene Seiten, Traffic-Quellen), damit wir sie verbessern können. Es werden keine Daten für Werbung verwendet."
       },
       poweredBy: "Cookie-Einstellungen"
+    },
+    sv: {
+      privacyPolicyUrl: "/sv/privacy",
+      privacyPolicy: {
+        name: "integritetspolicy",
+        text: "Läs mer i vår {privacyPolicy}."
+      },
+      consentModal: {
+        title: "Cookie- och integritetsinställningar",
+        description:
+          "Vi använder nödvändiga cookies för att den här webbplatsen ska fungera korrekt. Med ditt samtycke vill vi även använda analyscookies för att förstå hur webbplatsen används. Du kan när som helst ändra ditt val."
+      },
+      consentNotice: {
+        title: "Vi värnar om din integritet",
+        description:
+          "Vi använder nödvändiga cookies för att den här webbplatsen ska fungera, och — endast med ditt samtycke — analyscookies för att förstå hur den används.",
+        learnMore: "Hantera inställningar"
+      },
+      purposes: {
+        analytics: "Analys"
+      },
+      purposeItem: {
+        service: "tjänst",
+        services: "tjänster"
+      },
+      acceptAll: "Acceptera alla",
+      acceptSelected: "Spara inställningar",
+      decline: "Avvisa ej nödvändiga",
+      ok: "Acceptera alla",
+      close: "Stäng",
+      save: "Spara",
+      service: {
+        disableAll: {
+          title: "Aktivera eller inaktivera alla tjänster",
+          description: "Använd den här reglaget för att aktivera eller inaktivera alla tjänster samtidigt."
+        }
+      },
+      "google-analytics": {
+        title: "Google Analytics",
+        description:
+          "Hjälper oss förstå hur besökare använder webbplatsen (visade sidor, trafikkällor) så att vi kan förbättra den. Ingen data används för annonsering."
+      },
+      poweredBy: "Cookie-inställningar"
     }
   }
 };
