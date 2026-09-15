@@ -110,12 +110,13 @@ header{
 }
 
 .nav{
+  position:relative;
   display:grid;
   grid-template-columns:max-content 1fr auto auto auto auto;
-  grid-template-areas:"brand links langflag flags cta toggle";
+  grid-template-areas:"brand links langflag flags whatsapp toggle";
   align-items:center;
   column-gap:24px;
-  height:92px;
+  height:88px;
   padding:0 40px;
   max-width:1400px;
   margin:0 auto;
@@ -127,7 +128,8 @@ header{
 .nav-links{grid-area:links; justify-self:center; display:flex; flex-wrap:nowrap; gap:24px; font-size:0.74rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;}
 .nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px; white-space:nowrap; flex-shrink:0;}
 .nav-links a:hover, .nav-links a.active{color:var(--cream);}
-.nav-links a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
+.nav-links a::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s ease; transform-origin:center;}
+.nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
 
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
 
@@ -143,7 +145,8 @@ header{
   white-space:nowrap;
 }
 .nav-dropdown-toggle:hover, .nav-dropdown.open .nav-dropdown-toggle{color:var(--cream);}
-.nav-dropdown-toggle.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
+.nav-dropdown-toggle::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s ease; transform-origin:center;}
+.nav-dropdown-toggle:hover::after, .nav-dropdown-toggle.active::after, .nav-dropdown.open .nav-dropdown-toggle::after{transform:scaleX(1);}
 .nav-chevron{width:9px; height:9px; flex-shrink:0; transition:transform .15s ease;}
 .nav-dropdown.open .nav-chevron{transform:rotate(180deg);}
 .nav-dropdown-menu{
@@ -169,14 +172,21 @@ header{
 }
 .nav-dropdown-menu a:hover{background:var(--bg-2);}
 
-/* Desktop-only language flags + CTA, sitting next to the (mobile-only)
-   lang-dropdown/toggle. Hidden below 1024px so mobile keeps its existing
-   text-code dropdown untouched. */
+/* Desktop-only language flags + WhatsApp icon, sitting next to the
+   (mobile-only) lang-dropdown/toggle. Hidden below 1024px so mobile keeps
+   its existing text-code dropdown untouched. */
 .nav-flags{grid-area:flags; display:none; align-items:center; gap:8px;}
 .nav-flag{font-size:1.15rem; line-height:1; opacity:0.45; transition:opacity .2s ease, transform .2s ease; filter:grayscale(40%);}
 .nav-flag:hover{opacity:0.8;}
 .nav-flag.active{opacity:1; filter:none; transform:scale(1.08);}
-.nav-cta{grid-area:cta; display:none; white-space:nowrap; padding:11px 24px; font-size:0.68rem; border-radius:999px;}
+.nav-whatsapp{
+  grid-area:whatsapp; display:none; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:50%; flex-shrink:0;
+  background:var(--gold); color:#FFFFFF;
+  transition:filter .2s ease, transform .2s ease;
+}
+.nav-whatsapp:hover{filter:brightness(0.85); transform:translateY(-1px);}
+.nav-whatsapp svg{width:18px; height:18px;}
 
 /* Language switcher: a compact dropdown, same markup/size at every width
    regardless of how many languages exist — replaces the old single-icon
@@ -244,7 +254,7 @@ header{
 
 @media (max-width:1023px){
   .nav{
-    height:92px;
+    height:88px;
     padding:0 16px 0 12px;
     column-gap:16px;
   }
@@ -258,25 +268,30 @@ header{
 /* ============ DESKTOP HEADER (1024px+) ============ */
 @media (min-width:1024px){
   .nav-flags{display:flex;}
-  .nav-cta{display:inline-block;}
+  .nav-whatsapp{display:inline-flex;}
   .lang-dropdown{display:none;}
+  /* True centering on the whole header, independent of how wide the logo
+     is versus the flags+WhatsApp icon on the right — grid's own
+     justify-self:center only centers within the leftover space between
+     them, which drifts off-center once those two widths differ. */
+  .nav-links{grid-area:auto; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); max-width:calc(100% - 340px);}
 }
-/* Laptop widths: progressively tighten spacing so all 9-10 items + flags +
-   CTA share one row without wrapping — tightest right at 1024px, easing off
-   toward the 1367px+ full-size layout. */
+/* Laptop widths: progressively tighten spacing so all 10 items + flags +
+   WhatsApp icon share one row without wrapping — tightest right at
+   1024px, easing off toward the 1367px+ full-size layout. */
 @media (min-width:1024px) and (max-width:1366px){
   .nav{padding:0 20px; column-gap:10px;}
   .nav-links{gap:11px; font-size:0.62rem; letter-spacing:0.02em;}
   .nav-dropdown-toggle{gap:3px;}
   .nav-flags{gap:5px;}
   .nav-flag{font-size:1rem;}
-  .nav-cta{padding:9px 14px; font-size:0.58rem; letter-spacing:0.06em;}
+  .nav-whatsapp{width:32px; height:32px;}
+  .nav-whatsapp svg{width:16px; height:16px;}
 }
 @media (min-width:1200px) and (max-width:1366px){
   .nav{padding:0 24px; column-gap:14px;}
   .nav-links{gap:15px; font-size:0.66rem; letter-spacing:0.04em;}
   .nav-flags{gap:6px;}
-  .nav-cta{padding:10px 18px; font-size:0.62rem; letter-spacing:0.08em;}
 }
 
 /* ============ HERO ============ */

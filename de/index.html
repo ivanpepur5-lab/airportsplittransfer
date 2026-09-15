@@ -129,12 +129,13 @@ header{
   box-shadow:0 2px 12px rgba(0,0,0,0.06);
 }
 .nav{
+  position:relative;
   display:grid;
   grid-template-columns:max-content 1fr auto auto auto auto;
-  grid-template-areas:"brand links langflag flags cta toggle";
+  grid-template-areas:"brand links langflag flags whatsapp toggle";
   align-items:center;
   column-gap:24px;
-  height:92px;
+  height:88px;
   padding:0 40px;
   max-width:1400px;
   margin:0 auto;
@@ -144,12 +145,14 @@ header{
 .nav-links{grid-area:links; justify-self:center; display:flex; flex-wrap:nowrap; gap:24px; font-size:0.74rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;}
 .nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px; white-space:nowrap; flex-shrink:0;}
 .nav-links a:hover, .nav-links a.active{color:var(--cream);}
-.nav-links a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
+.nav-links a::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s ease; transform-origin:center;}
+.nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
 .nav-dropdown{position:relative; display:flex; align-items:center; flex-shrink:0;}
 .nav-dropdown-toggle{display:inline-flex; align-items:center; gap:5px; background:none; border:none; padding:0; margin:0; font:inherit; color:var(--gray); cursor:pointer; position:relative; padding-bottom:3px; transition:color .2s ease; white-space:nowrap;}
 .nav-dropdown-toggle:hover, .nav-dropdown.open .nav-dropdown-toggle{color:var(--cream);}
-.nav-dropdown-toggle.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
+.nav-dropdown-toggle::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s ease; transform-origin:center;}
+.nav-dropdown-toggle:hover::after, .nav-dropdown-toggle.active::after, .nav-dropdown.open .nav-dropdown-toggle::after{transform:scaleX(1);}
 .nav-chevron{width:9px; height:9px; flex-shrink:0; transition:transform .15s ease;}
 .nav-dropdown.open .nav-chevron{transform:rotate(180deg);}
 .nav-dropdown-menu{display:none; position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%); min-width:150px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 40px rgba(7,38,76,0.16); padding:6px; z-index:50; text-align:left;}
@@ -160,7 +163,9 @@ header{
 .nav-flag{font-size:1.15rem; line-height:1; opacity:0.45; transition:opacity .2s ease, transform .2s ease; filter:grayscale(40%);}
 .nav-flag:hover{opacity:0.8;}
 .nav-flag.active{opacity:1; filter:none; transform:scale(1.08);}
-.nav-cta{grid-area:cta; display:none; white-space:nowrap; padding:11px 24px; font-size:0.68rem; border-radius:999px;}
+.nav-whatsapp{grid-area:whatsapp; display:none; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; flex-shrink:0; background:var(--gold); color:#FFFFFF; transition:filter .2s ease, transform .2s ease;}
+.nav-whatsapp:hover{filter:brightness(0.85); transform:translateY(-1px);}
+.nav-whatsapp svg{width:18px; height:18px;}
 .lang-flag{display:none;}
 .lang-dropdown{grid-area:langflag; position:relative;}
 .lang-dropdown-btn{display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 14px; border-radius:999px; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; border:1px solid #D7DEE8; color:var(--navy); background:transparent; cursor:pointer; transition:border-color .2s ease;}
@@ -187,7 +192,7 @@ header{
 .mobile-close{position:absolute; top:26px; right:32px; background:none; border:none; color:var(--cream); font-size:1.6rem; cursor:pointer;}
 @media (max-width:1023px){
   .nav{
-    height:92px;
+    height:88px;
     padding:0 16px 0 12px;
     column-gap:16px;
   }
@@ -199,8 +204,9 @@ header{
 }
 @media (min-width:1024px){
   .nav-flags{display:flex;}
-  .nav-cta{display:inline-block;}
+  .nav-whatsapp{display:inline-flex;}
   .lang-dropdown{display:none;}
+  .nav-links{grid-area:auto; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); max-width:calc(100% - 340px);}
 }
 @media (min-width:1024px) and (max-width:1366px){
   .nav{padding:0 20px; column-gap:10px;}
@@ -208,13 +214,13 @@ header{
   .nav-dropdown-toggle{gap:3px;}
   .nav-flags{gap:5px;}
   .nav-flag{font-size:1rem;}
-  .nav-cta{padding:9px 14px; font-size:0.58rem; letter-spacing:0.06em;}
+  .nav-whatsapp{width:32px; height:32px;}
+  .nav-whatsapp svg{width:16px; height:16px;}
 }
 @media (min-width:1200px) and (max-width:1366px){
   .nav{padding:0 24px; column-gap:14px;}
   .nav-links{gap:15px; font-size:0.66rem; letter-spacing:0.04em;}
   .nav-flags{gap:6px;}
-  .nav-cta{padding:10px 18px; font-size:0.62rem; letter-spacing:0.08em;}
 }
 .hero{
   position:relative;
@@ -374,7 +380,7 @@ header{
       <a href="index.html" class="nav-flag active" aria-label="Deutsch" title="Deutsch">&#127465;&#127466;</a>
       <a href="../sv/index.html" class="nav-flag" aria-label="Svenska" title="Svenska">&#127480;&#127466;</a>
     </div>
-    <a href="index.html#booking" class="btn btn-gold nav-cta">Jetzt Buchen</a>
+    <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="nav-whatsapp" aria-label="WhatsApp" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg></a>
     <div class="lang-dropdown">
       <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
         <span>DE</span>
