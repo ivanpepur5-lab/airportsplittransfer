@@ -130,22 +130,37 @@ header{
 }
 .nav{
   display:grid;
-  grid-template-columns:max-content 1fr auto auto;
-  grid-template-areas:"brand links langflag toggle";
+  grid-template-columns:max-content 1fr auto auto auto auto;
+  grid-template-areas:"brand links langflag flags cta toggle";
   align-items:center;
   column-gap:24px;
   height:92px;
   padding:0 40px;
-  max-width:1280px;
+  max-width:1400px;
   margin:0 auto;
 }
 .brand{grid-area:brand; display:flex; align-items:center; gap:12px;}
 .brand-logo{width:auto; height:48px; object-fit:contain; flex-shrink:0;}
-.nav-links{grid-area:links; justify-self:center; display:flex; gap:30px; font-size:0.76rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase;}
-.nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px;}
+.nav-links{grid-area:links; justify-self:center; display:flex; flex-wrap:nowrap; gap:24px; font-size:0.74rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;}
+.nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px; white-space:nowrap; flex-shrink:0;}
 .nav-links a:hover, .nav-links a.active{color:var(--cream);}
 .nav-links a.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
+.nav-dropdown{position:relative; display:flex; align-items:center; flex-shrink:0;}
+.nav-dropdown-toggle{display:inline-flex; align-items:center; gap:5px; background:none; border:none; padding:0; margin:0; font:inherit; color:var(--gray); cursor:pointer; position:relative; padding-bottom:3px; transition:color .2s ease; white-space:nowrap;}
+.nav-dropdown-toggle:hover, .nav-dropdown.open .nav-dropdown-toggle{color:var(--cream);}
+.nav-dropdown-toggle.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--gold);}
+.nav-chevron{width:9px; height:9px; flex-shrink:0; transition:transform .15s ease;}
+.nav-dropdown.open .nav-chevron{transform:rotate(180deg);}
+.nav-dropdown-menu{display:none; position:absolute; top:calc(100% + 16px); left:50%; transform:translateX(-50%); min-width:150px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 40px rgba(7,38,76,0.16); padding:6px; z-index:50; text-align:left;}
+.nav-dropdown.open .nav-dropdown-menu, .nav-dropdown:hover .nav-dropdown-menu, .nav-dropdown:focus-within .nav-dropdown-menu{display:block;}
+.nav-dropdown-menu a{display:block; padding:10px 12px; border-radius:9px; font-size:0.85rem; font-weight:500; letter-spacing:normal; text-transform:none; color:var(--navy); text-decoration:none;}
+.nav-dropdown-menu a:hover{background:var(--bg-2);}
+.nav-flags{grid-area:flags; display:none; align-items:center; gap:8px;}
+.nav-flag{font-size:1.15rem; line-height:1; opacity:0.45; transition:opacity .2s ease, transform .2s ease; filter:grayscale(40%);}
+.nav-flag:hover{opacity:0.8;}
+.nav-flag.active{opacity:1; filter:none; transform:scale(1.08);}
+.nav-cta{grid-area:cta; display:none; white-space:nowrap; padding:11px 24px; font-size:0.68rem; border-radius:999px;}
 .lang-flag{display:none;}
 .lang-dropdown{grid-area:langflag; position:relative;}
 .lang-dropdown-btn{display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 14px; border-radius:999px; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; border:1px solid #D7DEE8; color:var(--navy); background:transparent; cursor:pointer; transition:border-color .2s ease;}
@@ -170,10 +185,8 @@ header{
 .mobile-nav.open{display:flex;}
 .mobile-nav a{font-family:'Poppins',sans-serif; font-size:1.6rem; color:#fff;}
 .mobile-close{position:absolute; top:26px; right:32px; background:none; border:none; color:var(--cream); font-size:1.6rem; cursor:pointer;}
-@media (max-width:1240px){
+@media (max-width:1023px){
   .nav{
-    grid-template-columns:max-content 1fr auto auto;
-    grid-template-areas:"brand links langflag toggle";
     height:92px;
     padding:0 16px 0 12px;
     column-gap:16px;
@@ -183,6 +196,25 @@ header{
     height:64px; width:auto; object-fit:contain;
   }
   .nav-toggle{display:block; font-size:2rem;}
+}
+@media (min-width:1024px){
+  .nav-flags{display:flex;}
+  .nav-cta{display:inline-block;}
+  .lang-dropdown{display:none;}
+}
+@media (min-width:1024px) and (max-width:1366px){
+  .nav{padding:0 20px; column-gap:10px;}
+  .nav-links{gap:11px; font-size:0.62rem; letter-spacing:0.02em;}
+  .nav-dropdown-toggle{gap:3px;}
+  .nav-flags{gap:5px;}
+  .nav-flag{font-size:1rem;}
+  .nav-cta{padding:9px 14px; font-size:0.58rem; letter-spacing:0.06em;}
+}
+@media (min-width:1200px) and (max-width:1366px){
+  .nav{padding:0 24px; column-gap:14px;}
+  .nav-links{gap:15px; font-size:0.66rem; letter-spacing:0.04em;}
+  .nav-flags{gap:6px;}
+  .nav-cta{padding:10px 18px; font-size:0.62rem; letter-spacing:0.08em;}
 }
 .hero{
   position:relative;
@@ -275,7 +307,7 @@ header{
 .hero-trust-stars{color:#fff; font-weight:600; font-size:0.95rem; letter-spacing:0.02em; margin-left:4px;}
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
-@media (max-width:1240px){
+@media (max-width:1023px){
   body.page-home .nav{padding:0 16px 0 20px; height:80px;}
   body.page-home .brand-logo{height:44px; width:auto; object-fit:contain;}
   body.page-home .nav-toggle{color:var(--navy);}
@@ -329,15 +361,21 @@ header{
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="index.html#booking">Booking</a>
-      <a href="destinations.html">Routes</a>
-      <a href="hotel-transfers.html">Hotel Transfers</a>
+      <div class="nav-dropdown"><button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Airport Transfers<svg class="nav-chevron" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="nav-dropdown-menu"><a href="destinations.html">All Routes</a></div></div>
+      <a href="hotel-transfers.html">Hotels</a>
       <a href="day-trips.html">Day Trips</a>
       <a href="fleet.html">Vehicles</a>
       <a href="services.html">Services</a>
       <a href="blog/index.html">Blog</a>
-      <a href="about.html">About Us</a>
+      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
+    <div class="nav-flags">
+      <a href="index.html" class="nav-flag active" aria-label="English" title="English">&#127468;&#127463;</a>
+      <a href="de/index.html" class="nav-flag" aria-label="Deutsch" title="Deutsch">&#127465;&#127466;</a>
+      <a href="sv/index.html" class="nav-flag" aria-label="Svenska" title="Svenska">&#127480;&#127466;</a>
+    </div>
+    <a href="index.html#booking" class="btn btn-gold nav-cta">Book Now</a>
     <div class="lang-dropdown">
       <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
         <span>EN</span>

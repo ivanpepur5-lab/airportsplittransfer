@@ -18,9 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
   }
 
-  // Language dropdown
-  document.querySelectorAll(".lang-dropdown").forEach((wrap) => {
-    const btn = wrap.querySelector(".lang-dropdown-btn");
+  // Dropdowns: language switcher (mobile) + "Airport Transfers" nav menu (desktop).
+  // Both follow the same click-to-toggle / outside-click / Escape pattern.
+  const DROPDOWN_SELECTOR = ".lang-dropdown, .nav-dropdown";
+  const DROPDOWN_TOGGLE_SELECTOR = ".lang-dropdown-btn, .nav-dropdown-toggle";
+  document.querySelectorAll(DROPDOWN_SELECTOR).forEach((wrap) => {
+    const btn = wrap.querySelector(DROPDOWN_TOGGLE_SELECTOR);
     if (!btn) return;
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -29,18 +32,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   document.addEventListener("click", (e) => {
-    document.querySelectorAll(".lang-dropdown.open").forEach((wrap) => {
+    document.querySelectorAll(DROPDOWN_SELECTOR + ".open").forEach((wrap) => {
       if (!wrap.contains(e.target)) {
         wrap.classList.remove("open");
-        wrap.querySelector(".lang-dropdown-btn").setAttribute("aria-expanded", "false");
+        const btn = wrap.querySelector(DROPDOWN_TOGGLE_SELECTOR);
+        if (btn) btn.setAttribute("aria-expanded", "false");
       }
     });
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      document.querySelectorAll(".lang-dropdown.open").forEach((wrap) => {
+      document.querySelectorAll(DROPDOWN_SELECTOR + ".open").forEach((wrap) => {
         wrap.classList.remove("open");
-        wrap.querySelector(".lang-dropdown-btn").setAttribute("aria-expanded", "false");
+        const btn = wrap.querySelector(DROPDOWN_TOGGLE_SELECTOR);
+        if (btn) btn.setAttribute("aria-expanded", "false");
       });
     }
   });
