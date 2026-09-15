@@ -18,10 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
     mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mobileNav.classList.remove("open")));
   }
 
-  // Dropdowns: language switcher (mobile) + "Airport Transfers" nav menu (desktop).
-  // Both follow the same click-to-toggle / outside-click / Escape pattern.
-  const DROPDOWN_SELECTOR = ".lang-dropdown, .nav-dropdown";
-  const DROPDOWN_TOGGLE_SELECTOR = ".lang-dropdown-btn, .nav-dropdown-toggle";
+  // Language switcher dropdown (mobile): click-to-toggle / outside-click / Escape.
+  const DROPDOWN_SELECTOR = ".lang-dropdown";
+  const DROPDOWN_TOGGLE_SELECTOR = ".lang-dropdown-btn";
   document.querySelectorAll(DROPDOWN_SELECTOR).forEach((wrap) => {
     const btn = wrap.querySelector(DROPDOWN_TOGGLE_SELECTOR);
     if (!btn) return;
