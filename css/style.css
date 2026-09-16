@@ -205,7 +205,7 @@ header{
   z-index:300;
   padding:60px 40px 40px;
   flex-direction:column;
-  gap:28px;
+  gap:18px;
 }
 .mobile-nav.open{display:flex;}
 .mobile-nav a{font-family:'Poppins',sans-serif; font-weight:500; font-size:1.6rem; letter-spacing:-0.01em; color:#fff;}
