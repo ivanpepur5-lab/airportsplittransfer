@@ -1,0 +1,184 @@
+  <h2 class="sr-only">Book Your Transfer</h2>
+  <div class="wrap booking-wrap">
+    <div class="booking-layout">
+      <div class="booking-form-box">
+
+        <form id="booking-form" name="booking" method="POST" data-netlify="true" netlify onsubmit="return submitBooking(event)">
+          <input type="hidden" name="form-name" value="booking">
+          <input type="hidden" name="trip_type" id="b-trip-type" value="oneway">
+          <input type="hidden" name="vehicle" id="b-vehicle" value="skoda">
+          <input type="hidden" name="distance_km" id="b-distance-km" value="">
+          <input type="hidden" name="calculated_price" id="b-calculated-price" value="">
+
+          <!-- Trip summary (shown once route/date/time arrive via link from another page) -->
+          <div class="trip-summary-view" id="trip-summary-view" style="display:none;">
+            <div class="trip-summary-head">
+              <h3>Your Trip</h3>
+              <button type="button" class="trip-edit-link" onclick="showTripEdit()">Edit</button>
+            </div>
+            <div class="trip-summary-grid">
+              <div><span>Route</span><b id="ts-route">Split Airport &rarr; Split</b></div>
+              <div><span>Trip type</span><b id="ts-trip">One way</b></div>
+              <div><span>Outbound</span><b id="ts-outbound">&mdash;</b></div>
+              <div class="ts-return-row" id="ts-return-row" style="display:none;"><span>Return</span><b id="ts-return">&mdash;</b></div>
+              <div><span>Passengers</span><b id="ts-pax">1</b></div>
+            </div>
+          </div>
+
+          <!-- Trip edit (route/date/time/passengers) -->
+          <div id="trip-edit-view">
+            <div class="toggle-group">
+              <button type="button" class="toggle-opt active" id="trip-oneway" onclick="setTripType('oneway')">One Way</button>
+              <button type="button" class="toggle-opt" id="trip-return" onclick="setTripType('return')">Return <span class="toggle-badge" tabindex="0">-5%<span class="toggle-tooltip">5% off the total price</span></span></button>
+            </div>
+            <fieldset>
+              <legend>Route</legend>
+              <div class="route-fields">
+                <div class="field">
+                  <label for="b-pickup">Pickup</label>
+                  <input type="text" id="b-pickup" name="pickup" placeholder="Split Airport, hotel, address, marina..." autocomplete="off" required>
+                  <input type="hidden" id="b-pickup-lat" name="pickup_lat">
+                  <input type="hidden" id="b-pickup-lng" name="pickup_lng">
+                </div>
+                <button type="button" class="swap-btn" id="swap-btn" onclick="swapAddresses()" aria-label="Swap pickup and dropoff">&#8646;</button>
+                <div class="field">
+                  <label for="b-dropoff">Dropoff</label>
+                  <input type="text" id="b-dropoff" name="dropoff" placeholder="Hotel, address, marina, city..." autocomplete="off" required>
+                  <input type="hidden" id="b-dropoff-lat" name="dropoff_lat">
+                  <input type="hidden" id="b-dropoff-lng" name="dropoff_lng">
+                </div>
+              </div>
+              <p class="field-error" id="address-error" style="display:none;">Pickup and dropoff can't be the same address.</p>
+            </fieldset>
+            <fieldset>
+              <legend id="trip-details-legend">Trip Details</legend>
+              <div class="form-row">
+                <div class="field"><label for="b-date" id="b-date-label">Date</label><input type="date" id="b-date" name="date" required></div>
+                <div class="field"><label for="b-time" id="b-time-label">Time</label><input type="time" id="b-time" name="time" required></div>
+              </div>
+              <div class="form-row" id="return-fields-row" style="display:none;">
+                <div class="field"><label for="b-return-date">Return Date</label><input type="date" id="b-return-date" name="return_date"></div>
+                <div class="field"><label for="b-return-time">Return Time</label><input type="time" id="b-return-time" name="return_time"></div>
+              </div>
+              <div class="field">
+                <label for="b-pax">Passengers</label>
+                <select id="b-pax" name="passengers" onchange="onPaxChange()">
+                  <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                  <option value="7">7</option><option value="8">8</option>
+                </select>
+              </div>
+            </fieldset>
+          </div>
+
+          <fieldset>
+            <legend>Vehicle</legend>
+            <div class="vehicle-picker" id="vehicle-picker">
+              <div class="vehicle-opt active" id="vopt-skoda" onclick="selectVehicle('skoda')">
+          <b>Sedan</b>
+          <span>Škoda Superb or similar</span>
+          <span class="vopt-pax">Up to 4 pax</span>
+        </div>
+        <div class="vehicle-opt" id="vopt-vclass" onclick="selectVehicle('vclass')">
+          <b>Business Van</b>
+          <span>Mercedes-Benz V-Class</span>
+          <span class="vopt-pax">Up to 7 pax</span>
+        </div>
+        <div class="vehicle-opt" id="vopt-trafic" onclick="selectVehicle('trafic')">
+          <b>Van</b>
+          <span>Renault Trafic or similar</span>
+          <span class="vopt-pax">Up to 8 pax</span>
+        </div>
+        
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Trip Extras</legend>
+            <div class="form-row">
+              <div class="field"><label for="b-suitcases">Suitcases</label>
+                <select id="b-suitcases" name="suitcases">
+                  <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                  <option value="7">7</option><option value="8">8</option>
+                </select>
+              </div>
+              <div class="field"><label for="b-flight">Flight Number (optional)</label><input type="text" id="b-flight" name="flight_number" placeholder="e.g. OU491"></div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Your Details</legend>
+            <div class="form-row">
+              <div class="field"><label for="b-name">Full Name</label><input type="text" id="b-name" name="full_name" required></div>
+              <div class="field"><label for="b-email">Email</label><input type="email" id="b-email" name="email" required></div>
+            </div>
+            <div class="field" style="margin-bottom:16px;"><label for="b-phone">Phone</label><input type="tel" id="b-phone" name="phone" required></div>
+            <div class="field" style="margin-bottom:0;"><label for="b-notes">Notes (optional)</label><textarea id="b-notes" name="notes" placeholder="Child seats, exact pickup address, special requests..."></textarea></div>
+          </fieldset>
+
+          <div class="live-price-bar" id="live-price-bar">
+            <div id="live-price-empty">
+              <span class="live-price-hint">Enter your pickup and dropoff to see your fixed price.</span>
+            </div>
+            <div id="live-price-loading" style="display:none;">
+              <span class="live-price-hint"><span class="mini-spinner" aria-hidden="true"></span> Calculating your price&hellip;</span>
+            </div>
+            <div id="live-price-priced" style="display:none;">
+              <span class="live-price-label">Total <span id="live-price-trip">one way</span></span>
+              <span class="live-price-value" id="live-price-total">&euro;0</span>
+            </div>
+            <div id="live-price-unpriced" style="display:none;">
+              <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-navy btn-block">Book Now</button>
+        </form>
+        <div class="booking-success" id="booking-confirm">
+          <div class="success-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Booking request sent</h3>
+          <p class="success-text">Thank you! We've received your transfer request. Your driver's confirmation will be sent to your email shortly before pickup.</p>
+          <div class="success-ref" id="success-ref" style="display:none;">
+            <span>Booking reference</span>
+            <b id="success-ref-value">&mdash;</b>
+          </div>
+          <div class="success-divider"></div>
+          <div class="success-summary">
+            <div class="summary-line"><span>Route</span><span id="succ-route">&mdash;</span></div>
+            <div class="summary-line"><span>Trip type</span><span id="succ-trip">&mdash;</span></div>
+            <div class="summary-line"><span>Vehicle</span><span id="succ-vehicle">&mdash;</span></div>
+            <div class="summary-line"><span>Passengers</span><span id="succ-pax">&mdash;</span></div>
+            <div class="summary-total"><span>Total</span><b id="succ-total">&euro;0</b></div>
+          </div>
+          <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-gold btn-block" style="display:flex; align-items:center; justify-content:center; gap:8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg>
+            Chat on WhatsApp
+          </a>
+          <p class="success-footnote">Need to change anything? <a href="https://wa.me/385917856056" target="_blank" rel="noopener">Contact us anytime.</a></p>
+        </div>
+      </div>
+
+      <div class="summary-box" id="summary-box">
+        <h3>Price Summary</h3>
+        <div id="summary-empty">
+          <p class="custom-quote-msg" style="padding:0;">Enter a pickup and dropoff address to see your fixed price and trip details here.</p>
+        </div>
+        <div id="summary-priced" style="display:none;">
+          <div class="summary-line"><span>Route</span><span id="sum-route">Split Airport &rarr; Split</span></div>
+          <div class="summary-line"><span>Trip type</span><span id="sum-trip">One way</span></div>
+          <div class="summary-line"><span>Vehicle</span><span id="sum-vehicle">Sedan &mdash; &Scaron;koda Superb</span></div>
+          <div class="summary-line"><span>Passengers</span><span id="sum-pax">1</span></div>
+          <div class="summary-total"><span>Total</span><b id="sum-total">&euro;45</b></div>
+          <p class="summary-note" id="sum-note">Fixed price, all-inclusive. No hidden fees, no taximeter.</p>
+        </div>
+        <div id="summary-unpriced" style="display:none;">
+          <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
+        </div>
+        <a href="https://wa.me/385917856056" target="_blank" rel="noopener" id="wa-btn" class="btn btn-outline btn-block" style="margin-top:16px; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
