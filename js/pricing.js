@@ -1,8 +1,10 @@
 /* ==========================================================================
    AirportSplitTransfer.com — Pricing Engine
-   Progressive (tiered) per-kilometre pricing — replaces the old fixed
-   11-zone lookup table. Works for ANY address Google Maps can resolve a
-   driving distance for, not just a hardcoded destination list.
+   Distance-bracket flat-rate pricing: the total trip distance picks ONE
+   per-km rate (from the bracket it falls into) and that single rate is
+   charged for the whole distance — not a progressive/tiered sum across
+   brackets. Works for ANY address Google Maps can resolve a driving
+   distance for, not just a hardcoded destination list.
    ========================================================================== */
 
 const VEHICLES = {
@@ -19,9 +21,8 @@ const VEHICLES = {
     tiers: [
       { upToKm: 20, ratePerKm: 2.20 },
       { upToKm: 50, ratePerKm: 1.80 },
-      { upToKm: 100, ratePerKm: 1.45 },
-      { upToKm: 200, ratePerKm: 1.28 },
-      { upToKm: Infinity, ratePerKm: 1.32 }
+      { upToKm: 100, ratePerKm: 1.60 },
+      { upToKm: Infinity, ratePerKm: 1.50 }
     ]
   },
   vclass: {
@@ -37,9 +38,8 @@ const VEHICLES = {
     tiers: [
       { upToKm: 20, ratePerKm: 3.20 },
       { upToKm: 50, ratePerKm: 2.60 },
-      { upToKm: 100, ratePerKm: 1.95 },
-      { upToKm: 200, ratePerKm: 1.55 },
-      { upToKm: Infinity, ratePerKm: 1.56 }
+      { upToKm: 100, ratePerKm: 1.90 },
+      { upToKm: Infinity, ratePerKm: 1.80 }
     ]
   },
   trafic: {
@@ -56,9 +56,8 @@ const VEHICLES = {
     tiers: [
       { upToKm: 20, ratePerKm: 3.20 },
       { upToKm: 50, ratePerKm: 2.60 },
-      { upToKm: 100, ratePerKm: 1.95 },
-      { upToKm: 200, ratePerKm: 1.55 },
-      { upToKm: Infinity, ratePerKm: 1.56 }
+      { upToKm: 100, ratePerKm: 1.90 },
+      { upToKm: Infinity, ratePerKm: 1.80 }
     ]
   }
 };
@@ -86,43 +85,22 @@ const DESTINATION_NAMES = {
 };
 
 /**
- * Progressive (tiered) price calculation — each distance bracket is billed
- * at its own rate, not the whole trip at one flat rate.
+ * Distance-bracket flat-rate price calculation — the bracket the TOTAL
+ * distance falls into sets a single per-km rate, charged for the entire
+ * distance from km 0. Not progressive: the trip is never split across
+ * brackets.
  *
- * Example (Škoda, 65 km):
- *   first  20 km @ 2.00 =  40
- *   next   30 km @ 1.75 =  52.5
- *   next   15 km @ 1.55 =  23.25
- *   total               = 115.75  → rounded to nearest €5 = 115
+ * Example (Škoda, 105 km — falls in the 100+ bracket):
+ *   105 km @ 1.50/km = 157.50 → rounded to nearest €5 = 160
  *
- * The last tier's upToKm is Infinity, so any distance past 200 km is simply
- * billed at that final open-ended rate — there's no unhandled distance.
+ * The last tier's upToKm is Infinity, so any distance is always matched by
+ * some bracket — there's no unhandled distance.
  */
 function calculateTieredPrice(distanceKm, tiers) {
   if (!distanceKm || distanceKm <= 0) return 0;
 
-  let remaining = distanceKm;
-  let previousCap = 0;
-  let total = 0;
-
-  for (const tier of tiers) {
-    const bracketSize = tier.upToKm - previousCap;
-    const kmInThisBracket = Math.min(remaining, bracketSize);
-    if (kmInThisBracket <= 0) break;
-
-    total += kmInThisBracket * tier.ratePerKm;
-    remaining -= kmInThisBracket;
-    previousCap = tier.upToKm;
-
-    if (remaining <= 0) break;
-  }
-
-  if (remaining > 0) {
-    const lastRate = tiers[tiers.length - 1].ratePerKm;
-    total += remaining * lastRate;
-  }
-
-  return total;
+  const bracket = tiers.find(tier => distanceKm <= tier.upToKm) || tiers[tiers.length - 1];
+  return distanceKm * bracket.ratePerKm;
 }
 
 function roundToNearest5(amount) {
