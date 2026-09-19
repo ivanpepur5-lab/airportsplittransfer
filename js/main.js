@@ -4,6 +4,15 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Sticky header glass — only once scrolled past the hero, so the header
+  // stays a plain flat white (cheapest paint) on first load everywhere.
+  const header = document.querySelector("header");
+  if (header) {
+    const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   // Mobile nav
   const navToggle = document.querySelector(".nav-toggle");
   const mobileNav = document.querySelector(".mobile-nav");
@@ -67,83 +76,120 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // FAQ schema-safe accordions are static (no JS needed — content always visible for SEO)
 
-  // Mobile swipe carousels (Reviews, Journal) — native scroll-snap for touch,
-  // this just adds autoplay + synced dot pagination. Desktop keeps the
-  // original static grid untouched (autoplay only runs under the mobile
-  // media query, and dots are hidden above it).
-  function initCarousel(trackSelector, itemSelector, dotsId, autoplayMs) {
-    const track = document.querySelector(trackSelector);
-    if (!track) return;
-    const items = track.querySelectorAll(itemSelector);
+  // Swipe carousels (Reviews, Journal) — Embla Carousel (js/vendor/embla-
+  // carousel.umd.js) drives real drag/swipe momentum under the mobile
+  // breakpoint. Desktop keeps the original static grid completely
+  // untouched: the slides are wrapped in a .embla-container at runtime, but
+  // that wrapper is `display:contents` above 640px (see css/style.css),
+  // so the cards stay direct grid children there — Embla is simply never
+  // initialized at that width.
+  const ICON_CHEVRON_LEFT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>';
+  const ICON_CHEVRON_RIGHT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>';
+
+  function initCarousel(viewportSelector, itemSelector, dotsId, autoplayMs) {
+    const viewport = document.querySelector(viewportSelector);
+    if (!viewport) return;
+    const items = Array.from(viewport.querySelectorAll(itemSelector));
     if (items.length < 2) return;
-    const dotsWrap = document.getElementById(dotsId);
+    const navWrap = document.getElementById(dotsId);
     const mq = window.matchMedia("(max-width:640px)");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let embla = null;
     let dots = [];
-    let activeIndex = 0;
     let timer = null;
+    let isVisible = false;
+    let prepared = false;
+
+    // Wrap the existing cards in an Embla container without touching any
+    // HTML file — display:contents (desktop) makes this wrapper invisible
+    // to the grid layout, so it's safe to insert. Deferred until the
+    // carousel is actually approaching the viewport (see the "approach"
+    // observer below) so this DOM work never competes with the initial
+    // page load on pages that have it — including desktop, which never
+    // calls this at all since Embla never runs there.
+    function prepare() {
+      if (prepared) return;
+      prepared = true;
+      const container = document.createElement("div");
+      container.className = "embla-container";
+      items.forEach(item => { item.classList.add("embla-slide"); container.appendChild(item); });
+      viewport.appendChild(container);
+      viewport.classList.add("embla-viewport");
+
+      if (typeof EmblaCarousel === "undefined") {
+        // Vendor script failed to load — fall back to plain native scroll-
+        // snap so the cards are still swipeable, just without dots/autoplay.
+        viewport.classList.add("embla-fallback");
+        if (navWrap) navWrap.style.display = "none";
+      }
+    }
 
     function updateDots() {
-      dots.forEach((d, i) => d.classList.toggle("active", i === activeIndex));
+      if (!embla) return;
+      const selected = embla.selectedScrollSnap();
+      dots.forEach((d, i) => d.classList.toggle("active", i === selected));
     }
 
-    function scrollToIndex(i) {
-      activeIndex = (i + items.length) % items.length;
-      const item = items[activeIndex];
-      // Scroll only the carousel's own scrollLeft — never scrollIntoView(),
-      // which walks up to the document and yanks the whole page's vertical
-      // scroll position toward this section even when it's off-screen.
-      const target = item.offsetLeft - (track.clientWidth - item.clientWidth) / 2;
-      track.scrollTo({ left: target, behavior: "smooth" });
-      updateDots();
-    }
+    function buildNav() {
+      if (!navWrap) return;
+      navWrap.classList.remove("carousel-dots");
+      navWrap.classList.add("carousel-nav");
+      navWrap.innerHTML = "";
 
-    function buildDots() {
-      if (!dotsWrap) return;
-      dotsWrap.innerHTML = "";
-      dots = Array.from(items).map((_, i) => {
+      const prevBtn = document.createElement("button");
+      prevBtn.type = "button";
+      prevBtn.className = "carousel-arrow";
+      prevBtn.setAttribute("aria-label", "Previous slide");
+      prevBtn.innerHTML = ICON_CHEVRON_LEFT;
+      prevBtn.addEventListener("click", () => { stopAutoplay(); embla && embla.scrollPrev(); });
+
+      const dotsInner = document.createElement("div");
+      dotsInner.className = "carousel-dots";
+      dots = items.map((_, i) => {
         const b = document.createElement("button");
         b.type = "button";
         b.setAttribute("aria-label", "Go to slide " + (i + 1));
-        b.addEventListener("click", () => { stopAutoplay(); scrollToIndex(i); });
-        dotsWrap.appendChild(b);
+        b.addEventListener("click", () => { stopAutoplay(); embla && embla.scrollTo(i); });
+        dotsInner.appendChild(b);
         return b;
       });
-      updateDots();
+
+      const nextBtn = document.createElement("button");
+      nextBtn.type = "button";
+      nextBtn.className = "carousel-arrow";
+      nextBtn.setAttribute("aria-label", "Next slide");
+      nextBtn.innerHTML = ICON_CHEVRON_RIGHT;
+      nextBtn.addEventListener("click", () => { stopAutoplay(); embla && embla.scrollNext(); });
+
+      navWrap.append(prevBtn, dotsInner, nextBtn);
     }
-
-    function syncActiveFromScroll() {
-      const trackRect = track.getBoundingClientRect();
-      const centerX = trackRect.left + trackRect.width / 2;
-      let closest = 0, closestDist = Infinity;
-      items.forEach((item, i) => {
-        const r = item.getBoundingClientRect();
-        const dist = Math.abs((r.left + r.width / 2) - centerX);
-        if (dist < closestDist) { closestDist = dist; closest = i; }
-      });
-      if (closest !== activeIndex) { activeIndex = closest; updateDots(); }
-    }
-
-    let scrollTimeout;
-    track.addEventListener("scroll", () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(syncActiveFromScroll, 80);
-    }, { passive: true });
-
-    track.addEventListener("touchstart", stopAutoplay, { passive: true });
-
-    let isVisible = false;
 
     function startAutoplay() {
-      if (reducedMotion || !mq.matches || !isVisible) return;
+      if (reducedMotion || !embla || !isVisible) return;
       stopAutoplay();
-      timer = setInterval(() => scrollToIndex(activeIndex + 1), autoplayMs);
+      timer = setInterval(() => embla.scrollNext(), autoplayMs);
     }
     function stopAutoplay() {
       if (timer) { clearInterval(timer); timer = null; }
     }
 
-    buildDots();
+    function setup() {
+      prepare();
+      if (embla || typeof EmblaCarousel === "undefined") return;
+      embla = EmblaCarousel(viewport, { loop: true, align: "center" });
+      buildNav();
+      embla.on("select", updateDots);
+      embla.on("pointerDown", stopAutoplay);
+      updateDots();
+      startAutoplay();
+    }
+    function teardown() {
+      if (!embla) return;
+      stopAutoplay();
+      embla.destroy();
+      embla = null;
+    }
 
     // Only autoplay while the carousel is actually on screen — besides being
     // the sane behavior, this also guarantees the very first automatic
@@ -154,13 +200,27 @@ document.addEventListener("DOMContentLoaded", function () {
           isVisible = entry.isIntersecting;
           if (isVisible) startAutoplay(); else stopAutoplay();
         });
-      }, { threshold: 0.4 }).observe(track);
+      }, { threshold: 0.4 }).observe(viewport);
+
+      // Defer the DOM wrap + Embla init themselves until the carousel is
+      // roughly a screen away — keeps this entirely off the critical
+      // initial-load path instead of racing booking-widget/klaro/etc. on
+      // DOMContentLoaded for a section that's below the fold anyway.
+      const approach = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            approach.disconnect();
+            if (mq.matches) setup();
+          }
+        });
+      }, { rootMargin: "600px 0px" });
+      approach.observe(viewport);
     } else {
       isVisible = true;
-      startAutoplay();
+      if (mq.matches) setup();
     }
 
-    mq.addEventListener("change", (e) => { if (e.matches) startAutoplay(); else stopAutoplay(); });
+    mq.addEventListener("change", (e) => { if (e.matches) setup(); else teardown(); });
   }
 
   initCarousel(".testi-grid", ".testi-card", "testi-dots", 5000);

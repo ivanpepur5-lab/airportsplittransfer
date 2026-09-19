@@ -15,6 +15,15 @@
   --line-strong: rgba(7,38,76,0.18);
   --radius: 12px;
   --navy: #07264C;
+  /* Scandinavian-premium refresh: softer diffuse shadows and a shared
+     ease-out curve replace the flatter defaults above, used by cards/
+     buttons/nav below — kept as tokens so every component stays in sync. */
+  --shadow-sm: 0 2px 10px rgba(7,38,76,0.05);
+  --shadow-md: 0 12px 32px rgba(7,38,76,0.08);
+  --shadow-lg: 0 24px 60px rgba(7,38,76,0.14);
+  --ease: cubic-bezier(.22,.85,.36,1);
+  --glass-bg: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.5);
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -87,17 +96,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   text-transform:uppercase;
   border-radius:18px;
   cursor:pointer;
-  transition:all .25s ease;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s var(--ease);
   border:1px solid transparent;
   text-align:center;
 }
 .btn-gold{background:var(--gold); color:#FFFFFF; border-color:var(--gold);}
-.btn-gold:hover{filter:brightness(0.85); transform:translateY(-1px);}
+.btn-gold:hover{filter:brightness(0.9); transform:translateY(-2px); box-shadow:var(--shadow-md);}
 .btn-navy{background:var(--navy); color:#FFFFFF; border-color:var(--navy);}
-.btn-navy:hover{filter:brightness(0.8); transform:translateY(-1px);}
+.btn-navy:hover{filter:brightness(0.88); transform:translateY(-2px); box-shadow:var(--shadow-md);}
 .btn-outline{background:transparent; color:var(--cream); border-color:var(--line-strong);}
 .btn-whatsapp-hero{border-width:1.5px; border-color:rgba(255,255,255,0.6); color:#fff;}
-.btn-outline:hover{border-color:var(--gold); color:var(--gold);}
+.btn-outline:hover{border-color:var(--gold); color:var(--gold); transform:translateY(-2px);}
 .btn-block{width:100%;}
 
 /* ============ HEADER ============ */
@@ -107,6 +116,17 @@ header{
   z-index:200;
   background:#FFFFFF;
   box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  transition:background-color .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+}
+/* Subtle tint once the page has scrolled past the hero. Deliberately no
+   backdrop-filter here: this header is sticky, so a blur would have to be
+   recomputed against whatever scrolls underneath on every frame — real,
+   measured cost under CPU throttling. The quick-booking card below gets
+   the actual frosted-glass treatment instead, where it's a one-time paint
+   (that card scrolls together with the page, not independently of it). */
+header.is-scrolled{
+  background:var(--glass-bg);
+  box-shadow:var(--shadow-sm);
 }
 
 .nav{
@@ -126,9 +146,9 @@ header{
 .brand-logo{width:auto; height:48px; object-fit:contain; flex-shrink:0;}
 
 .nav-links{grid-area:links; justify-self:center; display:flex; flex-wrap:nowrap; gap:24px; font-size:0.74rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;}
-.nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px; white-space:nowrap; flex-shrink:0;}
+.nav-links a{color:var(--gray); transition:color .3s var(--ease); position:relative; padding-bottom:3px; white-space:nowrap; flex-shrink:0;}
 .nav-links a:hover, .nav-links a.active{color:var(--cream);}
-.nav-links a::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s ease; transform-origin:center;}
+.nav-links a::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .35s var(--ease); transform-origin:center;}
 .nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
 
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
@@ -444,7 +464,7 @@ header{
 /* ============ SECTIONS ============ */
 section{padding:120px 40px;}
 .section-tight{padding:80px 40px;}
-.section-head{max-width:660px; margin-bottom:60px;}
+.section-head{max-width:660px; margin-bottom:72px;}
 .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
 .section-head h2{font-size:clamp(2rem, 3.8vw, 3rem); line-height:1.15;}
 .section-head p{color:var(--gray); margin-top:16px; font-size:1rem;}
@@ -455,8 +475,8 @@ section{padding:120px 40px;}
 
 /* ============ WHY CHOOSE US ============ */
 .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
-.why-card{background:var(--bg); padding:36px 28px; border-radius:16px; box-shadow:0 2px 16px rgba(22,32,42,0.06); transition:transform .25s ease, box-shadow .25s ease;}
-.why-card:hover{transform:translateY(-3px); box-shadow:0 8px 24px rgba(22,32,42,0.09);}
+.why-card{background:var(--bg); padding:36px 28px; border-radius:16px; box-shadow:var(--shadow-sm); transition:transform .4s var(--ease), box-shadow .4s var(--ease);}
+.why-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
 .why-icon{width:34px; height:34px; margin-bottom:22px; color:var(--gold);}
 .why-card h3{font-size:1.25rem; margin-bottom:10px;}
 .why-card p{font-size:0.9rem; color:var(--gray);}
@@ -472,8 +492,8 @@ section{padding:120px 40px;}
 
 /* ============ FLEET ============ */
 .fleet-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.fleet-card{background:var(--bg); padding:0; display:flex; flex-direction:column; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(22,32,42,0.07); transition:transform .3s ease, box-shadow .3s ease;}
-.fleet-card:hover{transform:translateY(-4px); box-shadow:0 10px 28px rgba(22,32,42,0.12);}
+.fleet-card{background:var(--bg); padding:0; display:flex; flex-direction:column; border-radius:16px; overflow:hidden; box-shadow:var(--shadow-sm); transition:transform .4s var(--ease), box-shadow .4s var(--ease);}
+.fleet-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-md);}
 .fleet-media{aspect-ratio:16/10; background:var(--bg-3); display:flex; align-items:center; justify-content:center; padding:20px;}
 .fleet-media svg{width:90%; height:auto;}
 .fleet-body{padding:32px 30px 34px; text-align:center;}
@@ -517,11 +537,11 @@ section{padding:120px 40px;}
   background:var(--bg);
   border-radius:16px;
   overflow:hidden;
-  box-shadow:0 2px 14px rgba(22,32,42,0.05);
-  transition:box-shadow .25s ease, transform .25s ease;
+  box-shadow:var(--shadow-sm);
+  transition:box-shadow .4s var(--ease), transform .4s var(--ease);
   position:relative;
 }
-.dest-card:hover{box-shadow:0 10px 26px rgba(22,32,42,0.10); transform:translateY(-3px);}
+.dest-card:hover{box-shadow:var(--shadow-md); transform:translateY(-5px);}
 .dest-body{padding:30px 26px;}
 .dest-card h3{font-size:1.3rem; margin-bottom:20px;}
 @media (max-width:900px){.dest-grid{grid-template-columns:1fr 1fr;}}
@@ -555,11 +575,11 @@ a.dest-card h3{margin:0;}
 .trip-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
 .trip-card{
   background:var(--bg); border-radius:20px; overflow:hidden;
-  box-shadow:0 4px 20px rgba(22,32,42,0.08);
-  transition:transform .3s ease, box-shadow .3s ease;
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
   display:flex; flex-direction:column;
 }
-.trip-card:hover{transform:translateY(-5px); box-shadow:0 14px 34px rgba(22,32,42,0.14);}
+.trip-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg);}
 .trip-media{position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--bg-3);}
 .trip-media img{width:100%; height:100%; object-fit:cover; display:block;}
 .trip-badge{
@@ -641,8 +661,8 @@ body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:non
 
 /* ============ BLOG ============ */
 .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.blog-card{background:var(--bg); padding:32px 28px; border-radius:16px; box-shadow:0 2px 14px rgba(22,32,42,0.06); transition:transform .25s ease, box-shadow .25s ease;}
-.blog-card:hover{transform:translateY(-3px); box-shadow:0 8px 22px rgba(22,32,42,0.10);}
+.blog-card{background:var(--bg); padding:32px 28px; border-radius:16px; box-shadow:var(--shadow-sm); transition:transform .4s var(--ease), box-shadow .4s var(--ease);}
+.blog-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
 .blog-cat{font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-text); font-weight:600; margin-bottom:16px; display:block;}
 .blog-card h3{font-size:1.3rem; line-height:1.25; margin-bottom:14px; text-transform:none;}
 .blog-card p{font-size:0.86rem; color:var(--gray); margin-bottom:18px;}
@@ -707,6 +727,21 @@ body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:non
 /* ============ BOOKING PAGE ============ */
 .booking-layout{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start;}
 .booking-form-box{border:1px solid var(--line); border-radius:22px; padding:44px; background:var(--bg); box-shadow:0 12px 40px rgba(7,38,76,0.10);}
+/* The homepage's floating instance overlaps the hero photo (see
+   .quick-booking-wrap's negative margin-top) — that's the one place on
+   the page glass actually reads as "glass", and it's a one-time paint
+   (the card scrolls together with whatever's behind it, not fixed above
+   it), so backdrop-filter here doesn't carry the sticky header's
+   per-frame recompute cost. Every other .booking-form-box on the site
+   (day-trip pages, destination quote forms) sits on plain --bg/--bg-2
+   and keeps the solid card above untouched. */
+.quick-booking-wrap .booking-form-box{
+  background:var(--glass-bg);
+  border-color:var(--glass-border);
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)){
+  .quick-booking-wrap .booking-form-box{-webkit-backdrop-filter:blur(20px) saturate(160%); backdrop-filter:blur(20px) saturate(160%);}
+}
 .booking-form-box h2{font-size:1.6rem; margin-bottom:8px;}
 .booking-form-box .sub{color:var(--gray); font-size:0.9rem; margin-bottom:34px;}
 
@@ -904,8 +939,19 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 .page-hero p{color:var(--gray); max-width:560px; font-size:1rem;}
 
 /* Reveal on scroll */
-.reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
 .reveal.in{opacity:1; transform:translateY(0);}
+
+/* Hero entrance: same reveal mechanism, staggered per element via
+   transition-delay alone — a sequenced premium entrance with zero added
+   JS weight, and it degrades identically to the plain reveal if anything
+   here doesn't apply (each element still ends fully visible on its own). */
+.hero .eyebrow.reveal{transition-delay:0s;}
+.hero h1.reveal{transition-delay:.08s;}
+.hero p.lead.reveal{transition-delay:.16s;}
+.hero .hero-actions.reveal{transition-delay:.24s;}
+.hero .hero-trust-bar.reveal{transition-delay:.32s;}
+.hero .hero-feature-grid.reveal{transition-delay:.4s;}
 
 /* ============ PREMIUM MOBILE HEADER — HOMEPAGE-SPECIFIC SIZING ============ */
 @media (max-width:1023px){
@@ -992,25 +1038,45 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   .dest-body .btn{padding:12px 6px; font-size:0.6rem; letter-spacing:0.04em;}
 }
 
-/* ============ MOBILE SWIPE CAROUSELS — REVIEWS & JOURNAL ============ */
+/* ============ SWIPE CAROUSELS — REVIEWS & JOURNAL (Embla, mobile only) ============ */
+/* js/main.js wraps each carousel's cards in a .embla-container at runtime.
+   display:contents keeps that wrapper invisible to the desktop grid — its
+   children (the cards) stay direct grid items there, so the >640px static
+   3-up layout is completely unaffected either way. */
+.embla-container{display:contents;}
 @media (max-width:640px){
-  .testi-grid, .blog-grid-carousel{
-    display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory;
-    gap:14px; padding-bottom:4px; margin:0 -2px; scrollbar-width:none;
-  }
-  .testi-grid::-webkit-scrollbar, .blog-grid-carousel::-webkit-scrollbar{display:none;}
-  .testi-grid .testi-card{scroll-snap-align:center; flex:0 0 88%;}
-  .blog-grid-carousel .blog-card{scroll-snap-align:center; flex:0 0 88%;}
+  .embla-container{display:flex; gap:14px;}
+  .testi-grid .embla-slide, .blog-grid-carousel .embla-slide{flex:0 0 88%; min-width:0;}
+  /* Embla applies overflow:hidden + its own transform itself once JS runs.
+     If the vendor script fails to load, .embla-fallback (added by JS)
+     keeps the carousel swipeable via plain native scroll-snap instead. */
+  .embla-viewport.embla-fallback{overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;}
+  .embla-viewport.embla-fallback::-webkit-scrollbar{display:none;}
+  .embla-viewport.embla-fallback .embla-container{scroll-snap-type:x mandatory;}
+  .embla-viewport.embla-fallback .embla-slide{scroll-snap-align:center;}
 }
-.carousel-dots{display:none;}
+.carousel-nav{display:none;}
 @media (max-width:640px){
-  .carousel-dots{display:flex; justify-content:center; gap:8px; margin-top:18px;}
+  .carousel-nav{
+    display:flex; align-items:center; justify-content:center; gap:18px;
+    margin-top:18px;
+  }
+  .carousel-arrow{
+    width:34px; height:34px; border-radius:50%; border:1px solid var(--line-strong);
+    background:var(--bg); color:var(--cream); flex-shrink:0; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background-color .25s var(--ease), color .25s var(--ease), transform .25s var(--ease);
+  }
+  .carousel-arrow:hover{background:var(--gold); color:#fff; border-color:var(--gold);}
+  .carousel-arrow:active{transform:scale(0.92);}
+  .carousel-arrow svg{width:16px; height:16px;}
+  .carousel-dots{display:flex; align-items:center; gap:8px;}
   .carousel-dots button{
     width:8px; height:8px; border-radius:50%; border:none; padding:0;
     background:var(--line-strong); cursor:pointer;
-    transition:background-color .2s ease, transform .2s ease;
+    transition:background-color .25s var(--ease), transform .25s var(--ease);
   }
-  .carousel-dots button.active{background:var(--gold); transform:scale(1.35);}
+  .carousel-dots button.active{background:var(--gold); transform:scale(1.4);}
 }
 
 /* ============ MOBILE CARD PADDING — BOOKING/PRICE CARDS ============ */
