@@ -19,7 +19,7 @@
 
 const { renderTemplate, renderTextTemplate } = require("./lib/template");
 const { sendEmail } = require("./lib/resend");
-const { vehicleLabel, formatDate, buildBookingReference, formatPrice, digitsAndPlus } = require("./lib/booking");
+const { vehicleLabel, tripTypeLabel, formatDate, buildBookingReference, formatPrice, digitsAndPlus } = require("./lib/booking");
 const { CUSTOMER_TEMPLATE, ADMIN_TEMPLATE, CUSTOMER_TEMPLATE_TEXT, ADMIN_TEMPLATE_TEXT } = require("./lib/templates");
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Airport Split Transfer <booking@airportsplittransfer.com>";
@@ -79,6 +79,7 @@ exports.handler = async (event) => {
     pickup_time: data.time || "",
     pickup: data.pickup || "",
     dropoff: data.dropoff || "",
+    trip_type: tripTypeLabel(data.trip_type),
     return_date: formatDate(data.return_date),
     return_time: data.return_time || "",
     passengers: data.passengers || "",

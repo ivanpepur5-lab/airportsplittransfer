@@ -17,6 +17,14 @@ function vehicleLabel(vehicleKey) {
   return VEHICLE_LABELS[vehicleKey] || vehicleKey;
 }
 
+// Keep in sync with the hidden `trip_type` field on the booking form
+// (js/booking-widget.js setTripType()), which is always "oneway" or
+// "return". Falls back to "One way" for anything unexpected so the admin
+// email never renders a blank trip type.
+function tripTypeLabel(tripType) {
+  return tripType === "return" ? "Return" : "One way";
+}
+
 const MONTH_ABBR = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
@@ -68,6 +76,7 @@ function digitsAndPlus(value) {
 module.exports = {
   VEHICLE_LABELS,
   vehicleLabel,
+  tripTypeLabel,
   formatDate,
   buildBookingReference,
   formatPrice,

@@ -11,6 +11,7 @@ Date: {{date}}
 Pickup time: {{pickup_time}}
 Pickup location: {{pickup}}
 Destination: {{dropoff}}
+Trip type: {{trip_type}}
 {{#if return_date}}
 Return date: {{return_date}}
 {{/if}}

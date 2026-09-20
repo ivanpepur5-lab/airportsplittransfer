@@ -10,6 +10,13 @@ Phone: {{phone}}
 Email: {{email}}
 Pickup: {{pickup}}
 Destination: {{dropoff}}
+Trip type: {{trip_type}}
+{{#if return_date}}
+Return date: {{return_date}}
+{{/if}}
+{{#if return_time}}
+Return time: {{return_time}}
+{{/if}}
 {{#if flight_number}}
 Flight number: {{flight_number}}
 {{/if}}
