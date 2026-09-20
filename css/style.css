@@ -278,7 +278,7 @@ header{
   inset:0;
   z-index:0;
   pointer-events:none;
-  background:linear-gradient(90deg, rgba(7,38,76,.85) 0%, rgba(7,38,76,.5) 50%, rgba(7,38,76,.12) 100%);
+  background:linear-gradient(90deg, rgba(7,38,76,.68) 0%, rgba(7,38,76,.4) 50%, rgba(7,38,76,.1) 100%);
 }
 @media (max-width:640px){
   .hero{
@@ -927,7 +927,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   }
   body.page-home .hero-photo-overlay{
     background:
-      linear-gradient(180deg, rgba(7,38,76,0.78) 0%, rgba(7,38,76,0.62) 40%, rgba(7,38,76,0.68) 70%, rgba(7,38,76,0.78) 100%);
+      linear-gradient(180deg, rgba(7,38,76,0.6) 0%, rgba(7,38,76,0.44) 40%, rgba(7,38,76,0.5) 70%, rgba(7,38,76,0.6) 100%);
   }
   body.page-home .hero{padding-top:56px;}
   body.page-home .hero-inner{position:relative; z-index:3;}
