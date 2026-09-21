@@ -214,16 +214,22 @@ header{
 }
 .hero{
   position:relative;
-  min-height:100vh;
-  display:flex;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,0.92fr);
   align-items:center;
-  padding:150px 40px 130px;
-  overflow:hidden;
-  background-color:var(--navy);
+  gap:60px;
+  max-width:1280px;
+  margin:0 auto;
+  padding:104px 40px 80px;
+  background-color:var(--bg);
 }
 .hero-photo{
-  position:absolute;
-  inset:0;
+  position:relative;
+  order:2;
+  border-radius:22px;
+  overflow:hidden;
+  aspect-ratio:5/4;
+  box-shadow:0 18px 50px rgba(16,19,24,0.12);
 }
 .hero-photo img{
   width:100%;
@@ -232,28 +238,27 @@ header{
   object-position:center 60%;
   display:block;
 }
-.hero-photo-overlay{
-  position:absolute;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  background:linear-gradient(90deg, rgba(16,19,24,.58) 0%, rgba(16,19,24,.32) 50%, rgba(16,19,24,.06) 100%);
+.hero-photo-overlay{display:none;}
+@media (max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    gap:30px;
+    padding:104px 40px 60px;
+  }
+  .hero-photo{order:1; aspect-ratio:16/10;}
+  .hero-inner{order:2;}
 }
 @media (max-width:640px){
-  .hero{
-    min-height:auto;
-    padding:96px 24px 50px;
-  }
-  .hero-photo img{
-    object-position:center;
-  }
+  .hero{padding:88px 24px 50px; gap:24px;}
+  .hero-photo{aspect-ratio:16/11;}
+  .hero-photo img{object-position:center;}
 }
-.hero-inner{position:relative; z-index:3; max-width:1280px; margin:0 auto; width:100%;}
+.hero-inner{position:relative; z-index:3; order:1; width:100%;}
 .hero h1{
-  font-size:clamp(2.4rem, 5.6vw, 4.4rem);
+  font-size:clamp(2.2rem, 3.5vw, 3.35rem);
   font-weight:700;
   line-height:1.12;
-  max-width:780px;
+  max-width:none;
   margin-bottom:22px;
   letter-spacing:-0.02em;
   color:#fff;
@@ -267,40 +272,43 @@ header{
 }
 .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
 .btn-hero{
-  flex:1 1 240px; height:58px; display:inline-flex; align-items:center; justify-content:center;
+  flex:0 1 auto; min-width:238px; height:58px; display:inline-flex; align-items:center; justify-content:center;
   gap:10px; font-size:0.82rem;
 }
-.btn-gold.btn-hero{border-color:rgba(255,255,255,0.7);}
+/* One CTA alone should not stretch the width of the column; on a phone they
+   still go full width. */
+@media (max-width:640px){.btn-hero{flex:1 1 100%; min-width:0;}}
+.btn-gold.btn-hero{border-color:var(--gold);}
 .btn-icon{width:19px; height:19px; display:inline-flex; flex-shrink:0;}
 .btn-icon svg{width:100%; height:100%;}
 .hero-trust-bar{
-  display:flex; align-items:center; justify-content:center; gap:14px;
-  margin:34px auto 0; max-width:460px; padding-top:26px; border-top:1px solid rgba(255,255,255,0.2);
+  display:flex; align-items:center; justify-content:flex-start; gap:14px;
+  margin:34px 0 0; max-width:460px; padding-top:26px; border-top:1px solid var(--line);
   flex-wrap:wrap;
 }
 .hero-trust-bar svg{width:22px; height:22px; flex-shrink:0;}
-.hero-trust-score{color:#fff; font-weight:600; font-size:0.95rem; letter-spacing:0.02em;}
-.hero-trust-divider{width:1px; height:16px; background:rgba(255,255,255,0.3);}
-.hero-trust-count{color:rgba(255,255,255,0.85); font-size:0.88rem;}
+.hero-trust-score{color:var(--cream); font-weight:600; font-size:0.95rem; letter-spacing:0.02em;}
+.hero-trust-divider{width:1px; height:16px; background:var(--line);}
+.hero-trust-count{color:var(--gray); font-size:0.88rem;}
 .hero-feature-grid{
   display:grid; grid-template-columns:1fr 1fr; gap:16px 24px;
-  margin:26px auto 0; max-width:460px;
+  margin:26px 0 0; max-width:460px;
 }
 .hero-feature{
-  display:flex; align-items:center; justify-content:center; gap:10px; color:#fff; font-size:0.86rem; font-weight:500;
-  padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.15);
+  display:flex; align-items:center; justify-content:flex-start; gap:10px; color:var(--cream); font-size:0.86rem; font-weight:500;
+  padding-bottom:14px; border-bottom:1px solid var(--line);
 }
-.hero-feature-icon{width:22px; height:22px; flex-shrink:0; color:#fff;}
+.hero-feature-icon{width:22px; height:22px; flex-shrink:0; color:var(--gold);}
 .hero-feature-icon svg{width:100%; height:100%;}
 .hero .eyebrow{color:var(--gold);}
-.hero .eyebrow::before{background:rgba(255,255,255,0.6);}
+.hero .eyebrow::before{background:var(--gold);}
 .quick-booking-wrap{position:relative; z-index:10; margin-top:-70px; margin-bottom:70px;}
 @media (max-width:1024px){.quick-booking-wrap{margin-top:-40px;}}
 @media (max-width:640px){.quick-booking-wrap{margin-top:20px;}}
 .testimonials .section-head .eyebrow{color:var(--gold);}
 .testimonials .section-head .eyebrow::before{background:var(--gold);}
-.btn-whatsapp-hero{border-width:1.5px; border-color:rgba(255,255,255,0.6); color:#fff;}
-.hero-trust-stars{color:#fff; font-weight:600; font-size:0.95rem; letter-spacing:0.02em; margin-left:4px;}
+.btn-whatsapp-hero{border-width:1.5px; border-color:var(--line-strong); color:var(--cream);}
+.hero-trust-stars{color:var(--star); font-weight:600; font-size:0.95rem; letter-spacing:0.02em; margin-left:4px;}
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
 @media (max-width:1023px){
@@ -322,18 +330,18 @@ header{
   }
   body.page-home .hero{padding-top:56px;}
   body.page-home .hero-inner{position:relative; z-index:3;}
-  body.page-home .hero .eyebrow{color:rgba(255,255,255,0.92); letter-spacing:0.18em; margin-bottom:12px;}
-  body.page-home .hero .eyebrow::before{background:rgba(255,255,255,0.6);}
+  body.page-home .hero .eyebrow{color:var(--gold-text); letter-spacing:0.18em; margin-bottom:12px;}
+  body.page-home .hero .eyebrow::before{background:var(--gold);}
   body.page-home .hero h1{font-size:2.05rem; line-height:1.18; margin-bottom:12px;}
-  body.page-home .hero h1 em{color:#fff;}
+  body.page-home .hero h1 em{color:var(--gold);}
   body.page-home .hero p.lead{margin-bottom:22px;}
   body.page-home .hero .btn-gold.btn-hero{background:var(--navy); border-color:#FFFFFF; box-shadow:0 10px 24px rgba(16,19,24,0.28);}
   body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.92);}
-  body.page-home .btn-whatsapp-hero{border-color:#FFFFFF;}
+  body.page-home .btn-whatsapp-hero{border-color:var(--line-strong);}
   body.page-home .hero-trust-bar{gap:16px; margin-top:32px; padding-top:24px;}
   body.page-home .hero-trust-stars{color:#F4B400; margin-left:6px;}
   body.page-home .hero-feature-grid{gap:14px 22px;}
-  body.page-home .hero-feature{border-bottom:1px solid rgba(255,255,255,0.10); padding-bottom:12px;}
+  body.page-home .hero-feature{border-bottom:1px solid var(--line); padding-bottom:12px;}
   body.page-home .hero-feature-icon{width:18px; height:18px;}
 }</style>
 <link rel="preload" href="css/style.css" as="style">
