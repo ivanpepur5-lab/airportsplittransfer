@@ -159,7 +159,11 @@
         </div>
       </div>
 
-      <div class="summary-box" id="summary-box">
+      <!-- Starts with is-empty, the same state updateSummary() puts it in on
+           init: below 960px that class hides the box, so shipping it visible
+           meant the box rendered and was then hidden a frame later, jumping
+           everything below it up the page. -->
+      <div class="summary-box is-empty" id="summary-box">
         <h3>Price Summary</h3>
         <div id="summary-empty">
           <p class="custom-quote-msg" style="padding:0;">Enter a pickup and dropoff address to see your fixed price and trip details here.</p>
