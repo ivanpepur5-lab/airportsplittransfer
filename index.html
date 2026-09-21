@@ -45,308 +45,9 @@
 <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" as="image" href="assets/hero-mobile.avif" type="image/avif" media="(max-width: 640px)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/hero.avif" type="image/avif" media="(min-width: 641px)" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<style>:root{
-  --bg: #FFFFFF;
-  --bg-2: #F7F8F9;
-  --bg-3: #EFF1F3;
-  --cream: #16191F;
-  --gray: #616872;
-  --gold: #0057C1;
-  --gold-text: #0057C1;
-  --line: #E4E6EA;
-  --line-strong: rgba(16,19,24,0.18);
-  --radius: 12px;
-  --navy: #14171C;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-.sr-only{
-  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
-}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--cream);
-  font-family:'Instrument Sans',sans-serif;
-  font-weight:400;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
-.wrap{max-width:1280px;margin:0 auto;padding:0 40px;}
-@media (max-width:640px){
-  .wrap{padding:0 10px;}
-  .breadcrumb{padding-left:10px; padding-right:10px;}
-  .page-hero{padding-left:10px; padding-right:10px;}
-  footer{padding-left:10px; padding-right:10px;}
-}
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible{
-  outline:1px solid var(--gold);
-  outline-offset:3px;
-}
-@media (prefers-reduced-motion: reduce){
-  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
-}
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  font-size:0.72rem;
-  font-weight:600;
-  letter-spacing:0.24em;
-  text-transform:uppercase;
-  color:var(--gold-text);
-  margin-bottom:22px;
-}
-.eyebrow::before{content:'';width:30px;height:1px;background:var(--gold);}
-.btn{
-  display:inline-block;
-  padding:16px 32px;
-  font-size:0.78rem;
-  font-weight:600;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  border-radius:18px;
-  cursor:pointer;
-  transition:all .25s ease;
-  border:1px solid transparent;
-  text-align:center;
-}
-.btn-gold{background:var(--gold); color:#FFFFFF; border-color:var(--gold);}
-.btn-gold:hover{filter:brightness(0.85); transform:translateY(-1px);}
-.btn-navy{background:var(--navy); color:#FFFFFF; border-color:var(--navy);}
-.btn-navy:hover{filter:brightness(0.8); transform:translateY(-1px);}
-.btn-outline{background:transparent; color:var(--cream); border-color:var(--line-strong);}
-.btn-outline:hover{border-color:var(--gold); color:var(--gold);}
-.btn-block{width:100%;}
-header{
-  position:sticky;
-  top:0;
-  z-index:200;
-  background:#FFFFFF;
-  box-shadow:0 2px 12px rgba(0,0,0,0.06);
-}
-.nav{
-  position:relative;
-  display:grid;
-  grid-template-columns:max-content 1fr auto auto auto auto;
-  grid-template-areas:"brand links langflag flags whatsapp toggle";
-  align-items:center;
-  column-gap:24px;
-  height:88px;
-  padding:0 40px;
-  max-width:1400px;
-  margin:0 auto;
-}
-.brand{grid-area:brand; display:flex; align-items:center; gap:12px;}
-.brand-logo{width:auto; height:48px; object-fit:contain; flex-shrink:0;}
-.nav-links{grid-area:links; justify-self:center; display:flex; flex-wrap:nowrap; gap:24px; font-size:0.74rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;}
-.nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px; white-space:nowrap; flex-shrink:0;}
-.nav-links a:hover, .nav-links a.active{color:var(--cream);}
-.nav-links a::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s ease; transform-origin:center;}
-.nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
-.nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
-.nav-flags{grid-area:flags; display:none; align-items:center; gap:8px;}
-.nav-flag{font-size:1.15rem; line-height:1; opacity:0.45; transition:opacity .2s ease, transform .2s ease; filter:grayscale(40%);}
-.nav-flag:hover{opacity:0.8;}
-.nav-flag.active{opacity:1; filter:none; transform:scale(1.08);}
-.nav-whatsapp{grid-area:whatsapp; display:none; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; flex-shrink:0; background:var(--gold); color:#FFFFFF; transition:filter .2s ease, transform .2s ease;}
-.nav-whatsapp:hover{filter:brightness(0.85); transform:translateY(-1px);}
-.nav-whatsapp svg{width:18px; height:18px;}
-.lang-flag{display:none;}
-.lang-dropdown{grid-area:langflag; position:relative;}
-.lang-dropdown-btn{display:inline-flex; align-items:center; gap:6px; height:36px; padding:0 14px; border-radius:999px; font-size:0.76rem; font-weight:700; letter-spacing:0.06em; border:1px solid #D7DEE8; color:var(--navy); background:transparent; cursor:pointer; transition:border-color .2s ease;}
-.lang-dropdown-btn:hover{border-color:var(--navy);}
-.lang-chevron{width:10px; height:10px; flex-shrink:0; transition:transform .15s ease;}
-.lang-dropdown.open .lang-chevron{transform:rotate(180deg);}
-.lang-dropdown-menu{display:none; position:absolute; top:calc(100% + 8px); right:0; min-width:150px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 40px rgba(16,19,24,0.16); padding:6px; z-index:50;}
-.lang-dropdown.open .lang-dropdown-menu{display:block;}
-.lang-option{display:block; padding:10px 12px; border-radius:9px; font-size:0.85rem; font-weight:500; color:var(--navy); text-decoration:none;}
-.lang-option:hover{background:var(--bg-2);}
-.lang-option.active{font-weight:700; color:var(--gold-text);}
-.mobile-nav{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:var(--navy);
-  z-index:300;
-  padding:60px 40px 40px;
-  flex-direction:column;
-  gap:18px;
-}
-.mobile-nav.open{display:flex;}
-.mobile-nav a{font-family:'Schibsted Grotesk',sans-serif; font-weight:500; font-size:1.6rem; letter-spacing:-0.01em; color:#fff;}
-.mobile-close{position:absolute; top:26px; right:32px; background:none; border:none; color:#fff; font-size:1.6rem; cursor:pointer;}
-.lang-switch-mobile{display:none;}
-@media (max-width:1023px){
-  .nav{
-    height:88px;
-    padding:0 16px 0 12px;
-    column-gap:16px;
-  }
-  .nav-links{display:none;}
-  .brand-logo{
-    height:64px; width:auto; object-fit:contain;
-  }
-  .nav-toggle{display:block; font-size:2rem;}
-}
-@media (min-width:1024px){
-  .nav-flags{display:flex;}
-  .nav-whatsapp{display:inline-flex;}
-  .lang-dropdown{display:none;}
-  .nav-links{grid-area:auto; position:absolute; left:50%; top:50%; transform:translate(-50%, -50%); max-width:calc(100% - 340px);}
-}
-@media (min-width:1024px) and (max-width:1366px){
-  .nav{padding:0 20px; column-gap:10px;}
-  .nav-links{gap:11px; font-size:0.62rem; letter-spacing:0.02em;}
-  .nav-flags{gap:5px;}
-  .nav-flag{font-size:1rem;}
-  .nav-whatsapp{width:32px; height:32px;}
-  .nav-whatsapp svg{width:16px; height:16px;}
-}
-@media (min-width:1200px) and (max-width:1366px){
-  .nav{padding:0 24px; column-gap:14px;}
-  .nav-links{gap:15px; font-size:0.66rem; letter-spacing:0.04em;}
-  .nav-flags{gap:6px;}
-}
-.hero{
-  position:relative;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,0.92fr);
-  align-items:center;
-  gap:60px;
-  max-width:1280px;
-  margin:0 auto;
-  padding:104px 40px 80px;
-  background-color:var(--bg);
-}
-.hero-photo{
-  position:relative;
-  order:2;
-  border-radius:22px;
-  overflow:hidden;
-  aspect-ratio:5/4;
-  box-shadow:0 18px 50px rgba(16,19,24,0.12);
-}
-.hero-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 60%;
-  display:block;
-}
-.hero-photo-overlay{display:none;}
-@media (max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    gap:30px;
-    padding:104px 40px 60px;
-  }
-  .hero-photo{order:1; aspect-ratio:16/10;}
-  .hero-inner{order:2;}
-}
-@media (max-width:640px){
-  .hero{padding:88px 24px 50px; gap:24px;}
-  .hero-photo{aspect-ratio:16/11;}
-  .hero-photo img{object-position:center;}
-}
-.hero-inner{position:relative; z-index:3; order:1; width:100%;}
-.hero h1{
-  font-size:clamp(2.2rem, 3.5vw, 3.35rem);
-  font-weight:700;
-  line-height:1.12;
-  max-width:none;
-  margin-bottom:22px;
-  letter-spacing:-0.02em;
-  color:#fff;
-}
-.hero h1 em{font-style:normal; color:var(--gold);}
-.hero p.lead{
-  font-size:1.05rem;
-  color:rgba(255,255,255,0.68);
-  max-width:460px;
-  margin-bottom:38px;
-}
-.hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
-.btn-hero{
-  flex:0 1 auto; min-width:238px; height:58px; display:inline-flex; align-items:center; justify-content:center;
-  gap:10px; font-size:0.82rem;
-}
-/* One CTA alone should not stretch the width of the column; on a phone they
-   still go full width. */
-@media (max-width:640px){.btn-hero{flex:1 1 100%; min-width:0;}}
-.btn-gold.btn-hero{border-color:var(--gold);}
-.btn-icon{width:19px; height:19px; display:inline-flex; flex-shrink:0;}
-.btn-icon svg{width:100%; height:100%;}
-.hero-trust-bar{
-  display:flex; align-items:center; justify-content:flex-start; gap:14px;
-  margin:34px 0 0; max-width:460px; padding-top:26px; border-top:1px solid var(--line);
-  flex-wrap:wrap;
-}
-.hero-trust-bar svg{width:22px; height:22px; flex-shrink:0;}
-.hero-trust-score{color:var(--cream); font-weight:600; font-size:0.95rem; letter-spacing:0.02em;}
-.hero-trust-divider{width:1px; height:16px; background:var(--line);}
-.hero-trust-count{color:var(--gray); font-size:0.88rem;}
-.hero-feature-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:16px 24px;
-  margin:26px 0 0; max-width:460px;
-}
-.hero-feature{
-  display:flex; align-items:center; justify-content:flex-start; gap:10px; color:var(--cream); font-size:0.86rem; font-weight:500;
-  padding-bottom:14px; border-bottom:1px solid var(--line);
-}
-.hero-feature-icon{width:22px; height:22px; flex-shrink:0; color:var(--gold);}
-.hero-feature-icon svg{width:100%; height:100%;}
-.hero .eyebrow{color:var(--gold);}
-.hero .eyebrow::before{background:var(--gold);}
-.quick-booking-wrap{position:relative; z-index:10; margin-top:-70px; margin-bottom:70px;}
-@media (max-width:1024px){.quick-booking-wrap{margin-top:-40px;}}
-@media (max-width:640px){.quick-booking-wrap{margin-top:20px;}}
-.testimonials .section-head .eyebrow{color:var(--gold);}
-.testimonials .section-head .eyebrow::before{background:var(--gold);}
-.btn-whatsapp-hero{border-width:1.5px; border-color:var(--line-strong); color:var(--cream);}
-.hero-trust-stars{color:var(--star); font-weight:600; font-size:0.95rem; letter-spacing:0.02em; margin-left:4px;}
-.reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
-.reveal.in{opacity:1; transform:translateY(0);}
-@media (max-width:1023px){
-  body.page-home .nav{padding:0 16px 0 20px; height:80px;}
-  body.page-home .brand-logo{height:44px; width:auto; object-fit:contain;}
-  body.page-home .nav-toggle{color:var(--navy);}
-}
-@media (max-width:640px){
-  body.page-home header{box-shadow:none;}
-  body.page-home .hero{position:relative;}
-  body.page-home .hero::after{
-    content:''; position:absolute; top:0; left:0; right:0; height:52px;
-    background:linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0) 100%);
-    z-index:1; pointer-events:none;
-  }
-  body.page-home .hero-photo-overlay{
-    background:
-      linear-gradient(180deg, rgba(16,19,24,0.55) 0%, rgba(16,19,24,0.4) 40%, rgba(16,19,24,0.6) 70%, rgba(16,19,24,0.72) 100%);
-  }
-  body.page-home .hero{padding-top:56px;}
-  body.page-home .hero-inner{position:relative; z-index:3;}
-  body.page-home .hero .eyebrow{color:var(--gold-text); letter-spacing:0.18em; margin-bottom:12px;}
-  body.page-home .hero .eyebrow::before{background:var(--gold);}
-  body.page-home .hero h1{font-size:2.05rem; line-height:1.18; margin-bottom:12px;}
-  body.page-home .hero h1 em{color:var(--gold);}
-  body.page-home .hero p.lead{margin-bottom:22px;}
-  body.page-home .hero .btn-gold.btn-hero{background:var(--navy); border-color:#FFFFFF; box-shadow:0 10px 24px rgba(16,19,24,0.28);}
-  body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.92);}
-  body.page-home .btn-whatsapp-hero{border-color:var(--line-strong);}
-  body.page-home .hero-trust-bar{gap:16px; margin-top:32px; padding-top:24px;}
-  body.page-home .hero-trust-stars{color:#F4B400; margin-left:6px;}
-  body.page-home .hero-feature-grid{gap:14px 22px;}
-  body.page-home .hero-feature{border-bottom:1px solid var(--line); padding-bottom:12px;}
-  body.page-home .hero-feature-icon{width:18px; height:18px;}
-}</style>
-<link rel="preload" href="css/style.css" as="style">
-<link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'; this.onload=null;">
-<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+<link rel="stylesheet" href="css/style.css">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" as="style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'; this.onload=null;">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
@@ -374,11 +75,6 @@ header{
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </div>
-    <div class="nav-flags">
-      <a href="index.html" class="nav-flag active" aria-label="English" title="English">&#127468;&#127463;</a>
-      <a href="de/index.html" class="nav-flag" aria-label="Deutsch" title="Deutsch">&#127465;&#127466;</a>
-      <a href="sv/index.html" class="nav-flag" aria-label="Svenska" title="Svenska">&#127480;&#127466;</a>
-    </div>
     <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="nav-whatsapp" aria-label="WhatsApp" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg></a>
     <div class="lang-dropdown">
       <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
@@ -405,24 +101,15 @@ header{
       <a href="blog/index.html">Blog</a>
       <a href="about.html">About Us</a>
       <a href="contact.html">Contact</a>
-    <a href="de/index.html" class="lang-switch-mobile">&#127465;&#127466; Deutsch</a>
-    <a href="sv/index.html" class="lang-switch-mobile">&#127480;&#127466; Svenska</a>
+    <div class="mobile-lang" role="group" aria-label="Language"><a href="index.html" class="mobile-lang-opt active" aria-current="page">EN</a><a href="de/index.html" class="mobile-lang-opt">DE</a><a href="sv/index.html" class="mobile-lang-opt">SV</a></div>
   </div>
 </header>
 <main>
 <section class="hero">
-  <picture class="hero-photo">
-    <source media="(max-width:640px)" srcset="assets/hero-mobile.avif" type="image/avif">
-    <source media="(max-width:640px)" srcset="assets/hero-mobile.webp" type="image/webp">
-    <source srcset="assets/hero.avif" type="image/avif">
-    <source srcset="assets/hero.webp" type="image/webp">
-    <img src="assets/hero.webp" alt="" fetchpriority="high">
-  </picture>
-  <div class="hero-photo-overlay"></div>
   <div class="hero-inner">
-    <div class="eyebrow reveal">Private Transfers in Croatia</div>
-    <h1 class="reveal">Reliable transfers.<br><em>Every time.</em></h1>
-    <p class="lead reveal">Airport transfers along the Dalmatian coast.</p>
+    <div class="eyebrow reveal">Split Airport &middot; SPU</div>
+    <h1 class="reveal">Private Airport Transfers in Croatia</h1>
+    <p class="lead reveal">Reliable private transfers from Split Airport to Split, Trogir, &Scaron;ibenik, Makarska and destinations across Croatia.</p>
     <div class="hero-actions reveal">
       <a href="#booking" class="btn btn-gold btn-hero"><span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="18" height="16" rx="2"/><line x1="16" y1="3" x2="16" y2="7"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>Book Your Transfer</a>
       <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-outline btn-hero btn-whatsapp-hero"><span class="btn-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg></span>Chat on WhatsApp</a>
@@ -433,12 +120,6 @@ header{
       <span class="hero-trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
       <span class="hero-trust-divider"></span>
       <span class="hero-trust-count">25+ Google Reviews</span>
-    </div>
-    <div class="hero-feature-grid reveal">
-      <div class="hero-feature"><span class="hero-feature-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 24 L34 16 L30 22 L34 24 L18 26 L14 34 L11 33 L13 25 L6 24Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span>Flight monitoring</div>
-      <div class="hero-feature"><span class="hero-feature-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 8h12l12 12-12 12L8 20V8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="14" cy="14" r="2" fill="currentColor"/></svg></span>Fixed prices</div>
-      <div class="hero-feature"><span class="hero-feature-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 18l7-6 6 3 3-2 8 6-4 5-3-2-4 5-6-4-4 3-3-4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M17 15l4 4M27 19l3 4" stroke="currentColor" stroke-width="1.5"/></svg></span>Meet &amp; Greet</div>
-      <div class="hero-feature"><span class="hero-feature-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 10a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 34v-9a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v9" stroke="currentColor" stroke-width="1.5"/><path d="M8 34h18M10 25h14" stroke="currentColor" stroke-width="1.5"/></svg></span>Free child seat</div>
     </div>
   </div>
 </section>
@@ -454,24 +135,61 @@ header{
     <div class="why-mini-row">
       <div class="why-mini-item reveal">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 8h12l12 12-12 12L8 20V8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="14" cy="14" r="2" fill="currentColor"/></svg>
-      <div><b>Fixed Prices</b><span>No hidden costs</span></div>
+      <div><b>Fixed prices</b><span>Quoted upfront, no meter</span></div>
     </div>
-    <div class="why-mini-item reveal">
+      <div class="why-mini-item reveal">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 24 L34 16 L30 22 L34 24 L18 26 L14 34 L11 33 L13 25 L6 24Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <div><b>Flight monitoring</b><span>We wait if your flight is late</span></div>
+    </div>
+      <div class="why-mini-item reveal">
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="6" width="20" height="30" rx="1" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="21" r="1.6" fill="currentColor"/></svg>
-      <div><b>Door to Door Service</b><span>We take you to your address</span></div>
+      <div><b>Door to door</b><span>Met at arrivals, taken to your address</span></div>
     </div>
-    <div class="why-mini-item reveal">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36s12-11 12-20a12 12 0 1 0-24 0c0 9 12 20 12 20Z" stroke="currentColor" stroke-width="1.5"/><circle cx="20" cy="16" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
-      <div><b>Local &amp; Reliable</b><span>Based in Split</span></div>
+      <div class="why-mini-item reveal">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 10a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 34v-9a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v9" stroke="currentColor" stroke-width="1.5"/><path d="M8 34h18M10 25h14" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div><b>Child seats</b><span>Free on request</span></div>
     </div>
-    <div class="why-mini-item reveal">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6l4.2 9 9.8 1.2-7.2 6.8 2 9.8L20 27.6 11.2 32.8l2-9.8L6 16.2 15.8 15 20 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-      <div><b>Years of Experience</b><span>Local knowledge of every route</span></div>
     </div>
-    <div class="why-mini-item reveal">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 5l13 5v9c0 9-6 15-13 17-7-2-13-8-13-17V10l13-5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 20l4 4 8-8" stroke="currentColor" stroke-width="1.5"/></svg>
-      <div><b>Safe &amp; Insured</b><span>Your safety is our priority</span></div>
+  </div>
+</section><section class="bg-2">
+  <div class="wrap">
+    <div class="section-head reveal" style="display:flex; align-items:baseline; justify-content:space-between; max-width:none; flex-wrap:wrap; gap:16px;">
+      <div><div class="eyebrow">Popular Routes</div><h2 style="font-size:1.8rem;">Where We Take You</h2></div>
+      <a href="destinations.html" class="link" style="font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); border-bottom:1px solid var(--gold); padding-bottom:2px;">View All Routes &rarr;</a>
     </div>
+    <div class="dest-grid">
+      <a href="destinations/split.html" class="dest-card reveal">
+      <h3>Split City Center / Ferry Port</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="destinations/podstrana.html" class="dest-card reveal">
+      <h3>Podstrana</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="destinations/omis.html" class="dest-card reveal">
+      <h3>Omiš</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="destinations/makarska.html" class="dest-card reveal">
+      <h3>Makarska</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="destinations/dubrovnik.html" class="dest-card reveal">
+      <h3>Dubrovnik</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="destinations/plitvice.html" class="dest-card reveal">
+      <h3>Plitvice Lakes</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="destinations/zadar.html" class="dest-card reveal">
+      <h3>Zadar</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
+    <a href="destinations/brela.html" class="dest-card reveal">
+      <h3>Brela</h3>
+      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+    </a>
     
     </div>
   </div>
@@ -481,7 +199,7 @@ header{
       <div><div class="eyebrow">Our Vehicles</div><h2 style="font-size:1.8rem;">Three Vehicles, One Standard</h2></div>
       <a href="fleet.html" class="link" style="font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); border-bottom:1px solid var(--gold); padding-bottom:2px;">View All Vehicles &rarr;</a>
     </div>
-    <div style="display:grid; grid-template-columns:2.4fr 1fr; gap:32px; align-items:start;">
+    <div class="fleet-layout">
       <div class="fleet-grid">
         <div class="fleet-card reveal">
       <div class="fleet-media"><svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
@@ -550,7 +268,7 @@ header{
     </div>
     
       </div>
-      <ul class="fleet-checklist" style="border:1px solid var(--line); border-radius:16px; padding:28px;">
+      <ul class="fleet-checklist">
         <li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Clean &amp; comfortable vehicles</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>AC in all vehicles</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Plenty of luggage space</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Baby seats on request</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Non smoking</li>
       </ul>
     </div>
@@ -561,45 +279,18 @@ header{
   <div class="trust-item reveal"><b>Free</b><span>Cancellation</span></div>
 </div><section class="bg-2">
   <div class="wrap">
-    <div class="section-head reveal" style="display:flex; align-items:baseline; justify-content:space-between; max-width:none; flex-wrap:wrap; gap:16px;">
-      <div><div class="eyebrow">Popular Routes</div><h2 style="font-size:1.8rem;">Where We Take You</h2></div>
-      <a href="destinations.html" class="link" style="font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); border-bottom:1px solid var(--gold); padding-bottom:2px;">View All Routes &rarr;</a>
+    <div class="section-head reveal">
+      <div class="eyebrow">Hotel Transfers</div>
+      <h2>Straight to your hotel door</h2>
+      <p>Fixed-price transfers to the resorts and hotels guests ask for most.</p>
     </div>
-    <div class="dest-grid">
-      <a href="destinations/split.html" class="dest-card reveal">
-      <h3>Split City Center / Ferry Port</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    <a href="destinations/podstrana.html" class="dest-card reveal">
-      <h3>Podstrana</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    <a href="destinations/omis.html" class="dest-card reveal">
-      <h3>Omiš</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    <a href="destinations/makarska.html" class="dest-card reveal">
-      <h3>Makarska</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    <a href="destinations/dubrovnik.html" class="dest-card reveal">
-      <h3>Dubrovnik</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    <a href="destinations/plitvice.html" class="dest-card reveal">
-      <h3>Plitvice Lakes</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    <a href="destinations/zadar.html" class="dest-card reveal">
-      <h3>Zadar</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    <a href="destinations/brela.html" class="dest-card reveal">
-      <h3>Brela</h3>
-      <span class="dest-card-chevron" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-    </a>
-    
+    <div class="hotel-rows">
+      <a class="hotel-row reveal" href="hotel-transfers/amadria-park-sibenik-solaris.html"><span>Amadria Park &Scaron;ibenik (Solaris)</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/le-meridien-lav.html"><span>Hotel Le Meridien Lav</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/radisson-blu-resort-split.html"><span>Radisson Blu Resort Split</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/medora-auri-podgora.html"><span>Medora Auri, Podgora</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
     </div>
+    <a class="link-more reveal" href="hotel-transfers.html">All hotel transfers &rarr;</a>
   </div>
 </section><section>
   <div class="wrap">
@@ -645,7 +336,7 @@ header{
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>&ldquo;Ivan was so friendly and helpful. We were travelling with our little 9 month old and he really helped us and made sure all was ok. Gave us great recommendations too! Nicest journey we have had as it is tough with a baby &mdash; really made it easy for us getting back to airport and fitting all our luggage.&rdquo;</p>
+        <p>&ldquo;Ivan was so friendly and helpful. We were travelling with our little 9 month old and he really helped us and made sure all was ok. Gave us great recommendations too!&rdquo;</p>
         <cite>&mdash; Fiona Maher, Google review</cite>
       </div>
       <div class="testi-card reveal">

@@ -15,6 +15,7 @@
   --star: #F4B400;
   --line-strong: rgba(16,19,24,0.18);
   --radius: 12px;
+  --space-section: 104px;
   --navy: #14171C;
 }
 
@@ -61,6 +62,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   outline-offset:3px;
 }
 
+/* Vertical rhythm steps down twice so phones do not inherit desktop air. */
+@media (max-width:900px){ :root{ --space-section: 72px; } }
+@media (max-width:640px){ :root{ --space-section: 54px; } }
+
 @media (prefers-reduced-motion: reduce){
   *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
 }
@@ -100,6 +105,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .btn-whatsapp-hero{border-width:1.5px; border-color:var(--line-strong); color:var(--cream);}
 .btn-outline:hover{border-color:var(--gold); color:var(--gold);}
 .btn-block{width:100%;}
+/* Primary booking action: comfortable target, restrained hover. */
+.btn-submit{height:56px; font-size:0.84rem; letter-spacing:0.08em; border-radius:12px;}
+.btn-submit:hover{filter:brightness(0.93);}
+
 
 /* ============ HEADER ============ */
 header{
@@ -113,8 +122,8 @@ header{
 .nav{
   position:relative;
   display:grid;
-  grid-template-columns:max-content 1fr auto auto auto auto;
-  grid-template-areas:"brand links langflag flags whatsapp toggle";
+  grid-template-columns:max-content 1fr auto auto auto;
+  grid-template-areas:"brand links langflag whatsapp toggle";
   align-items:center;
   column-gap:24px;
   height:88px;
@@ -134,13 +143,6 @@ header{
 
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0; padding:0; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
 
-/* Desktop-only language flags + WhatsApp icon, sitting next to the
-   (mobile-only) lang-dropdown/toggle. Hidden below 1024px so mobile keeps
-   its existing text-code dropdown untouched. */
-.nav-flags{grid-area:flags; display:none; align-items:center; gap:8px;}
-.nav-flag{font-size:1.15rem; line-height:1; opacity:0.45; transition:opacity .2s ease, transform .2s ease; filter:grayscale(40%);}
-.nav-flag:hover{opacity:0.8;}
-.nav-flag.active{opacity:1; filter:none; transform:scale(1.08);}
 .nav-whatsapp{
   grid-area:whatsapp; display:none; align-items:center; justify-content:center;
   width:36px; height:36px; border-radius:50%; flex-shrink:0;
@@ -194,9 +196,20 @@ header{
 }
 .lang-option:hover{background:var(--bg-2);}
 .lang-option.active{font-weight:700; color:var(--gold-text);}
-.lang-switch-mobile{
-  display:none;
+
+/* Language row inside the mobile menu: plain codes, no flags — a flag is a
+   country, not a language, and three of them dominated the menu's foot. */
+.mobile-lang{display:flex; gap:8px; margin-top:auto; padding-top:26px;}
+.mobile-lang-opt{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:52px; height:38px; padding:0 14px;
+  border:1px solid rgba(255,255,255,0.22); border-radius:999px;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:0.78rem; font-weight:600; letter-spacing:0.08em;
+  color:rgba(255,255,255,0.7); transition:color .2s ease, border-color .2s ease, background-color .2s ease;
 }
+.mobile-lang-opt:hover{color:#fff; border-color:rgba(255,255,255,0.5);}
+.mobile-lang-opt.active{color:var(--navy); background:#fff; border-color:#fff;}
 
 .mobile-nav{
   display:none;
@@ -227,9 +240,7 @@ header{
 
 /* ============ DESKTOP HEADER (1024px+) ============ */
 @media (min-width:1024px){
-  .nav-flags{display:flex;}
   .nav-whatsapp{display:inline-flex;}
-  .lang-dropdown{display:none;}
   /* True centering on the whole header, independent of how wide the logo
      is versus the flags+WhatsApp icon on the right — grid's own
      justify-self:center only centers within the leftover space between
@@ -242,67 +253,36 @@ header{
 @media (min-width:1024px) and (max-width:1366px){
   .nav{padding:0 20px; column-gap:10px;}
   .nav-links{gap:11px; font-size:0.62rem; letter-spacing:0.02em;}
-  .nav-flags{gap:5px;}
-  .nav-flag{font-size:1rem;}
   .nav-whatsapp{width:32px; height:32px;}
   .nav-whatsapp svg{width:16px; height:16px;}
 }
 @media (min-width:1200px) and (max-width:1366px){
   .nav{padding:0 24px; column-gap:14px;}
   .nav-links{gap:15px; font-size:0.66rem; letter-spacing:0.04em;}
-  .nav-flags{gap:6px;}
 }
 
 /* ============ HERO ============ */
+/* Typography-first: no hero photograph, so the composition is a single
+   centred column and the headline carries the page. */
 .hero{
   position:relative;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,0.92fr);
-  align-items:center;
-  gap:60px;
-  max-width:1280px;
+  max-width:880px;
   margin:0 auto;
-  padding:104px 40px 80px;
+  padding:84px 40px 52px;
   background-color:var(--bg);
-}
-.hero-photo{
-  position:relative;
-  order:2;
-  border-radius:22px;
-  overflow:hidden;
-  aspect-ratio:5/4;
-  box-shadow:0 18px 50px rgba(16,19,24,0.12);
-}
-.hero-photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 60%;
-  display:block;
-}
-.hero-photo-overlay{display:none;}
-@media (max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    gap:30px;
-    padding:104px 40px 60px;
-  }
-  .hero-photo{order:1; aspect-ratio:16/10;}
-  .hero-inner{order:2;}
+  text-align:center;
 }
 @media (max-width:640px){
-  .hero{padding:88px 24px 50px; gap:24px;}
-  .hero-photo{aspect-ratio:16/11;}
-  .hero-photo img{object-position:center;}
+  .hero{padding:44px 24px 26px;}
 }
 
 .hero-inner{position:relative; z-index:3; order:1; width:100%;}
 .hero h1{
-  font-size:clamp(2.2rem, 3.5vw, 3.35rem);
+  font-size:clamp(2.05rem, 4.4vw, 3.5rem);
   font-weight:700;
-  line-height:1.12;
-  max-width:none;
-  margin-bottom:22px;
+  line-height:1.1;
+  max-width:20ch;
+  margin:0 auto 20px;
   letter-spacing:-0.02em;
   color:var(--cream);
 }
@@ -310,10 +290,10 @@ header{
 .hero p.lead{
   font-size:1.05rem;
   color:var(--gray);
-  max-width:460px;
-  margin-bottom:38px;
+  max-width:600px;
+  margin:0 auto 34px;
 }
-.hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+.hero-actions{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
 .btn-hero{
   flex:0 1 auto; min-width:238px; height:58px; display:inline-flex; align-items:center; justify-content:center;
   gap:10px; font-size:0.82rem;
@@ -326,8 +306,8 @@ header{
 .btn-icon svg{width:100%; height:100%;}
 
 .hero-trust-bar{
-  display:flex; align-items:center; justify-content:flex-start; gap:14px;
-  margin:34px 0 0; max-width:460px; padding-top:26px; border-top:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  margin:30px auto 0; max-width:460px; padding-top:0; border-top:none;
   flex-wrap:wrap;
 }
 .hero-trust-bar svg{width:22px; height:22px; flex-shrink:0;}
@@ -336,22 +316,20 @@ header{
 .hero-trust-divider{width:1px; height:16px; background:var(--line);}
 .hero-trust-count{color:var(--gray); font-size:0.88rem;}
 
-.hero-feature-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:16px 24px;
-  margin:26px 0 0; max-width:460px;
-}
-.hero-feature{
-  display:flex; align-items:center; justify-content:flex-start; gap:10px; color:var(--cream); font-size:0.86rem; font-weight:500;
-  padding-bottom:14px; border-bottom:1px solid var(--line);
-}
-.hero-feature-icon{width:22px; height:22px; flex-shrink:0; color:var(--gold);}
-.hero-feature-icon svg{width:100%; height:100%;}
 
 .hero .eyebrow{color:var(--gold-text);}
 .hero .eyebrow::before{background:var(--gold);}
 
 /* ============ QUICK BOOKING WIDGET (floating card) ============ */
-.quick-booking-wrap{position:relative; z-index:10; margin-top:-70px; margin-bottom:70px;}
+/* The booking widget is fetched and injected at runtime, so the space it will
+   occupy has to exist from the first paint or everything below it jumps when
+   it lands. Heights measured per breakpoint; the reservation is released once
+   the widget is in, so a taller-than-expected form is never clipped. */
+#booking-widget-mount{min-height:2135px;}
+@media (min-width:412px){ #booking-widget-mount{min-height:2109px;} }
+@media (min-width:641px){ #booking-widget-mount{min-height:1469px;} }
+#booking-widget-mount.is-loaded{min-height:0;}
+.quick-booking-wrap{position:relative; z-index:10; margin-top:0; margin-bottom:var(--space-section);}
 @media (max-width:1024px){.quick-booking-wrap{margin-top:-40px;}}
 @media (max-width:640px){.quick-booking-wrap{margin-top:20px;}}
 
@@ -450,9 +428,9 @@ header{
 .trust-mini-item span{font-size:0.8rem; color:var(--gray);}
 
 /* ============ SECTIONS ============ */
-section{padding:120px 40px;}
-.section-tight{padding:80px 40px;}
-.section-head{max-width:660px; margin-bottom:60px;}
+section{padding:var(--space-section) 40px;}
+.section-tight{padding:calc(var(--space-section) * 0.68) 40px;}
+.section-head{max-width:660px; margin-bottom:clamp(30px, 4.5vw, 54px);}
 .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
 .section-head h2{font-size:clamp(2rem, 3.8vw, 3rem); line-height:1.15;}
 .section-head p{color:var(--gray); margin-top:16px; font-size:1rem;}
@@ -482,9 +460,9 @@ section{padding:120px 40px;}
 .fleet-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
 .fleet-card{background:var(--bg); padding:0; display:flex; flex-direction:column; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(22,32,42,0.07); transition:transform .3s ease, box-shadow .3s ease;}
 .fleet-card:hover{transform:translateY(-4px); box-shadow:0 10px 28px rgba(22,32,42,0.12);}
-.fleet-media{aspect-ratio:16/10; background:var(--bg-3); display:flex; align-items:center; justify-content:center; padding:20px;}
-.fleet-media svg{width:90%; height:auto;}
-.fleet-body{padding:32px 30px 34px; text-align:center;}
+.fleet-media{aspect-ratio:16/9; background:var(--bg-3); display:flex; align-items:center; justify-content:center; padding:18px 24px;}
+.fleet-media svg{width:100%; height:auto;}
+.fleet-body{padding:28px 28px 30px; text-align:left;}
 .fleet-class{font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-text); font-weight:600; display:block; margin-bottom:14px;}
 .fleet-card h3{font-size:1.6rem; margin-bottom:6px;}
 .fleet-card .fleet-model{font-size:0.82rem; color:var(--gray); margin-bottom:14px;}
@@ -494,13 +472,14 @@ section{padding:120px 40px;}
 .fleet-specs b{font-family:'Schibsted Grotesk',sans-serif; font-size:1.3rem; display:block;}
 .fleet-specs span{font-size:0.7rem; color:var(--gray); text-transform:uppercase; letter-spacing:0.06em;}
 
-.fleet-spec-icons{display:flex; gap:16px; margin-bottom:18px; flex-wrap:wrap; justify-content:center;}
+.fleet-spec-icons{display:flex; gap:16px; margin-bottom:18px; flex-wrap:wrap; justify-content:flex-start;}
 .fleet-spec-icon{display:flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--gray);}
 .fleet-spec-icon svg{width:16px; height:16px; color:var(--gold); flex-shrink:0;}
 
-.fleet-checklist{list-style:none; display:flex; flex-direction:column; gap:16px;}
-.fleet-checklist li{display:flex; align-items:center; gap:12px; font-size:0.92rem; color:var(--cream);}
-.fleet-checklist svg{width:20px; height:20px; color:var(--gold); flex-shrink:0;}
+.fleet-layout{display:block;}
+.fleet-checklist{list-style:none; display:flex; flex-wrap:wrap; gap:14px 34px; margin-top:32px; padding-top:26px; border-top:1px solid var(--line);}
+.fleet-checklist li{display:flex; align-items:center; gap:9px; font-size:0.86rem; color:var(--gray);}
+.fleet-checklist svg{width:16px; height:16px; color:var(--gold); flex-shrink:0;}
 
 @media (max-width:900px){.fleet-grid{grid-template-columns:1fr;}}
 @media (max-width:1100px){
@@ -519,7 +498,7 @@ section{padding:120px 40px;}
 .price-table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px;}
 
 /* ============ DESTINATIONS GRID ============ */
-.dest-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+.dest-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
 .dest-card{
   border:1px solid var(--line);
   background:var(--bg);
@@ -532,8 +511,9 @@ section{padding:120px 40px;}
 .dest-card:hover{box-shadow:0 10px 26px rgba(22,32,42,0.10); transform:translateY(-3px);}
 .dest-body{padding:30px 26px;}
 .dest-card h3{font-size:1.3rem; margin-bottom:20px;}
-@media (max-width:900px){.dest-grid{grid-template-columns:1fr 1fr;}}
-@media (max-width:600px){.dest-grid{grid-template-columns:1fr;}}
+@media (max-width:1100px){.dest-grid{grid-template-columns:repeat(3,1fr);}}
+@media (max-width:820px){.dest-grid{grid-template-columns:1fr 1fr;}}
+
 
 /* Destinations page (and the homepage's Popular Routes grid): whole card
    is a link, name only, no button/metadata — a small chevron in the
@@ -701,6 +681,29 @@ body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:non
 .faq-item h3{font-size:1.1rem; text-transform:none; margin-bottom:10px; color:var(--cream); font-weight:600; font-family:'Instrument Sans',sans-serif;}
 .faq-item p{font-size:0.92rem; color:var(--gray);}
 
+/* ============ HOTEL TRANSFERS (compact list, not another card grid) ====== */
+.hotel-rows{display:grid; grid-template-columns:1fr 1fr; gap:0 40px; border-top:1px solid var(--line);}
+.hotel-row{
+  display:flex; align-items:center; justify-content:space-between; gap:18px;
+  padding:20px 4px; border-bottom:1px solid var(--line);
+  color:var(--cream); font-size:1rem; font-weight:500;
+  transition:color .2s ease, padding-left .2s ease;
+}
+.hotel-row:hover{color:var(--gold-text); padding-left:8px;}
+.hotel-row-chev{display:flex; width:18px; height:18px; flex-shrink:0; color:var(--gray); transition:color .2s ease;}
+.hotel-row-chev svg{width:100%; height:100%;}
+.hotel-row:hover .hotel-row-chev{color:var(--gold);}
+.link-more{
+  display:inline-block; margin-top:28px;
+  font-size:0.74rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--gold-text);
+}
+.link-more:hover{text-decoration:underline;}
+@media (max-width:760px){
+  .hotel-rows{grid-template-columns:1fr; gap:0;}
+  .hotel-row{font-size:0.95rem; padding:17px 2px;}
+}
+
 /* ============ TESTIMONIALS ============ */
 .testimonials{background:var(--bg-3); color:var(--cream);}
 .testimonials .section-head h2{color:var(--cream);}
@@ -718,11 +721,11 @@ body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:non
 .review-link{font-size:0.82rem; font-weight:600; color:var(--gold-text); border-bottom:1px solid var(--gold); padding-bottom:1px; white-space:nowrap;}
 @media (max-width:600px){.review-stat{flex-direction:column; gap:8px; text-align:center; margin-bottom:32px;}}
 
-.testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-.testi-card{background:var(--bg); border-radius:16px; padding:28px; border:1px solid var(--line); box-shadow:0 2px 16px rgba(16,19,24,0.05);}
-.testi-stars{color:var(--star); font-size:0.9rem; margin-bottom:14px; letter-spacing:2px;}
-.testi-card p{color:var(--gray); font-size:0.92rem; margin-bottom:16px; font-style:italic;}
-.testi-card cite{font-style:normal; font-size:0.82rem; color:#6B7482;}
+.testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.testi-card{background:var(--bg); border-radius:16px; padding:32px 30px; border:1px solid var(--line); box-shadow:none;}
+.testi-stars{color:var(--star); font-size:0.88rem; margin-bottom:16px; letter-spacing:2px;}
+.testi-card p{color:var(--cream); font-size:0.96rem; line-height:1.62; margin-bottom:18px; font-style:normal;}
+.testi-card cite{font-style:normal; font-size:0.82rem; font-weight:500; color:var(--gray);}
 .testi-empty{
   border:1px dashed var(--line-strong); border-radius:16px; padding:44px; text-align:center;
   color:var(--gray); font-size:0.94rem; grid-column:1/-1;
@@ -739,33 +742,41 @@ body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:non
 
 /* ============ BOOKING PAGE ============ */
 .booking-layout{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start;}
-.booking-form-box{border:1px solid var(--line); border-radius:22px; padding:44px; background:var(--bg); box-shadow:0 12px 40px rgba(16,19,24,0.10);}
+.booking-form-box{border:1px solid var(--line); border-radius:20px; padding:40px 44px 44px; background:var(--bg); box-shadow:0 1px 2px rgba(16,19,24,0.04), 0 14px 44px rgba(16,19,24,0.07);}
 .booking-form-box h2{font-size:1.6rem; margin-bottom:8px;}
 .booking-form-box .sub{color:var(--gray); font-size:0.9rem; margin-bottom:34px;}
 
-.toggle-group{display:flex; border:1px solid var(--line-strong); border-radius:var(--radius); margin-bottom:28px; width:fit-content;}
-.toggle-opt{padding:11px 24px; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; cursor:pointer; background:transparent; border:none; color:var(--gray); transition:all .2s ease;}
+.toggle-group{display:flex; border:1px solid var(--line); border-radius:999px; margin-bottom:30px; width:fit-content; padding:3px;}
+.toggle-opt{padding:10px 22px; font-size:0.82rem; font-weight:500; letter-spacing:0; text-transform:none; border-radius:999px; cursor:pointer; background:transparent; border:none; color:var(--gray); transition:background-color .2s ease, color .2s ease;}
 .toggle-opt:first-child{border-radius:var(--radius) 0 0 var(--radius);}
 .toggle-opt:last-child{border-radius:0 var(--radius) var(--radius) 0;}
-.toggle-opt.active{background:var(--gold); color:var(--bg); font-weight:600;}
+.toggle-opt.active{background:var(--gold); color:#FFFFFF; font-weight:600;}
 .toggle-badge{position:relative; display:inline-block; margin-left:6px; padding:2px 6px; border-radius:999px; font-size:0.65rem; font-weight:700; letter-spacing:0.02em; text-transform:none; background:var(--navy); color:#fff; vertical-align:1px; cursor:help;}
 .toggle-opt.active .toggle-badge{background:#fff; color:var(--navy);}
 .toggle-tooltip{position:absolute; top:calc(100% + 9px); left:50%; transform:translateX(-50%); background:var(--cream); color:#fff; font-size:0.68rem; font-weight:500; letter-spacing:normal; text-transform:none; padding:7px 11px; border-radius:8px; white-space:nowrap; opacity:0; visibility:hidden; transition:opacity .15s ease; pointer-events:none; z-index:20;}
 .toggle-tooltip::after{content:""; position:absolute; bottom:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-bottom-color:var(--cream);}
 .toggle-badge:hover .toggle-tooltip, .toggle-badge:focus .toggle-tooltip{opacity:1; visibility:visible;}
 
-fieldset{border:none; margin-bottom:30px; padding-top:20px; border-top:1px solid var(--line);}
+fieldset{border:none; margin-bottom:26px; padding-top:26px; border-top:1px solid var(--line);}
 fieldset:first-of-type{padding-top:0; border-top:none;}
-legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-text); font-weight:600; margin-bottom:18px; padding:0;}
+/* Floating the legend takes it out of the border flow, so the hairline
+   above each step stays unbroken instead of running through the label. */
+legend{float:left; width:100%; font-size:0.95rem; letter-spacing:0; text-transform:none; color:var(--cream); font-weight:600; margin-bottom:16px; padding:0;}
+legend + *{clear:both;}
 
-.form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
-.field{display:flex; flex-direction:column; gap:8px;}
-.field label{font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--gray);}
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
+.field{display:flex; flex-direction:column; gap:7px;}
+.field label{font-size:0.78rem; font-weight:500; letter-spacing:0; text-transform:none; color:var(--gray);}
 .field input, .field select, .field textarea{
-  background:var(--bg-2); border:1px solid var(--line-strong); color:var(--cream);
-  padding:13px 14px; font-size:0.92rem; border-radius:var(--radius); font-family:'Instrument Sans',sans-serif;
+  background:var(--bg); border:1px solid var(--line); color:var(--cream);
+  padding:15px 16px; font-size:0.95rem; border-radius:12px; font-family:'Instrument Sans',sans-serif;
+  transition:border-color .18s ease, box-shadow .18s ease;
 }
-.field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--gold);}
+.field input::placeholder, .field textarea::placeholder{color:#9AA1AC;}
+.field input:hover, .field select:hover, .field textarea:hover{border-color:#CDD3DC;}
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(0,87,193,0.12);
+}
 .field textarea{resize:vertical; min-height:90px;}
 .field-error{font-size:0.74rem; color:#D98E7A; display:none; margin:8px 0 0;}
 .field.invalid input, .field.invalid select{border-color:#D98E7A;}
@@ -787,11 +798,12 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 .custom-quote-msg{font-size:0.9rem; color:var(--gray); line-height:1.6; padding:8px 0;}
 
 .live-price-bar{
-  border:1px solid var(--line);
-  border-radius:12px;
-  background:var(--bg-2);
-  padding:16px 20px;
-  margin:24px 0 20px;
+  border:none;
+  border-top:1px solid var(--line);
+  border-radius:0;
+  background:transparent;
+  padding:20px 0 0;
+  margin:26px 0 22px;
 }
 .live-price-bar #live-price-empty .live-price-hint{font-size:0.88rem; color:var(--gray);}
 .live-price-bar #live-price-loading .live-price-hint{font-size:0.88rem; color:var(--gray); display:inline-flex; align-items:center; gap:8px;}
@@ -802,9 +814,9 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 }
 @keyframes mini-spin{to{transform:rotate(360deg);}}
 .live-price-bar #live-price-priced{display:flex; align-items:center; justify-content:space-between; gap:12px;}
-.live-price-label{font-size:0.8rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--gray); font-weight:600;}
+.live-price-label{font-size:0.88rem; letter-spacing:0; text-transform:none; color:var(--gray); font-weight:500;}
 .live-price-label span{text-transform:none; letter-spacing:normal; font-weight:400;}
-.live-price-value{font-family:'Schibsted Grotesk',sans-serif; font-size:1.6rem; font-weight:700; color:var(--gold-text);}
+.live-price-value{font-family:'Schibsted Grotesk',sans-serif; font-size:1.45rem; font-weight:700; color:var(--cream);}
 .live-price-bar .custom-quote-msg{padding:0; font-size:0.86rem;}
 .custom-quote-msg a{color:var(--gold-text); font-weight:600; border-bottom:1px solid var(--gold);}
 
@@ -812,8 +824,8 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
    compact inline bar is the only price display, so it stays visible. */
 
 .vehicle-picker{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
-.vehicle-opt{border:1px solid var(--line-strong); padding:16px; border-radius:var(--radius); cursor:pointer; transition:all .2s ease; text-align:center;}
-.vehicle-opt.active{border-color:var(--gold); background:rgba(0,87,193,0.06);}
+.vehicle-opt{border:1px solid var(--line); padding:18px 14px; border-radius:12px; cursor:pointer; transition:border-color .2s ease, background-color .2s ease; text-align:center;}
+.vehicle-opt.active{border-color:var(--gold); background:rgba(0,87,193,0.05); box-shadow:inset 0 0 0 1px var(--gold);}
 .vehicle-opt.disabled{opacity:0.35; pointer-events:none;}
 .vehicle-opt b{display:block; font-family:'Schibsted Grotesk',sans-serif; font-size:1.05rem; margin-bottom:4px;}
 .vehicle-opt span{font-size:0.76rem; color:var(--gray); display:block; margin-bottom:2px;}
@@ -841,7 +853,7 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 .summary-total b{font-family:'Schibsted Grotesk',sans-serif; font-size:2.2rem; color:var(--gold-text);}
 .summary-note{font-size:0.76rem; color:var(--gray); margin-top:16px;}
 
-.booking-layout{grid-template-columns:1fr; max-width:720px; margin:0 auto;}
+.booking-layout{grid-template-columns:1fr; max-width:860px; margin:0 auto;}
 .booking-wrap{padding:0;}
 @media (max-width:960px){
   .summary-box{position:static;}
@@ -905,6 +917,31 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 .wa-banner-left b{display:block; color:var(--cream); font-size:1.05rem; margin-bottom:2px;}
 .wa-banner-left span{color:var(--gray); font-size:0.88rem;}
 
+/* ---- Narrow phones (<=360px) ---------------------------------------------
+   At 320px the logo (64px tall, ~2.8:1) plus the language button and the
+   hamburger were ~335px wide in a 320px viewport, pushing the toggle off
+   screen and giving every page a horizontal scroll. */
+@media (max-width:360px){
+  .nav{padding:0 12px 0 10px; column-gap:8px;}
+  .brand-logo, body.page-home .brand-logo{height:44px;}
+  .lang-dropdown-btn{height:32px; padding:0 10px; gap:4px; font-size:0.7rem;}
+  .nav-toggle{font-size:1.7rem;}
+  .hero{padding:40px 18px 24px;}
+  .trust-item{padding:16px 4px;}
+  .trust-item span{font-size:0.58rem; overflow-wrap:break-word; hyphens:auto;}
+  section{padding-left:0; padding-right:0;}
+  .wrap{padding:0 18px;}
+}
+
+/* The return-discount tooltip is visibility:hidden, but hidden boxes still
+   count toward scrollWidth — nowrap made it wider than a small phone. */
+@media (max-width:480px){
+  .toggle-tooltip{
+    left:auto; right:0; transform:none;
+    white-space:normal; width:min(220px, calc(100vw - 60px));
+  }
+}
+
 /* ============ FOOTER ============ */
 footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.65);}
 .footer-inner{max-width:1280px; margin:0 auto; display:grid; grid-template-columns:1.6fr repeat(3,1fr); gap:40px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,0.10);}
@@ -955,11 +992,6 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 @media (max-width:640px){
   body.page-home header{box-shadow:none;}
   body.page-home .hero{position:relative;}
-  body.page-home .hero::after{display:none;}
-  body.page-home .hero-photo-overlay{
-    background:
-      linear-gradient(180deg, rgba(16,19,24,0.55) 0%, rgba(16,19,24,0.4) 40%, rgba(16,19,24,0.6) 70%, rgba(16,19,24,0.72) 100%);
-  }
   body.page-home .hero{padding-top:56px;}
   body.page-home .hero-inner{position:relative; z-index:3;}
   body.page-home .hero .eyebrow{color:var(--gold-text); letter-spacing:0.18em; margin-bottom:12px;}
@@ -975,9 +1007,6 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home .btn-whatsapp-hero{border-color:var(--line-strong);}
   body.page-home .hero-trust-bar{gap:16px; margin-top:32px; padding-top:24px;}
   body.page-home .hero-trust-stars{color:var(--star); margin-left:6px;}
-  body.page-home .hero-feature-grid{gap:14px 22px;}
-  body.page-home .hero-feature{border-bottom:1px solid var(--line); padding-bottom:12px;}
-  body.page-home .hero-feature-icon{width:18px; height:18px;}
 }
 
 /* ============ GLOBAL MOBILE WIDTH — SITE-WIDE ============ */
@@ -995,7 +1024,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   .article-body{padding-left:10px; padding-right:10px;}
   .trust-mini{padding-left:10px; padding-right:10px;}
   .wa-banner{padding-left:10px; padding-right:10px;}
-  section{padding-top:56px; padding-bottom:56px;}
+  /* section padding now comes from --space-section */
   .section-tight{padding-top:40px; padding-bottom:40px;}
 }
 

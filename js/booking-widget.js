@@ -489,6 +489,9 @@ function initBookingWidget(){
     .then(function(response){ return response.text(); })
     .then(function(html){
       mount.innerHTML = html;
+      // Release the CSS height reservation now that the real form occupies
+      // the space it was holding open.
+      mount.classList.add('is-loaded');
       initBookingWidget();
     })
     .catch(function(err){
