@@ -733,6 +733,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/hotel-transfers/amadria-park-sibenik-solaris</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/hotel-transfers</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -769,6 +775,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/hotel-transfers/amadria-park-sibenik-solaris</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/hotel-transfers</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -801,6 +813,12 @@
   <url>
     <loc>https://airportsplittransfer.com/sv/hotel-transfers/medora-auri-podgora</loc>
     <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/hotel-transfers/amadria-park-sibenik-solaris</loc>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
