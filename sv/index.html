@@ -51,16 +51,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <style>:root{
   --bg: #FFFFFF;
-  --bg-2: #F8FAFC;
-  --bg-3: #EBF1F7;
-  --cream: #07264C;
-  --gray: #5B6672;
+  --bg-2: #F7F8F9;
+  --bg-3: #EFF1F3;
+  --cream: #16191F;
+  --gray: #616872;
   --gold: #0057C1;
   --gold-text: #0057C1;
-  --line: #E5E7EB;
-  --line-strong: rgba(7,38,76,0.18);
+  --line: #E4E6EA;
+  --line-strong: rgba(16,19,24,0.18);
   --radius: 12px;
-  --navy: #07264C;
+  --navy: #14171C;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 .sr-only{
@@ -162,7 +162,7 @@ header{
 .lang-dropdown-btn:hover{border-color:var(--navy);}
 .lang-chevron{width:10px; height:10px; flex-shrink:0; transition:transform .15s ease;}
 .lang-dropdown.open .lang-chevron{transform:rotate(180deg);}
-.lang-dropdown-menu{display:none; position:absolute; top:calc(100% + 8px); right:0; min-width:150px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 40px rgba(7,38,76,0.16); padding:6px; z-index:50;}
+.lang-dropdown-menu{display:none; position:absolute; top:calc(100% + 8px); right:0; min-width:150px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 16px 40px rgba(16,19,24,0.16); padding:6px; z-index:50;}
 .lang-dropdown.open .lang-dropdown-menu{display:block;}
 .lang-option{display:block; padding:10px 12px; border-radius:9px; font-size:0.85rem; font-weight:500; color:var(--navy); text-decoration:none;}
 .lang-option:hover{background:var(--bg-2);}
@@ -237,7 +237,7 @@ header{
   inset:0;
   z-index:0;
   pointer-events:none;
-  background:linear-gradient(90deg, rgba(7,38,76,.85) 0%, rgba(7,38,76,.5) 50%, rgba(7,38,76,.12) 100%);
+  background:linear-gradient(90deg, rgba(16,19,24,.58) 0%, rgba(16,19,24,.32) 50%, rgba(16,19,24,.06) 100%);
 }
 @media (max-width:640px){
   .hero{
@@ -318,7 +318,7 @@ header{
   }
   body.page-home .hero-photo-overlay{
     background:
-      linear-gradient(180deg, rgba(7,38,76,0.78) 0%, rgba(7,38,76,0.62) 40%, rgba(7,38,76,0.68) 70%, rgba(7,38,76,0.78) 100%);
+      linear-gradient(180deg, rgba(16,19,24,0.55) 0%, rgba(16,19,24,0.4) 40%, rgba(16,19,24,0.6) 70%, rgba(16,19,24,0.72) 100%);
   }
   body.page-home .hero{padding-top:56px;}
   body.page-home .hero-inner{position:relative; z-index:3;}
@@ -327,8 +327,8 @@ header{
   body.page-home .hero h1{font-size:2.05rem; line-height:1.18; margin-bottom:12px;}
   body.page-home .hero h1 em{color:#fff;}
   body.page-home .hero p.lead{margin-bottom:22px;}
-  body.page-home .hero .btn-gold.btn-hero{background:var(--navy); border-color:#FFFFFF; box-shadow:0 10px 24px rgba(7,38,76,0.28);}
-  body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.8);}
+  body.page-home .hero .btn-gold.btn-hero{background:var(--navy); border-color:#FFFFFF; box-shadow:0 10px 24px rgba(16,19,24,0.28);}
+  body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.92);}
   body.page-home .btn-whatsapp-hero{border-color:#FFFFFF;}
   body.page-home .hero-trust-bar{gap:16px; margin-top:32px; padding-top:24px;}
   body.page-home .hero-trust-stars{color:#F4B400; margin-left:6px;}
@@ -1118,7 +1118,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
       <div class="fleet-grid">
         <div class="fleet-card reveal">
       <div class="fleet-media"><svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 120 Q20 95 55 90 L95 60 Q120 45 165 45 L235 45 Q270 45 292 65 L330 90 Q375 95 378 120 L378 130 L20 130 Z" fill="#07264C" fill-opacity="0.08" stroke="#0057C1" stroke-width="2"/>
+<path d="M20 120 Q20 95 55 90 L95 60 Q120 45 165 45 L235 45 Q270 45 292 65 L330 90 Q375 95 378 120 L378 130 L20 130 Z" fill="#16191F" fill-opacity="0.08" stroke="#0057C1" stroke-width="2"/>
 <path d="M110 62 L140 47 L235 47 L268 63" fill="none" stroke="#0057C1" stroke-width="1.5"/>
 <circle cx="95" cy="130" r="20" fill="none" stroke="#0057C1" stroke-width="2"/>
 <circle cx="305" cy="130" r="20" fill="none" stroke="#0057C1" stroke-width="2"/>
@@ -1139,7 +1139,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
     </div>
     <div class="fleet-card reveal">
       <div class="fleet-media"><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 150 L20 80 Q20 55 48 52 L300 52 Q330 52 345 78 L378 130 L378 150 Z" fill="#07264C" fill-opacity="0.08" stroke="#0057C1" stroke-width="2"/>
+<path d="M20 150 L20 80 Q20 55 48 52 L300 52 Q330 52 345 78 L378 130 L378 150 Z" fill="#16191F" fill-opacity="0.08" stroke="#0057C1" stroke-width="2"/>
 <line x1="120" y1="52" x2="120" y2="150" stroke="#0057C1" stroke-width="1"/>
 <line x1="220" y1="52" x2="220" y2="150" stroke="#0057C1" stroke-width="1"/>
 <path d="M300 78 L340 78 L345 78" fill="none" stroke="#0057C1" stroke-width="1"/>
@@ -1161,7 +1161,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
     </div>
     <div class="fleet-card reveal">
       <div class="fleet-media"><svg viewBox="0 0 400 170" xmlns="http://www.w3.org/2000/svg">
-<path d="M20 145 L20 85 Q20 58 55 55 L110 40 Q140 32 220 32 L280 32 Q310 34 330 58 L360 85 L378 90 L378 145 Z" fill="#07264C" fill-opacity="0.08" stroke="#0057C1" stroke-width="2"/>
+<path d="M20 145 L20 85 Q20 58 55 55 L110 40 Q140 32 220 32 L280 32 Q310 34 330 58 L360 85 L378 90 L378 145 Z" fill="#16191F" fill-opacity="0.08" stroke="#0057C1" stroke-width="2"/>
 <path d="M115 55 L130 40 M225 32 L235 55" fill="none" stroke="#0057C1" stroke-width="1"/>
 <line x1="115" y1="55" x2="115" y2="145" stroke="#0057C1" stroke-width="1"/>
 <line x1="235" y1="55" x2="235" y2="145" stroke="#0057C1" stroke-width="1"/>

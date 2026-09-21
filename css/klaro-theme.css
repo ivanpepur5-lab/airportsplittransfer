@@ -15,14 +15,14 @@
   --button-text-color: #FFFFFF;
 
   /* notice/modal surfaces + text */
-  --light1: var(--cream, #07264C);   /* headings / body text on light bg */
-  --light2: var(--line, #E5E7EB);    /* dividers */
-  --light3: var(--gray, #5B6672);    /* secondary/description text */
-  --white2: var(--bg-2, #F8FAFC);    /* toggle track (off) */
-  --white3: var(--line, #E5E7EB);    /* toggle knob shadow */
+  --light1: var(--cream, #16191F);   /* headings / body text on light bg */
+  --light2: var(--line, #E4E6EA);    /* dividers */
+  --light3: var(--gray, #616872);    /* secondary/description text */
+  --white2: var(--bg-2, #F7F8F9);    /* toggle track (off) */
+  --white3: var(--line, #E4E6EA);    /* toggle knob shadow */
   --dark1: #FFFFFF;                  /* notice/modal background */
-  --dark2: var(--navy, #07264C);     /* default (decline) button background */
-  --dark3: var(--gray, #5B6672);
+  --dark2: var(--navy, #14171C);     /* default (decline) button background */
+  --dark3: var(--gray, #616872);
 
   /* accept / manage / toggle accent */
   --green1: var(--gold, #0057C1);
@@ -42,7 +42,7 @@
 .klaro .cookie-notice,
 .klaro .cookie-modal .cm-modal {
   box-shadow: 0 12px 40px rgba(11, 31, 74, 0.14);
-  border: 1px solid var(--line, #E5E7EB);
+  border: 1px solid var(--line, #E4E6EA);
 }
 
 .klaro .cookie-notice .cn-body h2,
@@ -50,7 +50,7 @@
 .klaro .cookie-modal .cm-modal h2 {
   font-family: 'Schibsted Grotesk', sans-serif;
   font-weight: 600;
-  color: var(--navy, #07264C);
+  color: var(--navy, #14171C);
 }
 
 .klaro .cn-buttons,
@@ -75,15 +75,15 @@
 
 /* Accept All — solid navy, the site's primary CTA style */
 .klaro .cm-btn.cm-btn-success {
-  background-color: var(--navy, #07264C) !important;
-  border: 1px solid var(--navy, #07264C);
+  background-color: var(--navy, #14171C) !important;
+  border: 1px solid var(--navy, #14171C);
 }
 
 /* Reject Non-Essential — outline style */
 .klaro .cm-btn.cm-btn-decline,
 .klaro .cookie-notice .cm-btn:not(.cm-btn-success):not(.cm-btn-info) {
   background-color: transparent !important;
-  color: var(--navy, #07264C) !important;
+  color: var(--navy, #14171C) !important;
   border: 1px solid var(--line-strong, rgba(7, 38, 76, 0.3));
 }
 
@@ -97,16 +97,16 @@
 
 /* Save/close in the detailed modal footer */
 .klaro .cm-modal .cm-btn-success {
-  background-color: var(--navy, #07264C) !important;
+  background-color: var(--navy, #14171C) !important;
 }
 
 .klaro .cm-list-title {
   font-family: 'Schibsted Grotesk', sans-serif;
-  color: var(--cream, #07264C);
+  color: var(--cream, #16191F);
 }
 
 .klaro .cm-list-description {
-  color: var(--gray, #5B6672);
+  color: var(--gray, #616872);
 }
 
 /* Footer "Cookie Preferences" trigger link, shown next to Privacy/Terms */

@@ -5,17 +5,17 @@
 
 :root{
   --bg: #FFFFFF;
-  --bg-2: #F8FAFC;
-  --bg-3: #EBF1F7;
-  --cream: #07264C;
-  --gray: #5B6672;
+  --bg-2: #F7F8F9;
+  --bg-3: #EFF1F3;
+  --cream: #16191F;
+  --gray: #616872;
   --gold: #0057C1;
   --gold-text: #0057C1;
-  --line: #E3E9F1;
+  --line: #E4E6EA;
   --star: #F4B400;
-  --line-strong: rgba(7,38,76,0.18);
+  --line-strong: rgba(16,19,24,0.18);
   --radius: 12px;
-  --navy: #07264C;
+  --navy: #14171C;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -179,7 +179,7 @@ header{
   background:var(--bg);
   border:1px solid var(--line);
   border-radius:14px;
-  box-shadow:0 16px 40px rgba(7,38,76,0.16);
+  box-shadow:0 16px 40px rgba(16,19,24,0.16);
   padding:6px;
   z-index:50;
 }
@@ -279,7 +279,7 @@ header{
   inset:0;
   z-index:0;
   pointer-events:none;
-  background:linear-gradient(90deg, rgba(7,38,76,.68) 0%, rgba(7,38,76,.4) 50%, rgba(7,38,76,.1) 100%);
+  background:linear-gradient(90deg, rgba(16,19,24,.58) 0%, rgba(16,19,24,.32) 50%, rgba(16,19,24,.06) 100%);
 }
 @media (max-width:640px){
   .hero{
@@ -305,7 +305,8 @@ header{
 .hero h1 em{font-style:normal; color:#fff; text-shadow:0 2px 14px rgba(0,0,0,0.55);}
 .hero p.lead{
   font-size:1.05rem;
-  color:rgba(255,255,255,0.68);
+  color:rgba(255,255,255,0.88);
+  text-shadow:0 1px 10px rgba(0,0,0,0.4);
   max-width:460px;
   margin-bottom:38px;
 }
@@ -593,7 +594,7 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
   background:var(--gold); color:#fff;
   font-size:0.68rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
   padding:8px 14px; border-radius:999px;
-  box-shadow:0 4px 12px rgba(7,38,76,0.2);
+  box-shadow:0 4px 12px rgba(16,19,24,0.2);
 }
 .trip-body{padding:30px 30px 34px; display:flex; flex-direction:column; flex:1;}
 .trip-card h3{font-size:1.5rem; margin-bottom:10px;}
@@ -621,7 +622,7 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
 .custom-tour-box--photo{position:relative; overflow:hidden; isolation:isolate;}
 .custom-tour-bg{position:absolute; inset:0; z-index:0;}
 .custom-tour-bg img{width:100%; height:100%; object-fit:cover; display:block;}
-.custom-tour-box--photo::before{content:''; position:absolute; inset:0; background:linear-gradient(160deg, rgba(7,38,76,0.92) 10%, rgba(7,38,76,0.72) 100%); z-index:1;}
+.custom-tour-box--photo::before{content:''; position:absolute; inset:0; background:linear-gradient(160deg, rgba(16,19,24,0.92) 10%, rgba(16,19,24,0.72) 100%); z-index:1;}
 .custom-tour-content{position:relative; z-index:2;}
 
 /* Trip detail pages: hero photo, gallery, itinerary */
@@ -629,7 +630,7 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
 .trip-hero img{width:100%; height:100%; object-fit:cover; display:block;}
 .trip-hero-overlay{
   position:absolute; inset:0;
-  background:linear-gradient(0deg, rgba(7,38,76,.75) 0%, rgba(7,38,76,.1) 55%);
+  background:linear-gradient(0deg, rgba(16,19,24,.75) 0%, rgba(16,19,24,.1) 55%);
   display:flex; align-items:flex-end; padding:36px;
 }
 .trip-hero-overlay .eyebrow{color:rgba(255,255,255,0.85);}
@@ -712,7 +713,7 @@ body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:non
 @media (max-width:600px){.review-stat{flex-direction:column; gap:8px; text-align:center; margin-bottom:32px;}}
 
 .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
-.testi-card{background:var(--bg); border-radius:16px; padding:28px; border:1px solid var(--line); box-shadow:0 2px 16px rgba(7,38,76,0.05);}
+.testi-card{background:var(--bg); border-radius:16px; padding:28px; border:1px solid var(--line); box-shadow:0 2px 16px rgba(16,19,24,0.05);}
 .testi-stars{color:var(--star); font-size:0.9rem; margin-bottom:14px; letter-spacing:2px;}
 .testi-card p{color:var(--gray); font-size:0.92rem; margin-bottom:16px; font-style:italic;}
 .testi-card cite{font-style:normal; font-size:0.82rem; color:#6B7482;}
@@ -732,7 +733,7 @@ body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:non
 
 /* ============ BOOKING PAGE ============ */
 .booking-layout{display:grid; grid-template-columns:1.4fr 1fr; gap:48px; align-items:start;}
-.booking-form-box{border:1px solid var(--line); border-radius:22px; padding:44px; background:var(--bg); box-shadow:0 12px 40px rgba(7,38,76,0.10);}
+.booking-form-box{border:1px solid var(--line); border-radius:22px; padding:44px; background:var(--bg); box-shadow:0 12px 40px rgba(16,19,24,0.10);}
 .booking-form-box h2{font-size:1.6rem; margin-bottom:8px;}
 .booking-form-box .sub{color:var(--gray); font-size:0.9rem; margin-bottom:34px;}
 
@@ -826,7 +827,7 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 .ts-return-row{grid-column:span 1;}
 @media (max-width:480px){.trip-summary-grid{grid-template-columns:1fr;}}
 
-.summary-box{border:1px solid var(--line); border-radius:22px; background:var(--bg-2); padding:36px; position:sticky; top:110px; box-shadow:0 12px 40px rgba(7,38,76,0.06);}
+.summary-box{border:1px solid var(--line); border-radius:22px; background:var(--bg-2); padding:36px; position:sticky; top:110px; box-shadow:0 12px 40px rgba(16,19,24,0.06);}
 .summary-box h3{font-size:1.2rem; margin-bottom:24px;}
 .summary-line{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line); font-size:0.88rem; color:var(--gray);}
 .summary-line span:last-child{color:var(--cream);}
@@ -857,7 +858,7 @@ legend{font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color
 
 .booking-success{
   display:none; text-align:center; padding:24px; border-radius:24px; border:1px solid var(--line);
-  background:var(--bg); box-shadow:0 12px 40px rgba(7,38,76,0.10); margin-top:24px;
+  background:var(--bg); box-shadow:0 12px 40px rgba(16,19,24,0.10); margin-top:24px;
 }
 .booking-success.show{display:flex; flex-direction:column; gap:16px;}
 .success-icon{
@@ -957,7 +958,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   }
   body.page-home .hero-photo-overlay{
     background:
-      linear-gradient(180deg, rgba(7,38,76,0.6) 0%, rgba(7,38,76,0.44) 40%, rgba(7,38,76,0.5) 70%, rgba(7,38,76,0.6) 100%);
+      linear-gradient(180deg, rgba(16,19,24,0.55) 0%, rgba(16,19,24,0.4) 40%, rgba(16,19,24,0.6) 70%, rgba(16,19,24,0.72) 100%);
   }
   body.page-home .hero{padding-top:56px;}
   body.page-home .hero-inner{position:relative; z-index:3;}
@@ -967,10 +968,10 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home .hero h1 em{color:#fff;}
   body.page-home .hero p.lead{margin-bottom:22px;}
   body.page-home .hero .btn-gold.btn-hero{
-    background:var(--navy); border-color:#FFFFFF;
-    box-shadow:0 10px 24px rgba(7,38,76,0.28);
+    background:var(--gold); border-color:#FFFFFF;
+    box-shadow:0 10px 24px rgba(16,19,24,0.28);
   }
-  body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.8);}
+  body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.92);}
   body.page-home .btn-whatsapp-hero{border-color:#FFFFFF;}
   body.page-home .hero-trust-bar{gap:16px; margin-top:32px; padding-top:24px;}
   body.page-home .hero-trust-stars{color:var(--star); margin-left:6px;}
