@@ -262,27 +262,77 @@ header{
 }
 
 /* ============ HERO ============ */
-/* Typography-first: no hero photograph, so the composition is a single
-   centred column and the headline carries the page. */
+/* Centred type on white, flanked by two cut-out vehicles that run off the
+   left and right edges. The section is full-bleed (the cars need the real
+   viewport edge) while the text keeps its own narrow column. */
 .hero{
   position:relative;
-  max-width:880px;
-  margin:0 auto;
-  padding:84px 40px 52px;
+  padding:76px 40px 56px;
+  min-height:540px;
+  display:flex;
+  align-items:center;
   background-color:var(--bg);
   text-align:center;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero::before{
+  content:'';
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(1100px 520px at 50% 14%, #F3F5F8 0%, rgba(243,245,248,0) 72%);
+}
+.hero-inner{position:relative; z-index:2; max-width:1180px; margin:0 auto; width:100%;}
+
+/* The text column stays narrower than the hero so the cars can sit in the
+   margins without ever reaching the headline or the buttons. */
+.hero h1, .hero p.lead, .hero-actions, .hero-trust-bar{max-width:640px; margin-left:auto; margin-right:auto;}
+
+.hero-car{
+  position:absolute; bottom:0; z-index:1;
+  pointer-events:none; user-select:none;
+  height:300px; width:auto;
+  filter:drop-shadow(0 22px 26px rgba(16,19,24,0.16));
+}
+/* Sized by height, not width: the two cut-outs have different aspect ratios,
+   so equal widths would make the van noticeably taller than the sedan. */
+.hero-car img{height:100%; width:auto; display:block;}
+.hero-car--left{left:0;}
+.hero-car--right{right:0;}
+
+/* As the margins narrow the cars slide further off the edge, until only the
+   grille and headlight remain. */
+@media (max-width:1300px){ .hero-car{height:260px;} .hero-car--left{left:-40px;} .hero-car--right{right:-34px;} }
+@media (max-width:1120px){ .hero-car{height:230px;} .hero-car--left{left:-90px;} .hero-car--right{right:-76px;} }
+@media (max-width:980px){  .hero-car{height:190px;} .hero-car--left{left:-96px;} .hero-car--right{right:-80px;} }
+
+/* Narrow screens: the buttons go full width, so there is no side margin left
+   for a car. The hero gains a short strip beneath the CTAs and the cars sit
+   in that instead, so they never touch the text. */
+@media (max-width:860px){
+  .hero{min-height:0; padding:56px 32px 150px;}
+  .hero-car{height:128px;}
+  .hero-car--left{left:-64px;} .hero-car--right{right:-54px;}
 }
 @media (max-width:640px){
-  .hero{padding:44px 24px 26px;}
+  .hero{padding:38px 24px 130px;}
+  .hero-car{height:110px; filter:drop-shadow(0 12px 16px rgba(16,19,24,0.14));}
+  .hero-car--left{left:-56px;} .hero-car--right{right:-48px;}
+}
+@media (max-width:380px){
+  .hero{padding:34px 20px 116px;}
+  .hero-car{height:96px;}
+  .hero-car--left{left:-50px;} .hero-car--right{right:-42px;}
+}
+  .hero-car--left{left:-60px;}
+  .hero-car--right{right:-52px;}
 }
 
 .hero-inner{position:relative; z-index:3; order:1; width:100%;}
 .hero h1{
-  font-size:clamp(2.05rem, 4.4vw, 3.5rem);
+  font-size:clamp(1.75rem, 4.4vw, 3.5rem);
   font-weight:700;
   line-height:1.1;
-  max-width:20ch;
-  margin:0 auto 20px;
+  margin:0 auto 18px;
   letter-spacing:-0.02em;
   color:var(--cream);
 }
@@ -290,8 +340,8 @@ header{
 .hero p.lead{
   font-size:1.05rem;
   color:var(--gray);
-  max-width:600px;
-  margin:0 auto 34px;
+  max-width:640px;
+  margin:0 auto 22px;
 }
 .hero-actions{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
 .btn-hero{
@@ -307,7 +357,7 @@ header{
 
 .hero-trust-bar{
   display:flex; align-items:center; justify-content:center; gap:12px;
-  margin:30px auto 0; max-width:460px; padding-top:0; border-top:none;
+  margin:0 auto 30px; max-width:640px; padding-top:0; border-top:none;
   flex-wrap:wrap;
 }
 .hero-trust-bar svg{width:22px; height:22px; flex-shrink:0;}
@@ -926,7 +976,7 @@ legend + *{clear:both;}
   .brand-logo, body.page-home .brand-logo{height:44px;}
   .lang-dropdown-btn{height:32px; padding:0 10px; gap:4px; font-size:0.7rem;}
   .nav-toggle{font-size:1.7rem;}
-  .hero{padding:40px 18px 24px;}
+  .hero{padding:32px 18px 108px;}   /* bottom strip holds the cars */
   .trust-item{padding:16px 4px;}
   .trust-item span{font-size:0.58rem; overflow-wrap:break-word; hyphens:auto;}
   section{padding-left:0; padding-right:0;}
