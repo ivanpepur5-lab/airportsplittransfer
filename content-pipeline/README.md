@@ -75,6 +75,67 @@ Both get the same content bar: 900–1400 words, 5-question FAQ, SEO title
 existing route/blog pages, and the CTA "Book your private transfer"
 linking to `../index.html#booking`.
 
+## Languages — publish in all three at once
+
+Every new route or blog page ships in English, German and Swedish
+**together, in the same firing** — not English-first with translations to
+follow. This is a hard requirement, not a nice-to-have: a page that only
+exists in English is not considered published for the purposes of the
+never-repeat rule or the history log.
+
+Reference example: `destinations/trogir.html` +
+`de/destinations/trogir.html` + `sv/destinations/trogir.html` — copy that
+three-file pattern exactly for every new page from here on (this was
+retrofitted onto Trogir after the fact; every page after it ships
+trilingual from the start).
+
+For each new page:
+
+1. Write the English version first (content rules above).
+2. Produce a genuine German translation and a genuine Swedish
+   translation — real translations of the same content, same structure,
+   same 5 FAQ questions in the same order, not summaries or rewrites. Get
+   this right yourself; there is no translation script in this repo
+   (`sync_i18n.py` from the original manual-translation project no longer
+   exists here) and no translation API configured.
+3. Each language version needs its own correctly tuned SEO title
+   (50–60 chars) and meta description (140–160 chars) in that language —
+   don't just reuse the English character counts, translated phrasing
+   runs longer or shorter.
+4. Match the site's existing i18n conventions exactly (copy these from any
+   existing `de/destinations/*.html` / `sv/destinations/*.html` page, e.g.
+   `rogoznica.html`, for the precise markup):
+   - `<html lang="de">` / `<html lang="sv">`
+   - Translated nav labels (nav-links and mobile-nav — see any existing
+     de/sv page for the exact wording: "Startseite/Beliebte
+     Reiseziele/..." for German, "Startsida/Populära Resmål/..." for
+     Swedish)
+   - `hreflang` alternates on **all three** versions point to all three
+     URLs (en/de/sv/x-default) — update the English page's hreflang tags
+     too once the translations exist, it doesn't get to stay EN-only
+   - `lang-dropdown-menu` and `mobile-lang` blocks link to all three
+     versions, with the current language marked `active`/`aria-current`
+   - JSON-LD `BreadcrumbList` `name`/`item` values translated and pointed
+     at the `/de/` or `/sv/` URLs
+   - Internal links inside the body retarget to the `de/`/`sv/` version of
+     whatever's being linked to if one exists (check the target directory
+     first); fall back to linking the English version only if no
+     translation exists yet for that specific target page
+5. Wire all three in: English into `destinations.html` / `blog/index.html`
+   as before, **plus** the same card/list entry added to
+   `de/destinations.html` + `sv/destinations.html` (or
+   `de/blog/index.html` + `sv/blog/index.html` for an article) — note
+   `de/blog/index.html` currently only has 2 of 9 English articles
+   translated (a pre-existing gap from before this pipeline existed, nothing
+   to fix retroactively), so a new blog article's German version is still
+   added to whatever's there.
+6. Sitemap: three entries, not one — `destinations/<slug>`,
+   `de/destinations/<slug>`, `sv/destinations/<slug>` (or the blog
+   equivalents), same priority/changefreq as the English entry.
+7. `js/pricing.js`'s `DESTINATION_NAMES` is shared across all three
+   languages already (one entry covers en/de/sv, it's just a place name
+   used to prefill an address field) — add it once, not per language.
+
 ## Images
 
 Route and blog pages on this site currently ship with **no photography at
@@ -138,20 +199,28 @@ caveat applies here):
 
 1. Run the pre-publish checklist above (steps 1–4).
 2. Decide route vs blog template.
-3. Write the full page: copy an existing page of the matching type as a
-   structural starting point, replace all content, get the `<head>` SEO
-   tags right (title 50–60 chars, meta description 140–160 chars,
+3. Write the full English page: copy an existing page of the matching type
+   as a structural starting point, replace all content, get the `<head>`
+   SEO tags right (title 50–60 chars, meta description 140–160 chars,
    canonical/og/twitter URLs, JSON-LD), 900–1400 words body, 5-question
    FAQ, internal links, CTA.
-4. If it's a route: add it to `destinations.html`'s grid and to
-   `js/pricing.js`'s `DESTINATION_NAMES`. If it's a blog article: add it
-   to `blog/index.html`'s list.
-5. Add the new URL to `sitemap.xml` (match the existing entry format —
-   priority 0.8 for routes, 0.5 for blog articles, changefreq monthly).
-6. Append an entry to `content-pipeline/history.md` (date, type, slug,
-   title, and which pre-publish-checklist candidates were rejected and
-   why — keeps the audit trail honest for the next firing).
-7. Commit and push everything on the current branch.
-8. Send a short PushNotification naming what was published, with the live
-   path (e.g. `/destinations/trogir`).
-9. Reply in the session with a short summary and the link.
+4. Translate it into German and Swedish per the Languages section above —
+   same structure, own tuned SEO title/description, correct hreflang set
+   on all three files, correct nav/lang-switch markup copied from an
+   existing de/sv page.
+5. If it's a route: add all three versions to `destinations.html` /
+   `de/destinations.html` / `sv/destinations.html`'s grids and one entry
+   to `js/pricing.js`'s `DESTINATION_NAMES`. If it's a blog article: add
+   all three to `blog/index.html` / `de/blog/index.html` /
+   `sv/blog/index.html`'s lists.
+6. Add three URLs to `sitemap.xml` — English, German and Swedish (match
+   the existing entry format — priority 0.8 for routes, 0.5 for blog
+   articles, changefreq monthly).
+7. Append an entry to `content-pipeline/history.md` (date, type, slug,
+   title, all three URLs published, and which pre-publish-checklist
+   candidates were rejected and why — keeps the audit trail honest for
+   the next firing).
+8. Commit and push everything on the current branch.
+9. Send a short PushNotification naming what was published, with the live
+   path (e.g. `/destinations/trogir`, published in EN/DE/SV).
+10. Reply in the session with a short summary and all three links.
