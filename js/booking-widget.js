@@ -398,6 +398,20 @@ function submitBooking(e){
 // Runs once the widget markup has actually been injected into the page (see
 // initBookingWidget below) rather than on DOMContentLoaded, since the fields
 // it reads don't exist until then.
+// The time fields are <select>s on a 15-minute grid now. A link can still
+// carry any time (e.g. ?time=10:37), and assigning a value a <select> has no
+// option for silently leaves it empty — so add the option rather than lose it.
+function setTimeValue(id, value){
+  const el = document.getElementById(id);
+  if(!el || !value) return;
+  if(el.tagName === 'SELECT' && !Array.from(el.options).some(o => o.value === value)){
+    const opt = document.createElement('option');
+    opt.value = value; opt.textContent = value;
+    el.appendChild(opt);
+  }
+  el.value = value;
+}
+
 function runBookingPrefill(){
   const params = new URLSearchParams(window.location.search);
   let gotEnough = false;
@@ -408,13 +422,13 @@ function runBookingPrefill(){
     gotEnough = true;
   }
   if(params.get('date')) document.getElementById('b-date').value = params.get('date');
-  if(params.get('time')) document.getElementById('b-time').value = params.get('time');
+  if(params.get('time')) setTimeValue('b-time', params.get('time'));
   if(params.get('pax')) document.getElementById('b-pax').value = params.get('pax');
   if(params.get('vehicle')) currentVehicle = params.get('vehicle');
   if(params.get('trip') === 'return'){
     setTripType('return');
     if(params.get('return_date')) document.getElementById('b-return-date').value = params.get('return_date');
-    if(params.get('return_time')) document.getElementById('b-return-time').value = params.get('return_time');
+    if(params.get('return_time')) setTimeValue('b-return-time', params.get('return_time'));
   }
   onPaxChange();
   if(currentVehicle) {
