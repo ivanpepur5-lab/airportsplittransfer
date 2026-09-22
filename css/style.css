@@ -267,10 +267,13 @@ header{
    viewport edge) while the text keeps its own narrow column. */
 .hero{
   position:relative;
-  padding:52px 40px 40px;
+  padding:44px 40px 40px;
   min-height:600px;
   display:flex;
-  align-items:center;
+  /* Top-aligned, not centred: the hero keeps its height for the cars, and
+     centring the text in that height pushed the headline back down again
+     the moment the eyebrow above it was removed. */
+  align-items:flex-start;
   background-color:var(--bg);
   text-align:center;
   overflow:hidden;
@@ -327,19 +330,19 @@ header{
      buttons are opaque, so they occlude the inner half of each car and only
      the outer edge reads. Sized by height, since these crops are tall and
      narrow. */
-  .hero{min-height:0; padding:52px 24px 40px;}
+  .hero{min-height:0; padding:30px 24px 40px;}
   .hero-skoda, .hero-vclass{width:auto; height:148px; bottom:10px;}
   .hero-skoda img, .hero-vclass img{width:auto; height:100%;}
   .hero-skoda{left:0;}
   .hero-vclass{right:0;}
 }
 @media (max-width:640px){
-  .hero{padding:40px 20px 34px;}
+  .hero{padding:24px 20px 34px;}
   .hero-skoda, .hero-vclass{height:140px; bottom:8px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
 
 }
 @media (max-width:380px){
-  .hero{padding:34px 16px 30px;}
+  .hero{padding:22px 16px 30px;}
   .hero-skoda, .hero-vclass{height:128px; bottom:6px;}
 }
 
@@ -1002,7 +1005,7 @@ legend + *{clear:both;}
   .brand-logo, body.page-home .brand-logo{height:44px;}
   .lang-dropdown-btn{height:32px; padding:0 10px; gap:4px; font-size:0.7rem;}
   .nav-toggle{font-size:1.7rem;}
-  .hero{padding:32px 14px 28px;}
+  .hero{padding:20px 14px 28px;}
   .trust-item{padding:16px 4px;}
   .trust-item span{font-size:0.58rem; overflow-wrap:break-word; hyphens:auto;}
   section{padding-left:0; padding-right:0;}
