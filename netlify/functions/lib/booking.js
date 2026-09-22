@@ -17,6 +17,41 @@ function vehicleLabel(vehicleKey) {
   return VEHICLE_LABELS[vehicleKey] || vehicleKey;
 }
 
+// Day trips (Krka, Plitvice) are a separate flat-rate product from the
+// point-to-point transfer form above — fixed price per trip/vehicle, not a
+// per-km calculation. Keep in sync with the hidden `trip`/`vehicle` fields
+// on day-trips/krka-national-park.html and day-trips/plitvice-lakes.html.
+const DAYTRIP_NAMES = {
+  krka: "Krka National Park",
+  plitvice: "Plitvice Lakes",
+};
+
+const DAYTRIP_VEHICLE_LABELS = {
+  car: "Car — Škoda Superb or similar (1–4 passengers)",
+  van: "Van — up to 8 passengers",
+};
+
+const DAYTRIP_PRICES = {
+  krka: { car: 230, van: 270 },
+  plitvice: { car: 390, van: 450 },
+};
+
+function daytripName(tripKey) {
+  return DAYTRIP_NAMES[tripKey] || tripKey || "";
+}
+
+function daytripVehicleLabel(vehicleKey) {
+  return DAYTRIP_VEHICLE_LABELS[vehicleKey] || vehicleKey || "";
+}
+
+// Recomputed server-side from the trusted trip/vehicle keys rather than
+// trusting the client-submitted `price` field, since day-trip pricing is
+// just a fixed lookup table — there's no reason to trust user input for it.
+function daytripPrice(tripKey, vehicleKey) {
+  const forTrip = DAYTRIP_PRICES[tripKey];
+  return forTrip ? forTrip[vehicleKey] : undefined;
+}
+
 // Keep in sync with the hidden `trip_type` field on the booking form
 // (js/booking-widget.js setTripType()), which is always "oneway" or
 // "return". Falls back to "One way" for anything unexpected so the admin
@@ -81,4 +116,7 @@ module.exports = {
   buildBookingReference,
   formatPrice,
   digitsAndPlus,
+  daytripName,
+  daytripVehicleLabel,
+  daytripPrice,
 };

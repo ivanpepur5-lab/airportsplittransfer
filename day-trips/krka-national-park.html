@@ -148,22 +148,41 @@
       </div>
       <div class="summary-box reveal">
         <h3>Book This Trip</h3>
-        <div class="qb-field" style="margin-bottom:14px;"><label>Vehicle</label>
-          <select id="d-vehicle">
-            <option value="car">Car &mdash; &Scaron;koda Superb (1&ndash;4) &mdash; &euro;230</option>
-            <option value="van">Van &mdash; up to 8 &mdash; &euro;270</option>
-          </select>
+        <form name="daytrip" method="POST" data-netlify="true" netlify id="d-form" onsubmit="return submitDayTrip(event)">
+          <input type="hidden" name="form-name" value="daytrip">
+          <input type="hidden" name="trip" value="krka">
+          <input type="hidden" name="vehicle" id="d-vehicle-hidden" value="car">
+          <input type="hidden" name="price" id="d-price-hidden" value="230">
+
+          <div class="qb-field" style="margin-bottom:14px;"><label>Vehicle</label>
+            <select id="d-vehicle" onchange="updateDayTripPrice()">
+              <option value="car">Car &mdash; &Scaron;koda Superb (1&ndash;4) &mdash; &euro;230</option>
+              <option value="van">Van &mdash; up to 8 &mdash; &euro;270</option>
+            </select>
+          </div>
+          <div class="qb-field" style="margin-bottom:14px;"><label>Date</label><input type="date" name="date" id="d-date" required></div>
+          <div class="qb-field" style="margin-bottom:14px;"><label>Passengers</label>
+            <select name="passengers" id="d-pax" onchange="onDayTripPaxChange()">
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+              <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+            </select>
+          </div>
+          <div class="summary-line" style="border-bottom:none; padding-bottom:14px;"><span>Fixed Price</span><span id="d-price" style="font-family:'Schibsted Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:var(--gold-text);">&euro;230</span></div>
+
+          <div class="field" style="margin-bottom:14px;"><label for="d-name">Full Name</label><input type="text" id="d-name" name="full_name" required></div>
+          <div class="field" style="margin-bottom:14px;"><label for="d-email">Email</label><input type="email" id="d-email" name="email" required></div>
+          <div class="field" style="margin-bottom:14px;"><label for="d-phone">Phone</label><input type="tel" id="d-phone" name="phone" required></div>
+          <div class="field" style="margin-bottom:0;"><label for="d-notes">Notes (optional)</label><textarea id="d-notes" name="notes" placeholder="Pickup address, child seats, special requests..."></textarea></div>
+
+          <button type="submit" class="btn btn-gold btn-block" style="margin-top:16px;">Book This Trip</button>
+        </form>
+
+        <div id="d-confirm" style="display:none; text-align:center; padding:12px 0;">
+          <p style="font-weight:700; color:var(--cream); margin-bottom:6px;">Booking confirmed!</p>
+          <p style="color:var(--gray); font-size:0.86rem; margin:0;">A confirmation has been sent to your email with the full trip details.</p>
         </div>
-        <div class="qb-field" style="margin-bottom:14px;"><label>Date</label><input type="date" id="d-date"></div>
-        <div class="qb-field" style="margin-bottom:14px;"><label>Passengers</label>
-          <select id="d-pax">
-            <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
-          </select>
-        </div>
-        <div class="summary-line" style="border-bottom:none; padding-bottom:0;"><span>Fixed Price</span><span id="d-price" style="font-family:'Schibsted Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:var(--gold-text);">&euro;230</span></div>
-        <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-gold btn-block" id="d-book-link" style="margin-top:8px;">Book This Trip on WhatsApp</a>
-        <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:10px; display:flex; align-items:center; justify-content:center; gap:8px;">
+
+        <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="btn btn-outline btn-block" style="margin-top:14px; display:flex; align-items:center; justify-content:center; gap:8px;">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#FFFFFF" d="M12 5.6c-3.5 0-6.4 2.9-6.4 6.4 0 1.2.3 2.3.9 3.3l-.9 3.3 3.4-.9c1 .5 2 .8 3 .8 3.5 0 6.4-2.9 6.4-6.4s-2.9-6.5-6.4-6.5zm3.7 9.1c-.2.4-.9.8-1.3.9-.3.1-.8.1-1.2-.1-.3-.1-.7-.2-1.2-.4-2-.9-3.3-2.9-3.4-3.1-.1-.1-.8-1-.8-2s.5-1.4.7-1.6c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .5.4l.6 1.4c.1.1.1.3 0 .4l-.3.4c-.1.1-.2.2-.1.4.2.4.7 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.3.2.3.3 0 .2 0 .5-.2.9z"/></svg>
           Ask a Question on WhatsApp
         </a>
@@ -253,23 +272,13 @@
 
 <script>
 const D_PRICES = { car: 230, van: 270 };
-const D_VEHICLE_LABEL = { car: 'Car (Škoda Superb, 1–4 passengers)', van: 'Van (up to 8 passengers)' };
-const D_TRIP_NAME = 'Krka National Park';
 
-function updateDayTripLink(){
+function updateDayTripPrice(){
   const vehicle = document.getElementById('d-vehicle').value;
-  const date = document.getElementById('d-date').value;
-  const pax = document.getElementById('d-pax').value;
   const price = D_PRICES[vehicle];
-
   document.getElementById('d-price').textContent = '€' + price;
-
-  let msg = "Hi! I'd like to book the private day trip to " + D_TRIP_NAME + ".\n";
-  msg += 'Vehicle: ' + D_VEHICLE_LABEL[vehicle] + ' — €' + price + '\n';
-  if(date) msg += 'Date: ' + date + '\n';
-  msg += 'Passengers: ' + pax;
-
-  document.getElementById('d-book-link').href = 'https://wa.me/385917856056?text=' + encodeURIComponent(msg);
+  document.getElementById('d-vehicle-hidden').value = vehicle;
+  document.getElementById('d-price-hidden').value = price;
 }
 
 function onDayTripPaxChange(){
@@ -282,13 +291,38 @@ function onDayTripPaxChange(){
   } else {
     carOption.disabled = false;
   }
-  updateDayTripLink();
+  updateDayTripPrice();
 }
 
-document.getElementById('d-vehicle').addEventListener('change', updateDayTripLink);
-document.getElementById('d-date').addEventListener('change', updateDayTripLink);
-document.getElementById('d-pax').addEventListener('change', onDayTripPaxChange);
-updateDayTripLink();
+function submitDayTrip(e){
+  e.preventDefault();
+  const form = document.getElementById('d-form');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const formData = new FormData(form);
+  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+    .then((response) => {
+      if(!response.ok){
+        throw new Error('Netlify Forms submission failed with status ' + response.status);
+      }
+      form.style.display = 'none';
+      document.getElementById('d-confirm').style.display = 'block';
+    })
+    .catch((error) => {
+      alert('Something went wrong sending your request. Please try again or contact us on WhatsApp.');
+      console.error(error);
+    })
+    .finally(() => {
+      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Book This Trip'; }
+    });
+  return false;
+}
+
+updateDayTripPrice();
 </script>
 </main>
 <div class="wa-banner">

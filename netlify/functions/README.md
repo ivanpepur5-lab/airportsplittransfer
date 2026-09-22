@@ -8,10 +8,12 @@ nothing to configure beyond the environment variables below. See
 for the mechanism itself.
 
 It only acts on submissions from the `booking` form (`index.html` /
-`de/index.html` / `sv/index.html`); anything else is ignored so a future
-form elsewhere on the site can't accidentally trigger booking emails.
+`de/index.html` / `sv/index.html`) and the `daytrip` form
+(`day-trips/krka-national-park.html` / `day-trips/plitvice-lakes.html`);
+anything else is ignored so a future form elsewhere on the site can't
+accidentally trigger booking emails.
 
-For each booking submission it sends two emails through the
+For each submission it sends two emails through the
 [Resend](https://resend.com) API, using the templates in
 `../../email-templates/`:
 

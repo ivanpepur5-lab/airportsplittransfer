@@ -13,13 +13,26 @@
 //                               (must be a sender on a domain verified in Resend)
 //   ADMIN_NOTIFICATION_EMAIL  — default: "info@airportsplittransfer.com"
 //
-// Only the "booking" form (index.html / de/index.html / sv/index.html) is
-// handled; submissions from any other Netlify form on the site are ignored
-// so adding a new form elsewhere later can't break this function.
+// Two forms are handled: "booking" (index.html / de/index.html /
+// sv/index.html — the point-to-point transfer form) and "daytrip"
+// (day-trips/krka-national-park.html / day-trips/plitvice-lakes.html — the
+// fixed-price Krka/Plitvice excursions). Submissions from any other Netlify
+// form on the site are ignored so adding a new form elsewhere later can't
+// break this function.
 
 const { renderTemplate, renderTextTemplate } = require("./lib/template");
 const { sendEmail } = require("./lib/resend");
-const { vehicleLabel, tripTypeLabel, formatDate, buildBookingReference, formatPrice, digitsAndPlus } = require("./lib/booking");
+const {
+  vehicleLabel,
+  tripTypeLabel,
+  formatDate,
+  buildBookingReference,
+  formatPrice,
+  digitsAndPlus,
+  daytripName,
+  daytripVehicleLabel,
+  daytripPrice,
+} = require("./lib/booking");
 const { CUSTOMER_TEMPLATE, ADMIN_TEMPLATE, CUSTOMER_TEMPLATE_TEXT, ADMIN_TEMPLATE_TEXT } = require("./lib/templates");
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Airport Split Transfer <booking@airportsplittransfer.com>";
@@ -53,10 +66,10 @@ exports.handler = async (event) => {
 
   console.log("[booking-email] form_name:", payload && payload.form_name, "| has RESEND_API_KEY:", Boolean(process.env.RESEND_API_KEY));
 
-  if (!payload || payload.form_name !== "booking") {
-    // Not the booking form — ignore so other/future Netlify forms on the
-    // site don't get emails they weren't meant to trigger.
-    return { statusCode: 200, body: "Ignored (not the booking form)" };
+  if (!payload || (payload.form_name !== "booking" && payload.form_name !== "daytrip")) {
+    // Not a form this function handles — ignore so other/future Netlify
+    // forms on the site don't get emails they weren't meant to trigger.
+    return { statusCode: 200, body: "Ignored (not booking or daytrip)" };
   }
 
   if (!process.env.RESEND_API_KEY) {
@@ -65,30 +78,9 @@ exports.handler = async (event) => {
   }
 
   const data = payload.data || {};
-  const { price, priceDisplay } = formatPrice(data.calculated_price);
-
-  const templateData = {
-    booking_reference: buildBookingReference(payload),
-    full_name: data.full_name || "",
-    customer_name: data.full_name || "",
-    email: data.email || "",
-    email_addr: cleanEmail(data.email),
-    phone: data.phone || "",
-    phone_tel: digitsAndPlus(data.phone),
-    date: formatDate(data.date),
-    pickup_time: data.time || "",
-    pickup: data.pickup || "",
-    dropoff: data.dropoff || "",
-    trip_type: tripTypeLabel(data.trip_type),
-    return_date: formatDate(data.return_date),
-    return_time: data.return_time || "",
-    passengers: data.passengers || "",
-    vehicle: vehicleLabel(data.vehicle),
-    price,
-    price_display: priceDisplay,
-    flight_number: data.flight_number || "",
-    notes: data.notes || "",
-  };
+  const templateData = payload.form_name === "daytrip"
+    ? buildDaytripTemplateData(payload, data)
+    : buildBookingTemplateData(payload, data);
 
   const results = await Promise.allSettled([
     sendCustomerEmail(templateData),
@@ -114,6 +106,64 @@ exports.handler = async (event) => {
   return { statusCode: 200, body: "Processed" };
 };
 
+function buildBookingTemplateData(payload, data) {
+  const { price, priceDisplay } = formatPrice(data.calculated_price);
+  return {
+    booking_reference: buildBookingReference(payload),
+    full_name: data.full_name || "",
+    customer_name: data.full_name || "",
+    email: data.email || "",
+    email_addr: cleanEmail(data.email),
+    phone: data.phone || "",
+    phone_tel: digitsAndPlus(data.phone),
+    date: formatDate(data.date),
+    pickup_time: data.time || "",
+    pickup: data.pickup || "",
+    dropoff: data.dropoff || "",
+    trip_type: tripTypeLabel(data.trip_type),
+    return_date: formatDate(data.return_date),
+    return_time: data.return_time || "",
+    passengers: data.passengers || "",
+    vehicle: vehicleLabel(data.vehicle),
+    price,
+    price_display: priceDisplay,
+    flight_number: data.flight_number || "",
+    notes: data.notes || "",
+  };
+}
+
+// Krka/Plitvice day trips — fixed price per trip/vehicle, recomputed here
+// from the trusted trip/vehicle keys rather than the client-submitted
+// `price` field (see lib/booking.js daytripPrice()). Mapped onto the same
+// customer/admin templates as the transfer form: pickup/dropoff become the
+// pickup description and trip name, trip_type reads "Day Trip", and there's
+// no return leg (it's a round trip by definition) or flight number.
+function buildDaytripTemplateData(payload, data) {
+  const { price, priceDisplay } = formatPrice(daytripPrice(data.trip, data.vehicle));
+  return {
+    booking_reference: buildBookingReference(payload),
+    full_name: data.full_name || "",
+    customer_name: data.full_name || "",
+    email: data.email || "",
+    email_addr: cleanEmail(data.email),
+    phone: data.phone || "",
+    phone_tel: digitsAndPlus(data.phone),
+    date: formatDate(data.date),
+    pickup_time: "Flexible — driver confirms exact time",
+    pickup: "Hotel / accommodation pickup in Split",
+    dropoff: daytripName(data.trip) + " (Day Trip)",
+    trip_type: "Day Trip",
+    return_date: "",
+    return_time: "",
+    passengers: data.passengers || "",
+    vehicle: daytripVehicleLabel(data.vehicle),
+    price,
+    price_display: priceDisplay,
+    flight_number: "",
+    notes: data.notes || "",
+  };
+}
+
 function cleanEmail(email) {
   // Emails don't need cleaning the way phone numbers do; kept as its own
   // token only so the template's {{email_addr}} (used in mailto: hrefs)
@@ -128,7 +178,9 @@ async function sendCustomerEmail(templateData) {
   }
   const html = renderTemplate(customerTemplateSrc, templateData);
   const text = renderTextTemplate(CUSTOMER_TEMPLATE_TEXT, templateData);
-  const subject = `✅ Booking Confirmed — ${templateData.date} at ${templateData.pickup_time} | Airport Split Transfer`;
+  const subject = templateData.trip_type === "Day Trip"
+    ? `✅ Day Trip Confirmed — ${templateData.dropoff} — ${templateData.date} | Airport Split Transfer`
+    : `✅ Booking Confirmed — ${templateData.date} at ${templateData.pickup_time} | Airport Split Transfer`;
   return sendEmail({
     from: FROM_EMAIL,
     to: templateData.email,
