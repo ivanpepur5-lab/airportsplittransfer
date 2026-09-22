@@ -322,22 +322,25 @@ header{
    buttons and both cars sit in that — which means bottom-anchored, not
    vertically centred, or they would land on top of the headline. */
 @media (max-width:1010px){
-  /* The crops are tall and narrow, so below this width they are sized by
-     height — that is what has to clear the buttons, and driving it from the
-     width made the van 250px tall inside a 150px strip. */
-  .hero{min-height:0; padding:56px 32px 212px;}
-  .hero-skoda, .hero-vclass{width:auto; height:190px;}
+  /* Narrow screens: instead of a strip under the buttons, the cars come in
+     from the sides and pass BEHIND the CTAs. Content is z-index 10 and the
+     buttons are opaque, so they occlude the inner half of each car and only
+     the outer edge reads. Sized by height, since these crops are tall and
+     narrow. */
+  .hero{min-height:0; padding:52px 24px 40px;}
+  .hero-skoda, .hero-vclass{width:auto; height:148px; bottom:10px;}
   .hero-skoda img, .hero-vclass img{width:auto; height:100%;}
   .hero-skoda{left:0;}
   .hero-vclass{right:0;}
 }
 @media (max-width:640px){
-  .hero{padding:38px 24px 170px;}
-  .hero-skoda, .hero-vclass{height:150px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
+  .hero{padding:40px 20px 34px;}
+  .hero-skoda, .hero-vclass{height:140px; bottom:8px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
+
 }
 @media (max-width:380px){
-  .hero{padding:34px 20px 138px;}
-  .hero-skoda, .hero-vclass{height:120px;}
+  .hero{padding:34px 16px 30px;}
+  .hero-skoda, .hero-vclass{height:128px; bottom:6px;}
 }
 
 
@@ -358,6 +361,12 @@ header{
 }
 .hero-actions{display:flex; flex-direction:column; align-items:center; gap:12px;}
 .hero-actions .btn-hero{width:100%; max-width:440px; min-width:0;}
+/* Narrower CTAs on small screens leave the cars somewhere to show as they
+   pass behind them. These must follow the rule above — a media query adds
+   no specificity, so the later declaration is what wins. */
+@media (max-width:1010px){ .hero-actions .btn-hero{max-width:310px;} }
+@media (max-width:640px){  .hero-actions .btn-hero{max-width:286px;} }
+@media (max-width:380px){  .hero-actions .btn-hero{max-width:250px;} }
 .btn-hero{
   flex:0 1 auto; min-width:238px; height:58px; display:inline-flex; align-items:center; justify-content:center;
   gap:10px; font-size:0.82rem;
@@ -990,7 +999,7 @@ legend + *{clear:both;}
   .brand-logo, body.page-home .brand-logo{height:44px;}
   .lang-dropdown-btn{height:32px; padding:0 10px; gap:4px; font-size:0.7rem;}
   .nav-toggle{font-size:1.7rem;}
-  .hero{padding:32px 18px 138px;}   /* bottom strip holds the cars */
+  .hero{padding:32px 14px 28px;}
   .trust-item{padding:16px 4px;}
   .trust-item span{font-size:0.58rem; overflow-wrap:break-word; hyphens:auto;}
   section{padding-left:0; padding-right:0;}
