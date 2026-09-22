@@ -267,8 +267,8 @@ header{
    viewport edge) while the text keeps its own narrow column. */
 .hero{
   position:relative;
-  padding:76px 40px 56px;
-  min-height:540px;
+  padding:52px 40px 40px;
+  min-height:600px;
   display:flex;
   align-items:center;
   background-color:var(--bg);
@@ -290,12 +290,19 @@ header{
 .hero-skoda,
 .hero-vclass{
   position:absolute;
-  top:55%;
-  transform:translateY(-50%);
+  /* Bottom-aligned rather than centred on the type: the sedan and the van
+     are different heights, so centring each one put their wheels on two
+     different lines. Sharing a ground line is what the mock shows, and it
+     also keeps the wheels clear of the hero's bottom edge. */
+  bottom:0;
   pointer-events:none;
   user-select:none;
   z-index:1;
-  width:min(300px, calc(50% - 344px));
+  /* The crop lives in the image, not in the CSS: each asset is the outer
+     46% of the car, so it already reads as running off the edge and the cut
+     never lands on the number plate. Width is whatever the margin allows,
+     capped so the car cannot grow taller than the hero. */
+  width:min(calc(50% - 332px), 235px);
   height:auto;
   filter:drop-shadow(0 16px 18px rgba(16,19,24,0.18));
 }
@@ -307,32 +314,30 @@ header{
    column — then free to fill whatever is left out to the viewport. Pinning
    to the outer edge let the cars grow into the CTA row near 1000-1024px,
    where the margin is narrower than the car. */
-.hero-skoda{right:calc(50% + 332px);}
-.hero-vclass{left:calc(50% + 332px);}
+.hero-skoda{left:0;}
+.hero-vclass{right:0;}
 
 /* Below ~1010px the margin can no longer hold a car worth showing (the
    formula above drops under 100px), so the hero gains a strip beneath the
    buttons and both cars sit in that — which means bottom-anchored, not
    vertically centred, or they would land on top of the headline. */
 @media (max-width:1010px){
-  .hero{min-height:0; padding:56px 32px 190px;}
-  .hero-skoda, .hero-vclass{
-    width:210px; top:auto; bottom:0; transform:none;
-  }
-  .hero-skoda{right:auto; left:12px;}
-  .hero-vclass{left:auto; right:12px;}
+  /* The crops are tall and narrow, so below this width they are sized by
+     height — that is what has to clear the buttons, and driving it from the
+     width made the van 250px tall inside a 150px strip. */
+  .hero{min-height:0; padding:56px 32px 212px;}
+  .hero-skoda, .hero-vclass{width:auto; height:190px;}
+  .hero-skoda img, .hero-vclass img{width:auto; height:100%;}
+  .hero-skoda{left:0;}
+  .hero-vclass{right:0;}
 }
 @media (max-width:640px){
-  .hero{padding:38px 24px 150px;}
-  .hero-skoda, .hero-vclass{width:164px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
-  .hero-skoda{left:6px;}
-  .hero-vclass{right:6px;}
+  .hero{padding:38px 24px 170px;}
+  .hero-skoda, .hero-vclass{height:150px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
 }
 @media (max-width:380px){
-  .hero{padding:34px 20px 122px;}
-  .hero-skoda, .hero-vclass{width:132px;}
-  .hero-skoda{left:2px;}
-  .hero-vclass{right:2px;}
+  .hero{padding:34px 20px 138px;}
+  .hero-skoda, .hero-vclass{height:120px;}
 }
 
 
@@ -351,7 +356,8 @@ header{
   max-width:640px;
   margin:0 auto 22px;
 }
-.hero-actions{display:flex; gap:14px; flex-wrap:wrap; justify-content:center;}
+.hero-actions{display:flex; flex-direction:column; align-items:center; gap:12px;}
+.hero-actions .btn-hero{width:100%; max-width:440px; min-width:0;}
 .btn-hero{
   flex:0 1 auto; min-width:238px; height:58px; display:inline-flex; align-items:center; justify-content:center;
   gap:10px; font-size:0.82rem;
@@ -984,7 +990,7 @@ legend + *{clear:both;}
   .brand-logo, body.page-home .brand-logo{height:44px;}
   .lang-dropdown-btn{height:32px; padding:0 10px; gap:4px; font-size:0.7rem;}
   .nav-toggle{font-size:1.7rem;}
-  .hero{padding:32px 18px 120px;}   /* bottom strip holds the cars */
+  .hero{padding:32px 18px 138px;}   /* bottom strip holds the cars */
   .trust-item{padding:16px 4px;}
   .trust-item span{font-size:0.58rem; overflow-wrap:break-word; hyphens:auto;}
   section{padding-left:0; padding-right:0;}
