@@ -1120,10 +1120,10 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   section{padding-left:0; padding-right:0;}
   .section-tight{padding-left:0; padding-right:0;}
   .wrap{padding:0 10px;}
-  .breadcrumb{padding-left:10px; padding-right:10px;}
-  .page-hero{padding-left:10px; padding-right:10px;}
+  .breadcrumb{padding:28px 10px 0;}
+  .page-hero{padding:20px 10px 48px;}
   footer{padding-left:10px; padding-right:10px;}
-  .article-hero{padding-left:10px; padding-right:10px;}
+  .article-hero{padding:28px 10px 40px;}
   .article-body{padding-left:10px; padding-right:10px;}
   .trust-mini{padding-left:10px; padding-right:10px;}
   .wa-banner{padding-left:10px; padding-right:10px;}
