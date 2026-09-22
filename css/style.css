@@ -526,11 +526,15 @@ section{padding:var(--space-section) 40px;}
 @media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
 @media (min-width:901px){.why-grid.why-grid-3col{grid-template-columns:repeat(3,1fr);}}
 
-.why-mini-row{display:flex; justify-content:center; gap:48px; flex-wrap:wrap; text-align:center;}
-.why-mini-item{display:flex; flex-direction:column; align-items:center; gap:10px; max-width:200px;}
-.why-mini-item svg{width:30px; height:30px; color:var(--gold); flex-shrink:0;}
-.why-mini-item b{display:block; font-size:0.92rem; font-weight:600; color:var(--cream); margin-bottom:3px;}
-.why-mini-item span{font-size:0.82rem; color:var(--gray);}
+/* A grid, not flex-wrap: wrapping gave a ragged 3+1 at 640 and 900px and
+   four stacked rows on a small phone. Four across on desktop, a clean 2x2
+   everywhere below — always two rows, never three. */
+.why-mini-row{display:grid; grid-template-columns:repeat(4,1fr); gap:26px 24px; justify-items:center; text-align:center;}
+@media (max-width:1100px){ .why-mini-row{grid-template-columns:repeat(2,1fr); gap:22px 18px;} }
+.why-mini-item{display:flex; flex-direction:column; align-items:center; gap:7px; max-width:210px;}
+.why-mini-item svg{width:24px; height:24px; color:var(--gold); flex-shrink:0;}
+.why-mini-item b{display:block; font-size:0.88rem; font-weight:600; color:var(--cream); margin-bottom:1px;}
+.why-mini-item span{font-size:0.78rem; line-height:1.45; color:var(--gray);}
 
 /* ============ FLEET ============ */
 .fleet-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
@@ -538,7 +542,9 @@ section{padding:var(--space-section) 40px;}
 .fleet-card:hover{transform:translateY(-4px); box-shadow:0 10px 28px rgba(22,32,42,0.12);}
 /* Photographs now, not line drawings: they fill the frame edge to edge,
    so the inset padding and the grey plate behind them are gone. */
-.fleet-media{aspect-ratio:16/9; background:var(--bg-3); overflow:hidden;}
+/* Cut-outs on white now, so the frame carries no tint of its own — the
+   photo and the card are one continuous white surface. */
+.fleet-media{aspect-ratio:16/9; background:var(--bg); overflow:hidden;}
 .fleet-media picture, .fleet-media img{width:100%; height:100%; display:block;}
 .fleet-media img{object-fit:cover;}
 .fleet-body{padding:28px 28px 30px; text-align:left;}
