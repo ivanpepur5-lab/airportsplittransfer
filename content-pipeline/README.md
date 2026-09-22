@@ -4,6 +4,40 @@ Twice a week, publish one new transfer-route page or SEO blog article for
 airportsplittransfer.com, sourced automatically, never repeating a topic
 already covered.
 
+## Pre-publish checklist — run every time, in this order, before writing anything
+
+1. **Analyze all existing destinations in `/destinations/`.** List the
+   directory, open each `<title>`/`<h1>` if the slug alone is ambiguous,
+   and build the actual current set of covered places — don't rely on
+   memory or on this file being fully up to date.
+2. **Check `history.md`.** Read `content-pipeline/history.md` in full for
+   every topic this pipeline has already published, including anything
+   very recent that hasn't made it into the backlog list below yet.
+3. **Find a new destination within 250 km of Split with the highest
+   organic potential.** Cross-reference against the backlog below, but
+   don't treat it as gospel — if research turns up a better-fit place the
+   backlog missed, use judgement. Rank candidates by:
+   - Name recognition / how commonly the place is already searched for
+     (well-known towns, islands, national parks outrank obscure hamlets)
+   - Real tourism infrastructure already there (hotels, marina, ferry
+     terminal, beach, national park, popular restaurant/attraction) —
+     signals genuine search demand, not just proximity
+   - Fit with the priority categories from the original brief: hotels,
+     Krka/Plitvice/Trogir/Primošten/Šibenik/Makarska-type towns, ferry
+     ports and marinas, regional airports
+   - Not already adequately covered by an existing page (a near-duplicate
+     of a covered topic loses to a genuinely new one)
+4. **Never repeat an already-published topic.** If steps 1–3 turn up
+   anything that overlaps a page already live or already in `history.md`,
+   discard it and pick the next-best candidate. This is a hard rule, not
+   a preference — do not publish a topic a reasonable reader would
+   consider "the same place" as one already covered (e.g. a hyper-specific
+   street or hotel inside a town that already has its own destination
+   page is a duplicate, not a new topic).
+
+Only once all four steps are done, move to Templates/Content rules below
+and write the page.
+
 ## Adaptations from the original brief to this repo's real structure
 
 The task as given assumed a different site architecture. This is a static,
@@ -71,17 +105,6 @@ as genuine.
 - CTA: always ends with a "Book your private transfer" button/link to
   `index.html#booking` (adjust relative path for page depth).
 
-## Never repeat a topic
-
-Before writing, check:
-1. `destinations/` and `blog/` directory listings for existing slugs.
-2. `content-pipeline/history.md` in this folder for topics already
-   published by this pipeline (including ones not yet reflected above if
-   very recent).
-Pick the next unpublished topic from the backlog below, or research a new
-one if the backlog is exhausted (same 250 km radius + tourist-potential
-criteria, still never repeating anything already live).
-
 ## Topic backlog (within ~250 km of Split, tourist potential)
 
 Priority order — work top to bottom, skip anything already published:
@@ -113,22 +136,22 @@ caveat applies here):
 
 ## Workflow for each firing
 
-1. Read this file and `history.md` for what's already covered.
-2. Pick the next backlog topic (or research one if exhausted).
-3. Decide route vs blog template.
-4. Write the full page: copy an existing page of the matching type as a
+1. Run the pre-publish checklist above (steps 1–4).
+2. Decide route vs blog template.
+3. Write the full page: copy an existing page of the matching type as a
    structural starting point, replace all content, get the `<head>` SEO
    tags right (title 50–60 chars, meta description 140–160 chars,
    canonical/og/twitter URLs, JSON-LD), 900–1400 words body, 5-question
    FAQ, internal links, CTA.
-5. If it's a route: add it to `destinations.html`'s grid and to
+4. If it's a route: add it to `destinations.html`'s grid and to
    `js/pricing.js`'s `DESTINATION_NAMES`. If it's a blog article: add it
    to `blog/index.html`'s list.
-6. Add the new URL to `sitemap.xml` (match the existing entry format —
+5. Add the new URL to `sitemap.xml` (match the existing entry format —
    priority 0.8 for routes, 0.5 for blog articles, changefreq monthly).
-7. Append an entry to `content-pipeline/history.md` (date, type, slug,
-   title).
-8. Commit and push everything on the current branch.
-9. Send a short PushNotification naming what was published, with the live
+6. Append an entry to `content-pipeline/history.md` (date, type, slug,
+   title, and which pre-publish-checklist candidates were rejected and
+   why — keeps the audit trail honest for the next firing).
+7. Commit and push everything on the current branch.
+8. Send a short PushNotification naming what was published, with the live
    path (e.g. `/destinations/trogir`).
-10. Reply in the session with a short summary and the link.
+9. Reply in the session with a short summary and the link.
