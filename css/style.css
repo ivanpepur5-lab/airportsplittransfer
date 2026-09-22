@@ -281,50 +281,58 @@ header{
   position:absolute; inset:0; z-index:0; pointer-events:none;
   background:radial-gradient(1100px 520px at 50% 14%, #F3F5F8 0%, rgba(243,245,248,0) 72%);
 }
-.hero-inner{position:relative; z-index:2; max-width:1180px; margin:0 auto; width:100%;}
+.hero-content{position:relative; z-index:10; max-width:1180px; margin:0 auto; width:100%;}
 
 /* The text column stays narrower than the hero so the cars can sit in the
    margins without ever reaching the headline or the buttons. */
 .hero h1, .hero p.lead, .hero-actions, .hero-trust-bar{max-width:640px; margin-left:auto; margin-right:auto;}
 
-.hero-car{
-  position:absolute; bottom:0; z-index:1;
-  pointer-events:none; user-select:none;
-  width:300px; height:auto;
+.hero-skoda,
+.hero-vclass{
+  position:absolute;
+  top:55%;
+  transform:translateY(-50%);
+  pointer-events:none;
+  user-select:none;
+  z-index:1;
+  width:min(300px, calc(50% - 344px));
+  height:auto;
   filter:drop-shadow(0 16px 18px rgba(16,19,24,0.18));
 }
-/* Matched on width, not height: a Superb and a V-Class are within 4% of each
-   other across the track, so equal widths are physically right and the van
-   simply stands taller — which is what it does in the yard. */
-.hero-car img{width:100%; height:auto; display:block;}
-/* Anchored to the INNER edge of the margin — 12px clear of the 640px text
-   column — and then allowed to fill whatever is left out to the viewport.
-   Pinning to the outer edge instead let the cars grow into the buttons
-   around 1000-1024px, where the margin is narrower than the car. */
-.hero-car--left{right:calc(50% + 332px);}
-.hero-car--right{left:calc(50% + 332px);}
-.hero-car{width:min(300px, calc(50% - 344px));}
+/* Matched on width, not height: a Superb is 1864mm across and a V-Class
+   1928mm, so equal widths are honest and the van simply stands taller. */
+.hero-skoda img, .hero-vclass img{width:100%; height:auto; display:block;}
 
-/* Below ~1010px the margin is too narrow to hold a car worth showing (the
-   formula above would drop it to under 100px), so the hero switches to a
-   strip underneath the buttons and both cars sit in that instead. */
+/* Anchored to the INNER edge of the margin — 12px clear of the 640px text
+   column — then free to fill whatever is left out to the viewport. Pinning
+   to the outer edge let the cars grow into the CTA row near 1000-1024px,
+   where the margin is narrower than the car. */
+.hero-skoda{right:calc(50% + 332px);}
+.hero-vclass{left:calc(50% + 332px);}
+
+/* Below ~1010px the margin can no longer hold a car worth showing (the
+   formula above drops under 100px), so the hero gains a strip beneath the
+   buttons and both cars sit in that — which means bottom-anchored, not
+   vertically centred, or they would land on top of the headline. */
 @media (max-width:1010px){
   .hero{min-height:0; padding:56px 32px 190px;}
-  .hero-car{width:210px;}
-  .hero-car--left{right:auto; left:12px;}
-  .hero-car--right{left:auto; right:12px;}
+  .hero-skoda, .hero-vclass{
+    width:210px; top:auto; bottom:0; transform:none;
+  }
+  .hero-skoda{right:auto; left:12px;}
+  .hero-vclass{left:auto; right:12px;}
 }
 @media (max-width:640px){
   .hero{padding:38px 24px 150px;}
-  .hero-car{width:164px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
-  .hero-car--left{right:auto; left:6px;}
-  .hero-car--right{left:auto; right:6px;}
+  .hero-skoda, .hero-vclass{width:164px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
+  .hero-skoda{left:6px;}
+  .hero-vclass{right:6px;}
 }
 @media (max-width:380px){
   .hero{padding:34px 20px 122px;}
-  .hero-car{width:132px;}
-  .hero-car--left{right:auto; left:2px;}
-  .hero-car--right{left:auto; right:2px;}
+  .hero-skoda, .hero-vclass{width:132px;}
+  .hero-skoda{left:2px;}
+  .hero-vclass{right:2px;}
 }
 
 
@@ -1043,7 +1051,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home header{box-shadow:none;}
   body.page-home .hero{position:relative;}
   body.page-home .hero{padding-top:56px;}
-  body.page-home .hero-inner{position:relative; z-index:3;}
+  body.page-home .hero-content{position:relative; z-index:10;}
   body.page-home .hero .eyebrow{color:var(--gold-text); letter-spacing:0.18em; margin-bottom:12px;}
   body.page-home .hero .eyebrow::before{background:var(--gold);}
   body.page-home .hero h1{font-size:2.05rem; line-height:1.18; margin-bottom:12px;}
