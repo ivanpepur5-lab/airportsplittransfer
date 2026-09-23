@@ -514,9 +514,9 @@ function setTripType(type){
   document.getElementById('b-trip-type').value = type;
   const isReturn = type === 'return';
   document.getElementById('return-fields-row').style.display = isReturn ? 'grid' : 'none';
-  document.getElementById('trip-details-legend').textContent = isReturn ? 'Outbound & Return' : 'Trip Details';
-  document.getElementById('b-date-label').textContent = isReturn ? 'Outbound Date' : 'Date';
-  document.getElementById('b-time-label').textContent = isReturn ? 'Outbound Time' : 'Time';
+  document.getElementById('trip-details-legend').textContent = isReturn ? 'Hin- & Rückfahrt' : 'Fahrtdetails';
+  document.getElementById('b-date-label').textContent = isReturn ? 'Hinfahrtdatum' : 'Datum';
+  document.getElementById('b-time-label').textContent = isReturn ? 'Hinfahrtzeit' : 'Uhrzeit';
   const rd = document.getElementById('b-return-date'), rt = document.getElementById('b-return-time');
   if(isReturn){ rd.setAttribute('required',''); rt.setAttribute('required',''); }
   else { rd.removeAttribute('required'); rt.removeAttribute('required'); rd.value=''; rt.value=''; }
@@ -615,11 +615,11 @@ function updateSummary(){
   const rTime = document.getElementById('b-return-time').value;
   document.getElementById('ts-route').textContent = (pickupText || '—') + ' → ' + (dropoffText || '—');
   document.getElementById('ts-trip').textContent = isReturn ? 'Rückfahrt' : 'Einfache Fahrt';
-  document.getElementById('ts-outbound').textContent = (date || '—') + (time ? ' at ' + time : '');
+  document.getElementById('ts-outbound').textContent = (date || '—') + (time ? ' um ' + time : '');
   document.getElementById('ts-pax').textContent = pax;
   document.getElementById('ts-return-row').style.display = isReturn ? 'flex' : 'none';
   if(isReturn){
-    document.getElementById('ts-return').textContent = (rDate || '—') + (rTime ? ' at ' + rTime : '');
+    document.getElementById('ts-return').textContent = (rDate || '—') + (rTime ? ' um ' + rTime : '');
   }
 }
 
@@ -783,7 +783,7 @@ function submitBooking(e){
   const form = document.getElementById('booking-form');
   const submitBtn = form.querySelector('button[type="submit"]');
   const formData = new FormData(form);
-  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet...'; }
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -812,7 +812,7 @@ function submitBooking(e){
       document.getElementById('booking-confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
     .catch((error) => {
-      alert('Something went wrong sending your booking. Please try again or contact us on WhatsApp.');
+      alert('Beim Senden Ihrer Buchung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.');
       console.error(error);
     })
     .finally(() => {
@@ -940,7 +940,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
   </div>
   <div class="footer-bottom">
     <span>&copy; 2026 Transfer Split Airport. Alle Rechte vorbehalten.</span>
-    <span><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms &amp; Conditions</a> &middot; <button type="button" class="cookie-settings-link" onclick="window.openCookiePreferences()">Cookie Preferences</button></span>
+    <span><a href="privacy.html">Datenschutz</a> &middot; <a href="terms.html">AGB</a> &middot; <button type="button" class="cookie-settings-link" onclick="window.openCookiePreferences()">Cookie-Einstellungen</button></span>
   </div>
 </footer>
 <script src="../js/pricing.js" defer></script>

@@ -443,11 +443,11 @@ function updateSummary(){
   const rTime = document.getElementById('b-return-time').value;
   document.getElementById('ts-route').textContent = (pickupText || '\u2014') + ' \u2192 ' + (dropoffText || '\u2014');
   document.getElementById('ts-trip').textContent = isReturn ? 'Returresa' : 'Enkel Resa';
-  document.getElementById('ts-outbound').textContent = (date || '\u2014') + (time ? ' at ' + time : '');
+  document.getElementById('ts-outbound').textContent = (date || '\u2014') + (time ? ' kl. ' + time : '');
   document.getElementById('ts-pax').textContent = pax;
   document.getElementById('ts-return-row').style.display = isReturn ? 'flex' : 'none';
   if(isReturn){
-    document.getElementById('ts-return').textContent = (rDate || '\u2014') + (rTime ? ' at ' + rTime : '');
+    document.getElementById('ts-return').textContent = (rDate || '\u2014') + (rTime ? ' kl. ' + rTime : '');
   }
 }
 
@@ -918,12 +918,12 @@ document.addEventListener('DOMContentLoaded', function prefill(){
       <p>Transfer till fast pris till de hotell och resorter g&auml;sterna fr&aring;gar mest efter.</p>
     </div>
     <div class="hotel-rows">
-      <a class="hotel-row reveal" href="../hotel-transfers/amadria-park-sibenik-solaris.html"><span>Amadria Park &Scaron;ibenik (Solaris)</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row reveal" href="../hotel-transfers/le-meridien-lav.html"><span>Hotel Le Meridien Lav</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row reveal" href="../hotel-transfers/radisson-blu-resort-split.html"><span>Radisson Blu Resort Split</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row reveal" href="../hotel-transfers/medora-auri-podgora.html"><span>Medora Auri, Podgora</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/amadria-park-sibenik-solaris.html"><span>Amadria Park &Scaron;ibenik (Solaris)</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/le-meridien-lav.html"><span>Hotel Le Meridien Lav</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/radisson-blu-resort-split.html"><span>Radisson Blu Resort Split</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/medora-auri-podgora.html"><span>Medora Auri, Podgora</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
     </div>
-    <a class="link-more reveal" href="../hotel-transfers.html">Alla hotelltransfer &rarr;</a>
+    <a class="link-more reveal" href="hotel-transfers.html">Alla hotelltransfer &rarr;</a>
   </div>
 </section><section>
   <div class="wrap">

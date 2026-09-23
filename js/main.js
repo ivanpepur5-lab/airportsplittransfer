@@ -166,3 +166,32 @@ document.addEventListener("DOMContentLoaded", function () {
   initCarousel(".testi-grid", ".testi-card", "testi-dots", 5000);
   initCarousel(".blog-grid-carousel", ".blog-card", "blog-dots", 6000);
 });
+
+// Block past dates on every booking form (the EN widget is injected after
+// load, so this works via delegation rather than a one-time query).
+(function () {
+  function today() {
+    const d = new Date();
+    return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  }
+  function applyMin(input) {
+    let min = today();
+    if (input.name === "return_date" && input.form) {
+      const out = input.form.querySelector('input[name="date"]');
+      if (out && out.value > min) min = out.value;
+    }
+    input.min = min;
+  }
+  function applyAll(root) {
+    root.querySelectorAll('input[type="date"]').forEach(applyMin);
+  }
+  document.addEventListener("DOMContentLoaded", () => applyAll(document));
+  document.addEventListener("focusin", (e) => {
+    if (e.target.matches && e.target.matches('input[type="date"]')) applyMin(e.target);
+  });
+  // Runs before native validation, so an untouched or prefilled date is still checked.
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest && e.target.closest('button[type="submit"]');
+    if (btn && btn.form) applyAll(btn.form);
+  }, true);
+})();

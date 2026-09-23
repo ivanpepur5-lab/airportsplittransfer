@@ -332,9 +332,9 @@ function setTripType(type){
   document.getElementById('b-trip-type').value = type;
   const isReturn = type === 'return';
   document.getElementById('return-fields-row').style.display = isReturn ? 'grid' : 'none';
-  document.getElementById('trip-details-legend').textContent = isReturn ? 'Outbound & Return' : 'Trip Details';
-  document.getElementById('b-date-label').textContent = isReturn ? 'Outbound Date' : 'Date';
-  document.getElementById('b-time-label').textContent = isReturn ? 'Outbound Time' : 'Time';
+  document.getElementById('trip-details-legend').textContent = isReturn ? 'Hin- & Rückfahrt' : 'Fahrtdetails';
+  document.getElementById('b-date-label').textContent = isReturn ? 'Hinfahrtdatum' : 'Datum';
+  document.getElementById('b-time-label').textContent = isReturn ? 'Hinfahrtzeit' : 'Uhrzeit';
   const rd = document.getElementById('b-return-date'), rt = document.getElementById('b-return-time');
   if(isReturn){ rd.setAttribute('required',''); rt.setAttribute('required',''); }
   else { rd.removeAttribute('required'); rt.removeAttribute('required'); rd.value=''; rt.value=''; }
@@ -443,11 +443,11 @@ function updateSummary(){
   const rTime = document.getElementById('b-return-time').value;
   document.getElementById('ts-route').textContent = (pickupText || '\u2014') + ' \u2192 ' + (dropoffText || '\u2014');
   document.getElementById('ts-trip').textContent = isReturn ? 'Rückfahrt' : 'Einfache Fahrt';
-  document.getElementById('ts-outbound').textContent = (date || '\u2014') + (time ? ' at ' + time : '');
+  document.getElementById('ts-outbound').textContent = (date || '\u2014') + (time ? ' um ' + time : '');
   document.getElementById('ts-pax').textContent = pax;
   document.getElementById('ts-return-row').style.display = isReturn ? 'flex' : 'none';
   if(isReturn){
-    document.getElementById('ts-return').textContent = (rDate || '\u2014') + (rTime ? ' at ' + rTime : '');
+    document.getElementById('ts-return').textContent = (rDate || '\u2014') + (rTime ? ' um ' + rTime : '');
   }
 }
 
@@ -656,7 +656,7 @@ function submitBooking(e){
   const form = document.getElementById('booking-form');
   const submitBtn = form.querySelector('button[type="submit"]');
   const formData = new FormData(form);
-  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet...'; }
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -694,7 +694,7 @@ function submitBooking(e){
       document.getElementById('booking-confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
     .catch((error) => {
-      alert('Something went wrong sending your booking. Please try again or contact us on WhatsApp.');
+      alert('Beim Senden Ihrer Buchung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.');
       console.error(error);
     })
     .finally(() => {
@@ -918,12 +918,12 @@ document.addEventListener('DOMContentLoaded', function prefill(){
       <p>Transfers zu Festpreisen zu den meistgefragten Hotels und Resorts.</p>
     </div>
     <div class="hotel-rows">
-      <a class="hotel-row reveal" href="../hotel-transfers/amadria-park-sibenik-solaris.html"><span>Amadria Park &Scaron;ibenik (Solaris)</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row reveal" href="../hotel-transfers/le-meridien-lav.html"><span>Hotel Le Meridien Lav</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row reveal" href="../hotel-transfers/radisson-blu-resort-split.html"><span>Radisson Blu Resort Split</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row reveal" href="../hotel-transfers/medora-auri-podgora.html"><span>Medora Auri, Podgora</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/amadria-park-sibenik-solaris.html"><span>Amadria Park &Scaron;ibenik (Solaris)</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/le-meridien-lav.html"><span>Hotel Le Meridien Lav</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/radisson-blu-resort-split.html"><span>Radisson Blu Resort Split</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row reveal" href="hotel-transfers/medora-auri-podgora.html"><span>Medora Auri, Podgora</span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
     </div>
-    <a class="link-more reveal" href="../hotel-transfers.html">Alle Hoteltransfers &rarr;</a>
+    <a class="link-more reveal" href="hotel-transfers.html">Alle Hoteltransfers &rarr;</a>
   </div>
 </section><section>
   <div class="wrap">
@@ -1044,7 +1044,7 @@ document.addEventListener('DOMContentLoaded', function prefill(){
   </div>
   <div class="footer-bottom">
     <span>&copy; 2026 Transfer Split Airport. Alle Rechte vorbehalten.</span>
-    <span><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms &amp; Conditions</a> &middot; <button type="button" class="cookie-settings-link" onclick="window.openCookiePreferences()">Cookie Preferences</button></span>
+    <span><a href="privacy.html">Datenschutz</a> &middot; <a href="terms.html">AGB</a> &middot; <button type="button" class="cookie-settings-link" onclick="window.openCookiePreferences()">Cookie-Einstellungen</button></span>
   </div>
 </footer>
 <script src="../js/pricing.js" defer></script>

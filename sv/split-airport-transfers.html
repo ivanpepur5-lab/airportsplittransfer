@@ -615,11 +615,11 @@ function updateSummary(){
   const rTime = document.getElementById('b-return-time').value;
   document.getElementById('ts-route').textContent = (pickupText || '—') + ' → ' + (dropoffText || '—');
   document.getElementById('ts-trip').textContent = isReturn ? 'Returresa' : 'Enkel Resa';
-  document.getElementById('ts-outbound').textContent = (date || '—') + (time ? ' at ' + time : '');
+  document.getElementById('ts-outbound').textContent = (date || '—') + (time ? ' kl. ' + time : '');
   document.getElementById('ts-pax').textContent = pax;
   document.getElementById('ts-return-row').style.display = isReturn ? 'flex' : 'none';
   if(isReturn){
-    document.getElementById('ts-return').textContent = (rDate || '—') + (rTime ? ' at ' + rTime : '');
+    document.getElementById('ts-return').textContent = (rDate || '—') + (rTime ? ' kl. ' + rTime : '');
   }
 }
 
@@ -783,7 +783,7 @@ function submitBooking(e){
   const form = document.getElementById('booking-form');
   const submitBtn = form.querySelector('button[type="submit"]');
   const formData = new FormData(form);
-  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Skickar...'; }
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
