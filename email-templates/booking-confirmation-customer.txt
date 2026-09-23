@@ -38,6 +38,10 @@ WHAT'S INCLUDED
 - Meet & Greet
 - Free waiting time
 - Fixed price
+{{#if show_daytrips_promo}}
+Also visiting Plitvice Lakes or Krka National Park? We run private day trips too.
+See our day trips: https://www.airportsplittransfer.com/day-trips
+{{/if}}
 
 Need to change your booking?
 info@airportsplittransfer.com

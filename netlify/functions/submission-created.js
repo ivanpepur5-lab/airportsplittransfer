@@ -129,6 +129,7 @@ function buildBookingTemplateData(payload, data) {
     price_display: priceDisplay,
     flight_number: data.flight_number || "",
     notes: data.notes || "",
+    show_daytrips_promo: true,
   };
 }
 

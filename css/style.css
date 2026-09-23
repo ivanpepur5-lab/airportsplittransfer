@@ -1012,6 +1012,14 @@ legend + *{clear:both;}
 .success-summary .summary-line span:last-child{color:var(--navy); font-weight:600;}
 .success-footnote{font-size:0.8rem; color:var(--gray);}
 .success-footnote a{color:var(--gold-text);}
+.success-daytrips-promo{
+  background:var(--bg-2); border-radius:12px; padding:16px 18px; text-align:center;
+}
+.success-daytrips-promo p{margin:0 0 8px; font-size:0.86rem; color:var(--gray); line-height:1.5;}
+.success-daytrips-promo a{
+  font-size:0.78rem; font-weight:700; color:var(--gold-text);
+  text-transform:uppercase; letter-spacing:0.05em;
+}
 
 /* ============ WHATSAPP BANNER ============ */
 .wa-banner{
