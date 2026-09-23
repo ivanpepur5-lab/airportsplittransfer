@@ -58,13 +58,15 @@ Always private (not a shared shuttle), English-speaking driver, fixed
 price for the whole day, driver waits at the park.
 
 ### 3. Customer review post (Saturdays 10:00)
-Feature ONE real review from the pool below — rotate through all three
-before repeating any. Quote it (or a genuine excerpt of it) rather than
-paraphrasing into something the customer didn't say. Do not fabricate new
-reviews.
+Feature ONE real review from the pool below — rotate through all nine
+before repeating any (track which was used last in `history.md`). Quote
+it (or a genuine excerpt of it) rather than paraphrasing into something
+the customer didn't say. Do not fabricate new reviews.
 
-**Real review pool** (source: index.html / split-airport-transfers.html,
-all verified 5-star Google reviews):
+**Real review pool** (sources: index.html / split-airport-transfers.html,
+plus screenshots the business owner supplied directly from the Google
+Business Profile listing on 2026-09-23 — all verified 5-star Google
+reviews):
 
 1. **Fiona Maher** — "Ivan was so friendly and helpful. We were travelling
    with our little 9 month old and he really helped us and made sure all
@@ -77,12 +79,43 @@ all verified 5-star Google reviews):
    time."
 3. **Chaneze B.** — "I recommend, we were late for our plane and he helped
    us a lot! Nice drive and kind man. Thank you."
+4. **Natasha Dumais** — "The best service, they saved our trip! Super easy
+   communication, photos sent once bags were picked up, and when put on
+   the ferry. [...] Ivan was great :)" (quote the service/communication
+   part — the mid-review note about SMS roaming/bank authentication is
+   about her own bank app, not the business, so leave it out of any
+   excerpt used in a post)
+5. **Nikola Stosic** — "Used Duje's Mercedes van from Split airport to
+   Ferry port and return. First class service, reliable, friendly, quick
+   and affordable. Professional and quick drive taking care about the
+   traffic and about passengers. [...] Will cordially recommend to
+   everybody and especially to the people with young children."
+6. **Jack Waghorn** — "Very professional and friendly, will use again for
+   sure!"
+7. **Karen Holland** (Google Local Guide, 138 reviews) — "Great
+   experience. Arrived ahead of time and charged a fair price to the
+   airport. Plenty of space in the car for our luggage and got to the
+   airport in time."
+8. **Zacker Zap** — "Excellent transfer service from Split to Montenegro.
+   The driver was professional, friendly and punctual, and the journey
+   was smooth and comfortable. Communication was great throughout, and
+   everything went exactly as planned. Highly recommend this company for
+   a reliable and stress-free transfer!"
+9. **Alec Miskulin** — "Ivan was a great driver! He took us from Split all
+   the way to Dubrovnik Airport, and the entire experience was excellent
+   from start to finish. He was very friendly, professional, and easy to
+   talk to, which made the long drive much more enjoyable. [...] Thanks
+   again, Ivan"
+
+Note the range of trips these cover — airport transfers, the ferry port,
+and longer runs to Dubrovnik and even Montenegro — useful for varying the
+post's framing beyond "just" an airport pickup.
 
 The business currently has a 5.0 rating from 30+ Google reviews — safe to
 reference that stat generically ("5.0 stars, 30+ Google reviews") without
 citing an exact number that will go stale.
 
-**When all 3 reviews have been used recently and a 4th distinct angle is
+**When all 9 reviews have been used recently and a 10th distinct angle is
 needed**: don't invent a new quote. Post a general trust/rating-focused
 post instead (e.g. leading with the 5.0/30+ stat) and note in `history.md`
 that fresh reviews are needed — ask the business owner (Ivan) to supply
