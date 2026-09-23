@@ -150,7 +150,7 @@ function buildDaytripTemplateData(payload, data) {
     phone_tel: digitsAndPlus(data.phone),
     date: formatDate(data.date),
     pickup_time: data.time || "",
-    pickup: "Hotel / accommodation pickup in Split",
+    pickup: data.pickup_address || "Hotel / accommodation pickup in Split",
     dropoff: daytripName(data.trip) + " (Day Trip)",
     trip_type: "Day Trip",
     return_date: "",
