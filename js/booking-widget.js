@@ -1,12 +1,49 @@
 /* ==========================================================================
    PREMIUM TRANSFER — Shared booking widget
    Single source of truth for the quick-booking form used on the homepage
-   and on split-airport-transfers.html (and any future page). The markup
-   lives in partials/booking-widget.html; this file fetches it into
+   and on split-airport-transfers.html in every language. The markup
+   lives in partials/booking-widget[.de|.sv].html; this file fetches it into
    <div id="booking-widget-mount"></div> and wires up all interactivity.
    Depends on js/pricing.js (VEHICLES, DESTINATION_NAMES, calculateTotal,
    formatEUR, vehiclesForPassengers) being loaded first.
    ========================================================================== */
+
+// The page's <html lang> picks the UI strings and which translated copy of
+// the widget markup to load (partials/booking-widget[.de|.sv].html).
+const BW_LANG = (function(){
+  const l = (document.documentElement.lang || 'en').slice(0, 2);
+  return (l === 'de' || l === 'sv') ? l : 'en';
+})();
+const BW_SCRIPT_SRC = document.currentScript ? document.currentScript.src : '';
+const BW_TEXT = {
+  en: {
+    legend: 'Trip Details', legendReturn: 'Outbound & Return',
+    date: 'Date', dateReturn: 'Outbound Date', time: 'Time', timeReturn: 'Outbound Time',
+    oneway: 'One way', ret: 'Return', priceOneway: '(one way)', priceReturn: '(return)',
+    noteReturn: 'Return fare — includes an automatic 5% discount on the total price.',
+    noteOneway: km => `${km} km · fixed price, all-inclusive.`,
+    at: ' at ', sending: 'Sending...', submit: 'Book Now',
+    error: 'Something went wrong sending your booking. Please try again or contact us on WhatsApp.'
+  },
+  de: {
+    legend: 'Fahrtdetails', legendReturn: 'Hin- & Rückfahrt',
+    date: 'Datum', dateReturn: 'Hinfahrtdatum', time: 'Uhrzeit', timeReturn: 'Hinfahrtzeit',
+    oneway: 'Einfache Fahrt', ret: 'Rückfahrt', priceOneway: '(einfache Fahrt)', priceReturn: '(Hin- & Rückfahrt)',
+    noteReturn: 'Rückfahrtpreis — enthält automatisch 5% Rabatt auf den Gesamtpreis.',
+    noteOneway: km => `${km} km · Festpreis, alles inklusive.`,
+    at: ' um ', sending: 'Wird gesendet...', submit: 'Jetzt Buchen',
+    error: 'Beim Senden Ihrer Buchung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.'
+  },
+  sv: {
+    legend: 'Resedetaljer', legendReturn: 'Utresa & Retur',
+    date: 'Datum', dateReturn: 'Utresedatum', time: 'Tid', timeReturn: 'Utresetid',
+    oneway: 'Enkel Resa', ret: 'Returresa', priceOneway: '(enkel resa)', priceReturn: '(retur)',
+    noteReturn: 'Returpris — inkluderar automatiskt 5 % rabatt på totalpriset.',
+    noteOneway: km => `${km} km · fast pris, allt inkluderat.`,
+    at: ' kl. ', sending: 'Skickar...', submit: 'Boka Nu',
+    error: 'Något gick fel när din bokning skickades. Försök igen eller kontakta oss via WhatsApp.'
+  }
+}[BW_LANG];
 
 let currentTrip = 'oneway';
 let currentVehicle = 'skoda';
@@ -20,9 +57,9 @@ function setTripType(type){
   document.getElementById('b-trip-type').value = type;
   const isReturn = type === 'return';
   document.getElementById('return-fields-row').style.display = isReturn ? 'grid' : 'none';
-  document.getElementById('trip-details-legend').textContent = isReturn ? 'Outbound & Return' : 'Trip Details';
-  document.getElementById('b-date-label').textContent = isReturn ? 'Outbound Date' : 'Date';
-  document.getElementById('b-time-label').textContent = isReturn ? 'Outbound Time' : 'Time';
+  document.getElementById('trip-details-legend').textContent = isReturn ? BW_TEXT.legendReturn : BW_TEXT.legend;
+  document.getElementById('b-date-label').textContent = isReturn ? BW_TEXT.dateReturn : BW_TEXT.date;
+  document.getElementById('b-time-label').textContent = isReturn ? BW_TEXT.timeReturn : BW_TEXT.time;
   const rd = document.getElementById('b-return-date'), rt = document.getElementById('b-return-time');
   if(isReturn){ rd.setAttribute('required',''); rt.setAttribute('required',''); }
   else { rd.removeAttribute('required'); rt.removeAttribute('required'); rd.value=''; rt.value=''; }
@@ -98,7 +135,7 @@ function updateSummary(){
   document.getElementById('live-price-unpriced').style.display = state === 'unpriced' ? 'block' : 'none';
   if(state === 'priced'){
     document.getElementById('live-price-total').textContent = formatEUR(total);
-    document.getElementById('live-price-trip').textContent = isReturn ? '(return)' : '(one way)';
+    document.getElementById('live-price-trip').textContent = isReturn ? BW_TEXT.priceReturn : BW_TEXT.priceOneway;
   }
 
   // --- Sidebar price summary ---
@@ -108,13 +145,13 @@ function updateSummary(){
   document.getElementById('summary-box').classList.toggle('is-empty', state === 'empty');
   if(state === 'priced'){
     document.getElementById('sum-route').textContent = pickupText + ' → ' + dropoffText;
-    document.getElementById('sum-trip').textContent = isReturn ? 'Return' : 'One way';
+    document.getElementById('sum-trip').textContent = isReturn ? BW_TEXT.ret : BW_TEXT.oneway;
     document.getElementById('sum-vehicle').textContent = VEHICLES[currentVehicle] ? VEHICLES[currentVehicle].name : '—';
     document.getElementById('sum-pax').textContent = pax;
     document.getElementById('sum-total').textContent = formatEUR(total);
     document.getElementById('sum-note').textContent = isReturn
-      ? 'Return fare — includes an automatic 5% discount on the total price.'
-      : `${currentDistanceKm.toFixed(1)} km · fixed price, all-inclusive.`;
+      ? BW_TEXT.noteReturn
+      : BW_TEXT.noteOneway(currentDistanceKm.toFixed(1));
   }
 
   // --- Hidden fields so the real Netlify Forms submission carries the quote ---
@@ -130,12 +167,12 @@ function updateSummary(){
   const rDate = document.getElementById('b-return-date').value;
   const rTime = document.getElementById('b-return-time').value;
   document.getElementById('ts-route').textContent = (pickupText || '—') + ' → ' + (dropoffText || '—');
-  document.getElementById('ts-trip').textContent = isReturn ? 'Return' : 'One way';
-  document.getElementById('ts-outbound').textContent = (date || '—') + (time ? ' at ' + time : '');
+  document.getElementById('ts-trip').textContent = isReturn ? BW_TEXT.ret : BW_TEXT.oneway;
+  document.getElementById('ts-outbound').textContent = (date || '—') + (time ? BW_TEXT.at + time : '');
   document.getElementById('ts-pax').textContent = pax;
   document.getElementById('ts-return-row').style.display = isReturn ? 'flex' : 'none';
   if(isReturn){
-    document.getElementById('ts-return').textContent = (rDate || '—') + (rTime ? ' at ' + rTime : '');
+    document.getElementById('ts-return').textContent = (rDate || '—') + (rTime ? BW_TEXT.at + rTime : '');
   }
 }
 
@@ -344,7 +381,7 @@ function submitBooking(e){
   const form = document.getElementById('booking-form');
   const submitBtn = form.querySelector('button[type="submit"]');
   const formData = new FormData(form);
-  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+  if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = BW_TEXT.sending; }
   fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -382,11 +419,11 @@ function submitBooking(e){
       document.getElementById('booking-confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
     .catch((error) => {
-      alert('Something went wrong sending your booking. Please try again or contact us on WhatsApp.');
+      alert(BW_TEXT.error);
       console.error(error);
     })
     .finally(() => {
-      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Book Now'; }
+      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = BW_TEXT.submit; }
     });
   return false;
 }
@@ -499,7 +536,10 @@ function initBookingWidget(){
 (function(){
   const mount = document.getElementById('booking-widget-mount');
   if(!mount) return;
-  fetch('partials/booking-widget.html')
+  const partial = 'partials/booking-widget' + (BW_LANG === 'en' ? '' : '.' + BW_LANG) + '.html';
+  // Resolve against this script's own URL (js/…), so pages in de/ and sv/
+  // still find the partial at the site root.
+  fetch(BW_SCRIPT_SRC ? new URL('../' + partial, BW_SCRIPT_SRC).href : partial)
     .then(function(response){ return response.text(); })
     .then(function(html){
       mount.innerHTML = html;
