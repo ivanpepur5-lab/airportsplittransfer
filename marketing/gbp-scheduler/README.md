@@ -111,13 +111,13 @@ Note the range of trips these cover — airport transfers, the ferry port,
 and longer runs to Dubrovnik and even Montenegro — useful for varying the
 post's framing beyond "just" an airport pickup.
 
-The business currently has a 5.0 rating from 30+ Google reviews — safe to
-reference that stat generically ("5.0 stars, 30+ Google reviews") without
+The business currently has a 5.0 rating from 33+ Google reviews — safe to
+reference that stat generically ("5.0 stars, 33+ Google reviews") without
 citing an exact number that will go stale.
 
 **When all 9 reviews have been used recently and a 10th distinct angle is
 needed**: don't invent a new quote. Post a general trust/rating-focused
-post instead (e.g. leading with the 5.0/30+ stat) and note in `history.md`
+post instead (e.g. leading with the 5.0/33+ stat) and note in `history.md`
 that fresh reviews are needed — ask the business owner (Ivan) to supply
 new ones from Google Business Profile to expand the pool.
 
