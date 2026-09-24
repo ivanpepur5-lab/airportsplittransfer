@@ -525,6 +525,11 @@ section{padding:var(--space-section) 40px;}
 @media (max-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
 @media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
 @media (min-width:901px){.why-grid.why-grid-3col{grid-template-columns:repeat(3,1fr);}}
+@media (min-width:561px){.why-grid.why-grid-2col{grid-template-columns:repeat(2,1fr);}}
+.why-card .service-price{display:block; font-family:'Schibsted Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:var(--gold-text); margin:4px 0 12px;}
+.why-grid-2col .why-card{display:flex; flex-direction:column;}
+.why-grid-2col .why-card p{margin-bottom:22px;}
+.why-grid-2col .why-card .btn{margin-top:auto;}
 
 /* A grid, not flex-wrap: wrapping gave a ragged 3+1 at 640 and 900px and
    four stacked rows on a small phone. Four across on desktop, a clean 2x2
