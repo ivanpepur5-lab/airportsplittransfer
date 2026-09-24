@@ -34,7 +34,7 @@ async function sendEmail({ from, to, subject, html, text, replyTo }) {
   let responseJson = {};
   try {
     responseJson = await response.json();
-  } catch (err) {
+  } catch {
     // Resend always returns JSON, even on error — an unparsable body means
     // something more unusual than a normal API error, so surface the raw
     // status instead of silently swallowing it.

@@ -751,7 +751,8 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
    quote widget, but have no inline live-price-bar to fall back on above
    960px — so restore the two-column layout and the box itself there. */
 body.page-daytrip .booking-layout{grid-template-columns:1.4fr 1fr; max-width:none;}
-@media (max-width:960px){body.page-daytrip .booking-layout{grid-template-columns:1fr; max-width:720px;}}
+@media (max-width:960px){body.page-daytrip .booking-layout{grid-template-columns:minmax(0,1fr); max-width:720px;}}
+body.page-daytrip .summary-box select{max-width:100%;}
 @media (min-width:961px){body.page-daytrip .summary-box{display:block;}}
 
 /* ============ BLOG ============ */
