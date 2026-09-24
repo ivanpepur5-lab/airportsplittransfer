@@ -58,6 +58,16 @@ const adminHtml = stripLeadingComment(
 const customerText = fs.readFileSync(path.join(TEMPLATES_DIR, "booking-confirmation-customer.txt"), "utf8");
 const adminText = fs.readFileSync(path.join(TEMPLATES_DIR, "booking-notification-admin.txt"), "utf8");
 
+// Translated customer confirmations (booking-confirmation-customer.<lang>.html/.txt).
+// The admin notification stays English — it goes to the business, not the customer.
+const customerByLang = { en: { html: customerHtml, text: customerText } };
+for (const lang of ["de", "sv"]) {
+  customerByLang[lang] = {
+    html: stripLeadingComment(fs.readFileSync(path.join(TEMPLATES_DIR, `booking-confirmation-customer.${lang}.html`), "utf8")),
+    text: fs.readFileSync(path.join(TEMPLATES_DIR, `booking-confirmation-customer.${lang}.txt`), "utf8"),
+  };
+}
+
 const output = `// GENERATED FILE — do not edit by hand.
 // Source of truth: email-templates/*.html and email-templates/*.txt
 // Regenerate with: node netlify/functions/lib/generate-templates.js
@@ -67,6 +77,16 @@ module.exports = {
   ADMIN_TEMPLATE: ${JSON.stringify(adminHtml)},
   CUSTOMER_TEMPLATE_TEXT: ${JSON.stringify(customerText)},
   ADMIN_TEMPLATE_TEXT: ${JSON.stringify(adminText)},
+  CUSTOMER_TEMPLATES: {
+    en: ${JSON.stringify(customerByLang.en.html)},
+    de: ${JSON.stringify(customerByLang.de.html)},
+    sv: ${JSON.stringify(customerByLang.sv.html)},
+  },
+  CUSTOMER_TEMPLATES_TEXT: {
+    en: ${JSON.stringify(customerByLang.en.text)},
+    de: ${JSON.stringify(customerByLang.de.text)},
+    sv: ${JSON.stringify(customerByLang.sv.text)},
+  },
 };
 `;
 

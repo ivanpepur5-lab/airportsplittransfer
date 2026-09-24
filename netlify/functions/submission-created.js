@@ -32,14 +32,32 @@ const {
   daytripName,
   daytripVehicleLabel,
   daytripPrice,
+  daytripText,
+  normalizeLang,
 } = require("./lib/booking");
-const { CUSTOMER_TEMPLATE, ADMIN_TEMPLATE, CUSTOMER_TEMPLATE_TEXT, ADMIN_TEMPLATE_TEXT } = require("./lib/templates");
+const { ADMIN_TEMPLATE, ADMIN_TEMPLATE_TEXT, CUSTOMER_TEMPLATES, CUSTOMER_TEMPLATES_TEXT } = require("./lib/templates");
 
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "Airport Split Transfer <booking@airportsplittransfer.com>";
 const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "info@airportsplittransfer.com";
 
-const customerTemplateSrc = CUSTOMER_TEMPLATE;
 const adminTemplateSrc = ADMIN_TEMPLATE;
+
+const LANGUAGE_NAMES = { en: "English", de: "German", sv: "Swedish" };
+
+const CUSTOMER_SUBJECTS = {
+  en: {
+    booking: (d) => `✅ Booking Confirmed — ${d.date} at ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `✅ Day Trip Confirmed — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+  },
+  de: {
+    booking: (d) => `✅ Buchung bestätigt — ${d.date} um ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `✅ Tagesausflug bestätigt — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+  },
+  sv: {
+    booking: (d) => `✅ Bokning bekräftad — ${d.date} kl. ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `✅ Dagsutflykt bekräftad — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+  },
+};
 
 exports.handler = async (event) => {
   // Logged unconditionally, before any early return, so a real submission
@@ -78,13 +96,16 @@ exports.handler = async (event) => {
   }
 
   const data = payload.data || {};
-  const templateData = payload.form_name === "daytrip"
-    ? buildDaytripTemplateData(payload, data)
-    : buildBookingTemplateData(payload, data);
+  const lang = normalizeLang(data.lang);
+  const build = payload.form_name === "daytrip" ? buildDaytripTemplateData : buildBookingTemplateData;
+  // The customer gets labels/dates in the language they booked in; the
+  // admin copy is always English, with the customer's language noted.
+  const customerData = build(payload, data, lang);
+  const adminData = Object.assign(build(payload, data, "en"), { customer_language: LANGUAGE_NAMES[lang] });
 
   const results = await Promise.allSettled([
-    sendCustomerEmail(templateData),
-    sendAdminEmail(templateData),
+    sendCustomerEmail(customerData, lang),
+    sendAdminEmail(adminData, lang),
   ]);
 
   const [customerResult, adminResult] = results;
@@ -106,8 +127,8 @@ exports.handler = async (event) => {
   return { statusCode: 200, body: "Processed" };
 };
 
-function buildBookingTemplateData(payload, data) {
-  const { price, priceDisplay } = formatPrice(data.calculated_price);
+function buildBookingTemplateData(payload, data, lang) {
+  const { price, priceDisplay } = formatPrice(data.calculated_price, lang);
   return {
     booking_reference: buildBookingReference(payload),
     full_name: data.full_name || "",
@@ -116,20 +137,21 @@ function buildBookingTemplateData(payload, data) {
     email_addr: cleanEmail(data.email),
     phone: data.phone || "",
     phone_tel: digitsAndPlus(data.phone),
-    date: formatDate(data.date),
+    date: formatDate(data.date, lang),
     pickup_time: data.time || "",
     pickup: data.pickup || "",
     dropoff: data.dropoff || "",
-    trip_type: tripTypeLabel(data.trip_type),
-    return_date: formatDate(data.return_date),
+    trip_type: tripTypeLabel(data.trip_type, lang),
+    return_date: formatDate(data.return_date, lang),
     return_time: data.return_time || "",
     passengers: data.passengers || "",
-    vehicle: vehicleLabel(data.vehicle),
+    vehicle: vehicleLabel(data.vehicle, lang),
     price,
     price_display: priceDisplay,
     flight_number: data.flight_number || "",
     notes: data.notes || "",
     show_daytrips_promo: true,
+    is_daytrip: false,
   };
 }
 
@@ -139,8 +161,9 @@ function buildBookingTemplateData(payload, data) {
 // customer/admin templates as the transfer form: pickup/dropoff become the
 // pickup description and trip name, trip_type reads "Day Trip", and there's
 // no return leg (it's a round trip by definition) or flight number.
-function buildDaytripTemplateData(payload, data) {
-  const { price, priceDisplay } = formatPrice(daytripPrice(data.trip, data.vehicle));
+function buildDaytripTemplateData(payload, data, lang) {
+  const { price, priceDisplay } = formatPrice(daytripPrice(data.trip, data.vehicle), lang);
+  const text = daytripText(lang);
   return {
     booking_reference: buildBookingReference(payload),
     full_name: data.full_name || "",
@@ -149,19 +172,21 @@ function buildDaytripTemplateData(payload, data) {
     email_addr: cleanEmail(data.email),
     phone: data.phone || "",
     phone_tel: digitsAndPlus(data.phone),
-    date: formatDate(data.date),
+    date: formatDate(data.date, lang),
     pickup_time: data.time || "",
-    pickup: data.pickup_address || "Hotel / accommodation pickup in Split",
-    dropoff: daytripName(data.trip) + " (Day Trip)",
-    trip_type: "Day Trip",
+    pickup: data.pickup_address || text.pickupFallback,
+    dropoff: `${daytripName(data.trip, lang)} (${text.label})`,
+    trip_name: daytripName(data.trip, lang),
+    trip_type: text.label,
     return_date: "",
     return_time: "",
     passengers: data.passengers || "",
-    vehicle: daytripVehicleLabel(data.vehicle),
+    vehicle: daytripVehicleLabel(data.vehicle, lang),
     price,
     price_display: priceDisplay,
     flight_number: "",
     notes: data.notes || "",
+    is_daytrip: true,
   };
 }
 
@@ -173,15 +198,14 @@ function cleanEmail(email) {
   return (email || "").trim();
 }
 
-async function sendCustomerEmail(templateData) {
+async function sendCustomerEmail(templateData, lang) {
   if (!templateData.email) {
     throw new Error("Submission has no customer email address — cannot send confirmation");
   }
-  const html = renderTemplate(customerTemplateSrc, templateData);
-  const text = renderTextTemplate(CUSTOMER_TEMPLATE_TEXT, templateData);
-  const subject = templateData.trip_type === "Day Trip"
-    ? `✅ Day Trip Confirmed — ${templateData.dropoff} — ${templateData.date} | Airport Split Transfer`
-    : `✅ Booking Confirmed — ${templateData.date} at ${templateData.pickup_time} | Airport Split Transfer`;
+  const html = renderTemplate(CUSTOMER_TEMPLATES[lang], templateData);
+  const text = renderTextTemplate(CUSTOMER_TEMPLATES_TEXT[lang], templateData);
+  const subjects = CUSTOMER_SUBJECTS[lang];
+  const subject = templateData.is_daytrip ? subjects.daytrip(templateData) : subjects.booking(templateData);
   return sendEmail({
     from: FROM_EMAIL,
     to: templateData.email,
@@ -192,10 +216,11 @@ async function sendCustomerEmail(templateData) {
   });
 }
 
-async function sendAdminEmail(templateData) {
+async function sendAdminEmail(templateData, lang) {
   const html = renderTemplate(adminTemplateSrc, templateData);
   const text = renderTextTemplate(ADMIN_TEMPLATE_TEXT, templateData);
-  const subject = `🚖 NEW BOOKING • ${templateData.date} ${templateData.pickup_time} • ${templateData.customer_name}`;
+  const langTag = lang === "en" ? "" : ` • ${lang.toUpperCase()}`;
+  const subject = `🚖 NEW BOOKING • ${templateData.date} ${templateData.pickup_time} • ${templateData.customer_name}${langTag}`;
   return sendEmail({
     from: FROM_EMAIL,
     to: ADMIN_EMAIL,

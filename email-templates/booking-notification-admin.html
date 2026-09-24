@@ -27,6 +27,8 @@
     vehicle          -> {{vehicle}}            (human-readable label — see
                                                  README for key->label map)
     calculated_price -> {{price}}
+    (backend-set)    -> {{customer_language}}  (English/German/Swedish — the
+                                               language the customer booked in)
     notes            -> {{notes}}              (optional — "special requests")
 
   {{phone_tel}} / {{email_addr}} are the same values as {{phone}} / {{email}}
@@ -131,6 +133,13 @@
                     <a href="tel:{{phone_tel}}" style="color:#07264C;text-decoration:none;">{{phone}}</a>
                   </td>
                 </tr>
+
+                {{#if customer_language}}
+                <tr>
+                  <td class="row-label" width="34%" style="padding:10px 0;border-bottom:1px solid #E5E7EB;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#5B6672;vertical-align:top;">Language</td>
+                  <td style="padding:10px 0;border-bottom:1px solid #E5E7EB;font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#07264C;font-weight:700;text-align:right;">{{customer_language}}</td>
+                </tr>
+                {{/if}}
 
                 <tr>
                   <td class="row-label" width="34%" style="padding:10px 0;border-bottom:1px solid #E5E7EB;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#5B6672;vertical-align:top;">Email</td>

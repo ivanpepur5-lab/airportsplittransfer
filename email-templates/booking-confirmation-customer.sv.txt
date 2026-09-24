@@ -1,0 +1,51 @@
+BOKNING BEKRÄFTAD
+Airport Split Transfer
+
+Tack för att du valde Airport Split Transfer.
+{{#if booking_reference}}
+Bokningsnummer: {{booking_reference}}
+{{/if}}
+RESEDETALJER
+-----------------------------------------
+Datum: {{date}}
+Upphämtningstid: {{pickup_time}}
+Upphämtningsplats: {{pickup}}
+Destination: {{dropoff}}
+Restyp: {{trip_type}}
+{{#if return_date}}
+Returdatum: {{return_date}}
+{{/if}}
+{{#if return_time}}
+Returtid: {{return_time}}
+{{/if}}
+Passagerare: {{passengers}}
+Fordon: {{vehicle}}
+Pris: {{price_display}}
+
+RESENÄR
+-----------------------------------------
+Namn: {{full_name}}
+E-post: {{email}}
+Telefon: {{phone}}
+{{#if flight_number}}
+Flightnummer: {{flight_number}}
+{{/if}}
+
+DETTA INGÅR
+-----------------------------------------
+- Professionell chaufför
+- Flygbevakning
+- Mottagande i ankomsthallen
+- Gratis väntetid
+- Fast pris
+{{#if show_daytrips_promo}}
+Besöker du också Plitvicesjöarna eller Nationalparken Krka? Vi erbjuder även privata dagsutflykter.
+Se våra dagsutflykter: https://airportsplittransfer.com/sv/day-trips
+{{/if}}
+
+Vill du ändra din bokning?
+info@airportsplittransfer.com
++385 91 785 6056
+
+Airport Split Transfer, Split, Kroatien
+Privata flygplatstransfer längs den dalmatiska kusten.

@@ -5,6 +5,11 @@ HTML version and a plain-text fallback:
 
 - `booking-confirmation-customer.html` / `.txt` — sent to the customer
   after a successful booking.
+- `booking-confirmation-customer.de.*` / `.sv.*` — German and Swedish
+  translations of the customer email, picked by the hidden `lang` field
+  the booking and day-trip forms send. Same tokens and layout as the
+  English file — change all three when changing one. The admin email
+  stays English and shows the customer's language.
 - `booking-notification-admin.html` / `.txt` — sent to
   `info@airportsplittransfer.com` so the team can act on a new booking
   immediately from a phone.

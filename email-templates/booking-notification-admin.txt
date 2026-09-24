@@ -8,6 +8,9 @@ Email: {{email}}
 
 Phone: {{phone}}
 Email: {{email}}
+{{#if customer_language}}
+Language: {{customer_language}}
+{{/if}}
 Pickup: {{pickup}}
 Destination: {{dropoff}}
 Trip type: {{trip_type}}

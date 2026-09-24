@@ -1,0 +1,366 @@
+<!--
+  SV translation of booking-confirmation-customer.html — same tokens
+  and structure; see that file's header for the field mapping.
+-->
+<!doctype html>
+<html lang="sv" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Bokning bekräftad — Airport Split Transfer</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<style>
+  table {border-collapse:collapse;}
+</style>
+<![endif]-->
+<style>
+  body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;}
+  table,td{mso-table-lspace:0pt;mso-table-rspace:0pt;}
+  img{-ms-interpolation-mode:bicubic;border:0;outline:none;text-decoration:none;display:block;}
+  body{margin:0;padding:0;width:100%!important;height:100%!important;background:#F1F5F9;}
+  a{color:#0EA5E9;}
+  @media screen and (max-width:600px){
+    .email-container{width:100%!important;}
+    .px-mobile{padding-left:20px!important;padding-right:20px!important;}
+    .h1-mobile{font-size:24px!important;}
+    .card-pad{padding:20px!important;}
+    .stack{display:block!important;width:100%!important;text-align:left!important;padding-bottom:10px!important;}
+    .stack-right{display:block!important;width:100%!important;text-align:left!important;}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#F1F5F9;">
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;opacity:0;">
+  Din privata transfer från Split flygplats är bekräftad. Här hittar du alla resedetaljer och vad som ingår.
+  &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
+<center style="width:100%;background:#F1F5F9;">
+<!--[if mso]>
+<table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0" border="0"><tr><td>
+<![endif]-->
+<div style="max-width:600px;margin:0 auto;" class="email-container">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;">
+
+    <!-- outer spacing -->
+    <tr><td style="height:24px;line-height:24px;font-size:1px;">&nbsp;</td></tr>
+
+    <!-- CARD START -->
+    <tr>
+      <td style="background:#FFFFFF;border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(7,38,76,0.08);">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+          <!-- HEADER: logo on navy-to-sky gradient -->
+          <tr>
+            <td align="center" style="background-color:#07264C;background-image:linear-gradient(135deg,#07264C 0%,#0B3A6E 100%);padding:32px 24px;" class="px-mobile">
+              <img src="https://airportsplittransfer.com/assets/logo-white.png" width="200" height="71" alt="Airport Split Transfer" style="display:block;width:200px;max-width:200px;height:auto;border:0;">
+            </td>
+          </tr>
+
+          <!-- accent bar -->
+          <tr>
+            <td style="background:#0EA5E9;height:4px;line-height:4px;font-size:1px;">&nbsp;</td>
+          </tr>
+
+          <!-- CONFIRMATION HEADLINE -->
+          <tr>
+            <td align="center" style="padding:40px 32px 8px;" class="px-mobile">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="width:56px;height:56px;border-radius:50%;background:rgba(14,165,233,0.12);">
+                    <div style="width:56px;height:56px;line-height:56px;text-align:center;font-size:28px;color:#0EA5E9;font-family:Arial,Helvetica,sans-serif;">&#10003;</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:16px 32px 4px;" class="px-mobile">
+              <h1 class="h1-mobile" style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:28px;line-height:1.25;font-weight:800;color:#07264C;">Bokning bekräftad</h1>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:6px 32px 28px;" class="px-mobile">
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.6;color:#5B6672;">Tack för att du valde Airport Split Transfer.</p>
+            </td>
+          </tr>
+
+          {{#if booking_reference}}
+          <!-- booking reference chip -->
+          <tr>
+            <td align="center" style="padding:0 32px 28px;" class="px-mobile">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:999px;">
+                <tr>
+                  <td style="padding:10px 22px;font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:0.06em;color:#5B6672;text-transform:uppercase;">
+                    Bokningsnummer&nbsp; <span style="color:#07264C;font-weight:700;font-size:13px;letter-spacing:0;text-transform:none;">{{booking_reference}}</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {{/if}}
+
+          <!-- TRIP DETAILS CARD -->
+          <tr>
+            <td style="padding:0 32px 24px;" class="px-mobile">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:14px;">
+                <tr>
+                  <td class="card-pad" style="padding:24px 26px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0EA5E9;text-transform:uppercase;">Resedetaljer</td>
+                      </tr>
+
+                      {{#if booking_reference}}
+                      <tr><td style="border-top:1px solid #E5E7EB;padding-top:12px;"></td></tr>
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Bokningsnummer</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{booking_reference}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Datum</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{date}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Upphämtningstid</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{pickup_time}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;vertical-align:top;">Upphämtningsplats</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{pickup}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;vertical-align:top;">Destination</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{dropoff}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Restyp</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{trip_type}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      {{#if return_date}}
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Returdatum</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{return_date}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                      {{#if return_time}}
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Returtid</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{return_time}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Passagerare</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{passengers}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;vertical-align:top;">Fordon</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{vehicle}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr><td style="border-top:1px solid #E5E7EB;padding-top:14px;"></td></tr>
+                      <tr>
+                        <td style="font-family:Arial,Helvetica,sans-serif;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td style="font-size:14px;color:#5B6672;font-weight:600;">Pris</td>
+                            <td align="right" style="font-size:22px;font-weight:800;color:#0EA5E9;">{{price_display}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- PASSENGER CARD -->
+          <tr>
+            <td style="padding:0 32px 24px;" class="px-mobile">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:14px;">
+                <tr>
+                  <td class="card-pad" style="padding:24px 26px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0EA5E9;text-transform:uppercase;">Resenär</td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Namn</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{full_name}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="padding-bottom:12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">E-post</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{email}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="{{#if flight_number}}padding-bottom:12px;{{/if}}font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Telefon</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{phone}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+
+                      {{#if flight_number}}
+                      <tr>
+                        <td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#07264C;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+                            <td class="stack" width="42%" style="font-size:13px;color:#5B6672;">Flightnummer</td>
+                            <td class="stack-right" align="right" style="font-size:14px;font-weight:700;">{{flight_number}}</td>
+                          </tr></table>
+                        </td>
+                      </tr>
+                      {{/if}}
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- WHAT'S INCLUDED CARD -->
+          <tr>
+            <td style="padding:0 32px 32px;" class="px-mobile">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#07264C;border-radius:14px;">
+                <tr>
+                  <td class="card-pad" style="padding:24px 26px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="padding-bottom:16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;color:#0EA5E9;text-transform:uppercase;">Detta ingår</td>
+                      </tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Professionell chaufför</td></tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Flygbevakning</td></tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Mottagande i ankomsthallen</td></tr>
+                      <tr><td style="padding-bottom:10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Gratis väntetid</td></tr>
+                      <tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#FFFFFF;"><span style="color:#0EA5E9;font-weight:800;">&#10003;</span>&nbsp;&nbsp;Fast pris</td></tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          {{#if show_daytrips_promo}}
+          <!-- DAY TRIPS CROSS-SELL CARD -->
+          <tr>
+            <td style="padding:0 32px 32px;" class="px-mobile">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F8FAFC;border:1px solid #E5E7EB;border-radius:14px;">
+                <tr>
+                  <td align="center" class="card-pad" style="padding:22px 26px;">
+                    <p style="margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.55;color:#5B6672;">Besöker du också Plitvicesjöarna eller Nationalparken Krka? Vi erbjuder även privata dagsutflykter.</p>
+                    <a href="https://airportsplittransfer.com/sv/day-trips" style="display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#0EA5E9;text-decoration:none;">Se våra dagsutflykter &rarr;</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          {{/if}}
+
+          <!-- FOOTER -->
+          <tr>
+            <td align="center" style="padding:8px 32px 36px;" class="px-mobile">
+              <p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#07264C;">Vill du ändra din bokning?</p>
+              <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#5B6672;">
+                <a href="mailto:info@airportsplittransfer.com" style="color:#0EA5E9;text-decoration:none;font-weight:600;">info@airportsplittransfer.com</a>
+                &nbsp;&middot;&nbsp;
+                <a href="tel:+385917856056" style="color:#0EA5E9;text-decoration:none;font-weight:600;">+385 91 785 6056</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+    <!-- CARD END -->
+
+    <!-- Sub-footer, outside the white card -->
+    <tr>
+      <td align="center" style="padding:24px 32px 8px;" class="px-mobile">
+        <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.6;color:#94A3B8;">
+          Airport Split Transfer &middot; Split, Kroatien<br>
+          Privata flygplatstransfer längs den dalmatiska kusten.
+        </p>
+      </td>
+    </tr>
+    <tr><td style="height:24px;line-height:24px;font-size:1px;">&nbsp;</td></tr>
+
+  </table>
+</div>
+<!--[if mso]>
+</td></tr></table>
+<![endif]-->
+</center>
+</body>
+</html>
