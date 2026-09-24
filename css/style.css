@@ -378,6 +378,20 @@ header{
    still go full width. */
 @media (max-width:640px){.btn-hero{flex:1 1 100%; min-width:0;}}
 .btn-gold.btn-hero{border-color:var(--gold);}
+/* WhatsApp CTA is secondary: narrower and shorter than the primary Book
+   button, at the same 84% ratio across every breakpoint the primary uses. */
+.hero-actions .btn-whatsapp-hero.btn-hero{width:84%; max-width:370px; height:54px;}
+@media (max-width:1010px){ .hero-actions .btn-whatsapp-hero.btn-hero{max-width:260px;} }
+/* Below 640px the column's flex-basis:100% rule (needed so a single CTA
+   still spans full width) makes the flex algorithm ignore the explicit
+   height and size the button to its content instead — so the label must
+   fit on one line here, or the button silently grows past 54px. */
+@media (max-width:640px){
+  .hero-actions .btn-whatsapp-hero.btn-hero{max-width:240px; padding:16px 12px; font-size:0.68rem; letter-spacing:0.07em;}
+}
+@media (max-width:380px){
+  .hero-actions .btn-whatsapp-hero.btn-hero{max-width:210px; padding:16px 8px; font-size:0.62rem; letter-spacing:0.05em;}
+}
 .btn-icon{width:19px; height:19px; display:inline-flex; flex-shrink:0;}
 .btn-icon svg{width:100%; height:100%;}
 
@@ -391,6 +405,23 @@ header{
 .hero-trust-stars{color:var(--star); font-weight:600; font-size:0.95rem; letter-spacing:0.02em; margin-left:4px;}
 .hero-trust-divider{width:1px; height:16px; background:var(--line);}
 .hero-trust-count{color:var(--gray); font-size:0.88rem;}
+
+.hero-badges{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px;
+  margin:0 auto 26px; max-width:640px;
+}
+.hero-badge{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 14px; border-radius:999px; background:var(--bg-2);
+  color:var(--gray); font-size:0.72rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.05em; white-space:nowrap;
+}
+.hero-badge-icon{width:15px; height:15px; flex-shrink:0; display:inline-flex; color:var(--gray);}
+.hero-badge-icon svg{width:100%; height:100%;}
+@media (max-width:640px){
+  .hero-badge{padding:6px 10px; font-size:0.62rem; gap:5px;}
+  .hero-badge-icon{width:13px; height:13px;}
+}
 
 
 .hero .eyebrow{color:var(--gold-text);}
