@@ -195,3 +195,31 @@ document.addEventListener("DOMContentLoaded", function () {
     if (btn && btn.form) applyAll(btn.form);
   }, true);
 })();
+
+// Form validation messages in the page's language (browsers otherwise use
+// their own UI language, so a Swedish page could show English errors).
+(function () {
+  const lang = (document.documentElement.lang || "en").slice(0, 2);
+  const M = {
+    en: { required: "Please fill in this field.", select: "Please select an option.", email: "Please enter a valid email address.",
+          pastDate: "Please choose today or a later date.", returnDate: "The return date can't be before the outbound date." },
+    de: { required: "Bitte füllen Sie dieses Feld aus.", select: "Bitte wählen Sie eine Option aus.", email: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+          pastDate: "Bitte wählen Sie heute oder ein späteres Datum.", returnDate: "Das Rückfahrtdatum darf nicht vor dem Hinfahrtdatum liegen." },
+    sv: { required: "Fyll i det här fältet.", select: "Välj ett alternativ.", email: "Ange en giltig e-postadress.",
+          pastDate: "Välj dagens datum eller ett senare datum.", returnDate: "Returdatumet kan inte vara före utresedatumet." },
+  }[lang] || null;
+  if (!M) return;
+  document.addEventListener("invalid", (e) => {
+    const el = e.target;
+    if (!el.validity || !el.setCustomValidity) return;
+    el.setCustomValidity("");
+    let msg = "";
+    if (el.validity.valueMissing) msg = el.tagName === "SELECT" ? M.select : M.required;
+    else if (el.validity.typeMismatch && el.type === "email") msg = M.email;
+    else if (el.validity.rangeUnderflow && el.type === "date") msg = el.name === "return_date" ? M.returnDate : M.pastDate;
+    if (msg) el.setCustomValidity(msg);
+  }, true);
+  const clear = (e) => { if (e.target && e.target.setCustomValidity) e.target.setCustomValidity(""); };
+  document.addEventListener("input", clear, true);
+  document.addEventListener("change", clear, true);
+})();
