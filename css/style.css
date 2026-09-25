@@ -331,19 +331,21 @@ header{
      the outer edge reads. Sized by height, since these crops are tall and
      narrow. */
   .hero{min-height:0; padding:30px 24px 40px;}
-  .hero-skoda, .hero-vclass{width:auto; height:148px; bottom:10px;}
+  /* Raised to sit level with the blue Book button, not the shorter
+     WhatsApp button below it. */
+  .hero-skoda, .hero-vclass{width:auto; height:148px; bottom:38px;}
   .hero-skoda img, .hero-vclass img{width:auto; height:100%;}
   .hero-skoda{left:0;}
   .hero-vclass{right:0;}
 }
 @media (max-width:640px){
   .hero{padding:24px 20px 34px;}
-  .hero-skoda, .hero-vclass{height:140px; bottom:8px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
+  .hero-skoda, .hero-vclass{height:140px; bottom:32px; filter:drop-shadow(0 10px 12px rgba(16,19,24,0.16));}
 
 }
 @media (max-width:380px){
   .hero{padding:22px 16px 30px;}
-  .hero-skoda, .hero-vclass{height:128px; bottom:6px;}
+  .hero-skoda, .hero-vclass{height:128px; bottom:44px;}
 }
 
 
@@ -357,9 +359,10 @@ header{
 }
 .hero h1 em{font-style:normal; color:var(--gold);}
 .hero p.lead{
-  font-size:1.05rem;
+  font-size:0.92rem;
   color:var(--gray);
-  max-width:640px;
+  width:85%;
+  max-width:544px;
   margin:0 auto 22px;
 }
 .hero-actions{display:flex; flex-direction:column; align-items:center; gap:12px;}
@@ -380,17 +383,19 @@ header{
 .btn-gold.btn-hero{border-color:var(--gold);}
 /* WhatsApp CTA is secondary: narrower and shorter than the primary Book
    button, at the same 84% ratio across every breakpoint the primary uses. */
-.hero-actions .btn-whatsapp-hero.btn-hero{width:84%; max-width:370px; height:54px;}
-@media (max-width:1010px){ .hero-actions .btn-whatsapp-hero.btn-hero{max-width:260px;} }
+.hero-actions .btn-whatsapp-hero.btn-hero{width:84%; max-width:370px; height:46px;}
+@media (max-width:1010px){ .hero-actions .btn-whatsapp-hero.btn-hero{max-width:260px; padding:10px 12px; font-size:0.68rem; letter-spacing:0.07em;} }
 /* Below 640px the column's flex-basis:100% rule (needed so a single CTA
    still spans full width) makes the flex algorithm ignore the explicit
    height and size the button to its content instead — so the label must
-   fit on one line here, or the button silently grows past 54px. */
+   fit on one line here, or the button silently grows past the intended
+   height. Vertical padding is what actually sets the height at these
+   sizes. */
 @media (max-width:640px){
-  .hero-actions .btn-whatsapp-hero.btn-hero{max-width:240px; padding:16px 12px; font-size:0.68rem; letter-spacing:0.07em;}
+  .hero-actions .btn-whatsapp-hero.btn-hero{max-width:240px; padding:10px 12px; font-size:0.68rem; letter-spacing:0.07em;}
 }
 @media (max-width:380px){
-  .hero-actions .btn-whatsapp-hero.btn-hero{max-width:210px; padding:16px 8px; font-size:0.62rem; letter-spacing:0.05em;}
+  .hero-actions .btn-whatsapp-hero.btn-hero{max-width:210px; padding:9px 8px; font-size:0.62rem; letter-spacing:0.05em;}
 }
 .btn-icon{width:19px; height:19px; display:inline-flex; flex-shrink:0;}
 .btn-icon svg{width:100%; height:100%;}
