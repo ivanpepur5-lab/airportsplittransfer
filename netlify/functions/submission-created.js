@@ -13,12 +13,13 @@
 //                               (must be a sender on a domain verified in Resend)
 //   ADMIN_NOTIFICATION_EMAIL  — default: "info@airportsplittransfer.com"
 //
-// Two forms are handled: "booking" (index.html / de/index.html /
-// sv/index.html — the point-to-point transfer form) and "daytrip"
+// Three forms are handled: "booking" (index.html / de/index.html /
+// sv/index.html — the point-to-point transfer form), "daytrip"
 // (day-trips/krka-national-park.html / day-trips/plitvice-lakes.html — the
-// fixed-price Krka/Plitvice excursions). Submissions from any other Netlify
-// form on the site are ignored so adding a new form elsewhere later can't
-// break this function.
+// fixed-price Krka/Plitvice excursions), and "contact" (contact.html /
+// de/contact.html / sv/contact.html — the general enquiry form). Submissions
+// from any other Netlify form on the site are ignored so adding a new form
+// elsewhere later can't break this function.
 
 const { renderTemplate, renderTextTemplate } = require("./lib/template");
 const { sendEmail } = require("./lib/resend");
@@ -84,10 +85,10 @@ exports.handler = async (event) => {
 
   console.log("[booking-email] form_name:", payload && payload.form_name, "| has RESEND_API_KEY:", Boolean(process.env.RESEND_API_KEY));
 
-  if (!payload || (payload.form_name !== "booking" && payload.form_name !== "daytrip")) {
+  if (!payload || !["booking", "daytrip", "contact"].includes(payload.form_name)) {
     // Not a form this function handles — ignore so other/future Netlify
     // forms on the site don't get emails they weren't meant to trigger.
-    return { statusCode: 200, body: "Ignored (not booking or daytrip)" };
+    return { statusCode: 200, body: "Ignored (not booking, daytrip or contact)" };
   }
 
   if (!process.env.RESEND_API_KEY) {
@@ -97,6 +98,11 @@ exports.handler = async (event) => {
 
   const data = payload.data || {};
   const lang = normalizeLang(data.lang);
+
+  if (payload.form_name === "contact") {
+    return handleContactSubmission(payload, data, lang);
+  }
+
   const build = payload.form_name === "daytrip" ? buildDaytripTemplateData : buildBookingTemplateData;
   // The customer gets labels/dates in the language they booked in; the
   // admin copy is always English, with the customer's language noted.
@@ -225,6 +231,130 @@ async function sendAdminEmail(templateData, lang) {
     from: FROM_EMAIL,
     to: ADMIN_EMAIL,
     replyTo: templateData.email || undefined,
+    subject,
+    html,
+    text,
+  });
+}
+
+// ---- Contact form (contact.html / de/contact.html / sv/contact.html) ----
+// Its own small, self-contained pair of emails rather than the
+// mustache-templated booking/daytrip pipeline above: the data shape (a free
+// text message, no trip/vehicle/price) doesn't fit those templates, and this
+// form doesn't need the visual polish a customer-facing booking confirmation
+// does — an admin alert plus a short acknowledgement is enough.
+
+const CONTACT_SUBJECTS = {
+  en: (d) => (d.subject ? `We received your message: ${d.subject}` : "We received your message"),
+  de: (d) => (d.subject ? `Wir haben Ihre Nachricht erhalten: ${d.subject}` : "Wir haben Ihre Nachricht erhalten"),
+  sv: (d) => (d.subject ? `Vi har tagit emot ditt meddelande: ${d.subject}` : "Vi har tagit emot ditt meddelande"),
+};
+
+const CONTACT_ACK_TEXT = {
+  en: {
+    greeting: (name) => `Hi${name ? " " + name : ""},`,
+    body: "Thanks for reaching out — we've received your message and will reply within a few minutes during the day, or within the hour overnight.",
+    yourMessage: "Your message:",
+    signoff: "Airport Split Transfer",
+  },
+  de: {
+    greeting: (name) => `Hallo${name ? " " + name : ""},`,
+    body: "Vielen Dank für Ihre Nachricht — wir haben sie erhalten und antworten tagsüber innerhalb weniger Minuten, über Nacht innerhalb einer Stunde.",
+    yourMessage: "Ihre Nachricht:",
+    signoff: "Airport Split Transfer",
+  },
+  sv: {
+    greeting: (name) => `Hej${name ? " " + name : ""},`,
+    body: "Tack för ditt meddelande — vi har tagit emot det och svarar inom några minuter under dagtid, eller inom en timme nattetid.",
+    yourMessage: "Ditt meddelande:",
+    signoff: "Airport Split Transfer",
+  },
+};
+
+async function handleContactSubmission(payload, data, lang) {
+  const contactData = {
+    name: (data.name || "").trim(),
+    email: (data.email || "").trim(),
+    phone: (data.phone || "").trim(),
+    subject: (data.subject || "").trim(),
+    message: (data.message || "").trim(),
+  };
+
+  const results = await Promise.allSettled([
+    sendContactAdminEmail(contactData, lang),
+    // No point acknowledging a submission with no return address — Netlify
+    // marks the field required client-side, but a direct POST could still
+    // omit it.
+    contactData.email ? sendContactCustomerAck(contactData, lang) : Promise.resolve(null),
+  ]);
+
+  const [adminResult, customerResult] = results;
+  if (adminResult.status === "rejected") {
+    console.error("[booking-email] Contact admin notification failed for submission", payload.id, adminResult.reason);
+  } else {
+    console.log("[booking-email] Contact admin notification sent for submission", payload.id, adminResult.value && adminResult.value.id);
+  }
+  if (customerResult.status === "rejected") {
+    console.error("[booking-email] Contact customer acknowledgement failed for submission", payload.id, customerResult.reason);
+  } else if (customerResult.value) {
+    console.log("[booking-email] Contact customer acknowledgement sent for submission", payload.id, customerResult.value.id);
+  }
+
+  return { statusCode: 200, body: "Processed" };
+}
+
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+async function sendContactAdminEmail(d, lang) {
+  const langTag = lang === "en" ? "" : ` • ${lang.toUpperCase()}`;
+  const subject = `✉️ Contact form • ${d.name || "No name"}${d.subject ? " • " + d.subject : ""}${langTag}`;
+  const html = `
+    <div style="font-family:Arial,sans-serif; font-size:15px; color:#16191F; line-height:1.6;">
+      <h2 style="margin:0 0 16px;">New contact form message</h2>
+      <table style="border-collapse:collapse;">
+        <tr><td style="padding:4px 12px 4px 0; color:#616872;">Name</td><td>${escapeHtml(d.name) || "—"}</td></tr>
+        <tr><td style="padding:4px 12px 4px 0; color:#616872;">Email</td><td><a href="mailto:${escapeHtml(d.email)}">${escapeHtml(d.email) || "—"}</a></td></tr>
+        <tr><td style="padding:4px 12px 4px 0; color:#616872;">Phone</td><td>${escapeHtml(d.phone) || "—"}</td></tr>
+        <tr><td style="padding:4px 12px 4px 0; color:#616872;">Subject</td><td>${escapeHtml(d.subject) || "—"}</td></tr>
+        <tr><td style="padding:4px 12px 4px 0; color:#616872; vertical-align:top;">Language</td><td>${LANGUAGE_NAMES[lang]}</td></tr>
+      </table>
+      <p style="margin:20px 0 6px; color:#616872;">Message:</p>
+      <p style="white-space:pre-wrap; border-left:3px solid #0057C1; padding-left:12px; margin:0;">${escapeHtml(d.message)}</p>
+    </div>`;
+  const text = `New contact form message\n\nName: ${d.name || "-"}\nEmail: ${d.email || "-"}\nPhone: ${d.phone || "-"}\nSubject: ${d.subject || "-"}\nLanguage: ${LANGUAGE_NAMES[lang]}\n\nMessage:\n${d.message}`;
+  return sendEmail({
+    from: FROM_EMAIL,
+    to: ADMIN_EMAIL,
+    replyTo: d.email || undefined,
+    subject,
+    html,
+    text,
+  });
+}
+
+async function sendContactCustomerAck(d, lang) {
+  const T = CONTACT_ACK_TEXT[lang] || CONTACT_ACK_TEXT.en;
+  const subjectFn = CONTACT_SUBJECTS[lang] || CONTACT_SUBJECTS.en;
+  const subject = subjectFn(d);
+  const html = `
+    <div style="font-family:Arial,sans-serif; font-size:15px; color:#16191F; line-height:1.6;">
+      <p>${T.greeting(escapeHtml(d.name))}</p>
+      <p>${T.body}</p>
+      ${d.message ? `<p style="margin:20px 0 6px; color:#616872;">${T.yourMessage}</p><p style="white-space:pre-wrap; border-left:3px solid #0057C1; padding-left:12px; margin:0;">${escapeHtml(d.message)}</p>` : ""}
+      <p style="margin-top:24px;">${T.signoff}</p>
+    </div>`;
+  const text = `${T.greeting(d.name)}\n\n${T.body}\n\n${d.message ? T.yourMessage + "\n" + d.message + "\n\n" : ""}${T.signoff}`;
+  return sendEmail({
+    from: FROM_EMAIL,
+    to: d.email,
+    replyTo: ADMIN_EMAIL,
     subject,
     html,
     text,

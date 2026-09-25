@@ -345,7 +345,13 @@ header{
 }
 @media (max-width:380px){
   .hero{padding:22px 16px 30px;}
-  .hero-skoda, .hero-vclass{height:128px; bottom:44px;}
+  /* The longer "BOOK YOUR TRANSFER" label wraps to two lines at this
+     max-width otherwise, which (like the WhatsApp button before it) grows
+     the pill past its intended height and breaks the car alignment below. */
+  .hero-actions .btn-gold.btn-hero{padding:16px 10px; letter-spacing:0.08em;}
+  /* Fixing the wrap above shortened the hero, so the car's bottom offset
+     is retuned to the shorter Book button's new (single-line) center. */
+  .hero-skoda, .hero-vclass{height:128px; bottom:29px;}
 }
 
 

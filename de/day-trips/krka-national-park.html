@@ -305,6 +305,13 @@ function submitDayTrip(e){
         throw new Error('Netlify Forms submission failed with status ' + response.status);
       }
       form.style.display = 'none';
+      trackLeadEvent({
+        form_name: 'daytrip',
+        trip: (form.querySelector('input[name="trip"]') || {}).value,
+        vehicle: (document.getElementById('d-vehicle-hidden') || {}).value,
+        value: parseFloat((document.getElementById('d-price-hidden') || {}).value) || undefined,
+        currency: 'EUR',
+      });
       document.getElementById('d-confirm').style.display = 'block';
     })
     .catch((error) => {

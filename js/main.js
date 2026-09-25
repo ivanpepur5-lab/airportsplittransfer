@@ -3,6 +3,20 @@
    Sticky header blur, mobile nav, scroll reveal.
    ========================================================================== */
 
+// Shared GA4 "lead" event helper for forms other than the main booking
+// widget, which has its own richer trackQualifyLead() in booking-widget.js
+// (same event name and dataLayer/gtag pattern — see the comment there for
+// why gtag() is also called directly with no GTM container installed yet).
+// Used by the day-trip forms and the contact form, both of which load this
+// file but not booking-widget.js.
+function trackLeadEvent(params) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(Object.assign({ event: "qualify_lead" }, params));
+  if (typeof gtag === "function") {
+    gtag("event", "qualify_lead", params);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile nav
   const navToggle = document.querySelector(".nav-toggle");
@@ -223,3 +237,48 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("input", clear, true);
   document.addEventListener("change", clear, true);
 })();
+
+// Contact page form (contact.html / de/contact.html / sv/contact.html).
+// Submitted via fetch to Netlify Forms, the same pattern the booking widget
+// uses — a plain HTML POST would also work (Netlify redirects to a success
+// page), but fetch keeps the visitor on this page and lets it show its own
+// confirm panel instead of a generic Netlify one.
+function submitContactForm(e) {
+  e.preventDefault();
+  const form = e.target;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const lang = (document.documentElement.lang || "en").slice(0, 2);
+  const T = {
+    en: { sending: "Sending…", submit: "Send Message", error: "Something went wrong sending your message. Please try again, or email us directly at info@airportsplittransfer.com." },
+    de: { sending: "Wird gesendet…", submit: "Nachricht Senden", error: "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut, oder schreiben Sie uns direkt an info@airportsplittransfer.com." },
+    sv: { sending: "Skickar…", submit: "Skicka Meddelande", error: "Något gick fel när meddelandet skulle skickas. Försök igen, eller mejla oss direkt på info@airportsplittransfer.com." },
+  }[lang] || { sending: "Sending…", submit: "Send Message", error: "Something went wrong sending your message. Please try again, or email us directly at info@airportsplittransfer.com." };
+  const formData = new FormData(form);
+  if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = T.sending; }
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then((response) => {
+      // See the equivalent check in booking-widget.js: fetch() only rejects
+      // on a network failure, not an HTTP error status, so this still has
+      // to be checked explicitly or a rejected submission would show success.
+      if (!response.ok) throw new Error("Netlify Forms submission failed with status " + response.status);
+      form.style.display = "none";
+      trackLeadEvent({ form_name: "contact" });
+      const confirmPanel = document.getElementById("contact-confirm");
+      if (confirmPanel) {
+        confirmPanel.classList.add("show");
+        confirmPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    })
+    .catch((error) => {
+      alert(T.error);
+      console.error(error);
+    })
+    .finally(() => {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = T.submit; }
+    });
+  return false;
+}
