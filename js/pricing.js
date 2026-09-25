@@ -82,7 +82,8 @@ const DESTINATION_NAMES = {
   zadar: "Zadar, Croatia",
   plitvice: "Plitvice Lakes National Park, Croatia",
   dubrovnik: "Dubrovnik, Croatia",
-  trogir: "Trogir, Croatia"
+  trogir: "Trogir, Croatia",
+  primosten: "Primošten, Croatia"
 };
 
 /**
