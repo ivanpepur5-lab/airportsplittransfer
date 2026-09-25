@@ -115,11 +115,11 @@ The business currently has a 5.0 rating from 33+ Google reviews — safe to
 reference that stat generically ("5.0 stars, 33+ Google reviews") without
 citing an exact number that will go stale.
 
-**When all 9 reviews have been used recently and a 10th distinct angle is
-needed**: don't invent a new quote. Post a general trust/rating-focused
-post instead (e.g. leading with the 5.0/33+ stat) and note in `history.md`
-that fresh reviews are needed — ask the business owner (Ivan) to supply
-new ones from Google Business Profile to expand the pool.
+**When all 9 reviews have been used recently**: just start the rotation
+over from the top (Ivan confirmed 2026-09-25 that repeating the pool is
+fine — don't pause the rotation or ask him for new ones). Vary the
+framing/angle on a repeat so it doesn't read as an identical post to its
+last outing, but the quote itself can repeat.
 
 ## Workflow for each firing
 
