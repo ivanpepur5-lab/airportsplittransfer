@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KLARO CONSENT CONFIG — Transfer Split Airport
+   KLARO CONSENT CONFIG — Airport Split Transfer
    Only Google Analytics is a managed "service" here — everything else on
    the site (fonts, maps, WhatsApp links) is either essential or loaded
    without setting identifying cookies. Language is picked up from each
