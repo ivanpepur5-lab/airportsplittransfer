@@ -16,4 +16,15 @@ so you can explore at your own pace.
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-09-26 08:06 UTC — Customer review post — Fiona Maher (1 of 9)
+
+Traveling with a 9-month-old and a car full of luggage is never simple —
+which is exactly where a good driver matters most. One recent guest,
+Fiona, put it simply: "Ivan was so friendly and helpful... really made
+it easy for us getting back to airport and fitting all our luggage."
+5.0 stars, 33+ Google reviews, one driver who treats every family like
+his own.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
