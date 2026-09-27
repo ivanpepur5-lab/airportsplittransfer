@@ -438,7 +438,10 @@ function submitBooking(e){
       }
       document.getElementById('summary-box').style.display = 'none';
       document.getElementById('booking-confirm').classList.add('show');
-      document.getElementById('booking-confirm').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // block:'start' (not 'center') so the checkmark at the top of the card
+      // is what lands in view — the card is taller than the viewport on
+      // mobile, so centering it can scroll the icon off the top edge.
+      document.getElementById('booking-confirm').scrollIntoView({ behavior: 'smooth', block: 'start' });
     })
     .catch((error) => {
       alert(BW_TEXT.error);
