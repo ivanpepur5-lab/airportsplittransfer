@@ -74,5 +74,21 @@
 
   // EU/EEA/UK, or the edge function hasn't tagged this visitor yet — default
   // to showing the banner, since that's the safer side of the GDPR line.
-  loadKlaro();
+  // Klaro itself is a ~70KB (gzipped) third-party script, so it's scheduled
+  // after the page has finished loading rather than fetched immediately —
+  // on a slow connection that bandwidth would otherwise compete with the
+  // hero content for the LCP. No consent-relevant behavior changes: gtag
+  // stays inert either way until the visitor actually interacts with Klaro.
+  function scheduleKlaro() {
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(loadKlaro, { timeout: 3000 });
+    } else {
+      setTimeout(loadKlaro, 1000);
+    }
+  }
+  if (document.readyState === "complete") {
+    scheduleKlaro();
+  } else {
+    window.addEventListener("load", scheduleKlaro, { once: true });
+  }
 })();
