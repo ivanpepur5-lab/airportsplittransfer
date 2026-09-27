@@ -179,6 +179,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   initCarousel(".testi-grid", ".testi-card", "testi-dots", 5000);
   initCarousel(".blog-grid-carousel", ".blog-card", "blog-dots", 6000);
+
+  // Blog category filter pills
+  const catPills = document.querySelectorAll(".blog-categories .cat-pill");
+  const blogCards = document.querySelectorAll(".blog-grid .blog-card");
+  if (catPills.length && blogCards.length) {
+    catPills.forEach((pill) => {
+      pill.addEventListener("click", (e) => {
+        e.preventDefault();
+        catPills.forEach(p => p.classList.remove("active"));
+        pill.classList.add("active");
+        const cat = pill.dataset.cat;
+        blogCards.forEach((card) => {
+          const cardCat = card.querySelector(".blog-cat")?.textContent.trim();
+          card.style.display = (cat === "all" || cardCat === cat) ? "" : "none";
+        });
+      });
+    });
+  }
 });
 
 // Block past dates on every booking form (the EN widget is injected after
