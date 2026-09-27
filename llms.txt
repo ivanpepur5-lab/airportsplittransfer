@@ -1,31 +1,27 @@
-# Transfer Split Airport
+# Airport Split Transfer
 
-> Private airport transfers and taxi service from Split Airport (SPU) to destinations across the Dalmatian coast, Croatia. Fixed prices, professional drivers, 24/7 availability.
+> Private, fixed-price airport transfers and taxi service from Split Airport (SPU) to destinations across the Dalmatian coast, Croatia. Licensed drivers, English-speaking, 24/7 availability.
 
-Transfer Split Airport provides private, fixed-price vehicle transfers between Split Airport and Split, Kaštela, Trogir, Podstrana, Omiš, Primošten, Makarska, Brela, Baška Voda, Šibenik, Vodice, Zadar, Plitvice Lakes, and Dubrovnik. Vehicles: sedan (up to 4 passengers), business van (up to 7 passengers), and van (up to 8 passengers). Online booking with instant fixed pricing, WhatsApp contact, and Netlify Forms-based reservation.
+Airport Split Transfer (legal name: De Niro, obrt za prijevoz) provides private vehicle transfers between Split Airport and destinations across the Split-Dalmatia and Šibenik-Knin coast, including Split, Kaštela, Trogir, Podstrana, Omiš, the Makarska Riviera (Makarska, Brela, Baška Voda, Promajna, Tučepi, Živogošće and smaller villages), Šibenik, Vodice, Primošten, Rogoznica, Zadar, Plitvice Lakes National Park, and Dubrovnik. The full, current list of routes — in both directions (Split Airport to town, and town to Split Airport) — is at /destinations, with a search filter; new routes are added regularly, so this file does not enumerate them all.
+
+Vehicles: Sedan (up to 4 passengers), Business Van / Mercedes V-Class (up to 7 passengers), Van (up to 8 passengers). The price is a fixed rate per vehicle class, not per passenger, and is computed instantly from the exact pickup and drop-off address entered in the online booking form — there is no flat per-destination list price, since the exact fare depends on the specific address within each town. A return (round-trip) booking automatically includes a 5% discount on the total price. Tolls, fuel and meet-and-greet at arrivals are always included; flight numbers are tracked so pickup times adjust automatically for delays.
 
 ## Key pages
 
 - [Homepage & Booking](/): Book a transfer with live address autocomplete and instant fixed pricing
-- [Fleet](/fleet): Vehicle classes, capacity and pricing
+- [All Destinations](/destinations): Every route served, both directions, with a search filter
+- [Hotel Transfers](/hotel-transfers): Fixed-price transfers to named hotels and resorts
+- [Day Trips](/day-trips): Private day trips to Plitvice Lakes and Krka National Park
+- [Fleet](/fleet): Vehicle classes and capacity
 - [Services](/services): Full list of transfer services offered
-- [All Destinations](/destinations): Every route served with fixed one-way prices
 - [Blog](/blog/): Travel guides for Split Airport transfers and the Dalmatian coast
 - [Contact](/contact): Phone, WhatsApp, and email contact details
 
-## Fixed one-way pricing from Split Airport
+## Business details
 
-- Split / Kaštela / Trogir: €40
-- Podstrana: €45
-- Omiš: €55
-- Primošten: €65
-- Makarska: €75
-- Brela: €80
-- Baška Voda: €80
-- Šibenik: €85
-- Vodice: €95
-- Zadar: €150
-- Plitvice Lakes: €180
-- Dubrovnik: €240
-
-Return trips are billed as two one-way transfers (no round-trip discount).
+- Legal name: De Niro, obrt za prijevoz
+- Trading as: Airport Split Transfer
+- Based in: Split, Croatia
+- Phone / WhatsApp: +385 91 785 6056
+- Languages: site available in English (/), German (/de/) and Swedish (/sv/)
+- Reputation: 5.0-star average, 33+ Google reviews
