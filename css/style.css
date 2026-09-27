@@ -1046,7 +1046,15 @@ legend + *{clear:both;}
   width:72px; height:72px; margin:0 auto; border-radius:50%;
   background:rgba(16,163,74,0.12); color:#0FA958;
   display:flex; align-items:center; justify-content:center;
+  transform:scale(0.6); opacity:0;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1), opacity .3s ease;
 }
+.booking-success.show .success-icon{transform:scale(1); opacity:1;}
+.success-icon svg path{
+  stroke-dasharray:40; stroke-dashoffset:40;
+  transition:stroke-dashoffset .5s ease .2s;
+}
+.booking-success.show .success-icon svg path{stroke-dashoffset:0;}
 .booking-success h3{font-size:1.4rem;}
 .success-text{color:var(--gray); font-size:0.92rem; line-height:1.55;}
 .success-ref{

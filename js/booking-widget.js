@@ -98,6 +98,28 @@ function onPaxChange(){
 }
 
 /**
+ * Animates a price element's displayed number from whatever it last showed
+ * (tracked in data-val) up or down to the new total, instead of the value
+ * just snapping — most noticeable the first time a route prices out, where
+ * it counts up from zero.
+ */
+function animatePriceTo(el, to){
+  if(!el) return;
+  const from = Number(el.dataset.val || 0);
+  if(from === to){ el.textContent = formatEUR(to); el.dataset.val = to; return; }
+  const duration = 500;
+  const start = performance.now();
+  function tick(now){
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = formatEUR(Math.round(from + (to - from) * eased));
+    if(progress < 1) requestAnimationFrame(tick);
+    else el.dataset.val = to;
+  }
+  requestAnimationFrame(tick);
+}
+
+/**
  * Recomputes and re-renders everything from current state: same-address
  * check, tiered price (via pricing.js calculateTotal), the live price bar,
  * the sidebar summary, the trip-summary card, and the hidden Netlify Forms
@@ -134,7 +156,7 @@ function updateSummary(){
   document.getElementById('live-price-priced').style.display = state === 'priced' ? 'flex' : 'none';
   document.getElementById('live-price-unpriced').style.display = state === 'unpriced' ? 'block' : 'none';
   if(state === 'priced'){
-    document.getElementById('live-price-total').textContent = formatEUR(total);
+    animatePriceTo(document.getElementById('live-price-total'), total);
     document.getElementById('live-price-trip').textContent = isReturn ? BW_TEXT.priceReturn : BW_TEXT.priceOneway;
   }
 
@@ -148,7 +170,7 @@ function updateSummary(){
     document.getElementById('sum-trip').textContent = isReturn ? BW_TEXT.ret : BW_TEXT.oneway;
     document.getElementById('sum-vehicle').textContent = VEHICLES[currentVehicle] ? VEHICLES[currentVehicle].name : '—';
     document.getElementById('sum-pax').textContent = pax;
-    document.getElementById('sum-total').textContent = formatEUR(total);
+    animatePriceTo(document.getElementById('sum-total'), total);
     document.getElementById('sum-note').textContent = isReturn
       ? BW_TEXT.noteReturn
       : BW_TEXT.noteOneway(currentDistanceKm.toFixed(1));

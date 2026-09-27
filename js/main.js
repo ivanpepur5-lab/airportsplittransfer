@@ -180,6 +180,36 @@ document.addEventListener("DOMContentLoaded", function () {
   initCarousel(".testi-grid", ".testi-card", "testi-dots", 5000);
   initCarousel(".blog-grid-carousel", ".blog-card", "blog-dots", 6000);
 
+  // Count up numeric stats (ratings, review counts, distances) the first
+  // time they scroll into view, instead of just displaying the final value.
+  const countEls = document.querySelectorAll(".count-up");
+  if ("IntersectionObserver" in window && countEls.length) {
+    const countIo = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        countIo.unobserve(entry.target);
+        const el = entry.target;
+        const text = el.textContent;
+        const match = text.match(/[\d.]+/);
+        if (!match) return;
+        const target = parseFloat(match[0]);
+        const decimals = (match[0].split(".")[1] || "").length;
+        const prefix = text.slice(0, match.index);
+        const suffix = text.slice(match.index + match[0].length);
+        const duration = 900;
+        const start = performance.now();
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach((el) => countIo.observe(el));
+  }
+
   // Blog category filter pills
   const catPills = document.querySelectorAll(".blog-categories .cat-pill");
   const blogCards = document.querySelectorAll(".blog-grid .blog-card");
