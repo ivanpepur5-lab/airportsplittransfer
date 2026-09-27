@@ -117,6 +117,12 @@ exports.handler = async (event) => {
   const [customerResult, adminResult] = results;
   if (customerResult.status === "rejected") {
     console.error("[booking-email] Customer confirmation email failed for submission", payload.id, customerResult.reason);
+    // The admin notification below can succeed even when this fails (they're
+    // sent independently) — without this alert, a failed customer email is
+    // otherwise only visible in Netlify's function logs, which nobody is
+    // watching in real time. This is what actually catches the case that
+    // matters: the customer never finds out their transfer is confirmed.
+    await alertAdminOfFailedCustomerEmail(customerData.email, customerData.full_name, payload.id, customerResult.reason);
   } else {
     console.log("[booking-email] Customer confirmation email sent for submission", payload.id, customerResult.value && customerResult.value.id);
   }
@@ -222,6 +228,30 @@ async function sendCustomerEmail(templateData, lang) {
   });
 }
 
+// Fired whenever a customer-facing email (booking confirmation, day-trip
+// confirmation, or contact-form acknowledgement) fails to send — a plain,
+// unmissable alert to the admin inbox so a failure doesn't stay silent
+// until the customer complains. Deliberately uses the exact same
+// sendEmail()/FROM_EMAIL path as every other email here: if this alert
+// itself fails to send, something more fundamental (Resend/API key) broke,
+// which the existing console.error already covers.
+async function alertAdminOfFailedCustomerEmail(customerEmail, customerName, submissionId, error) {
+  const errorMessage = error && error.message ? error.message : String(error);
+  const subject = `⚠️ Customer email FAILED to send — ${customerName || "unknown"}`;
+  const text = `The automatic email to the customer did not send.\n\nCustomer: ${customerName || "-"}\nEmail: ${customerEmail || "(none on file)"}\nSubmission ID: ${submissionId || "-"}\nError: ${errorMessage}\n\nContact this customer directly to confirm their booking.`;
+  const html = `<p><strong>The automatic email to the customer did not send.</strong></p>
+    <p>Customer: ${escapeHtml(customerName) || "-"}<br>
+    Email: ${escapeHtml(customerEmail) || "(none on file)"}<br>
+    Submission ID: ${escapeHtml(submissionId) || "-"}<br>
+    Error: ${escapeHtml(errorMessage)}</p>
+    <p>Contact this customer directly to confirm their booking.</p>`;
+  try {
+    await sendEmail({ from: FROM_EMAIL, to: ADMIN_EMAIL, subject, html, text });
+  } catch (alertErr) {
+    console.error("[booking-email] Even the failure-alert email failed to send:", alertErr);
+  }
+}
+
 async function sendAdminEmail(templateData, lang) {
   const html = renderTemplate(adminTemplateSrc, templateData);
   const text = renderTextTemplate(ADMIN_TEMPLATE_TEXT, templateData);
@@ -296,6 +326,7 @@ async function handleContactSubmission(payload, data, lang) {
   }
   if (customerResult.status === "rejected") {
     console.error("[booking-email] Contact customer acknowledgement failed for submission", payload.id, customerResult.reason);
+    await alertAdminOfFailedCustomerEmail(contactData.email, contactData.name, payload.id, customerResult.reason);
   } else if (customerResult.value) {
     console.log("[booking-email] Contact customer acknowledgement sent for submission", payload.id, customerResult.value.id);
   }
