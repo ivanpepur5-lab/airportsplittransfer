@@ -317,8 +317,20 @@ header{
    column — then free to fill whatever is left out to the viewport. Pinning
    to the outer edge let the cars grow into the CTA row near 1000-1024px,
    where the margin is narrower than the car. */
-.hero-skoda{left:0;}
-.hero-vclass{right:0;}
+.hero-skoda{left:0; animation:drive-in-left .9s cubic-bezier(.22,1,.36,1) .1s both;}
+.hero-vclass{right:0; animation:drive-in-right .9s cubic-bezier(.22,1,.36,1) .2s both;}
+
+@keyframes drive-in-left{
+  from{transform:translateX(-120%); opacity:0;}
+  to{transform:translateX(0); opacity:1;}
+}
+@keyframes drive-in-right{
+  from{transform:translateX(120%); opacity:0;}
+  to{transform:translateX(0); opacity:1;}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-skoda, .hero-vclass{animation:none;}
+}
 
 /* Below ~1010px the margin can no longer hold a car worth showing (the
    formula above drops under 100px), so the hero gains a strip beneath the
