@@ -227,6 +227,34 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // Destinations page: live filter over the dest-card grids
+  const destSearchInput = document.getElementById("dest-search-input");
+  const destCards = document.querySelectorAll(".dest-grid .dest-card");
+  if (destSearchInput && destCards.length) {
+    const destGrids = document.querySelectorAll(".dest-grid");
+    const destEmptyMsg = document.getElementById("dest-search-empty");
+    const normalize = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+    destSearchInput.addEventListener("input", () => {
+      const q = normalize(destSearchInput.value.trim());
+      let anyVisible = false;
+      destGrids.forEach((grid) => {
+        let gridHasMatch = false;
+        grid.querySelectorAll(".dest-card").forEach((card) => {
+          const name = normalize(card.querySelector("h3")?.textContent || "");
+          const match = !q || name.includes(q);
+          card.style.display = match ? "" : "none";
+          if (match) gridHasMatch = true;
+        });
+        anyVisible = anyVisible || gridHasMatch;
+        // Hide the section heading (and its intro paragraph) above an empty grid.
+        let heading = grid.previousElementSibling;
+        if (heading && !heading.classList.contains("section-head")) heading = null;
+        if (heading) heading.style.display = gridHasMatch ? "" : "none";
+      });
+      if (destEmptyMsg) destEmptyMsg.style.display = anyVisible ? "none" : "block";
+    });
+  }
 });
 
 // Block past dates on every booking form (the EN widget is injected after
