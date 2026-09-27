@@ -1152,6 +1152,14 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
 .reveal.in{opacity:1; transform:translateY(0);}
 
+/* Hero entrance — same reveal mechanism, staggered so the page opens
+   top-to-bottom instead of every element fading in on the same frame. */
+.hero h1.reveal{transition-delay:.05s;}
+.hero p.lead.reveal{transition-delay:.18s;}
+.hero .hero-trust-bar.reveal{transition-delay:.3s;}
+.hero .hero-badges.reveal{transition-delay:.42s;}
+.hero .hero-actions.reveal{transition-delay:.54s;}
+
 /* ============ PREMIUM MOBILE HEADER — HOMEPAGE-SPECIFIC SIZING ============ */
 @media (max-width:1023px){
   body.page-home .nav{padding:0 16px 0 20px; height:80px;}
