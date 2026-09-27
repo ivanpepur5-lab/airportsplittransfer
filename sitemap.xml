@@ -109,16 +109,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/baskavoda-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/brela</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/brela-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/dubrovnik</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/destinations/dubrovnik-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/destinations/grebastica</loc>
@@ -133,6 +151,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/makarska-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/marusici</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -143,6 +167,12 @@
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/destinations/omis-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/destinations/pisak</loc>
@@ -157,10 +187,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/plitvice-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/podstrana</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/destinations/podstrana-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/destinations/primosten</loc>
@@ -199,10 +241,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/sibenik-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/split</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/destinations/split-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/destinations/trogir</loc>
@@ -229,10 +283,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/vodice-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/murter</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/destinations/murter-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/destinations/podgora</loc>
@@ -241,16 +307,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/podgora-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/biograd</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/biograd-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/zadar</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/destinations/zadar-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/destinations/zivogosce</loc>
@@ -325,16 +409,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/baskavoda-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/brela</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/brela-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/dubrovnik</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/destinations/dubrovnik-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/destinations/grebastica</loc>
@@ -349,6 +451,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/makarska-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/marusici</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -359,6 +467,12 @@
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/destinations/omis-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/destinations/pisak</loc>
@@ -373,10 +487,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/plitvice-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/podstrana</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/destinations/podstrana-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/destinations/primosten</loc>
@@ -415,10 +541,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/sibenik-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/split</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/destinations/split-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/destinations/trogir</loc>
@@ -445,10 +583,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/vodice-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/zadar</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/destinations/zadar-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/destinations/zivogosce</loc>
@@ -463,16 +613,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/murter-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/podgora</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/de/destinations/podgora-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/de/destinations/biograd</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/destinations/biograd-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/fleet</loc>
@@ -619,16 +787,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/baskavoda-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/brela</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/brela-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/dubrovnik</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/dubrovnik-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/destinations/grebastica</loc>
@@ -643,6 +829,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/makarska-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/marusici</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -653,6 +845,12 @@
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/omis-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/destinations/pisak</loc>
@@ -667,10 +865,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/plitvice-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/podstrana</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/podstrana-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/destinations/primosten</loc>
@@ -709,10 +919,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/sibenik-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/split</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/split-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/destinations/trogir</loc>
@@ -739,10 +961,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/vodice-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/zadar</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/zadar-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/destinations/zivogosce</loc>
@@ -757,16 +991,34 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/murter-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/podgora</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/podgora-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/destinations/biograd</loc>
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/biograd-to-split-airport</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/blog/</loc>
