@@ -27,4 +27,10 @@ his own.
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-09-28 07:19 UTC — Airport transfer post — Fixed price, no meter, quoted upfront
+
+No meter running, no surprises at the end of the ride. Every transfer from Split Airport is priced in advance from your exact pickup and drop-off, so you know the total before you book — not after. Tolls and fuel are always included in that one fixed rate per vehicle.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
