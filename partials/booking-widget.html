@@ -51,6 +51,25 @@
               </div>
               <p class="field-error" id="address-error" style="display:none;">Pickup and dropoff can't be the same address.</p>
             </fieldset>
+          </div>
+
+          <div class="live-price-bar" id="live-price-bar">
+            <div id="live-price-empty">
+              <span class="live-price-hint">Enter your pickup and dropoff to see your fixed price.</span>
+            </div>
+            <div id="live-price-loading" style="display:none;">
+              <span class="live-price-hint"><span class="mini-spinner" aria-hidden="true"></span> Calculating your price&hellip;</span>
+            </div>
+            <div id="live-price-priced" style="display:none;">
+              <span class="live-price-label">Total <span id="live-price-trip">one way</span></span>
+              <span class="live-price-value" id="live-price-total">&euro;0</span>
+            </div>
+            <div id="live-price-unpriced" style="display:none;">
+              <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
+            </div>
+          </div>
+
+          <div id="trip-edit-view-details">
             <fieldset>
               <legend id="trip-details-legend">Trip Details</legend>
               <div class="form-row form-row--tight">
@@ -116,24 +135,8 @@
             <div class="field" style="margin-bottom:0;"><label for="b-notes">Notes (optional)</label><textarea id="b-notes" name="notes" placeholder="Child seats, exact pickup address, special requests..."></textarea></div>
           </fieldset>
 
-          <div class="live-price-bar" id="live-price-bar">
-            <div id="live-price-empty">
-              <span class="live-price-hint">Enter your pickup and dropoff to see your fixed price.</span>
-            </div>
-            <div id="live-price-loading" style="display:none;">
-              <span class="live-price-hint"><span class="mini-spinner" aria-hidden="true"></span> Calculating your price&hellip;</span>
-            </div>
-            <div id="live-price-priced" style="display:none;">
-              <span class="live-price-label">Total <span id="live-price-trip">one way</span></span>
-              <span class="live-price-value" id="live-price-total">&euro;0</span>
-            </div>
-            <div id="live-price-unpriced" style="display:none;">
-              <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
-            </div>
-          </div>
-
           <p class="custom-quote-msg" style="text-align:center;">By booking, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
-          <button type="submit" class="btn btn-gold btn-block btn-submit">Book Now</button>
+          <button type="submit" class="btn btn-gold btn-block btn-submit">Book Now<span class="btn-submit-price" id="submit-price"></span></button>
         </form>
         <div class="booking-success" id="booking-confirm">
           <div class="success-icon" aria-hidden="true">

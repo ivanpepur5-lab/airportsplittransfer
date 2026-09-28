@@ -150,7 +150,7 @@ function updateSummary(){
     state = 'priced';
   }
 
-  // --- Live price bar, directly above the Book Now button ---
+  // --- Live price bar, directly under the route fields ---
   document.getElementById('live-price-loading').style.display = 'none';
   document.getElementById('live-price-empty').style.display = state === 'empty' ? 'block' : 'none';
   document.getElementById('live-price-priced').style.display = state === 'priced' ? 'flex' : 'none';
@@ -159,6 +159,9 @@ function updateSummary(){
     animatePriceTo(document.getElementById('live-price-total'), total);
     document.getElementById('live-price-trip').textContent = isReturn ? BW_TEXT.priceReturn : BW_TEXT.priceOneway;
   }
+  // The bar sits far above the submit button, so repeat the total there.
+  const submitPrice = document.getElementById('submit-price');
+  if(submitPrice) submitPrice.textContent = state === 'priced' ? ' · ' + formatEUR(total) : '';
 
   // --- Sidebar price summary ---
   document.getElementById('summary-empty').style.display = state === 'empty' ? 'block' : 'none';
@@ -201,10 +204,12 @@ function updateSummary(){
 function showTripSummary(){
   document.getElementById('trip-summary-view').style.display = 'block';
   document.getElementById('trip-edit-view').style.display = 'none';
+  document.getElementById('trip-edit-view-details').style.display = 'none';
 }
 function showTripEdit(){
   document.getElementById('trip-summary-view').style.display = 'none';
   document.getElementById('trip-edit-view').style.display = 'block';
+  document.getElementById('trip-edit-view-details').style.display = 'block';
 }
 
 /** Swaps pickup and dropoff — text and hidden lat/lng together. Distance is symmetric, so it stays valid. */
