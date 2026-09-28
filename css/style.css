@@ -733,11 +733,16 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
 
 /* ============ PROCESS ============ */
 .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:36px;}
-.process-num{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; font-size:2.4rem; color:var(--bg-3); margin-bottom:12px; display:block;}
+.process-num{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; font-size:2.4rem; color:rgba(0,87,193,0.3); margin-bottom:12px; display:block;}
 .process-step h3{font-size:1.05rem; margin-bottom:10px;}
 .process-step p{font-size:0.88rem; color:var(--gray);}
 @media (max-width:900px){.process-grid{grid-template-columns:1fr 1fr; gap:32px;}}
-@media (max-width:560px){.process-grid{grid-template-columns:1fr;}}
+@media (max-width:560px){
+  .process-grid{gap:26px 18px;}
+  .process-num{font-size:1.7rem; margin-bottom:8px;}
+  .process-step h3{font-size:0.95rem; margin-bottom:6px;}
+  .process-step p{font-size:0.82rem; line-height:1.5;}
+}
 
 /* ============ DAY TRIPS ============ */
 .trip-grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
@@ -1275,6 +1280,18 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   .fleet-spec-icon{font-size:0.66rem; gap:3px;}
   .fleet-spec-icon svg{width:14px; height:14px;}
   .fleet-body .btn{padding:12px 6px; font-size:0.6rem; letter-spacing:0.04em;}
+
+  /* Homepage preview (.fleet-layout only, not /fleet): all three vehicles in
+     one row instead of 2 + an orphaned third card. */
+  .fleet-layout .fleet-grid{grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px;}
+  .fleet-layout .fleet-body{padding:10px 8px 12px; text-align:center;}
+  .fleet-layout .fleet-class{display:none;}
+  .fleet-layout .fleet-card h3{font-size:0.86rem;}
+  .fleet-layout .fleet-card .fleet-model{font-size:0.62rem; line-height:1.3; margin-bottom:8px;}
+  .fleet-layout .fleet-spec-icons{justify-content:center; margin-bottom:0;}
+  .fleet-layout .fleet-spec-icon:nth-child(3){display:none;}
+  .fleet-layout .fleet-checklist{gap:10px 20px; margin-top:22px; padding-top:18px;}
+  .fleet-layout .fleet-checklist li{font-size:0.8rem;}
 
   .dest-grid{grid-template-columns:1fr 1fr; gap:10px;}
   .dest-body{padding:16px 14px;}
