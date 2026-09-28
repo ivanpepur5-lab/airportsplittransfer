@@ -43,6 +43,14 @@ var klaroConfig = {
           gtag("consent", "update", { analytics_storage: "denied" });
         }
       }
+    },
+    {
+      name: "microsoft-clarity",
+      title: "Microsoft Clarity",
+      purposes: ["analytics"],
+      cookies: [/^_clck/, /^_clsk/, "CLID", "ANONCHK", "MR", "MUID", "SM"],
+      default: false,
+      required: false
     }
   ],
 
@@ -84,6 +92,11 @@ var klaroConfig = {
         description:
           "Helps us understand how visitors use the site (pages viewed, traffic sources) so we can improve it. No data is used for advertising."
       },
+      "microsoft-clarity": {
+        title: "Microsoft Clarity",
+        description:
+          "Helps us see how visitors use the booking form (clicks, scrolling, anonymized session recordings) so we can improve it. No data is used for advertising."
+      },
       poweredBy: "Cookie preferences"
     },
     de: {
@@ -122,6 +135,11 @@ var klaroConfig = {
         title: "Google Analytics",
         description:
           "Hilft uns zu verstehen, wie Besucher die Website nutzen (aufgerufene Seiten, Traffic-Quellen), damit wir sie verbessern können. Es werden keine Daten für Werbung verwendet."
+      },
+      "microsoft-clarity": {
+        title: "Microsoft Clarity",
+        description:
+          "Hilft uns zu verstehen, wie Besucher das Buchungsformular nutzen (Klicks, Scrollverhalten, anonymisierte Sitzungsaufzeichnungen), damit wir es verbessern können. Es werden keine Daten für Werbung verwendet."
       },
       poweredBy: "Cookie-Einstellungen"
     },
@@ -165,6 +183,11 @@ var klaroConfig = {
         title: "Google Analytics",
         description:
           "Hjälper oss förstå hur besökare använder webbplatsen (visade sidor, trafikkällor) så att vi kan förbättra den. Ingen data används för annonsering."
+      },
+      "microsoft-clarity": {
+        title: "Microsoft Clarity",
+        description:
+          "Hjälper oss förstå hur besökare använder bokningsformuläret (klick, skrollning, anonymiserade sessionsinspelningar) så att vi kan förbättra det. Ingen data används för annonsering."
       },
       poweredBy: "Cookie-inställningar"
     }

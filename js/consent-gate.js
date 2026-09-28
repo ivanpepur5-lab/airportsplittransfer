@@ -69,6 +69,7 @@
     // Outside the EU/EEA/UK — no banner, analytics runs immediately.
     if (window.gtag) gtag("consent", "update", { analytics_storage: "granted" });
     activateInertScripts("google-analytics");
+    activateInertScripts("microsoft-clarity");
     return;
   }
 
