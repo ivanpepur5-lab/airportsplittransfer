@@ -1,8 +1,12 @@
 /assets/*
   Cache-Control: public, max-age=604800, must-revalidate
 
+# JS and CSS change together with the HTML partials on every deploy and
+# aren't fingerprinted, so browsers must revalidate them on each load
+# (a cheap 304 when unchanged). A 1-hour max-age here let a cached old
+# booking-widget.js run against a freshly deployed form and crash it.
 /css/*
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
 
 /js/*
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
