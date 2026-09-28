@@ -58,15 +58,44 @@
   gap: 10px;
 }
 
-/* Buttons: uppercase, letter-spaced, matching the site's .btn pattern */
+/* Buttons. !important throughout: Klaro injects its own <style> after this
+   stylesheet and its .cm-btn font-size/padding otherwise win, which is what
+   made the notice buttons render oversized and cramped. */
 .klaro .cm-btn {
-  text-transform: uppercase;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  padding: 12px 20px;
-  border-radius: 999px;
+  text-transform: none !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.2 !important;
+  padding: 11px 18px !important;
+  margin: 0 !important;
+  border-radius: 10px !important;
   transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Compact notice card */
+.klaro .cookie-notice:not(.cookie-modal-notice) .cn-body {
+  padding: 16px 18px !important;
+}
+.klaro .cookie-notice:not(.cookie-modal-notice) .cn-body p {
+  font-size: 0.86rem !important;
+  line-height: 1.5 !important;
+  margin: 0 0 12px !important;
+}
+.klaro .cookie-notice .cn-ok {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.klaro .cookie-notice .cn-buttons {
+  display: flex !important;
+  gap: 8px;
+}
+.klaro .cookie-notice .cn-learn-more {
+  font-size: 0.8rem !important;
+  color: var(--gold-text, #0057C1) !important;
 }
 .klaro .cm-btn:hover {
   opacity: 0.9;
@@ -140,8 +169,24 @@
   .klaro .cookie-notice {
     right: 10px !important;
     left: 10px !important;
-    bottom: 70px !important;
+    bottom: 10px !important;
     max-width: none !important;
     width: auto !important;
+  }
+  /* Two equal buttons side by side, "manage" link underneath — keeps the
+     card to roughly a quarter of the screen instead of covering the form. */
+  .klaro .cookie-notice .cn-ok {
+    flex-direction: column-reverse !important;
+    align-items: stretch !important;
+    gap: 10px;
+  }
+  .klaro .cookie-notice .cn-buttons {
+    width: 100%;
+  }
+  .klaro .cookie-notice .cn-buttons .cm-btn {
+    flex: 1 1 0;
+  }
+  .klaro .cookie-notice .cn-learn-more {
+    text-align: center;
   }
 }

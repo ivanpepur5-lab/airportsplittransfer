@@ -65,7 +65,7 @@ var klaroConfig = {
       consentNotice: {
         title: "We value your privacy",
         description:
-          "We use essential cookies to keep this site running, and — only with your consent — analytics cookies to understand how it's used.",
+          "We use essential cookies to run this site and, only with your consent, analytics cookies to improve it.",
         learnMore: "Manage Preferences"
       },
       purposes: {
@@ -77,7 +77,7 @@ var klaroConfig = {
       },
       acceptAll: "Accept All",
       acceptSelected: "Save Preferences",
-      decline: "Reject Non-Essential",
+      decline: "Only essential",
       ok: "Accept All",
       close: "Close",
       save: "Save",
@@ -109,7 +109,7 @@ var klaroConfig = {
       consentNotice: {
         title: "Wir schätzen Ihre Privatsphäre",
         description:
-          "Wir verwenden essenzielle Cookies, damit diese Website funktioniert, und — nur mit Ihrer Zustimmung — Analyse-Cookies, um die Nutzung zu verstehen.",
+          "Wir nutzen notwendige Cookies für den Betrieb der Website und, nur mit Ihrer Zustimmung, Analyse-Cookies zur Verbesserung.",
         learnMore: "Einstellungen verwalten"
       },
       purposes: {
@@ -121,7 +121,7 @@ var klaroConfig = {
       },
       acceptAll: "Alle akzeptieren",
       acceptSelected: "Auswahl speichern",
-      decline: "Nicht erforderliche ablehnen",
+      decline: "Nur notwendige",
       ok: "Alle akzeptieren",
       close: "Schließen",
       save: "Speichern",
@@ -157,7 +157,7 @@ var klaroConfig = {
       consentNotice: {
         title: "Vi värnar om din integritet",
         description:
-          "Vi använder nödvändiga cookies för att den här webbplatsen ska fungera, och — endast med ditt samtycke — analyscookies för att förstå hur den används.",
+          "Vi använder nödvändiga cookies för att driva webbplatsen och, endast med ditt samtycke, analyscookies för att förbättra den.",
         learnMore: "Hantera inställningar"
       },
       purposes: {
@@ -169,7 +169,7 @@ var klaroConfig = {
       },
       acceptAll: "Acceptera alla",
       acceptSelected: "Spara inställningar",
-      decline: "Avvisa ej nödvändiga",
+      decline: "Endast nödvändiga",
       ok: "Acceptera alla",
       close: "Stäng",
       save: "Spara",
