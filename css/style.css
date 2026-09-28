@@ -1028,6 +1028,9 @@ legend + *{clear:both;}
 /* The homepage form shows prices on the vehicle cards and the submit button;
    the old summary card only repeated them below the form on mobile. */
 #booking-widget-mount #summary-box{display:none !important;}
+/* Day-trip forms: two vehicles, side by side at every width (two classes
+   so it also beats the single-column mobile .vehicle-picker rule). */
+.vehicle-picker.vehicle-picker--two{grid-template-columns:1fr 1fr;}
 @media (max-width:640px){
   .vehicle-picker{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}

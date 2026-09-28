@@ -56,7 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css?v=20260928">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TouristTrip", "name": "Plitvice Lakes Day Trip from Split", "description": "A private, full-day excursion from Split to Plitvice Lakes National Park with an English-speaking driver, round-trip transfer and flexible pickup time.", "touristType": ["Nature lovers", "Families", "Couples", "Photography enthusiasts"], "provider": {"@type": "LocalBusiness", "name": "Airport Split Transfer", "telephone": "+385 91 785 6056", "url": "https://airportsplittransfer.com"}, "itinerary": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "TouristAttraction", "name": "Hotel Pickup in Split"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "TouristAttraction", "name": "Plitvice Lakes National Park", "description": "16 terraced lakes connected by waterfalls and wooden walking trails."}}, {"@type": "ListItem", "position": 3, "item": {"@type": "TouristAttraction", "name": "Return Transfer to Split"}}]}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How long does the Plitvice Lakes day trip take?", "acceptedAnswer": {"@type": "Answer", "text": "The full round trip from Split takes approximately 10–12 hours, including around 4–5 hours to explore the national park itself. Exact timing depends on your pickup location and how long you'd like to spend inside the park."}}, {"@type": "Question", "name": "What is included in the price?", "acceptedAnswer": {"@type": "Answer", "text": "Your private vehicle, English-speaking driver, all fuel and tolls, and hotel/accommodation pickup and drop-off in Split are included. Plitvice Lakes National Park entrance tickets are purchased separately at the park — we're happy to advise on current prices when you book."}}, {"@type": "Question", "name": "Is this a private tour or a shared group tour?", "acceptedAnswer": {"@type": "Answer", "text": "This is a fully private excursion — just your group and your driver, with no other travellers sharing the vehicle. You set the pace once inside the park."}}, {"@type": "Question", "name": "How much walking is involved at Plitvice Lakes?", "acceptedAnswer": {"@type": "Answer", "text": "The park is explored on foot via wooden boardwalks and trails, with routes ranging from around 2 to 8 kilometres depending on which route you choose. Trails are mostly flat with some gentle inclines, and electric boats and a park shuttle bus cover the longer stretches."}}, {"@type": "Question", "name": "Can I book a return transfer separately, or is it always round trip?", "acceptedAnswer": {"@type": "Answer", "text": "Day trips are booked as a complete round trip — your driver waits at the park and brings you back to Split the same day. If you only need a one-way transfer to Plitvice, see our regular airport transfer page instead."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://airportsplittransfer.com/"}, {"@type": "ListItem", "position": 2, "name": "Day Trips", "item": "https://airportsplittransfer.com/day-trips"}, {"@type": "ListItem", "position": 3, "name": "Plitvice Lakes", "item": "https://airportsplittransfer.com/day-trips/plitvice-lakes"}]}</script>
@@ -185,10 +185,19 @@
           <input type="hidden" name="price" id="d-price-hidden" value="390">
 
           <div class="qb-field" style="margin-bottom:14px;"><label>Vehicle</label>
-            <select id="d-vehicle" onchange="updateDayTripPrice()">
-              <option value="car">Car &mdash; &Scaron;koda Superb (1&ndash;4) &mdash; &euro;390</option>
-              <option value="van">Van &mdash; up to 8 &mdash; &euro;450</option>
-            </select>
+            <div class="vehicle-picker vehicle-picker--two" id="d-vehicle-picker">
+              <div class="vehicle-opt active" id="dvopt-car" onclick="selectDayTripVehicle('car')">
+                <b>Car</b>
+                <span>&Scaron;koda Superb</span>
+                <span class="vopt-pax">Up to 4 pax</span>
+                <span class="vopt-price">&euro;390</span>
+              </div>
+              <div class="vehicle-opt" id="dvopt-van" onclick="selectDayTripVehicle('van')">
+                <b>Van</b>
+                <span class="vopt-pax">Up to 8 pax</span>
+                <span class="vopt-price">&euro;450</span>
+              </div>
+            </div>
           </div>
           <div class="qb-field" style="margin-bottom:14px;"><label>Date</label><input type="date" name="date" id="d-date" required></div>
           <div class="qb-field" style="margin-bottom:14px;"><label>Time</label><select name="time" id="d-time" required><option value="">Select time</option><option value="00:00">00:00</option><option value="00:15">00:15</option><option value="00:30">00:30</option><option value="00:45">00:45</option><option value="01:00">01:00</option><option value="01:15">01:15</option><option value="01:30">01:30</option><option value="01:45">01:45</option><option value="02:00">02:00</option><option value="02:15">02:15</option><option value="02:30">02:30</option><option value="02:45">02:45</option><option value="03:00">03:00</option><option value="03:15">03:15</option><option value="03:30">03:30</option><option value="03:45">03:45</option><option value="04:00">04:00</option><option value="04:15">04:15</option><option value="04:30">04:30</option><option value="04:45">04:45</option><option value="05:00">05:00</option><option value="05:15">05:15</option><option value="05:30">05:30</option><option value="05:45">05:45</option><option value="06:00">06:00</option><option value="06:15">06:15</option><option value="06:30">06:30</option><option value="06:45">06:45</option><option value="07:00">07:00</option><option value="07:15">07:15</option><option value="07:30">07:30</option><option value="07:45">07:45</option><option value="08:00">08:00</option><option value="08:15">08:15</option><option value="08:30">08:30</option><option value="08:45">08:45</option><option value="09:00">09:00</option><option value="09:15">09:15</option><option value="09:30">09:30</option><option value="09:45">09:45</option><option value="10:00">10:00</option><option value="10:15">10:15</option><option value="10:30">10:30</option><option value="10:45">10:45</option><option value="11:00">11:00</option><option value="11:15">11:15</option><option value="11:30">11:30</option><option value="11:45">11:45</option><option value="12:00">12:00</option><option value="12:15">12:15</option><option value="12:30">12:30</option><option value="12:45">12:45</option><option value="13:00">13:00</option><option value="13:15">13:15</option><option value="13:30">13:30</option><option value="13:45">13:45</option><option value="14:00">14:00</option><option value="14:15">14:15</option><option value="14:30">14:30</option><option value="14:45">14:45</option><option value="15:00">15:00</option><option value="15:15">15:15</option><option value="15:30">15:30</option><option value="15:45">15:45</option><option value="16:00">16:00</option><option value="16:15">16:15</option><option value="16:30">16:30</option><option value="16:45">16:45</option><option value="17:00">17:00</option><option value="17:15">17:15</option><option value="17:30">17:30</option><option value="17:45">17:45</option><option value="18:00">18:00</option><option value="18:15">18:15</option><option value="18:30">18:30</option><option value="18:45">18:45</option><option value="19:00">19:00</option><option value="19:15">19:15</option><option value="19:30">19:30</option><option value="19:45">19:45</option><option value="20:00">20:00</option><option value="20:15">20:15</option><option value="20:30">20:30</option><option value="20:45">20:45</option><option value="21:00">21:00</option><option value="21:15">21:15</option><option value="21:30">21:30</option><option value="21:45">21:45</option><option value="22:00">22:00</option><option value="22:15">22:15</option><option value="22:30">22:30</option><option value="22:45">22:45</option><option value="23:00">23:00</option><option value="23:15">23:15</option><option value="23:30">23:30</option><option value="23:45">23:45</option></select></div>
@@ -198,7 +207,6 @@
               <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
             </select>
           </div>
-          <div class="summary-line" style="border-bottom:none; padding-bottom:14px;"><span>Fixed Price</span><span id="d-price" style="font-family:'Schibsted Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:var(--gold-text);">&euro;390</span></div>
 
           <div class="field" style="margin-bottom:14px;"><label for="d-name">Full Name</label><input type="text" id="d-name" name="full_name" required></div>
           <div class="field" style="margin-bottom:14px;"><label for="d-email">Email</label><input type="email" id="d-email" name="email" required></div>
@@ -207,7 +215,7 @@
           <div class="field" style="margin-bottom:0;"><label for="d-notes">Notes (optional)</label><textarea id="d-notes" name="notes" placeholder="Child seats, special requests..."></textarea></div>
 
           <p class="custom-quote-msg" style="text-align:center;">By booking, you agree to our <a href="../privacy.html">Privacy Policy</a>.</p>
-          <button type="submit" class="btn btn-gold btn-block" style="margin-top:16px;">Book This Trip</button>
+          <button type="submit" class="btn btn-gold btn-block" style="margin-top:16px;" data-label="Book This Trip">Book This Trip &middot; &euro;390</button>
         </form>
 
         <div id="d-confirm" style="display:none; text-align:center; padding:12px 0;">
@@ -293,24 +301,29 @@
 <script>
 const D_PRICES = { car: 390, van: 450 };
 
+let dVehicle = 'car';
+
+function selectDayTripVehicle(v){
+  if(document.getElementById('dvopt-' + v).classList.contains('disabled')) return;
+  dVehicle = v;
+  updateDayTripPrice();
+}
+
 function updateDayTripPrice(){
-  const vehicle = document.getElementById('d-vehicle').value;
-  const price = D_PRICES[vehicle];
-  document.getElementById('d-price').textContent = '€' + price;
-  document.getElementById('d-vehicle-hidden').value = vehicle;
+  const price = D_PRICES[dVehicle];
+  document.querySelectorAll('#d-vehicle-picker .vehicle-opt').forEach(el => {
+    el.classList.toggle('active', el.id === 'dvopt-' + dVehicle);
+  });
+  document.getElementById('d-vehicle-hidden').value = dVehicle;
   document.getElementById('d-price-hidden').value = price;
+  const btn = document.querySelector('#d-form button[type="submit"]');
+  btn.textContent = btn.dataset.label + ' · €' + price;
 }
 
 function onDayTripPaxChange(){
   const pax = parseInt(document.getElementById('d-pax').value, 10);
-  const vehicleSel = document.getElementById('d-vehicle');
-  const carOption = vehicleSel.querySelector('option[value="car"]');
-  if(pax > 4){
-    carOption.disabled = true;
-    if(vehicleSel.value === 'car') vehicleSel.value = 'van';
-  } else {
-    carOption.disabled = false;
-  }
+  document.getElementById('dvopt-car').classList.toggle('disabled', pax > 4);
+  if(pax > 4 && dVehicle === 'car') dVehicle = 'van';
   updateDayTripPrice();
 }
 
@@ -344,7 +357,7 @@ function submitDayTrip(e){
       console.error(error);
     })
     .finally(() => {
-      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = 'Book This Trip'; }
+      if(submitBtn){ submitBtn.disabled = false; updateDayTripPrice(); }
     });
   return false;
 }
