@@ -150,16 +150,19 @@ function updateSummary(){
     state = 'priced';
   }
 
-  // --- Live price bar, directly under the route fields ---
+  // --- Price on each vehicle card, so switching vehicle never looks like a price jump ---
+  ['skoda', 'vclass', 'trafic'].forEach(key => {
+    const el = document.getElementById('vprice-' + key);
+    if(!el) return;
+    const p = state === 'priced' ? calculateTotal(currentDistanceKm, key, currentTrip) : null;
+    el.textContent = p === null ? '' : formatEUR(p);
+  });
+  // Hints under the cards: prompt before an address is entered, fallback when it can't be priced.
   document.getElementById('live-price-loading').style.display = 'none';
   document.getElementById('live-price-empty').style.display = state === 'empty' ? 'block' : 'none';
-  document.getElementById('live-price-priced').style.display = state === 'priced' ? 'flex' : 'none';
   document.getElementById('live-price-unpriced').style.display = state === 'unpriced' ? 'block' : 'none';
-  if(state === 'priced'){
-    animatePriceTo(document.getElementById('live-price-total'), total);
-    document.getElementById('live-price-trip').textContent = isReturn ? BW_TEXT.priceReturn : BW_TEXT.priceOneway;
-  }
-  // The bar sits far above the submit button, so repeat the total there.
+  document.getElementById('live-price-bar').style.display = state === 'priced' ? 'none' : 'block';
+  // Total for the selected vehicle, repeated on the submit button.
   const submitPrice = document.getElementById('submit-price');
   if(submitPrice) submitPrice.textContent = state === 'priced' ? ' · ' + formatEUR(total) : '';
 
@@ -204,12 +207,10 @@ function updateSummary(){
 function showTripSummary(){
   document.getElementById('trip-summary-view').style.display = 'block';
   document.getElementById('trip-edit-view').style.display = 'none';
-  document.getElementById('trip-edit-view-details').style.display = 'none';
 }
 function showTripEdit(){
   document.getElementById('trip-summary-view').style.display = 'none';
   document.getElementById('trip-edit-view').style.display = 'block';
-  document.getElementById('trip-edit-view-details').style.display = 'block';
 }
 
 /** Swaps pickup and dropoff — text and hidden lat/lng together. Distance is symmetric, so it stays valid. */
@@ -322,8 +323,8 @@ function fetchDistance(pickupText, dropoffText){
     console.warn('Google Maps not loaded — cannot calculate distance.');
     return;
   }
+  document.getElementById('live-price-bar').style.display = 'block';
   document.getElementById('live-price-empty').style.display = 'none';
-  document.getElementById('live-price-priced').style.display = 'none';
   document.getElementById('live-price-unpriced').style.display = 'none';
   document.getElementById('live-price-loading').style.display = 'block';
 

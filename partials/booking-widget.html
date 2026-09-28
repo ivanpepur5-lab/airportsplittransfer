@@ -51,25 +51,6 @@
               </div>
               <p class="field-error" id="address-error" style="display:none;">Pickup and dropoff can't be the same address.</p>
             </fieldset>
-          </div>
-
-          <div class="live-price-bar" id="live-price-bar">
-            <div id="live-price-empty">
-              <span class="live-price-hint">Enter your pickup and dropoff to see your fixed price.</span>
-            </div>
-            <div id="live-price-loading" style="display:none;">
-              <span class="live-price-hint"><span class="mini-spinner" aria-hidden="true"></span> Calculating your price&hellip;</span>
-            </div>
-            <div id="live-price-priced" style="display:none;">
-              <span class="live-price-label">Total <span id="live-price-trip">one way</span></span>
-              <span class="live-price-value" id="live-price-total">&euro;0</span>
-            </div>
-            <div id="live-price-unpriced" style="display:none;">
-              <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
-            </div>
-          </div>
-
-          <div id="trip-edit-view-details">
             <fieldset>
               <legend id="trip-details-legend">Trip Details</legend>
               <div class="form-row form-row--tight">
@@ -98,19 +79,33 @@
           <b>Sedan</b>
           <span>Škoda Superb or similar</span>
           <span class="vopt-pax">Up to 4 pax</span>
+          <span class="vopt-price" id="vprice-skoda"></span>
         </div>
         <div class="vehicle-opt" id="vopt-vclass" onclick="selectVehicle('vclass')">
           <b>Business Van</b>
           <span>Mercedes-Benz V-Class</span>
           <span class="vopt-pax">Up to 7 pax</span>
+          <span class="vopt-price" id="vprice-vclass"></span>
         </div>
         <div class="vehicle-opt" id="vopt-trafic" onclick="selectVehicle('trafic')">
           <b>Van</b>
           <span>Renault Trafic or similar</span>
           <span class="vopt-pax">Up to 8 pax</span>
+          <span class="vopt-price" id="vprice-trafic"></span>
         </div>
         
             </div>
+          <div class="live-price-bar" id="live-price-bar">
+            <div id="live-price-empty">
+              <span class="live-price-hint">Enter your pickup and dropoff to see your fixed price.</span>
+            </div>
+            <div id="live-price-loading" style="display:none;">
+              <span class="live-price-hint"><span class="mini-spinner" aria-hidden="true"></span> Calculating your price&hellip;</span>
+            </div>
+            <div id="live-price-unpriced" style="display:none;">
+              <p class="custom-quote-msg">Can't find your destination? Contact us on <a href="https://wa.me/385917856056" target="_blank" rel="noopener">WhatsApp</a> or <a href="mailto:info@airportsplittransfer.com">email</a> for a personalised quote.</p>
+            </div>
+          </div>
           </fieldset>
           <fieldset>
             <legend>Trip Extras</legend>
