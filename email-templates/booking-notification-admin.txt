@@ -24,7 +24,8 @@ Return time: {{return_time}}
 Flight number: {{flight_number}}
 {{/if}}
 Passengers: {{passengers}}
-Vehicle: {{vehicle}}
+{{#if suitcases}}Suitcases: {{suitcases}}
+{{/if}}Vehicle: {{vehicle}}
 {{#if notes}}
 Special requests: {{notes}}
 {{/if}}

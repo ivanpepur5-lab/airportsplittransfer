@@ -157,6 +157,7 @@ function buildBookingTemplateData(payload, data, lang) {
     return_date: formatDate(data.return_date, lang),
     return_time: data.return_time || "",
     passengers: data.passengers || "",
+    suitcases: data.suitcases || "",
     vehicle: vehicleLabel(data.vehicle, lang),
     price,
     price_display: priceDisplay,
