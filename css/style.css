@@ -1203,7 +1203,10 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 .breadcrumb span{margin:0 8px; color:var(--line-strong);}
 
 /* ============ PAGE HERO (inner pages) ============ */
-.page-hero{padding:60px 40px 90px; max-width:1280px; margin:0 auto;}
+.page-hero{padding:60px 40px 64px; max-width:1280px; margin:0 auto;}
+/* The section right after a page hero doesn't add its own top padding on
+   top of the hero's — the two stacked into a ~160px gap on desktop. */
+.page-hero + .section-tight{padding-top:0;}
 .page-hero h1{font-size:clamp(2.2rem,4.5vw,3.4rem); margin-bottom:18px;}
 .page-hero p{color:var(--gray); max-width:560px; font-size:1rem;}
 
@@ -1256,7 +1259,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   .section-tight{padding-left:0; padding-right:0;}
   .wrap{padding:0 10px;}
   .breadcrumb{padding:28px 10px 0;}
-  .page-hero{padding:20px 10px 48px;}
+  .page-hero{padding:20px 10px 36px;}
   footer{padding-left:10px; padding-right:10px;}
   .article-hero{padding:28px 10px 40px;}
   .article-body{padding-left:10px; padding-right:10px;}
