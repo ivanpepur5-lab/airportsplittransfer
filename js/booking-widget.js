@@ -48,7 +48,25 @@ const BW_TEXT = {
 let currentTrip = 'oneway';
 let currentVehicle = 'skoda';
 let currentDistanceKm = null;   // real driving distance once resolved — the only thing pricing depends on now
+let currentDistanceKey = '';    // routeKey() the distance above was resolved for; a price is only valid while it still matches
 let distanceService = null;     // lazy-created google.maps.DistanceMatrixService instance
+
+/** Normalised pickup|dropoff pair — identifies which route a distance belongs to. */
+function routeKey(){
+  return document.getElementById('b-pickup').value.trim().toLowerCase() + '|' +
+         document.getElementById('b-dropoff').value.trim().toLowerCase();
+}
+
+/** Vehicles that fit both the passengers and the suitcases currently entered. */
+function eligibleVehicles(){
+  const pax = parseInt(document.getElementById('b-pax').value, 10);
+  const byPax = vehiclesForPassengers(pax);
+  const suitcasesEl = document.getElementById('b-suitcases');
+  const suitcases = suitcasesEl ? parseInt(suitcasesEl.value, 10) : NaN;
+  if(!Number.isFinite(suitcases)) return byPax;
+  const bySuitcases = byPax.filter(key => suitcases <= VEHICLES[key].suitcases);
+  return bySuitcases.length ? bySuitcases : byPax;
+}
 
 function setTripType(type){
   currentTrip = type;
@@ -77,8 +95,7 @@ function selectVehicle(key){
 }
 
 function onPaxChange(){
-  const pax = parseInt(document.getElementById('b-pax').value, 10);
-  const eligible = vehiclesForPassengers(pax);
+  const eligible = eligibleVehicles();
   Object.keys(VEHICLES).forEach(key => {
     const opt = document.getElementById('vopt-' + key);
     if(eligible.includes(key)){
@@ -105,11 +122,14 @@ function onPaxChange(){
  */
 function animatePriceTo(el, to){
   if(!el) return;
+  const animId = (el._animId || 0) + 1;
+  el._animId = animId; // a newer call supersedes any animation still running on this element
   const from = Number(el.dataset.val || 0);
   if(from === to){ el.textContent = formatEUR(to); el.dataset.val = to; return; }
   const duration = 500;
   const start = performance.now();
   function tick(now){
+    if(el._animId !== animId) return;
     const progress = Math.min((now - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
     el.textContent = formatEUR(Math.round(from + (to - from) * eased));
@@ -136,7 +156,8 @@ function updateSummary(){
 
   const bothEntered = pickupText.length > 0 && dropoffText.length > 0;
 
-  const total = (!sameAddress && currentDistanceKm != null)
+  const distanceValid = currentDistanceKm != null && currentDistanceKey === routeKey();
+  const total = (!sameAddress && distanceValid)
     ? calculateTotal(currentDistanceKm, currentVehicle, currentTrip)
     : null;
 
@@ -183,7 +204,7 @@ function updateSummary(){
   }
 
   // --- Hidden fields so the real Netlify Forms submission carries the quote ---
-  document.getElementById('b-distance-km').value = currentDistanceKm != null ? currentDistanceKm.toFixed(1) : '';
+  document.getElementById('b-distance-km').value = distanceValid ? currentDistanceKm.toFixed(1) : '';
   document.getElementById('b-calculated-price').value = total != null ? total : '';
 
   const waNumbers = {skoda:'385917856056', vclass:'385955482972', trafic:'385955482972'};
@@ -220,7 +241,9 @@ function swapAddresses(){
   const pLat = document.getElementById('b-pickup-lat'), pLng = document.getElementById('b-pickup-lng');
   const dLat = document.getElementById('b-dropoff-lat'), dLng = document.getElementById('b-dropoff-lng');
 
+  const wasValid = currentDistanceKm != null && currentDistanceKey === routeKey();
   const tmpText = pickupInput.value; pickupInput.value = dropoffInput.value; dropoffInput.value = tmpText;
+  if(wasValid) currentDistanceKey = routeKey();
   const tmpLat = pLat.value; pLat.value = dLat.value; dLat.value = tmpLat;
   const tmpLng = pLng.value; pLng.value = dLng.value; dLng.value = tmpLng;
 
@@ -266,6 +289,7 @@ function initPlacesAutocomplete(){
       document.getElementById('b-pickup-lat').value = place.geometry.location.lat();
       document.getElementById('b-pickup-lng').value = place.geometry.location.lng();
     }
+    updateSummary();
     maybeFetchDistance();
   });
 
@@ -278,6 +302,7 @@ function initPlacesAutocomplete(){
       document.getElementById('b-dropoff-lat').value = place.geometry.location.lat();
       document.getElementById('b-dropoff-lng').value = place.geometry.location.lng();
     }
+    updateSummary();
     maybeFetchDistance();
   });
 
@@ -298,13 +323,22 @@ let lastDistanceFetchKey = '';
 /** Debounced trigger — called on every keystroke and after every Places selection. */
 function maybeFetchDistance(){
   clearTimeout(distanceFetchTimer);
+  const p = document.getElementById('b-pickup').value.trim(), d = document.getElementById('b-dropoff').value.trim();
+  const willFetch = p && d && p.toLowerCase() !== d.toLowerCase() &&
+    !(currentDistanceKm != null && currentDistanceKey === routeKey()) &&
+    typeof google !== 'undefined' && google.maps;
+  if(willFetch){
+    document.getElementById('live-price-bar').style.display = 'block';
+    document.getElementById('live-price-unpriced').style.display = 'none';
+    document.getElementById('live-price-loading').style.display = 'block';
+  }
   distanceFetchTimer = setTimeout(() => {
     const pickupText = document.getElementById('b-pickup').value.trim();
     const dropoffText = document.getElementById('b-dropoff').value.trim();
     if(!pickupText || !dropoffText) return;
     if(pickupText.toLowerCase() === dropoffText.toLowerCase()) return; // same-address guard handles this in updateSummary
     const key = pickupText.toLowerCase() + '|' + dropoffText.toLowerCase();
-    if(key === lastDistanceFetchKey && currentDistanceKm != null) return; // avoid refetching the same pair
+    if(key === lastDistanceFetchKey && currentDistanceKm != null && currentDistanceKey === key) return; // avoid refetching the same pair
     lastDistanceFetchKey = key;
     fetchDistance(pickupText, dropoffText);
   }, 600);
@@ -329,6 +363,7 @@ function fetchDistance(pickupText, dropoffText){
   document.getElementById('live-price-loading').style.display = 'block';
 
   if(!distanceService) distanceService = new google.maps.DistanceMatrixService();
+  const requestKey = pickupText.toLowerCase() + '|' + dropoffText.toLowerCase();
 
   distanceService.getDistanceMatrix({
     origins: [pickupText],
@@ -336,6 +371,8 @@ function fetchDistance(pickupText, dropoffText){
     travelMode: google.maps.TravelMode.DRIVING,
     unitSystem: google.maps.UnitSystem.METRIC
   }, (response, status) => {
+    if(requestKey !== routeKey()) return; // the addresses changed while this was in flight — a newer lookup owns the price
+    currentDistanceKey = requestKey;
     if(status !== 'OK'){
       console.warn('DistanceMatrixService failed:', status);
       currentDistanceKm = null;
@@ -397,8 +434,11 @@ function submitBooking(e){
     if(fallbackVehicle){
       currentVehicle = fallbackVehicle;
       document.getElementById('b-vehicle').value = fallbackVehicle;
+      document.querySelectorAll('.vehicle-opt').forEach(el => el.classList.toggle('active', el.id === 'vopt-' + fallbackVehicle));
     }
   }
+  // Hidden price/distance fields must describe exactly this route and vehicle.
+  updateSummary();
   const pickupText = document.getElementById('b-pickup').value.trim();
   const dropoffText = document.getElementById('b-dropoff').value.trim();
   if(pickupText && dropoffText && pickupText.toLowerCase() === dropoffText.toLowerCase()){
@@ -409,6 +449,7 @@ function submitBooking(e){
   const form = document.getElementById('booking-form');
   const submitBtn = form.querySelector('button[type="submit"]');
   const formData = new FormData(form);
+  const submitPriceEl = document.getElementById('submit-price');
   if(submitBtn){ submitBtn.disabled = true; submitBtn.textContent = BW_TEXT.sending; }
   fetch('/', {
     method: 'POST',
@@ -440,7 +481,8 @@ function submitBooking(e){
         copyText('sum-trip', 'succ-trip');
         copyText('sum-vehicle', 'succ-vehicle');
         copyText('sum-pax', 'succ-pax');
-        copyText('sum-total', 'succ-total');
+        // The sidebar total may still be mid count-up animation — use the submitted number itself.
+        document.getElementById('succ-total').textContent = formatEUR(Number(formData.get('calculated_price')));
       }
       document.getElementById('summary-box').style.display = 'none';
       document.getElementById('booking-confirm').classList.add('show');
@@ -454,7 +496,12 @@ function submitBooking(e){
       console.error(error);
     })
     .finally(() => {
-      if(submitBtn){ submitBtn.disabled = false; submitBtn.textContent = BW_TEXT.submit; }
+      if(submitBtn){
+        submitBtn.disabled = false;
+        submitBtn.textContent = BW_TEXT.submit;
+        if(submitPriceEl) submitBtn.appendChild(submitPriceEl);
+        updateSummary();
+      }
     });
   return false;
 }
@@ -559,6 +606,8 @@ function attachLazyMapsTriggers(){
 
 /** Runs once the widget's real markup has just been injected into the mount point. */
 function initBookingWidget(){
+  const suitcasesEl = document.getElementById('b-suitcases');
+  if(suitcasesEl) suitcasesEl.addEventListener('change', onPaxChange);
   runBookingPrefill();
   attachLazyMapsTriggers();
 }
