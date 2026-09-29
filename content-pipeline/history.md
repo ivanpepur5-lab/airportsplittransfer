@@ -2,6 +2,55 @@
 
 Newest first. One entry per firing.
 
+## 2026-09-29 — Blog — `blog/split-airport-to-hvar` — EN/DE/SV — "Split Airport to Hvar: How to Get to the Island"
+Pre-publish checklist: listed `/destinations/` (26 route pages incl.
+Trogir and Primošten; none covering Hvar or any island — Hvar only
+appears in passing on the Vinišće pages) and `/blog/` (20 articles, none
+on Hvar, islands or ferries beyond a mention of the Split ferry port);
+read `history.md` in full (Trogir 2026-09-22, Primošten 2026-09-25).
+Candidates considered:
+- **Hvar Island** (backlog #4) — selected. By far the strongest name
+  recognition of the remaining backlog and a very common search from
+  Split Airport arrivals. Ferry-dependent, so written as a blog guide
+  (airport → Split ferry port → catamaran/car ferry) rather than a route
+  page, since no car transfer drops at the island itself.
+- Kaštela (#3, route) — passed over this round: much lower search
+  demand than Hvar; still open, good next route candidate.
+- Bol & Zlatni Rat, Brač (#5) — same ferry pattern as Hvar; avoided
+  publishing two island guides back to back, open for a later firing.
+- Biograd na Moru (#8) — rejected as a duplicate: `destinations/biograd`
+  (Marina Kornati, Biograd) is already live.
+- Split ferry port & island connections (#9) — deferred: partly overlaps
+  `destinations/split` (City Center / Ferry Port) and this Hvar guide.
+- Klis, Vis, Neum, Solin & Salona — lower priority, left for later.
+
+Published all three languages together: `blog/split-airport-to-hvar.html`,
+`de/blog/split-airport-to-hvar.html`, `sv/blog/split-airport-to-hvar.html`
+(own tuned SEO title/description per language — EN 56/148, DE 54/156,
+SV 56/155 chars; ~1,000–1,150 words each; same 5 FAQ questions in the
+same order with matching FAQPage JSON-LD; Article + BreadcrumbList
+JSON-LD translated and pointed at the /de/ and /sv/ URLs; hreflang
+en/de/sv/x-default on all three; CTA "Book your private transfer" /
+"Privattransfer buchen" / "Boka din privata transfer" to the booking
+form). No prices stated; crossing times given as approximate ("around an
+hour" catamaran, "roughly two hours" car ferry) with a note to check
+current timetables; airport → port drive time (~25 min) reused from
+`destinations/split`. No images used (none needed).
+
+Internal links: `destinations/split` (ferry port transfer),
+`blog/split-airport-to-split-taxi-bus-transfer`, `blog/flight-delay-guide`,
+plus Related Reading to `blog/best-time-to-visit-split` — all resolve to
+the de/ and sv/ versions on the translated pages.
+
+Wired in: `blog/index.html` + `de/blog/index.html` + `sv/blog/index.html`
+(top of the list); three `sitemap.xml` entries (priority 0.5, monthly).
+No `DESTINATION_NAMES` entry (blog article, not a route).
+
+Verified before commit: every internal link on all three pages returns
+200 (local server), the EN↔DE↔SV lang-switcher links all resolve, every
+JSON-LD block on all three pages parses as valid JSON, no horizontal
+overflow at 1280/375/320px, no JS errors.
+
 ## 2026-09-22 — Route — `destinations/trogir` — EN/DE/SV — "Private Transfer to Trogir"
 Published manually as the first run to validate the pipeline end to end
 (content, sitemap, DESTINATION_NAMES, destinations.html grid, commit,
