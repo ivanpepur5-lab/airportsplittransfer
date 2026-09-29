@@ -57,17 +57,6 @@ function routeKey(){
          document.getElementById('b-dropoff').value.trim().toLowerCase();
 }
 
-/** Vehicles that fit both the passengers and the suitcases currently entered. */
-function eligibleVehicles(){
-  const pax = parseInt(document.getElementById('b-pax').value, 10);
-  const byPax = vehiclesForPassengers(pax);
-  const suitcasesEl = document.getElementById('b-suitcases');
-  const suitcases = suitcasesEl ? parseInt(suitcasesEl.value, 10) : NaN;
-  if(!Number.isFinite(suitcases)) return byPax;
-  const bySuitcases = byPax.filter(key => suitcases <= VEHICLES[key].suitcases);
-  return bySuitcases.length ? bySuitcases : byPax;
-}
-
 function setTripType(type){
   currentTrip = type;
   document.getElementById('trip-oneway').classList.toggle('active', type==='oneway');
@@ -95,7 +84,8 @@ function selectVehicle(key){
 }
 
 function onPaxChange(){
-  const eligible = eligibleVehicles();
+  const pax = parseInt(document.getElementById('b-pax').value, 10);
+  const eligible = vehiclesForPassengers(pax);
   Object.keys(VEHICLES).forEach(key => {
     const opt = document.getElementById('vopt-' + key);
     if(eligible.includes(key)){
@@ -423,12 +413,13 @@ function trackQualifyLead(){
 
 function submitBooking(e){
   e.preventDefault();
-  // Safety net: never submit a vehicle that can't actually fit the entered
-  // passengers/suitcases, even if some path failed to keep the hidden
-  // b-vehicle field in sync with the visible selection.
+  // Safety net: never submit a vehicle that can't seat the entered
+  // passengers, even if some path failed to keep the hidden b-vehicle
+  // field in sync with the visible selection. Suitcases are deliberately
+  // not part of this: the count says nothing about bag size, so it is
+  // passed along as information only and never changes the vehicle.
   const submitPax = parseInt(document.getElementById('b-pax').value, 10);
-  const submitSuitcases = parseInt(document.getElementById('b-suitcases').value, 10);
-  const vehicleFits = key => VEHICLES[key] && submitPax >= VEHICLES[key].minPax && submitPax <= VEHICLES[key].maxPax && submitSuitcases <= VEHICLES[key].suitcases;
+  const vehicleFits = key => VEHICLES[key] && submitPax >= VEHICLES[key].minPax && submitPax <= VEHICLES[key].maxPax;
   if(!vehicleFits(currentVehicle)){
     const fallbackVehicle = Object.keys(VEHICLES).find(vehicleFits);
     if(fallbackVehicle){
@@ -606,8 +597,6 @@ function attachLazyMapsTriggers(){
 
 /** Runs once the widget's real markup has just been injected into the mount point. */
 function initBookingWidget(){
-  const suitcasesEl = document.getElementById('b-suitcases');
-  if(suitcasesEl) suitcasesEl.addEventListener('change', onPaxChange);
   runBookingPrefill();
   attachLazyMapsTriggers();
 }
