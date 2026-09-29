@@ -860,7 +860,8 @@ body.page-daytrip .summary-box select{max-width:100%;}
 .cat-pill:hover, .cat-pill.active{border-color:var(--gold); color:var(--gold);}
 
 /* Article page */
-.article-hero{padding:150px 40px 60px; max-width:820px; margin:0 auto;}
+/* Top padding sized for the sticky header (it used to clear a fixed one). */
+.article-hero{padding:48px 40px 56px; max-width:820px; margin:0 auto;}
 .article-body{max-width:720px; margin:0 auto; padding:0 40px 100px; font-size:1.02rem; color:var(--gray);}
 .article-body p{margin-bottom:22px;}
 .article-body h2{color:var(--cream); font-size:1.7rem; margin:44px 0 18px; text-transform:none;}
@@ -927,6 +928,14 @@ body.page-daytrip .summary-box select{max-width:100%;}
 
 /* ============ TRUST STRIP ============ */
 .trust-strip{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+/* Many strips carry four items: keep them on one row instead of dropping
+   the fourth into an otherwise empty second row. */
+.trust-strip:has(> .trust-item:nth-child(4)){grid-template-columns:repeat(4,1fr);}
+@media (max-width:640px){
+  .trust-strip:has(> .trust-item:nth-child(4)){grid-template-columns:1fr 1fr;}
+  .trust-strip:has(> .trust-item:nth-child(4)) > .trust-item:nth-child(3){border-left:none;}
+  .trust-strip:has(> .trust-item:nth-child(4)) > .trust-item:nth-child(n+3){border-top:1px solid var(--line);}
+}
 .trust-item{padding:36px 30px; border-left:1px solid var(--line); text-align:center;}
 .trust-item:first-child{border-left:none;}
 .trust-item b{font-family:'Schibsted Grotesk',sans-serif; font-size:1.8rem; color:var(--gold); display:block; margin-bottom:6px;}
@@ -1197,7 +1206,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 @media (max-width:600px){.footer-inner{grid-template-columns:1fr;}}
 
 /* ============ BREADCRUMB ============ */
-.breadcrumb{padding:130px 40px 0; max-width:1280px; margin:0 auto; font-size:0.78rem; color:var(--gray);}
+.breadcrumb{padding:36px 40px 0; max-width:1280px; margin:0 auto; font-size:0.78rem; color:var(--gray);}
 .breadcrumb a{color:var(--gray); transition:color .2s ease;}
 .breadcrumb a:hover{color:var(--gold);}
 .breadcrumb span{margin:0 8px; color:var(--line-strong);}

@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Count up numeric stats (ratings, review counts, distances) the first
   // time they scroll into view, instead of just displaying the final value.
   const countEls = document.querySelectorAll(".count-up");
-  if ("IntersectionObserver" in window && countEls.length) {
+  if ("IntersectionObserver" in window && countEls.length && !reduceMotion) {
     const countIo = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
