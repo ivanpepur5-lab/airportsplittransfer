@@ -63,21 +63,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Scroll reveal
+  // Scroll reveal. Elements that come into view in the same batch (a row of
+  // cards, a FAQ list) get a short staggered delay so they cascade in rather
+  // than appearing on one frame. The delay is removed once the reveal has
+  // played, so it never slows down the cards' own hover transitions later.
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const revealEls = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && revealEls.length) {
+  if ("IntersectionObserver" in window && revealEls.length && !reduceMotion) {
     const io = new IntersectionObserver((entries) => {
+      let batch = 0;
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in");
-          io.unobserve(entry.target);
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        io.unobserve(el);
+        // Leave elements with their own CSS delay (the hero sequence) alone.
+        if (!el.style.transitionDelay && getComputedStyle(el).transitionDelay.split(",")[0].trim() === "0s") {
+          const delay = Math.min(batch, 5) * 70;
+          if (delay) {
+            el.style.transitionDelay = delay + "ms";
+            setTimeout(() => { el.style.transitionDelay = ""; }, delay + 900);
+          }
+          batch++;
         }
+        el.classList.add("in");
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
     revealEls.forEach(el => io.observe(el));
   } else {
     revealEls.forEach(el => el.classList.add("in"));
   }
+
+  initMotionLayer(reduceMotion);
 
   // FAQ schema-safe accordions are static (no JS needed — content always visible for SEO)
 
@@ -256,6 +272,86 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// --------------------------------------------------------------------------
+// Motion layer — presentation only (see "MOTION LAYER" in css/style.css).
+// Never touches form values, prices or booking state: it only reads what the
+// booking scripts render and adds/removes CSS classes and a CSS variable.
+// --------------------------------------------------------------------------
+function initMotionLayer(reduceMotion) {
+  // Sticky navbar: .is-scrolled once the page leaves the very top.
+  const header = document.querySelector("header");
+  if (header) {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  }
+
+  if (reduceMotion) return;
+
+  // Parallax on destination photos. Only frames currently on screen are
+  // updated, once per animation frame, via a CSS variable the stylesheet
+  // turns into a transform (compositor-only, no layout).
+  const frames = Array.from(document.querySelectorAll(".trip-hero picture, .trip-media picture, .custom-tour-bg"));
+  if (frames.length && "IntersectionObserver" in window) {
+    const live = new Set();
+    let queued = false;
+    const MAX_SHIFT = 0.05; // fraction of the frame height; CSS scale(1.12) leaves 6% headroom
+    const render = () => {
+      queued = false;
+      const vh = window.innerHeight;
+      live.forEach((el) => {
+        const r = el.parentElement.getBoundingClientRect();
+        // -1 when the frame's centre is at the bottom of the viewport, +1 at the top.
+        const progress = Math.max(-1, Math.min(1, ((vh / 2) - (r.top + r.height / 2)) / (vh / 2 + r.height / 2)));
+        el.style.setProperty("--parallax-y", (progress * MAX_SHIFT * r.height).toFixed(1) + "px");
+      });
+    };
+    const queue = () => { if (!queued && live.size) { queued = true; requestAnimationFrame(render); } };
+    const pio = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { live.add(entry.target); entry.target.classList.add("parallax-live"); }
+        else { live.delete(entry.target); entry.target.classList.remove("parallax-live"); }
+      });
+      queue();
+    }, { rootMargin: "10% 0px" });
+    frames.forEach((el) => pio.observe(el));
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue, { passive: true });
+  }
+
+  // Booking forms: a small "bump" when a price that is already showing
+  // changes (switching one way / return, or a new route), so the change is
+  // noticed. The booking widget is injected after load, so watch its mount.
+  const lastText = new WeakMap();
+  const bump = (el) => {
+    el.classList.remove("is-bumped");
+    void el.offsetWidth; // restart the animation
+    el.classList.add("is-bumped");
+  };
+  const check = (el) => {
+    const now = el.textContent.trim();
+    const before = lastText.get(el);
+    lastText.set(el, now);
+    if (before && now && before !== now) bump(el);
+  };
+  const watchPrices = (root) => {
+    const scan = () => root.querySelectorAll(".vopt-price[id], #submit-price").forEach(check);
+    scan();
+    new MutationObserver(scan).observe(root, { childList: true, characterData: true, subtree: true });
+  };
+  document.addEventListener("animationend", (e) => {
+    if (e.animationName === "price-bump") e.target.classList.remove("is-bumped");
+  });
+  const mount = document.getElementById("booking-widget-mount");
+  if (mount && "MutationObserver" in window) watchPrices(mount);
+}
 
 // Block past dates on every booking form (the EN widget is injected after
 // load, so this works via delegation rather than a one-time query).
