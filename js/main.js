@@ -424,6 +424,8 @@ function initMotionLayer(reduceMotion) {
           pastDate: "Bitte wählen Sie heute oder ein späteres Datum.", returnDate: "Das Rückfahrtdatum darf nicht vor dem Hinfahrtdatum liegen." },
     sv: { required: "Fyll i det här fältet.", select: "Välj ett alternativ.", email: "Ange en giltig e-postadress.",
           pastDate: "Välj dagens datum eller ett senare datum.", returnDate: "Returdatumet kan inte vara före utresedatumet." },
+    no: { required: "Fyll ut dette feltet.", select: "Velg et alternativ.", email: "Skriv inn en gyldig e-postadresse.",
+          pastDate: "Velg dagens dato eller en senere dato.", returnDate: "Returdatoen kan ikke være før utreisedatoen." },
   }[lang] || null;
   if (!M) return;
   document.addEventListener("invalid", (e) => {
@@ -455,6 +457,7 @@ function submitContactForm(e) {
     en: { sending: "Sending…", submit: "Send Message", error: "Something went wrong sending your message. Please try again, or email us directly at info@airportsplittransfer.com." },
     de: { sending: "Wird gesendet…", submit: "Nachricht Senden", error: "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut, oder schreiben Sie uns direkt an info@airportsplittransfer.com." },
     sv: { sending: "Skickar…", submit: "Skicka Meddelande", error: "Något gick fel när meddelandet skulle skickas. Försök igen, eller mejla oss direkt på info@airportsplittransfer.com." },
+    no: { sending: "Sender…", submit: "Send Melding", error: "Noe gikk galt da meldingen skulle sendes. Prøv igjen, eller send oss en e-post direkte til info@airportsplittransfer.com." },
   }[lang] || { sending: "Sending…", submit: "Send Message", error: "Something went wrong sending your message. Please try again, or email us directly at info@airportsplittransfer.com." };
   const formData = new FormData(form);
   if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = T.sending; }

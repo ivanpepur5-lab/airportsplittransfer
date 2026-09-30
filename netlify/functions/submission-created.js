@@ -43,7 +43,7 @@ const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "info@airportsplittr
 
 const adminTemplateSrc = ADMIN_TEMPLATE;
 
-const LANGUAGE_NAMES = { en: "English", de: "German", sv: "Swedish" };
+const LANGUAGE_NAMES = { en: "English", de: "German", sv: "Swedish", no: "Norwegian" };
 
 const CUSTOMER_SUBJECTS = {
   en: {
@@ -57,6 +57,10 @@ const CUSTOMER_SUBJECTS = {
   sv: {
     booking: (d) => `✅ Bokning bekräftad — ${d.date} kl. ${d.pickup_time} | Airport Split Transfer`,
     daytrip: (d) => `✅ Dagsutflykt bekräftad — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+  },
+  no: {
+    booking: (d) => `✅ Bestilling bekreftet — ${d.date} kl. ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `✅ Dagstur bekreftet — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
   },
 };
 
@@ -279,6 +283,7 @@ const CONTACT_SUBJECTS = {
   en: (d) => (d.subject ? `We received your message: ${d.subject}` : "We received your message"),
   de: (d) => (d.subject ? `Wir haben Ihre Nachricht erhalten: ${d.subject}` : "Wir haben Ihre Nachricht erhalten"),
   sv: (d) => (d.subject ? `Vi har tagit emot ditt meddelande: ${d.subject}` : "Vi har tagit emot ditt meddelande"),
+  no: (d) => (d.subject ? `Vi har mottatt meldingen din: ${d.subject}` : "Vi har mottatt meldingen din"),
 };
 
 const CONTACT_ACK_TEXT = {
@@ -298,6 +303,12 @@ const CONTACT_ACK_TEXT = {
     greeting: (name) => `Hej${name ? " " + name : ""},`,
     body: "Tack för ditt meddelande — vi har tagit emot det och svarar inom några minuter under dagtid, eller inom en timme nattetid.",
     yourMessage: "Ditt meddelande:",
+    signoff: "Airport Split Transfer",
+  },
+  no: {
+    greeting: (name) => `Hei${name ? " " + name : ""},`,
+    body: "Takk for at du tok kontakt — vi har mottatt meldingen din og svarer i løpet av noen minutter på dagtid, eller innen en time om natten.",
+    yourMessage: "Meldingen din:",
     signoff: "Airport Split Transfer",
   },
 };

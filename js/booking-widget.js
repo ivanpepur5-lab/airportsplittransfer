@@ -12,7 +12,7 @@
 // the widget markup to load (partials/booking-widget[.de|.sv].html).
 const BW_LANG = (function(){
   const l = (document.documentElement.lang || 'en').slice(0, 2);
-  return (l === 'de' || l === 'sv') ? l : 'en';
+  return (l === 'de' || l === 'sv' || l === 'no') ? l : 'en';
 })();
 const BW_SCRIPT_SRC = document.currentScript ? document.currentScript.src : '';
 const BW_TEXT = {
@@ -42,6 +42,15 @@ const BW_TEXT = {
     noteOneway: km => `${km} km · fast pris, allt inkluderat.`,
     at: ' kl. ', sending: 'Skickar...', submit: 'Boka Nu',
     error: 'Något gick fel när din bokning skickades. Försök igen eller kontakta oss via WhatsApp.'
+  },
+  no: {
+    legend: 'Reisedetaljer', legendReturn: 'Utreise & Retur',
+    date: 'Dato', dateReturn: 'Utreisedato', time: 'Klokkeslett', timeReturn: 'Utreisetid',
+    oneway: 'Enveis', ret: 'Tur-retur', priceOneway: '(enveis)', priceReturn: '(tur-retur)',
+    noteReturn: 'Tur-retur-pris — inkluderer automatisk 5 % rabatt på totalprisen.',
+    noteOneway: km => `${km} km · fastpris, alt inkludert.`,
+    at: ' kl. ', sending: 'Sender...', submit: 'Bestill Nå',
+    error: 'Noe gikk galt da bestillingen skulle sendes. Prøv igjen eller kontakt oss på WhatsApp.'
   }
 }[BW_LANG];
 

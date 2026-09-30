@@ -24,12 +24,17 @@ const VEHICLE_LABELS_I18N = {
     vclass: "Business-van — Mercedes-Benz V-klass",
     trafic: "Van — Renault Trafic eller liknande",
   },
+  no: {
+    skoda: "Sedan — Škoda Superb eller tilsvarende",
+    vclass: "Business-van — Mercedes-Benz V-klasse",
+    trafic: "Van — Renault Trafic eller tilsvarende",
+  },
 };
 
-// The forms send a hidden `lang` field (en/de/sv) so the customer's
+// The forms send a hidden `lang` field (en/de/sv/no) so the customer's
 // confirmation matches the language they booked in; anything else is en.
 function normalizeLang(lang) {
-  return lang === "de" || lang === "sv" ? lang : "en";
+  return lang === "de" || lang === "sv" || lang === "no" ? lang : "en";
 }
 
 function vehicleLabel(vehicleKey, lang = "en") {
@@ -45,18 +50,21 @@ const DAYTRIP_NAMES = {
   en: { krka: "Krka National Park", plitvice: "Plitvice Lakes" },
   de: { krka: "Nationalpark Krka", plitvice: "Plitvicer Seen" },
   sv: { krka: "Nationalparken Krka", plitvice: "Plitvicesjöarna" },
+  no: { krka: "Krka nasjonalpark", plitvice: "Plitvicesjøene" },
 };
 
 const DAYTRIP_VEHICLE_LABELS = {
   en: { car: "Car — Škoda Superb or similar (1–4 passengers)", van: "Van — up to 8 passengers" },
   de: { car: "PKW — Škoda Superb oder ähnlich (1–4 Personen)", van: "Van — bis zu 8 Personen" },
   sv: { car: "Bil — Škoda Superb eller liknande (1–4 personer)", van: "Van — upp till 8 personer" },
+  no: { car: "Bil — Škoda Superb eller tilsvarende (1–4 personer)", van: "Van — opptil 8 personer" },
 };
 
 const DAYTRIP_TEXT = {
   en: { label: "Day Trip", pickupFallback: "Hotel / accommodation pickup in Split" },
   de: { label: "Tagesausflug", pickupFallback: "Abholung am Hotel / an der Unterkunft in Split" },
   sv: { label: "Dagsutflykt", pickupFallback: "Upphämtning vid hotell/boende i Split" },
+  no: { label: "Dagstur", pickupFallback: "Henting ved hotell/overnattingssted i Split" },
 };
 
 function daytripText(lang) {
@@ -92,6 +100,7 @@ const TRIP_TYPE_LABELS = {
   en: { oneway: "One way", return: "Return" },
   de: { oneway: "Einfache Fahrt", return: "Hin- & Rückfahrt" },
   sv: { oneway: "Enkel resa", return: "Tur och retur" },
+  no: { oneway: "Enveis", return: "Tur-retur" },
 };
 
 function tripTypeLabel(tripType, lang = "en") {
@@ -107,6 +116,10 @@ const MONTH_ABBR_SV = [
   "jan", "feb", "mar", "apr", "maj", "jun",
   "jul", "aug", "sep", "okt", "nov", "dec",
 ];
+const MONTH_ABBR_NO = [
+  "jan.", "feb.", "mars", "apr.", "mai", "juni",
+  "juli", "aug.", "sep.", "okt.", "nov.", "des.",
+];
 
 // Form fields are plain <input type="date"> values ("YYYY-MM-DD"). Render
 // them the way the site's own confirmation UI does, e.g. "24 Sep 2026".
@@ -114,7 +127,8 @@ const MONTH_ABBR_SV = [
 // depends on the runtime's bundled ICU data (e.g. "Sep" vs "Sept"), which
 // can differ between a local Node install and Netlify's Lambda runtime —
 // a fixed lookup table keeps the output identical everywhere.
-// German uses the numeric 24.09.2026 form, Swedish "3 maj 2026".
+// German uses the numeric 24.09.2026 form, Swedish "3 maj 2026",
+// Norwegian "3. mai 2026".
 function formatDate(isoDate, lang = "en") {
   if (!isoDate) return "";
   const parts = String(isoDate).split("-").map(Number);
@@ -125,6 +139,7 @@ function formatDate(isoDate, lang = "en") {
   const l = normalizeLang(lang);
   if (l === "de") return `${dd}.${String(month).padStart(2, "0")}.${year}`;
   if (l === "sv") return `${day} ${MONTH_ABBR_SV[month - 1]} ${year}`;
+  if (l === "no") return `${day}. ${MONTH_ABBR_NO[month - 1]} ${year}`;
   return `${dd} ${MONTH_ABBR[month - 1]} ${year}`;
 }
 
@@ -143,7 +158,7 @@ function buildBookingReference(payload) {
 // the distance/price never resolved (e.g. an address Google's Distance
 // Matrix couldn't geocode), so this always returns a safe display string
 // rather than emitting a bare "€" or "€NaN".
-const PRICE_TBC = { en: "Price to be confirmed", de: "Preis wird bestätigt", sv: "Pris bekräftas" };
+const PRICE_TBC = { en: "Price to be confirmed", de: "Preis wird bestätigt", sv: "Pris bekräftas", no: "Pris bekreftes" };
 
 function formatPrice(rawPrice, lang = "en") {
   const num = Number(rawPrice);

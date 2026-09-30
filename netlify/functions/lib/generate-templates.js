@@ -61,7 +61,7 @@ const adminText = fs.readFileSync(path.join(TEMPLATES_DIR, "booking-notification
 // Translated customer confirmations (booking-confirmation-customer.<lang>.html/.txt).
 // The admin notification stays English — it goes to the business, not the customer.
 const customerByLang = { en: { html: customerHtml, text: customerText } };
-for (const lang of ["de", "sv"]) {
+for (const lang of ["de", "sv", "no"]) {
   customerByLang[lang] = {
     html: stripLeadingComment(fs.readFileSync(path.join(TEMPLATES_DIR, `booking-confirmation-customer.${lang}.html`), "utf8")),
     text: fs.readFileSync(path.join(TEMPLATES_DIR, `booking-confirmation-customer.${lang}.txt`), "utf8"),
@@ -81,11 +81,13 @@ module.exports = {
     en: ${JSON.stringify(customerByLang.en.html)},
     de: ${JSON.stringify(customerByLang.de.html)},
     sv: ${JSON.stringify(customerByLang.sv.html)},
+    no: ${JSON.stringify(customerByLang.no.html)},
   },
   CUSTOMER_TEMPLATES_TEXT: {
     en: ${JSON.stringify(customerByLang.en.text)},
     de: ${JSON.stringify(customerByLang.de.text)},
     sv: ${JSON.stringify(customerByLang.sv.text)},
+    no: ${JSON.stringify(customerByLang.no.text)},
   },
 };
 `;

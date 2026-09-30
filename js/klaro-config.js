@@ -3,7 +3,7 @@
    Only Google Analytics is a managed "service" here — everything else on
    the site (fonts, maps, WhatsApp links) is either essential or loaded
    without setting identifying cookies. Language is picked up from each
-   page's own <html lang> attribute so EN, DE and SV pages each show their
+   page's own <html lang> attribute so EN, DE, SV and NO pages each show their
    own translated text automatically.
    ========================================================================== */
 
@@ -15,7 +15,7 @@ var klaroConfig = {
   cookieExpiresAfterDays: 365,
   lang: (function () {
     var pageLang = (document.documentElement.lang || "en").slice(0, 2);
-    return pageLang === "de" || pageLang === "sv" ? pageLang : "en";
+    return pageLang === "de" || pageLang === "sv" || pageLang === "no" ? pageLang : "en";
   })(),
 
   default: false,
@@ -190,6 +190,54 @@ var klaroConfig = {
           "Hjälper oss förstå hur besökare använder bokningsformuläret (klick, skrollning, anonymiserade sessionsinspelningar) så att vi kan förbättra det. Ingen data används för annonsering."
       },
       poweredBy: "Cookie-inställningar"
+    },
+    no: {
+      privacyPolicyUrl: "/no/privacy",
+      privacyPolicy: {
+        name: "personvernerklæringen",
+        text: "Les mer i {privacyPolicy}."
+      },
+      consentModal: {
+        title: "Innstillinger for informasjonskapsler og personvern",
+        description:
+          "Vi bruker nødvendige informasjonskapsler for at nettstedet skal fungere som det skal. Med ditt samtykke vil vi også bruke analysekapsler for å forstå hvordan nettstedet brukes. Du kan endre valget ditt når som helst."
+      },
+      consentNotice: {
+        title: "Vi tar vare på personvernet ditt",
+        description:
+          "Vi bruker nødvendige informasjonskapsler for å drive nettstedet og, bare med ditt samtykke, analysekapsler for å gjøre det bedre.",
+        learnMore: "Administrer innstillinger"
+      },
+      purposes: {
+        analytics: "Analyse"
+      },
+      purposeItem: {
+        service: "tjeneste",
+        services: "tjenester"
+      },
+      acceptAll: "Godta alle",
+      acceptSelected: "Lagre innstillinger",
+      decline: "Bare nødvendige",
+      ok: "Godta alle",
+      close: "Lukk",
+      save: "Lagre",
+      service: {
+        disableAll: {
+          title: "Slå alle tjenester av eller på",
+          description: "Bruk denne bryteren for å slå alle tjenester av eller på samtidig."
+        }
+      },
+      "google-analytics": {
+        title: "Google Analytics",
+        description:
+          "Hjelper oss å forstå hvordan besøkende bruker nettstedet (sidevisninger, trafikkilder) slik at vi kan forbedre det. Ingen data brukes til annonsering."
+      },
+      "microsoft-clarity": {
+        title: "Microsoft Clarity",
+        description:
+          "Hjelper oss å se hvordan besøkende bruker bestillingsskjemaet (klikk, rulling, anonymiserte øktopptak) slik at vi kan forbedre det. Ingen data brukes til annonsering."
+      },
+      poweredBy: "Informasjonskapsler"
     }
   }
 };
