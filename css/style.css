@@ -285,7 +285,7 @@ header{
   background:radial-gradient(1100px 520px at 50% 14%, #F3F5F8 0%, rgba(243,245,248,0) 72%);
 }
 /* Homepage only: an off-white wash that cools to the faintest coastal blue. */
-body.page-home .hero{background:linear-gradient(180deg, #F8FAFC 0%, #F2F7FC 50%, #EAF3FA 100%);}
+body.page-home .hero{background:linear-gradient(180deg, #F8FAFC 0%, #F2F7FC 40%, #EAF3FA 72%, #FFFFFF 100%);}
 .hero-content{position:relative; z-index:10; max-width:1180px; margin:0 auto; width:100%;}
 
 /* The text column stays narrower than the hero so the cars can sit in the
