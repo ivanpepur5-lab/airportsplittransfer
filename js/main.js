@@ -326,6 +326,52 @@ function initMotionLayer(reduceMotion) {
     window.addEventListener("resize", queue, { passive: true });
   }
 
+  // Car turn: fleet photos rotate in perspective as their card crosses the
+  // viewport (turned away entering from below, square on at the centre,
+  // easing slightly the other way as they leave); the two hero cars drive
+  // off to the sides as the page scrolls away from the hero. Only elements
+  // on screen are updated, once per frame, via CSS variables.
+  const carFrames = Array.from(document.querySelectorAll(".fleet-media picture"));
+  const heroCars = Array.from(document.querySelectorAll(".hero-skoda img, .hero-vclass img"));
+  if ((carFrames.length || heroCars.length) && "IntersectionObserver" in window) {
+    const liveCars = new Set();
+    let carQueued = false;
+    const renderCars = () => {
+      carQueued = false;
+      const vh = window.innerHeight;
+      liveCars.forEach((el) => {
+        if (el.closest(".hero-skoda, .hero-vclass")) {
+          const hero = el.closest(".hero");
+          const h = hero ? hero.offsetHeight : vh;
+          const t = Math.max(0, Math.min(1, window.scrollY / (h * 0.9)));   // 0 at top, 1 once the hero is mostly gone
+          const dir = el.closest(".hero-skoda") ? -1 : 1;                   // left car leaves left, right car right
+          el.style.setProperty("--car-tx", (dir * t * 38).toFixed(2) + "%");
+          el.style.setProperty("--car-ry", (dir * -t * 28).toFixed(2) + "deg");
+          return;
+        }
+        const r = el.parentElement.getBoundingClientRect();
+        // +1 while the card's centre is at the bottom edge, 0 at the viewport centre, -1 at the top.
+        const p = Math.max(-1, Math.min(1, ((r.top + r.height / 2) - vh / 2) / (vh / 2 + r.height / 2)));
+        const k = p > 0 ? p : p * 0.35;                                      // full turn on the way in, a hint on the way out
+        el.style.setProperty("--car-ry", (k * 34).toFixed(2) + "deg");
+        el.style.setProperty("--car-tx", (k * -9).toFixed(2) + "%");
+        el.style.setProperty("--car-s", (1 - Math.abs(k) * 0.08).toFixed(3));
+      });
+    };
+    const queueCars = () => { if (!carQueued && liveCars.size) { carQueued = true; requestAnimationFrame(renderCars); } };
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const el = entry.target;
+        if (entry.isIntersecting) { liveCars.add(el); el.classList.add("car-turn-live"); }
+        else { liveCars.delete(el); el.classList.remove("car-turn-live"); }
+      });
+      queueCars();
+    }, { rootMargin: "15% 0px" });
+    carFrames.concat(heroCars).forEach((el) => cio.observe(el));
+    window.addEventListener("scroll", queueCars, { passive: true });
+    window.addEventListener("resize", queueCars, { passive: true });
+  }
+
   // Booking forms: a small "bump" when a price that is already showing
   // changes (switching one way / return, or a new route), so the change is
   // noticed. The booking widget is injected after load, so watch its mount.

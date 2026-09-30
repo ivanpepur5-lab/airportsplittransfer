@@ -1452,6 +1452,27 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .booking-success.show{animation:success-in .5s var(--ease-out) both;}
 @keyframes success-in{from{opacity:0; transform:translateY(12px) scale(.985);} to{opacity:1; transform:none;}}
 
+/* --- Vehicles turning on scroll ---------------------------------------
+   The fleet photos are three-quarter shots, so a perspective turn reads as
+   the car rotating toward the viewer. JS (main.js, "car turn") feeds
+   --car-ry / --car-tx / --car-s from each card's position in the viewport:
+   turned away while entering from below, square to the viewer at the centre
+   of the screen. Applied to the <picture> so the image's own hover zoom
+   keeps working. The hero cars get the same idea as a gentle drive-off. */
+@media (prefers-reduced-motion: no-preference){
+  .fleet-media{perspective:1100px;}
+  .fleet-media picture{
+    transform:translate3d(var(--car-tx, 0%), 0, 0) rotateY(var(--car-ry, 0deg)) scale(var(--car-s, 1));
+    transform-origin:50% 60%;
+  }
+  .hero-skoda img, .hero-vclass img{
+    transform:translate3d(var(--car-tx, 0%), 0, 0) rotateY(var(--car-ry, 0deg));
+  }
+  .hero-skoda img{transform-origin:right center;}
+  .hero-vclass img{transform-origin:left center;}
+  .car-turn-live{will-change:transform;}
+}
+
 /* --- Reduced motion: no movement at all, content shown immediately --- */
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1; transform:none; transition:none;}
