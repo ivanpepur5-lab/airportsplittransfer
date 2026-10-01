@@ -33,4 +33,10 @@ No meter running, no surprises at the end of the ride. Every transfer from Split
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-01 16:14 UTC — Day trip post — Plitvice Lakes
+
+Sixteen terraced lakes joined by waterfalls: Plitvice is Croatia's oldest national park and a UNESCO World Heritage Site. We take you there and back privately from Split, with an English-speaking driver who stays at the park for the full 10–12 hour day. One price for the whole trip: €390 by car, €450 by van for larger groups.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
