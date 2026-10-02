@@ -3,19 +3,86 @@
    Sticky header blur, mobile nav, scroll reveal.
    ========================================================================== */
 
-// Shared GA4 "lead" event helper for forms other than the main booking
-// widget, which has its own richer trackQualifyLead() in booking-widget.js
-// (same event name and dataLayer/gtag pattern — see the comment there for
-// why gtag() is also called directly with no GTM container installed yet).
-// Used by the day-trip forms and the contact form, both of which load this
-// file but not booking-widget.js.
+// ---------------------------------------------------------------------------
+// GA4 conversion events. gtag() only queues into dataLayer; nothing is sent
+// unless the visitor has accepted analytics cookies (see consent-gate.js).
+// ---------------------------------------------------------------------------
+function sendGaEvent(name, params) {
+  if (typeof gtag === "function") gtag("event", name, params);
+}
+
+// Reduce a free-text address to its town so no street address (personal
+// data under GA's policy) ever reaches Analytics: "Ul. X 5, 21310 Omiš,
+// Croatia" -> "Omiš"; anything mentioning the airport -> "Split Airport".
+function placeForAnalytics(text) {
+  text = String(text || "").trim();
+  if (!text) return undefined;
+  if (/airport|aerodrom|zra[cč]na luka|flughafen|flygplats|lufthavn|\bSPU\b/i.test(text)) return "Split Airport";
+  const parts = text.split(",").map((p) => p.trim())
+    .filter((p) => p && !/^(croatia|hrvatska|kroatien|kroatia)$/i.test(p));
+  const town = (parts[parts.length - 1] || "").replace(/\d+/g, "").trim();
+  return town ? town.slice(0, 100) : undefined;
+}
+
+// generate_lead fires only once a form submission has been accepted (called
+// from each form's success handler, never on the button click).
+function trackGenerateLead(params) {
+  const clean = {};
+  Object.keys(params).forEach((k) => { if (params[k] !== undefined && params[k] !== "") clean[k] = params[k]; });
+  sendGaEvent("generate_lead", clean);
+}
+
+// Shared "lead" helper for the day-trip forms and the contact form (the
+// booking widget has its own trackQualifyLead() in booking-widget.js). Keeps
+// the existing qualify_lead event and adds the generate_lead conversion.
 function trackLeadEvent(params) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(Object.assign({ event: "qualify_lead" }, params));
-  if (typeof gtag === "function") {
-    gtag("event", "qualify_lead", params);
-  }
+  sendGaEvent("qualify_lead", params);
+  const isDayTrip = params.form_name === "daytrip";
+  trackGenerateLead({
+    form_location: isDayTrip ? "day_trip_form" : params.form_name + "_form",
+    pickup: isDayTrip ? placeForAnalytics((document.getElementById("d-pickup") || {}).value) : undefined,
+    destination: isDayTrip ? params.trip : undefined,
+    value: params.value,
+    currency: params.value ? params.currency : undefined,
+  });
 }
+
+// Where on the page a contact link sits, for whatsapp_click / phone_click /
+// email_click. Order matters: the most specific container wins.
+function linkLocation(a) {
+  const zones = [
+    [".nav", "header"],
+    [".mobile-nav", "mobile_menu"],
+    [".hero, .page-hero, .article-hero, .trip-hero", "hero"],
+    ["#booking-widget-mount, .quick-booking-wrap", "booking_form"],
+    [".wa-banner", "whatsapp_banner"],
+    ["footer", "footer"],
+  ];
+  for (const [selector, name] of zones) if (a.closest(selector)) return name;
+  const card = a.closest(".summary-box");
+  if (card && card.querySelector("#d-form")) return "day_trip_form";
+  if (/\/contact(\.html)?$/.test(location.pathname)) return "contact_page";
+  return "content";
+}
+
+// One delegated listener covers every wa.me / api.whatsapp.com, tel: and
+// mailto: link on every page, including ones injected later (the booking
+// widget partial). Capture phase, so it runs before navigation starts.
+document.addEventListener("click", function (e) {
+  const a = e.target.closest && e.target.closest("a[href]");
+  if (!a) return;
+  const href = a.getAttribute("href") || "";
+  const where = linkLocation(a);
+  if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)\//i.test(href) || /^whatsapp:/i.test(href)) {
+    sendGaEvent("whatsapp_click", { link_location: where });
+  } else if (/^tel:/i.test(href)) {
+    sendGaEvent("phone_click", { link_location: where });
+  } else if (/^mailto:/i.test(href)) {
+    sendGaEvent("email_click", { link_location: where });
+  }
+}, true);
 
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile nav

@@ -418,6 +418,18 @@ function trackQualifyLead(){
   if(typeof gtag === 'function'){
     gtag('event', 'qualify_lead', params);
   }
+  // GA4 conversion: same moment (accepted submission), town-level route only.
+  if(typeof trackGenerateLead === 'function'){
+    trackGenerateLead({
+      form_location: 'booking_form',
+      pickup: placeForAnalytics((document.getElementById('b-pickup') || {}).value),
+      destination: placeForAnalytics((document.getElementById('b-dropoff') || {}).value),
+      trip_type: params.trip_type,
+      vehicle: params.vehicle,
+      value: params.value,
+      currency: params.currency,
+    });
+  }
 }
 
 function submitBooking(e){
