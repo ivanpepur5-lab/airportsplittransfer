@@ -25,7 +25,13 @@
 <script type="text/plain" data-type="application/javascript" data-name="google-analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-WL56VBBSX9"></script>
 <script type="text/plain" data-type="application/javascript" data-name="google-analytics">
   gtag('js', new Date());
-  gtag('config', 'G-WL56VBBSX9');
+  // Report each page under its canonical URL (no .html, no www) so /about and
+  // /about.html don't show up as two pages in GA4; the query string is kept
+  // for UTM/gclid attribution.
+  var canonicalLink = document.querySelector('link[rel="canonical"]');
+  gtag('config', 'G-WL56VBBSX9', {
+    page_location: canonicalLink ? canonicalLink.href + location.search : location.href
+  });
 </script>
 <script src="js/consent-gate.js" data-base="" defer></script>
 <meta charset="UTF-8">

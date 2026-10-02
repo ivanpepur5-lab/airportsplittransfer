@@ -1,3 +1,9 @@
+# One canonical host: https://airportsplittransfer.com (no www).
+# HTTP -> HTTPS is forced by Netlify itself (no rule needed, and adding one
+# can loop); these rules pin www and the netlify.app project URL to it.
+https://www.airportsplittransfer.com/*  https://airportsplittransfer.com/:splat  301!
+https://serene-sunflower-6fd890.netlify.app/*  https://airportsplittransfer.com/:splat  301!
+
 /about  /about.html  200
 /blog/best-time-to-visit-split  /blog/best-time-to-visit-split.html  200
 /blog/flight-delay-guide  /blog/flight-delay-guide.html  200
