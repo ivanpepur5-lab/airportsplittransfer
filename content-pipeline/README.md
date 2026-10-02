@@ -159,6 +159,7 @@ as genuine.
   distance as approximate rather than inventing a false-precision number.
   Never state a fixed € price — the site only ever quotes prices live
   through the booking form.
+- SEO title: always ends with the brand suffix ` | Airport Split Transfer` (one suffix site-wide, every language — no "| Fixed Price" or other variants). The 50–60 character target includes the suffix where possible.
 - FAQ: exactly 5 questions, matching the FAQPage JSON-LD schema pattern
   used on existing destination pages.
 - Internal links: at least 2–3 links to existing destination/blog/day-trip
