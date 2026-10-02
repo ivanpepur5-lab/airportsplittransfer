@@ -139,6 +139,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/destinations/kastela</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/destinations/grebastica</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -509,6 +515,12 @@
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/destinations/kastela</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/destinations/grebastica</loc>
@@ -959,6 +971,12 @@
     <lastmod>2026-09-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/destinations/kastela</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/destinations/grebastica</loc>

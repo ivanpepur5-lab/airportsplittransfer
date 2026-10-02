@@ -2,6 +2,58 @@
 
 Newest first. One entry per firing.
 
+## 2026-10-02 — Route — `destinations/kastela` — EN/DE/SV — "Private Transfer to Kaštela"
+Pre-publish checklist: listed `/destinations/` (26 route pages, each with
+a `-to-split-airport` reverse page; none covering Kaštela or any of its
+seven villages — Kaštela only appears in passing on the Trogir page) and
+`/blog/` (21 articles, none on Kaštela); read `history.md` in full
+(Trogir 09-22, Primošten 09-25, Hvar guide 09-29).
+Candidates considered:
+- **Kaštela** (backlog #3, route) — selected. Marked "good next route
+  candidate" last firing; the airport itself sits in Kaštela, it is the
+  business's home base, and GSC already shows Kaštela taxi queries. Real
+  infrastructure: seven castle villages, apartments/hotels along the bay,
+  Game of Thrones location (Kaštilac, Gomilica).
+- Bol & Zlatni Rat, Brač (#5) — strongest remaining name recognition,
+  but another ferry-dependent island guide only three days after Hvar;
+  kept as the top candidate for the next firing.
+- Marina topics (Frapa, ACI Trogir, ACI Split, Kornati, Baotić,
+  Mandalina) — deliberately not picked: Ivan has a dedicated batch of
+  Split Airport → marina pages planned for 2026-10-03, so publishing one
+  here would duplicate it.
+- Klis, Vis, Split ferry port guide, Neum, Solin & Salona — lower
+  priority, left for later firings.
+
+Published all three languages together: `destinations/kastela.html`,
+`de/destinations/kastela.html`, `sv/destinations/kastela.html`, built
+from the `trogir.html` three-file pattern (SEO title/description EN
+58/157, DE 57/149, SV 57/154 chars; ~910–1,020 words each; same 5 FAQ
+questions in the same order with matching FAQPage JSON-LD; translated
+BreadcrumbList pointed at the /de/ and /sv/ URLs; hreflang
+en/de/sv/x-default on all three; CTA to the booking form). No price
+stated anywhere. Distances given as estimates only: villages stretch
+"roughly 17 km" along the bay, drive "a few minutes" to the western
+villages and "around 15 to 20 minutes" to Kaštel Sućurac outside summer
+traffic. No images used.
+
+Internal links: `destinations/trogir`, `destinations/split`,
+`destinations/segetdonji`, `day-trips/krka-national-park`,
+`blog/early-morning-transfer-to-split-airport` — all resolve to the de/
+and sv/ versions on the translated pages.
+
+Wired in: `destinations.html` + `de/destinations.html` +
+`sv/destinations.html` grids (after Primošten, "From Airport" link only —
+no reverse `kastela-to-split-airport` page yet); `js/pricing.js`
+`DESTINATION_NAMES.kastela`; three `sitemap.xml` entries (priority 0.8,
+monthly) before `grebastica` in each language block. `tools/sync_i18n.py`
+run afterwards (no changes needed; NO switcher points to /no/ until a
+Norwegian version exists).
+
+Verified before commit: all internal links on all three pages return 200
+(local server), EN↔DE↔SV lang-switcher links resolve, every JSON-LD
+block parses as valid JSON, no horizontal overflow at 1280/375/320px, no
+JS errors, regression suite 21/21.
+
 ## 2026-09-29 — Blog — `blog/split-airport-to-hvar` — EN/DE/SV — "Split Airport to Hvar: How to Get to the Island"
 Pre-publish checklist: listed `/destinations/` (26 route pages incl.
 Trogir and Primošten; none covering Hvar or any island — Hvar only
