@@ -39,4 +39,10 @@ Sixteen terraced lakes joined by waterfalls: Plitvice is Croatia's oldest nation
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-03 08:10 UTC — Customer review post — Ben Huffman (2 of 9)
+
+"He is safe, intuitive, friendly, helpful. His car is clean, smoke free, and he was early for pick up time." That is how Ben Huffman described his ride with Ivan in his Google review. A clean car, a careful driver and an early pickup are the standard we hold every transfer to. 5.0 stars from 33+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
