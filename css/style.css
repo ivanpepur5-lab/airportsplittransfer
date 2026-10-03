@@ -457,13 +457,45 @@ header{
    occupy has to exist from the first paint or everything below it jumps when
    it lands. Heights measured per breakpoint; the reservation is released once
    the widget is in, so a taller-than-expected form is never clipped. */
-#booking-widget-mount{min-height:2135px;}
-@media (min-width:412px){ #booking-widget-mount{min-height:2109px;} }
-@media (min-width:641px){ #booking-widget-mount{min-height:1469px;} }
+#booking-widget-mount{min-height:441px;}
+@media (min-width:641px){ #booking-widget-mount{min-height:289px;} }
 #booking-widget-mount.is-loaded{min-height:0;}
 .quick-booking-wrap{position:relative; z-index:10; margin-top:0; margin-bottom:var(--space-section);}
 @media (max-width:1024px){.quick-booking-wrap{margin-top:-40px;}}
 @media (max-width:640px){.quick-booking-wrap{margin-top:20px;}}
+
+/* Homepage: the booking form opens inside the hero, straight under the
+   headline, instead of behind a "Book" button. The gradient keeps its
+   original 640px band so the form sits on white below it, and the cars are
+   pinned to the same ground line the 600px hero gave them. */
+.hero--booking{flex-direction:column; align-items:stretch; padding-bottom:0; min-height:0;
+  background-size:100% 640px; background-repeat:no-repeat; background-color:#fff;}
+.hero--booking .quick-booking-wrap{text-align:left; margin-top:28px; z-index:9;}  /* under the hero text, so the cars pass behind it */
+/* The cars now live inside the booking wrap, one layer behind the form
+   card. On desktop they keep the old ground line (266px below the top of
+   the form, where the 600px hero used to end) out at the viewport edges. */
+.hero--booking .hero-skoda, .hero--booking .hero-vclass{z-index:-1; bottom:auto;}
+.hero--booking .hero-skoda{left:-40px; top:calc(266px - min(50vw - 332px, 235px) * 2.3304);}
+.hero--booking .hero-vclass{right:-40px; top:calc(266px - min(50vw - 332px, 235px) * 2.5087);}
+.hero-wa{margin:22px auto 0; font-size:0.86rem; color:var(--gray);}
+.hero-wa a{color:var(--cream); font-weight:600; border-bottom:1px solid var(--line);}
+@media (max-width:1010px){
+  /* No room beside a full-width form on small screens, so the cars park
+     behind its top edge instead: the card hides the wheels and the bonnets
+     show above it at the screen edges. */
+  .hero--booking .quick-booking-wrap{margin-top:20px;}
+  .hero--booking .hero-skoda, .hero--booking .hero-vclass{height:150px; top:-104px;}
+  .hero--booking .hero-skoda{left:-24px;}
+  .hero--booking .hero-vclass{right:-24px;}
+}
+@media (max-width:640px){
+  .hero--booking .hero-skoda{left:-20px;}
+  .hero--booking .hero-vclass{right:-20px;}
+}
+@media (max-width:380px){
+  .hero--booking .hero-skoda{left:-16px;}
+  .hero--booking .hero-vclass{right:-16px;}
+}
 
 .qb-tabs{display:flex; gap:4px; margin-bottom:0;}
 .qb-tab{
@@ -1444,7 +1476,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 /* JS adds .is-bumped when an already-visible price changes value (the
    selector has to out-rank the price-in rule above to replace it). */
 .vehicle-opt span.vopt-price.is-bumped:not(:empty), .btn-submit-price.is-bumped{animation:price-bump .4s var(--ease-spring);}
-.btn-submit-price{display:inline-block;}
+.btn-submit-price{display:inline-block; margin-left:0.35em;}  /* the leading space in " · €45" collapses inside an inline-block */
 @keyframes price-bump{0%{transform:scale(1);} 35%{transform:scale(1.08);} 100%{transform:scale(1);}}
 .field label{transition:color .2s ease;}
 .field:focus-within > label{color:var(--gold-text);}
@@ -1477,4 +1509,76 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   .vehicle-opt:not(.active):not(.disabled):hover{transform:none;}
   .vehicle-opt.active, .vehicle-opt span.vopt-price:not(:empty), .vehicle-opt span.vopt-price.is-bumped:not(:empty), .btn-submit-price.is-bumped,
   #return-fields-row, .live-price-bar > div, #address-error, .booking-success.show{animation:none;}
+}
+
+/* ============ COMPACT BOOKING FORM (homepage) ============
+   The first part is just the trip: route, date, time, passengers. The
+   vehicles (each with its own price), contact fields and the Book button
+   open underneath by themselves once the route is priced, so the form
+   starts short without adding a click. Luggage, flight number and notes
+   sit behind a disclosure, since most guests skip them. */
+.bw-compact{padding:28px 32px 30px;}
+.bw-compact .toggle-group{margin-bottom:20px;}
+.bw-compact fieldset{margin-bottom:14px; padding-top:0; border-top:none;}
+.bw-compact #trip-edit-view legend{position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;}
+.bw-compact .field{gap:5px;}
+.bw-compact .field input, .bw-compact .field select{padding:12px 14px;}
+.bw-compact .form-row{gap:12px; margin-bottom:12px;}
+.bw-compact .bw-dtp{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,0.8fr); margin-bottom:0;}
+.bw-compact #return-fields-row{margin:12px 0 0;}
+
+.bw-compact .bw-step2{display:none;}
+.bw-compact .bw-step2.is-open{display:block; margin-top:18px; padding-top:20px; border-top:1px solid var(--line); animation:field-in .35s var(--ease-out) both;}
+.bw-compact .bw-step2 legend{font-size:0.9rem; margin-bottom:10px;}
+
+.bw-compact .vehicle-picker{grid-template-columns:1fr; gap:8px;}
+.bw-compact .vehicle-opt{
+  display:grid; grid-template-columns:18px minmax(0,1fr) auto auto;
+  grid-template-areas:"dot name pax price" "dot model pax price";
+  align-items:center; column-gap:14px; row-gap:1px; text-align:left; padding:12px 16px;
+}
+.bw-compact .vehicle-opt::before{content:''; grid-area:dot; width:18px; height:18px; border-radius:50%; border:1.5px solid #C5CCD6; box-sizing:border-box; transition:border .2s ease;}
+.bw-compact .vehicle-opt.active::before{border:5px solid var(--gold);}
+.bw-compact .vehicle-opt b{grid-area:name; font-size:0.98rem; margin:0;}
+.bw-compact .vehicle-opt span{grid-area:model; font-size:0.74rem; margin:0;}
+.bw-compact .vehicle-opt .vopt-pax{grid-area:pax; margin:0; font-size:0.76rem; text-transform:none; letter-spacing:0; color:var(--gray); font-weight:500;}
+.bw-compact .vehicle-opt .vopt-price{grid-area:price; margin:0; font-size:1.1rem; min-width:52px; text-align:right;}
+.bw-compact .live-price-bar{margin-top:10px;}
+
+.bw-more{margin-top:14px;}
+.bw-more summary{cursor:pointer; font-size:0.86rem; font-weight:600; color:var(--gold-text); list-style:none; width:fit-content;}
+.bw-more summary::-webkit-details-marker{display:none;}
+.bw-more summary::before{content:'+'; display:inline-block; width:14px;}
+.bw-more[open] summary::before{content:'\2212';}
+.bw-more[open] summary{margin-bottom:14px;}
+.bw-compact .bw-step2 > .custom-quote-msg{padding:4px 0 10px;}
+.bw-compact .btn-submit{height:52px;}
+
+@media (max-width:640px){
+  .bw-compact{padding:20px 18px 22px;}
+  .bw-compact .toggle-group{margin-bottom:16px;}
+  /* The swap button sits on the Dropoff label line instead of taking a row. */
+  .bw-compact .route-fields{gap:10px;}
+  .bw-compact .swap-btn{justify-self:end; width:30px; height:30px; font-size:0.9rem; margin:-6px 4px -36px 0; position:relative; z-index:2;}
+  .bw-compact .bw-dtp{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+  .bw-compact .bw-dtp .bw-pax{grid-column:1 / -1;}
+  .bw-compact .vehicle-opt{grid-template-columns:18px minmax(0,1fr) auto; grid-template-areas:"dot name price" "dot model price" "dot pax price"; column-gap:12px;}
+}
+
+/* Translucent card, so the cars parked behind it still show through the
+   edges. The fields themselves stay solid white for legibility. */
+.bw-compact{background:rgba(255,255,255,0.8);}
+
+/* Phones: the headline, the Google rating and the WhatsApp line are all that
+   sit above the form. The subtitle and the four badges are dropped here
+   (they stay on desktop) so the form starts near the top of the screen. */
+@media (max-width:640px){
+  body.page-home .hero--booking{padding-top:22px;}
+  body.page-home .hero--booking h1{margin-bottom:10px;}
+  body.page-home .hero--booking p.lead,
+  body.page-home .hero--booking .hero-badges{display:none;}
+  body.page-home .hero--booking .hero-trust-bar{margin:0 auto; padding-top:0;}
+  body.page-home .hero--booking .hero-wa{margin-top:10px;}
+  .hero--booking .quick-booking-wrap{margin-top:16px;}
+  .hero--booking .hero-skoda, .hero--booking .hero-vclass{height:130px; top:-66px;}
 }

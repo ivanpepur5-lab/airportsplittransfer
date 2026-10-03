@@ -170,6 +170,10 @@ function updateSummary(){
     state = 'priced';
   }
 
+  // Compact form: the vehicles and contact fields open once the route has
+  // either a price or a finished lookup that couldn't price it.
+  if(bothEntered && !sameAddress && currentDistanceKey === routeKey()) openStep2();
+
   // --- Price on each vehicle card, so switching vehicle never looks like a price jump ---
   ['skoda', 'vclass', 'trafic'].forEach(key => {
     const el = document.getElementById('vprice-' + key);
@@ -222,6 +226,29 @@ function updateSummary(){
   if(isReturn){
     document.getElementById('ts-return').textContent = (rDate || '—') + (rTime ? BW_TEXT.at + rTime : '');
   }
+}
+
+/**
+ * Compact form only (the partials without #bw-step2 skip all of this).
+ * Once open it stays open, so editing the route never hides what the guest
+ * has already typed further down.
+ */
+function openStep2(){
+  const step2 = document.getElementById('bw-step2');
+  if(step2) step2.classList.add('is-open');
+}
+// If Maps never answers (blocked, offline, no key), the guest must still be
+// able to book: open the rest of the form shortly after they leave a filled
+// route field, and the "can't find your destination" hint covers the price.
+let step2FallbackTimer = null;
+function armStep2Fallback(){
+  clearTimeout(step2FallbackTimer);
+  step2FallbackTimer = setTimeout(() => {
+    if(document.getElementById('b-pickup').value.trim() && document.getElementById('b-dropoff').value.trim()){
+      openStep2();
+      updateSummary();
+    }
+  }, 2500);
 }
 
 function showTripSummary(){
@@ -579,6 +606,9 @@ function runBookingPrefill(){
   // Re-validate and re-fetch distance on every keystroke in either field
   document.getElementById('b-pickup').addEventListener('input', () => { updateSummary(); maybeFetchDistance(); });
   document.getElementById('b-dropoff').addEventListener('input', () => { updateSummary(); maybeFetchDistance(); });
+  document.getElementById('b-pickup').addEventListener('change', armStep2Fallback);
+  document.getElementById('b-dropoff').addEventListener('change', armStep2Fallback);
+  if(gotEnough) armStep2Fallback(); // a prefilled route never fires 'change' 
 }
 
 // --- Lazy-load Google Maps (Places + Distance Matrix) ---------------------
