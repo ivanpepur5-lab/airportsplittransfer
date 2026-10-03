@@ -172,7 +172,10 @@ function updateSummary(){
 
   // Compact form: the vehicles and contact fields open once the route has
   // either a price or a finished lookup that couldn't price it.
-  if(bothEntered && !sameAddress && currentDistanceKey === routeKey()) openStep2();
+  if(bothEntered && !sameAddress && currentDistanceKey === routeKey()){
+    openStep2();
+    trackPriceView(total !== null, total);
+  }
 
   // --- Price on each vehicle card, so switching vehicle never looks like a price jump ---
   ['skoda', 'vclass', 'trafic'].forEach(key => {
@@ -237,6 +240,28 @@ function openStep2(){
   const step2 = document.getElementById('bw-step2');
   if(step2) step2.classList.add('is-open');
 }
+// GA4 "view_price": the guest has reached the vehicles and prices. Sent
+// once per page view, the first time the rest of the form opens, so that
+// view_price -> generate_lead shows how many who saw a price went on to book.
+// price_shown is "no" when the route could not be priced (the guest only saw
+// the "contact us for a quote" hint).
+let priceViewTracked = false;
+function trackPriceView(priced, total){
+  if(priceViewTracked || !document.getElementById('bw-step2')) return;
+  if(typeof sendGaEvent !== 'function' || typeof placeForAnalytics !== 'function') return;
+  priceViewTracked = true;
+  const params = {
+    form_location: 'booking_form',
+    pickup: placeForAnalytics(document.getElementById('b-pickup').value),
+    destination: placeForAnalytics(document.getElementById('b-dropoff').value),
+    trip_type: currentTrip,
+    price_shown: priced ? 'yes' : 'no'
+  };
+  if(priced){ params.value = total; params.currency = 'EUR'; }
+  Object.keys(params).forEach(k => { if(params[k] === undefined) delete params[k]; });
+  sendGaEvent('view_price', params);
+}
+
 // If Maps never answers (blocked, offline, no key), the guest must still be
 // able to book: open the rest of the form shortly after they leave a filled
 // route field, and the "can't find your destination" hint covers the price.
@@ -247,6 +272,8 @@ function armStep2Fallback(){
     if(document.getElementById('b-pickup').value.trim() && document.getElementById('b-dropoff').value.trim()){
       openStep2();
       updateSummary();
+      // Only when Maps is missing altogether; a lookup still in flight reports itself.
+      if(typeof google === 'undefined' || !google.maps) trackPriceView(false);
     }
   }, 2500);
 }
