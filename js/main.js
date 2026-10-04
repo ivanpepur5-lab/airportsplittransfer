@@ -55,6 +55,7 @@ function linkLocation(a) {
   const zones = [
     [".nav", "header"],
     [".mobile-nav", "mobile_menu"],
+    [".mobile-cta", "sticky_bar"],
     [".hero, .page-hero, .article-hero, .trip-hero", "hero"],
     ["#booking-widget-mount, .quick-booking-wrap", "booking_form"],
     [".wa-banner", "whatsapp_banner"],
@@ -555,3 +556,19 @@ function submitContactForm(e) {
     });
   return false;
 }
+
+// Homepage sticky booking bar (phones): shown only once the hero booking form
+// has scrolled up out of view, hidden again whenever the form is on screen.
+(function () {
+  const bar = document.getElementById("mobile-cta");
+  const form = document.getElementById("booking");
+  if (!bar || !form || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function (entries) {
+    const e = entries[0];
+    bar.classList.toggle("is-visible", !e.isIntersecting && e.boundingClientRect.top < 0);
+  }).observe(form);
+  const book = bar.querySelector(".mobile-cta-book");
+  if (book) book.addEventListener("click", function () {
+    sendGaEvent("sticky_bar_click", { link_location: "sticky_bar" });
+  });
+})();

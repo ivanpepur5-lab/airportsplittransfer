@@ -1617,3 +1617,36 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   .route-steps{gap:16px 14px; margin-bottom:44px;}
 }
 .route-cta + .section-tight{padding-top:0;}
+
+/* --- Homepage: sticky booking bar on phones ---
+   Slides up once the hero booking form has scrolled out of view (main.js
+   toggles .is-visible), so booking is always one tap away. Phones only. */
+.mobile-cta{display:none;}
+@media (max-width:640px){
+  .mobile-cta{
+    display:flex; gap:10px;
+    position:fixed; left:0; right:0; bottom:0; z-index:150;
+    padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+    background:rgba(255,255,255,0.94);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border-top:1px solid var(--line);
+    transform:translateY(110%); visibility:hidden;
+    transition:transform .25s ease, visibility 0s linear .25s;
+  }
+  .mobile-cta.is-visible{transform:none; visibility:visible; transition:transform .25s ease;}
+  .mobile-cta-book{
+    flex:1 1 auto; display:flex; align-items:center; justify-content:center;
+    min-height:50px; border-radius:12px;
+    background:var(--gold); color:#fff;
+    font-weight:600; font-size:1rem; text-decoration:none;
+  }
+  .mobile-cta-wa{
+    flex:0 0 50px; display:flex; align-items:center; justify-content:center;
+    min-height:50px; border-radius:12px;
+    border:1px solid var(--cream); color:var(--cream);
+  }
+  body.page-home footer{padding-bottom:100px;}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){
+  .mobile-cta, .mobile-cta.is-visible{transition:none;}
+}
