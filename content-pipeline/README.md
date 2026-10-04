@@ -157,6 +157,11 @@ as genuine.
   pages relevant to the topic (nearby routes, related guides).
 - CTA: always ends with a "Book your private transfer" button/link to
   `index.html#booking` (adjust relative path for page depth).
+- Keep the `<!--email_off-->` right after `<body>` and `<!--/email_off-->`
+  right before `</body>` (copying an existing page keeps them). The site
+  sits behind Cloudflare, whose email obfuscation otherwise turns every
+  `info@airportsplittransfer.com` into a link to `/cdn-cgi/l/email-protection`,
+  which crawlers see as a 404 linked from every page.
 
 ## Topic backlog (within ~250 km of Split, tourist potential)
 
