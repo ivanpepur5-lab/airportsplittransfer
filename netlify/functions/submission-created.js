@@ -47,20 +47,20 @@ const LANGUAGE_NAMES = { en: "English", de: "German", sv: "Swedish", no: "Norweg
 
 const CUSTOMER_SUBJECTS = {
   en: {
-    booking: (d) => `✅ Booking Confirmed — ${d.date} at ${d.pickup_time} | Airport Split Transfer`,
-    daytrip: (d) => `✅ Day Trip Confirmed — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+    booking: (d) => `Booking confirmed: ${d.date} at ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `Day trip confirmed: ${d.trip_name}, ${d.date} | Airport Split Transfer`,
   },
   de: {
-    booking: (d) => `✅ Buchung bestätigt — ${d.date} um ${d.pickup_time} | Airport Split Transfer`,
-    daytrip: (d) => `✅ Tagesausflug bestätigt — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+    booking: (d) => `Buchung bestätigt: ${d.date} um ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `Tagesausflug bestätigt: ${d.trip_name}, ${d.date} | Airport Split Transfer`,
   },
   sv: {
-    booking: (d) => `✅ Bokning bekräftad — ${d.date} kl. ${d.pickup_time} | Airport Split Transfer`,
-    daytrip: (d) => `✅ Dagsutflykt bekräftad — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+    booking: (d) => `Bokning bekräftad: ${d.date} kl. ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `Dagsutflykt bekräftad: ${d.trip_name}, ${d.date} | Airport Split Transfer`,
   },
   no: {
-    booking: (d) => `✅ Bestilling bekreftet — ${d.date} kl. ${d.pickup_time} | Airport Split Transfer`,
-    daytrip: (d) => `✅ Dagstur bekreftet — ${d.trip_name} — ${d.date} | Airport Split Transfer`,
+    booking: (d) => `Bestilling bekreftet: ${d.date} kl. ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `Dagstur bekreftet: ${d.trip_name}, ${d.date} | Airport Split Transfer`,
   },
 };
 
@@ -289,25 +289,25 @@ const CONTACT_SUBJECTS = {
 const CONTACT_ACK_TEXT = {
   en: {
     greeting: (name) => `Hi${name ? " " + name : ""},`,
-    body: "Thanks for reaching out — we've received your message and will reply within a few minutes during the day, or within the hour overnight.",
+    body: "Thanks for reaching out. We've received your message and will reply within a few minutes during the day, or within the hour overnight.",
     yourMessage: "Your message:",
     signoff: "Airport Split Transfer",
   },
   de: {
     greeting: (name) => `Hallo${name ? " " + name : ""},`,
-    body: "Vielen Dank für Ihre Nachricht — wir haben sie erhalten und antworten tagsüber innerhalb weniger Minuten, über Nacht innerhalb einer Stunde.",
+    body: "Vielen Dank für Ihre Nachricht. Wir haben sie erhalten und antworten tagsüber innerhalb weniger Minuten, über Nacht innerhalb einer Stunde.",
     yourMessage: "Ihre Nachricht:",
     signoff: "Airport Split Transfer",
   },
   sv: {
     greeting: (name) => `Hej${name ? " " + name : ""},`,
-    body: "Tack för ditt meddelande — vi har tagit emot det och svarar inom några minuter under dagtid, eller inom en timme nattetid.",
+    body: "Tack för ditt meddelande. Vi har tagit emot det och svarar inom några minuter under dagtid, eller inom en timme nattetid.",
     yourMessage: "Ditt meddelande:",
     signoff: "Airport Split Transfer",
   },
   no: {
     greeting: (name) => `Hei${name ? " " + name : ""},`,
-    body: "Takk for at du tok kontakt — vi har mottatt meldingen din og svarer i løpet av noen minutter på dagtid, eller innen en time om natten.",
+    body: "Takk for at du tok kontakt. Vi har mottatt meldingen din og svarer i løpet av noen minutter på dagtid, eller innen en time om natten.",
     yourMessage: "Meldingen din:",
     signoff: "Airport Split Transfer",
   },

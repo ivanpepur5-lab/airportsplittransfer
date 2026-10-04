@@ -7,27 +7,27 @@
 // `vehicle` field (index.html / de/index.html / sv/index.html) and with
 // js/pricing.js's VEHICLES table.
 const VEHICLE_LABELS = {
-  skoda: "Sedan — Škoda Superb or similar",
-  vclass: "Business Van — Mercedes-Benz V-Class",
-  trafic: "Van — Renault Trafic or similar",
+  skoda: "Sedan (Škoda Superb or similar)",
+  vclass: "Business Van (Mercedes-Benz V-Class)",
+  trafic: "Van (Renault Trafic or similar)",
 };
 
 const VEHICLE_LABELS_I18N = {
   en: VEHICLE_LABELS,
   de: {
-    skoda: "Sedan — Škoda Superb oder ähnlich",
-    vclass: "Business-Van — Mercedes-Benz V-Klasse",
-    trafic: "Van — Renault Trafic oder ähnlich",
+    skoda: "Sedan (Škoda Superb oder ähnlich)",
+    vclass: "Business-Van (Mercedes-Benz V-Klasse)",
+    trafic: "Van (Renault Trafic oder ähnlich)",
   },
   sv: {
-    skoda: "Sedan — Škoda Superb eller liknande",
-    vclass: "Business-van — Mercedes-Benz V-klass",
-    trafic: "Van — Renault Trafic eller liknande",
+    skoda: "Sedan (Škoda Superb eller liknande)",
+    vclass: "Business-van (Mercedes-Benz V-klass)",
+    trafic: "Van (Renault Trafic eller liknande)",
   },
   no: {
-    skoda: "Sedan — Škoda Superb eller tilsvarende",
-    vclass: "Business-van — Mercedes-Benz V-klasse",
-    trafic: "Van — Renault Trafic eller tilsvarende",
+    skoda: "Sedan (Škoda Superb eller tilsvarende)",
+    vclass: "Business-van (Mercedes-Benz V-klasse)",
+    trafic: "Van (Renault Trafic eller tilsvarende)",
   },
 };
 
@@ -54,10 +54,10 @@ const DAYTRIP_NAMES = {
 };
 
 const DAYTRIP_VEHICLE_LABELS = {
-  en: { car: "Car — Škoda Superb or similar (1–4 passengers)", van: "Van — up to 8 passengers" },
-  de: { car: "PKW — Škoda Superb oder ähnlich (1–4 Personen)", van: "Van — bis zu 8 Personen" },
-  sv: { car: "Bil — Škoda Superb eller liknande (1–4 personer)", van: "Van — upp till 8 personer" },
-  no: { car: "Bil — Škoda Superb eller tilsvarende (1–4 personer)", van: "Van — opptil 8 personer" },
+  en: { car: "Car (Škoda Superb or similar, 1–4 passengers)", van: "Van (up to 8 passengers)" },
+  de: { car: "PKW (Škoda Superb oder ähnlich, 1–4 Personen)", van: "Van (bis zu 8 Personen)" },
+  sv: { car: "Bil (Škoda Superb eller liknande, 1–4 personer)", van: "Van (upp till 8 personer)" },
+  no: { car: "Bil (Škoda Superb eller tilsvarende, 1–4 personer)", van: "Van (opptil 8 personer)" },
 };
 
 const DAYTRIP_TEXT = {
