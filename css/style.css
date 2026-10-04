@@ -470,14 +470,15 @@ header{
    pinned to the same ground line the 600px hero gave them. */
 .hero--booking{flex-direction:column; align-items:stretch; padding-bottom:0; min-height:0;
   background-size:100% 640px; background-repeat:no-repeat; background-color:#fff;}
-.hero--booking .quick-booking-wrap{text-align:left; margin-top:28px; z-index:9;}  /* under the hero text, so the cars pass behind it */
+.hero--booking .quick-booking-wrap{text-align:left; margin-top:28px; margin-bottom:0; z-index:9;}  /* under the hero text, so the cars pass behind it */
 /* The cars now live inside the booking wrap, one layer behind the form
    card. On desktop they keep the old ground line (266px below the top of
    the form, where the 600px hero used to end) out at the viewport edges. */
 .hero--booking .hero-skoda, .hero--booking .hero-vclass{z-index:-1; bottom:auto;}
 .hero--booking .hero-skoda{left:-40px; top:calc(266px - min(50vw - 332px, 235px) * 2.3304);}
 .hero--booking .hero-vclass{right:-40px; top:calc(266px - min(50vw - 332px, 235px) * 2.5087);}
-.hero-wa{margin:22px auto 0; font-size:0.86rem; color:var(--gray);}
+/* Sits under the booking form, closing the hero. */
+.hero-wa{margin:20px auto var(--space-section); font-size:0.86rem; color:var(--gray);}
 .hero-wa a{color:var(--cream); font-weight:600; border-bottom:1px solid var(--line);}
 @media (max-width:1010px){
   /* No room beside a full-width form on small screens, so the cars park
@@ -1578,7 +1579,9 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   body.page-home .hero--booking p.lead,
   body.page-home .hero--booking .hero-badges{display:none;}
   body.page-home .hero--booking .hero-trust-bar{margin:0 auto; padding-top:0;}
-  body.page-home .hero--booking .hero-wa{margin-top:10px;}
-  .hero--booking .quick-booking-wrap{margin-top:16px;}
-  .hero--booking .hero-skoda, .hero--booking .hero-vclass{height:130px; top:-66px;}
+  body.page-home .hero--booking .hero-wa{margin-top:16px;}
+  /* A little air under the rating, so the cars peeking over the card's top
+     edge sit in the gap instead of under the rating text. */
+  .hero--booking .quick-booking-wrap{margin-top:34px;}
+  .hero--booking .hero-skoda, .hero--booking .hero-vclass{height:120px; top:-44px;}
 }
