@@ -602,6 +602,14 @@ function runBookingPrefill(){
     document.getElementById('b-pickup').value = 'Split Airport (SPU), Croatia';
     gotEnough = true;
   }
+  // ?from= is the same route the other way round, for the "X to Split
+  // Airport" pages: the place is the pickup and the airport the drop-off.
+  const fromKey = params.get('from');
+  if(!gotEnough && fromKey && DESTINATION_NAMES[fromKey]){
+    document.getElementById('b-pickup').value = DESTINATION_NAMES[fromKey];
+    document.getElementById('b-dropoff').value = 'Split Airport (SPU), Croatia';
+    gotEnough = true;
+  }
   if(params.get('date')) document.getElementById('b-date').value = params.get('date');
   if(params.get('time')) setTimeValue('b-time', params.get('time'));
   if(params.get('pax')) document.getElementById('b-pax').value = params.get('pax');

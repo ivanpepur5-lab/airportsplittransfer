@@ -1622,3 +1622,4 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   .route-faq{padding-top:56px;}
   .route-steps{gap:16px 14px; margin-bottom:44px;}
 }
+.route-cta + .section-tight{padding-top:0;}

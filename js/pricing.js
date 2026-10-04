@@ -91,7 +91,26 @@ const DESTINATION_NAMES = {
   marinakastela: "Marina Kaštela, Kaštel Gomilica, Croatia",
   agana: "Marina Agana, Marina, Croatia",
   mandalina: "D-Marin Mandalina, Šibenik, Croatia",
-  marinadalmacija: "D-Marin Dalmacija, Sukošan, Croatia"
+  marinadalmacija: "D-Marin Dalmacija, Sukošan, Croatia",
+  biograd: "Biograd na Moru, Croatia",
+  grebastica: "Grebaštica, Croatia",
+  marusici: "Marušići, Croatia",
+  murter: "Murter, Croatia",
+  pisak: "Pisak, Croatia",
+  podgora: "Podgora, Croatia",
+  promajna: "Promajna, Croatia",
+  razanj: "Ražanj, Croatia",
+  rogoznica: "Marina Frapa, Rogoznica, Croatia",
+  segetdonji: "Seget Donji, Croatia",
+  tucepi: "Tučepi, Croatia",
+  viniste: "Vinišće, Croatia",
+  zivogosce: "Živogošće, Croatia",
+  solaris: "Amadria Park Šibenik, Solaris, Šibenik, Croatia",
+  amphora: "Amphora Hotel, Split, Croatia",
+  ambasador: "Hotel Ambasador, Split, Croatia",
+  lemeridien: "Le Méridien Lav Split, Podstrana, Croatia",
+  medora: "Medora Auri Family Beach Resort, Podgora, Croatia",
+  radisson: "Radisson Blu Resort Split, Split, Croatia"
 };
 
 /**

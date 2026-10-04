@@ -158,8 +158,12 @@ as genuine.
   used on existing destination pages.
 - Internal links: at least 2–3 links to existing destination/blog/day-trip
   pages relevant to the topic (nearby routes, related guides).
-- CTA: always ends with a "Book your private transfer" button/link to
-  `index.html#booking` (adjust relative path for page depth).
+- CTA: a `<div class="route-cta">` "Get your fixed price" button straight
+  under the page hero, linking to the same language's homepage form with
+  the route prefilled: `../index.html?to=<key>#booking` for "Split Airport
+  to X" pages and `../index.html?from=<key>#booking` for "X to Split
+  Airport" pages. Add `<key>` to `DESTINATION_NAMES` in `js/pricing.js`
+  (a geocodable "Place, Croatia" name), otherwise the prefill is skipped.
 - Keep the `<!--email_off-->` right after `<body>` and `<!--/email_off-->`
   right before `</body>` (copying an existing page keeps them). The site
   sits behind Cloudflare, whose email obfuscation otherwise turns every
