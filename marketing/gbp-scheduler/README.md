@@ -16,7 +16,8 @@ post) — about 20 seconds of manual work, three times a week.
 ## Brand brief (apply to every post)
 
 - Brand name: **Airport Split Transfer**
-- Tone: premium, short, confident. No emojis, ever. No exclamation-mark
+- Tone: premium, short, confident. No emojis, ever. No em dashes (—):
+  use a comma, colon or full stop instead. No exclamation-mark
   spam — at most one, and only if it earns its place.
 - Length: 2–4 sentences. Google Business Profile posts are read on a phone
   in a few seconds — do not write ad copy that needs scrolling.

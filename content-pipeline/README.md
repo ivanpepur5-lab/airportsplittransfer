@@ -142,6 +142,9 @@ as genuine.
 
 - Style: premium, Scandinavian-minimal. Short paragraphs (3–5 sentences).
   No emojis, ever. English.
+- No em dashes (—) anywhere in page text, titles, meta or JSON-LD. Use a
+  comma, a colon or a full stop instead. They read as machine-written, and
+  the site was cleaned of them on 2026-10-04.
 - Don't invent facts, distances, drive times, or prices. Distances/times
   come from the existing site's known figures where a route is already
   referenced elsewhere (e.g. Rogoznica's page already states 34 km / 35

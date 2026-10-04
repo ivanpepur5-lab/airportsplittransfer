@@ -20,7 +20,7 @@ const BW_TEXT = {
     legend: 'Trip Details', legendReturn: 'Outbound & Return',
     date: 'Date', dateReturn: 'Outbound Date', time: 'Time', timeReturn: 'Outbound Time',
     oneway: 'One way', ret: 'Return', priceOneway: '(one way)', priceReturn: '(return)',
-    noteReturn: 'Return fare — includes an automatic 5% discount on the total price.',
+    noteReturn: 'Return fare: includes an automatic 5% discount on the total price.',
     noteOneway: km => `${km} km · fixed price, all-inclusive.`,
     at: ' at ', sending: 'Sending...', submit: 'Book Now',
     error: 'Something went wrong sending your booking. Please try again or contact us on WhatsApp.'
@@ -29,7 +29,7 @@ const BW_TEXT = {
     legend: 'Fahrtdetails', legendReturn: 'Hin- & Rückfahrt',
     date: 'Datum', dateReturn: 'Hinfahrtdatum', time: 'Uhrzeit', timeReturn: 'Hinfahrtzeit',
     oneway: 'Einfache Fahrt', ret: 'Rückfahrt', priceOneway: '(einfache Fahrt)', priceReturn: '(Hin- & Rückfahrt)',
-    noteReturn: 'Rückfahrtpreis — enthält automatisch 5% Rabatt auf den Gesamtpreis.',
+    noteReturn: 'Rückfahrtpreis: enthält automatisch 5% Rabatt auf den Gesamtpreis.',
     noteOneway: km => `${km} km · Festpreis, alles inklusive.`,
     at: ' um ', sending: 'Wird gesendet...', submit: 'Jetzt Buchen',
     error: 'Beim Senden Ihrer Buchung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.'
@@ -38,7 +38,7 @@ const BW_TEXT = {
     legend: 'Resedetaljer', legendReturn: 'Utresa & Retur',
     date: 'Datum', dateReturn: 'Utresedatum', time: 'Tid', timeReturn: 'Utresetid',
     oneway: 'Enkel Resa', ret: 'Returresa', priceOneway: '(enkel resa)', priceReturn: '(retur)',
-    noteReturn: 'Returpris — inkluderar automatiskt 5 % rabatt på totalpriset.',
+    noteReturn: 'Returpris: inkluderar automatiskt 5 % rabatt på totalpriset.',
     noteOneway: km => `${km} km · fast pris, allt inkluderat.`,
     at: ' kl. ', sending: 'Skickar...', submit: 'Boka Nu',
     error: 'Något gick fel när din bokning skickades. Försök igen eller kontakta oss via WhatsApp.'
@@ -47,7 +47,7 @@ const BW_TEXT = {
     legend: 'Reisedetaljer', legendReturn: 'Utreise & Retur',
     date: 'Dato', dateReturn: 'Utreisedato', time: 'Klokkeslett', timeReturn: 'Utreisetid',
     oneway: 'Enveis', ret: 'Tur-retur', priceOneway: '(enveis)', priceReturn: '(tur-retur)',
-    noteReturn: 'Tur-retur-pris — inkluderer automatisk 5 % rabatt på totalprisen.',
+    noteReturn: 'Tur-retur-pris: inkluderer automatisk 5 % rabatt på totalprisen.',
     noteOneway: km => `${km} km · fastpris, alt inkludert.`,
     at: ' kl. ', sending: 'Sender...', submit: 'Bestill Nå',
     error: 'Noe gikk galt da bestillingen skulle sendes. Prøv igjen eller kontakt oss på WhatsApp.'
