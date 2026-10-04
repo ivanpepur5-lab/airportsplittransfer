@@ -84,7 +84,14 @@ const DESTINATION_NAMES = {
   dubrovnik: "Dubrovnik, Croatia",
   trogir: "Trogir, Croatia",
   primosten: "Primošten, Croatia",
-  kastela: "Kaštela, Croatia"
+  kastela: "Kaštela, Croatia",
+  acisplit: "ACI Marina Split, Split, Croatia",
+  acitrogir: "ACI Marina Trogir, Čiovo, Croatia",
+  baotic: "Marina Baotić, Seget Donji, Croatia",
+  marinakastela: "Marina Kaštela, Kaštel Gomilica, Croatia",
+  agana: "Marina Agana, Marina, Croatia",
+  mandalina: "D-Marin Mandalina, Šibenik, Croatia",
+  marinadalmacija: "D-Marin Dalmacija, Sukošan, Croatia"
 };
 
 /**
