@@ -115,7 +115,7 @@ for two emails.
 
 Set in `netlify/functions/submission-created.js`, not in the templates:
 
-- Customer: `✅ Booking Confirmed — {{date}} at {{pickup_time}} | Airport Split Transfer`
+- Customer: `Booking confirmed: {{date}} at {{pickup_time}} | Airport Split Transfer` (no emoji, no em dash)
 - Admin: `🚖 NEW BOOKING • {{date}} {{pickup_time}} • {{customer_name}}`
 
 ## Brand colors used
