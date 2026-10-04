@@ -723,6 +723,12 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
   text-align:center; min-height:130px; padding:26px 20px;
 }
 .dest-card-pair h3{margin:0 0 14px;}
+/* The whole card opens the first route ("From Airport"): that link's
+   ::after is stretched over the card, and the other link ("To Airport")
+   sits above it so it stays clickable on its own. */
+.dest-card-pair{position:relative; cursor:pointer;}
+.dest-card-pair .dest-card-dirs a:first-child::after{content:''; position:absolute; inset:0; z-index:1; border-radius:0;}
+.dest-card-pair .dest-card-dirs a:not(:first-child){position:relative; z-index:2;}
 .dest-card-dirs{display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
 .dest-card-dirs a{
   font-size:0.7rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;
