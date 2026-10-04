@@ -149,4 +149,20 @@ horizontal overflow at 1280/375/320px. Full-site audit (153→156
 sitemap entries) shows no duplicate titles/descriptions, no missing
 sitemap files, no hreflang gaps.
 
+## 2026-10-04 — Charter marinas (7 marinas × EN/DE/SV/NO, 28 pages)
+
+`destinations/{aci-marina-split, aci-marina-trogir, marina-baotic,
+marina-kastela, marina-agana, marina-mandalina, marina-dalmacija}.html`
+plus their `de/`, `sv/` and `no/` twins. Built on Ivan's request after the
+"too AI" review: short hero, one button to `index.html?to=<key>#booking`
+(Ivan chose a button over an on-page form), facts line, getting there
+with a four-step strip, about the marina, five FAQs. No em dashes, no
+prices, distances and times marked approximate.
+
+Wired in: cards at the end of the "Smaller Villages & Marinas" grid on
+all four destinations pages; `DESTINATION_NAMES` keys `acisplit`,
+`acitrogir`, `baotic`, `marinakastela`, `agana`, `mandalina`,
+`marinadalmacija`; 28 sitemap entries; hreflang via `tools/sync_i18n.py`.
+Don't propose these marinas again as new topics.
+
 <!-- New entries are appended above this line by each scheduled firing. -->
