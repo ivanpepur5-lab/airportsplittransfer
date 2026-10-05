@@ -3,7 +3,7 @@
    Only Google Analytics is a managed "service" here — everything else on
    the site (fonts, maps, WhatsApp links) is either essential or loaded
    without setting identifying cookies. Language is picked up from each
-   page's own <html lang> attribute so EN, DE, SV and NO pages each show their
+   page's own <html lang> attribute so EN, DE, SV, NO and HR pages each show their
    own translated text automatically.
    ========================================================================== */
 
@@ -15,7 +15,7 @@ var klaroConfig = {
   cookieExpiresAfterDays: 365,
   lang: (function () {
     var pageLang = (document.documentElement.lang || "en").slice(0, 2);
-    return pageLang === "de" || pageLang === "sv" || pageLang === "no" ? pageLang : "en";
+    return pageLang === "de" || pageLang === "sv" || pageLang === "no" || pageLang === "hr" ? pageLang : "en";
   })(),
 
   default: false,
@@ -238,6 +238,54 @@ var klaroConfig = {
           "Hjelper oss å se hvordan besøkende bruker bestillingsskjemaet (klikk, rulling, anonymiserte øktopptak) slik at vi kan forbedre det. Ingen data brukes til annonsering."
       },
       poweredBy: "Informasjonskapsler"
+    },
+    hr: {
+      privacyPolicyUrl: "/hr/privacy",
+      privacyPolicy: {
+        name: "pravilima privatnosti",
+        text: "Više pročitajte u {privacyPolicy}."
+      },
+      consentModal: {
+        title: "Postavke kolačića i privatnosti",
+        description:
+          "Koristimo nužne kolačiće kako bi stranica ispravno radila. Uz vaš pristanak koristimo i analitičke kolačiće da bismo razumjeli kako se stranica koristi. Izbor možete promijeniti u bilo kojem trenutku."
+      },
+      consentNotice: {
+        title: "Brinemo o vašoj privatnosti",
+        description:
+          "Koristimo nužne kolačiće za rad stranice i, samo uz vaš pristanak, analitičke kolačiće kako bismo je poboljšali.",
+        learnMore: "Upravljaj postavkama"
+      },
+      purposes: {
+        analytics: "Analitika"
+      },
+      purposeItem: {
+        service: "usluga",
+        services: "usluge"
+      },
+      acceptAll: "Prihvati sve",
+      acceptSelected: "Spremi postavke",
+      decline: "Samo nužni",
+      ok: "Prihvati sve",
+      close: "Zatvori",
+      save: "Spremi",
+      service: {
+        disableAll: {
+          title: "Uključi ili isključi sve usluge",
+          description: "Ovim prekidačem uključujete ili isključujete sve usluge odjednom."
+        }
+      },
+      "google-analytics": {
+        title: "Google Analytics",
+        description:
+          "Pomaže nam razumjeti kako posjetitelji koriste stranicu (pregledi stranica, izvori prometa) kako bismo je poboljšali. Podaci se ne koriste za oglašavanje."
+      },
+      "microsoft-clarity": {
+        title: "Microsoft Clarity",
+        description:
+          "Pomaže nam vidjeti kako posjetitelji koriste obrazac za rezervaciju (klikovi, pomicanje stranice, anonimizirane snimke sesija) kako bismo ga poboljšali. Podaci se ne koriste za oglašavanje."
+      },
+      poweredBy: "Kolačići"
     }
   }
 };

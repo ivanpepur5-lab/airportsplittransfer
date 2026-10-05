@@ -12,7 +12,7 @@
 // the widget markup to load (partials/booking-widget[.de|.sv].html).
 const BW_LANG = (function(){
   const l = (document.documentElement.lang || 'en').slice(0, 2);
-  return (l === 'de' || l === 'sv' || l === 'no') ? l : 'en';
+  return (l === 'de' || l === 'sv' || l === 'no' || l === 'hr') ? l : 'en';
 })();
 const BW_SCRIPT_SRC = document.currentScript ? document.currentScript.src : '';
 const BW_TEXT = {
@@ -51,6 +51,15 @@ const BW_TEXT = {
     noteOneway: km => `${km} km · fastpris, alt inkludert.`,
     at: ' kl. ', sending: 'Sender...', submit: 'Bestill Nå',
     error: 'Noe gikk galt da bestillingen skulle sendes. Prøv igjen eller kontakt oss på WhatsApp.'
+  },
+  hr: {
+    legend: 'Detalji vožnje', legendReturn: 'Polazak i povratak',
+    date: 'Datum', dateReturn: 'Datum polaska', time: 'Vrijeme', timeReturn: 'Vrijeme polaska',
+    oneway: 'U jednom smjeru', ret: 'Povratna', priceOneway: '(u jednom smjeru)', priceReturn: '(povratna)',
+    noteReturn: 'Povratna cijena: uključuje automatski popust od 5% na ukupnu cijenu.',
+    noteOneway: km => `${km} km · fiksna cijena, sve uključeno.`,
+    at: ' u ', sending: 'Šaljem...', submit: 'Rezerviraj',
+    error: 'Nešto je pošlo po krivu pri slanju rezervacije. Pokušajte ponovno ili nam se javite na WhatsApp.'
   }
 }[BW_LANG];
 

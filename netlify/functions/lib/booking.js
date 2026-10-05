@@ -29,12 +29,17 @@ const VEHICLE_LABELS_I18N = {
     vclass: "Business-van (Mercedes-Benz V-klasse)",
     trafic: "Van (Renault Trafic eller tilsvarende)",
   },
+  hr: {
+    skoda: "Limuzina (Škoda Superb ili slično)",
+    vclass: "Poslovni kombi (Mercedes-Benz V-Class)",
+    trafic: "Kombi (Renault Trafic ili slično)",
+  },
 };
 
-// The forms send a hidden `lang` field (en/de/sv/no) so the customer's
+// The forms send a hidden `lang` field (en/de/sv/no/hr) so the customer's
 // confirmation matches the language they booked in; anything else is en.
 function normalizeLang(lang) {
-  return lang === "de" || lang === "sv" || lang === "no" ? lang : "en";
+  return lang === "de" || lang === "sv" || lang === "no" || lang === "hr" ? lang : "en";
 }
 
 function vehicleLabel(vehicleKey, lang = "en") {
@@ -51,6 +56,7 @@ const DAYTRIP_NAMES = {
   de: { krka: "Nationalpark Krka", plitvice: "Plitvicer Seen" },
   sv: { krka: "Nationalparken Krka", plitvice: "Plitvicesjöarna" },
   no: { krka: "Krka nasjonalpark", plitvice: "Plitvicesjøene" },
+  hr: { krka: "Nacionalni park Krka", plitvice: "Plitvička jezera" },
 };
 
 const DAYTRIP_VEHICLE_LABELS = {
@@ -58,6 +64,7 @@ const DAYTRIP_VEHICLE_LABELS = {
   de: { car: "PKW (Škoda Superb oder ähnlich, 1–4 Personen)", van: "Van (bis zu 8 Personen)" },
   sv: { car: "Bil (Škoda Superb eller liknande, 1–4 personer)", van: "Van (upp till 8 personer)" },
   no: { car: "Bil (Škoda Superb eller tilsvarende, 1–4 personer)", van: "Van (opptil 8 personer)" },
+  hr: { car: "Automobil (Škoda Superb ili slično, 1–4 putnika)", van: "Kombi (do 8 putnika)" },
 };
 
 const DAYTRIP_TEXT = {
@@ -65,6 +72,7 @@ const DAYTRIP_TEXT = {
   de: { label: "Tagesausflug", pickupFallback: "Abholung am Hotel / an der Unterkunft in Split" },
   sv: { label: "Dagsutflykt", pickupFallback: "Upphämtning vid hotell/boende i Split" },
   no: { label: "Dagstur", pickupFallback: "Henting ved hotell/overnattingssted i Split" },
+  hr: { label: "Jednodnevni izlet", pickupFallback: "Preuzimanje u hotelu / smještaju u Splitu" },
 };
 
 function daytripText(lang) {
@@ -101,6 +109,7 @@ const TRIP_TYPE_LABELS = {
   de: { oneway: "Einfache Fahrt", return: "Hin- & Rückfahrt" },
   sv: { oneway: "Enkel resa", return: "Tur och retur" },
   no: { oneway: "Enveis", return: "Tur-retur" },
+  hr: { oneway: "U jednom smjeru", return: "Povratna" },
 };
 
 function tripTypeLabel(tripType, lang = "en") {
@@ -128,7 +137,7 @@ const MONTH_ABBR_NO = [
 // can differ between a local Node install and Netlify's Lambda runtime —
 // a fixed lookup table keeps the output identical everywhere.
 // German uses the numeric 24.09.2026 form, Swedish "3 maj 2026",
-// Norwegian "3. mai 2026".
+// Norwegian "3. mai 2026", Croatian "3. 5. 2026."
 function formatDate(isoDate, lang = "en") {
   if (!isoDate) return "";
   const parts = String(isoDate).split("-").map(Number);
@@ -140,6 +149,7 @@ function formatDate(isoDate, lang = "en") {
   if (l === "de") return `${dd}.${String(month).padStart(2, "0")}.${year}`;
   if (l === "sv") return `${day} ${MONTH_ABBR_SV[month - 1]} ${year}`;
   if (l === "no") return `${day}. ${MONTH_ABBR_NO[month - 1]} ${year}`;
+  if (l === "hr") return `${day}. ${month}. ${year}.`;
   return `${dd} ${MONTH_ABBR[month - 1]} ${year}`;
 }
 
@@ -158,7 +168,7 @@ function buildBookingReference(payload) {
 // the distance/price never resolved (e.g. an address Google's Distance
 // Matrix couldn't geocode), so this always returns a safe display string
 // rather than emitting a bare "€" or "€NaN".
-const PRICE_TBC = { en: "Price to be confirmed", de: "Preis wird bestätigt", sv: "Pris bekräftas", no: "Pris bekreftes" };
+const PRICE_TBC = { en: "Price to be confirmed", de: "Preis wird bestätigt", sv: "Pris bekräftas", no: "Pris bekreftes", hr: "Cijena će biti potvrđena" };
 
 function formatPrice(rawPrice, lang = "en") {
   const num = Number(rawPrice);

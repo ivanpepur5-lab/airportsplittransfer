@@ -194,4 +194,18 @@ Business travellers added the same day as a fourth page
 (`services/split-airport-business-transfers.html`): Ivan confirmed he
 issues R1 / company invoices. A separate weddings page is still not built.
 
+## 2026-10-05 — Croatian (hr/), phase 1: 26 pages, booking and emails
+
+Core pages (home, Split Airport taxi, destinations, fleet, services, about,
+contact, privacy, terms) and the main routes both ways (Split, Trogir,
+Kaštela, Podstrana, Omiš, Makarska, Brela, Baška Voda, Dubrovnik). Booking
+widget (`partials/booking-widget.hr.html`), form validation, contact form,
+Klaro cookie banner, customer confirmation email and subjects in Croatian;
+forms send `lang=hr`. HR added to every page's language switcher and
+hreflang via `tools/sync_i18n.py`; 26 sitemap URLs. Pages are generated
+from the English ones with `tools/hr/build.py` (see `tools/hr/README.md`).
+Phase 2 (blog, hotels, marinas, day trips, other routes, services/ pages)
+waits for Ivan's go-ahead. New content from the scheduled pipeline stays
+EN/DE/SV/NO; untranslated hr links fall back to English automatically.
+
 <!-- New entries are appended above this line by each scheduled firing. -->

@@ -1,0 +1,51 @@
+REZERVACIJA POTVRĐENA
+Airport Split Transfer
+
+Hvala što ste odabrali Airport Split Transfer.
+{{#if booking_reference}}
+Broj rezervacije: {{booking_reference}}
+{{/if}}
+DETALJI VOŽNJE
+-----------------------------------------
+Datum: {{date}}
+Vrijeme preuzimanja: {{pickup_time}}
+Mjesto preuzimanja: {{pickup}}
+Odredište: {{dropoff}}
+Vrsta vožnje: {{trip_type}}
+{{#if return_date}}
+Datum povratka: {{return_date}}
+{{/if}}
+{{#if return_time}}
+Vrijeme povratka: {{return_time}}
+{{/if}}
+Putnici: {{passengers}}
+Vozilo: {{vehicle}}
+Cijena: {{price_display}}
+
+PUTNIK
+-----------------------------------------
+Ime: {{full_name}}
+E-mail: {{email}}
+Telefon: {{phone}}
+{{#if flight_number}}
+Broj leta: {{flight_number}}
+{{/if}}
+
+ŠTO JE UKLJUČENO
+-----------------------------------------
+- Profesionalni vozač
+- Praćenje leta
+- Doček s imenom na tabli
+- Besplatno čekanje
+- Fiksna cijena
+{{#if show_daytrips_promo}}
+Idete li i na Plitvička jezera ili u NP Krka? Vozimo i privatne jednodnevne izlete.
+Pogledajte izlete: https://airportsplittransfer.com/day-trips
+{{/if}}
+
+Trebate promijeniti rezervaciju?
+info@airportsplittransfer.com
++385 91 785 6056
+
+Airport Split Transfer, Split, Hrvatska
+Privatni transferi iz zračne luke duž dalmatinske obale.
