@@ -187,7 +187,7 @@ T = {
 "About Us | Airport Split Transfer": "O nama | Airport Split Transfer",
 "Airport Split Transfer operates private, fixed-price airport transfers between Split Airport and destinations across the Dalmatian coast.": "Airport Split Transfer vozi privatne transfere po fiksnoj cijeni između Zračne luke Split i odredišta duž dalmatinske obale.",
 "Who operates Airport Split Transfer?": "Tko stoji iza Airport Split Transfera?",
-"Airport Split Transfer is operated by De Niro, obrt za prijevoz, a licensed private transport business based in Split, Croatia.": "Airport Split Transfer vodi De Niro, obrt za prijevoz, licencirani prijevoznik sa sjedištem u Kaštelima.",
+"Airport Split Transfer is operated by De Niro, obrt za prijevoz, a licensed private transport business based in Kaštela, next to Split Airport.": "Airport Split Transfer vodi De Niro, obrt za prijevoz, licencirani prijevoznik sa sjedištem u Kaštelima.",
 "Are your drivers licensed and insured?": "Jesu li vaši vozači licencirani i osigurani?",
 "Yes. Every driver is a licensed professional, and all vehicles are fully insured.": "Da. Svaki vozač je licencirani profesionalac, a sva su vozila potpuno osigurana.",
 "Is this a shared shuttle or a private vehicle?": "Je li to zajednički shuttle ili privatno vozilo?",
