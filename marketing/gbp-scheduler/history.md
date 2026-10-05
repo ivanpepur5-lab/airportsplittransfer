@@ -45,4 +45,10 @@ Book your transfer → airportsplittransfer.com
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-05 07:17 UTC — Airport transfer post — Flight monitoring, free waiting time
+
+A late flight should never be your problem. We follow your flight number live, so your driver adjusts the pickup to the time you actually land, not the one printed on your ticket. Fifteen minutes of free waiting time leave room for passport control and the baggage belt.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
