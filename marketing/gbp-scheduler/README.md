@@ -51,9 +51,9 @@ Angles to rotate through:
 ### 2. Day trip post (Thursdays 18:00)
 Alternate between the two real products — don't post the same trip twice
 in a row:
-- **Krka National Park** — €230 car / €270 van, 8–10 hour round trip,
+- **Krka National Park** — €255 car / €295 van, 8–10 hour round trip,
   Skradinski Buk waterfalls, closer and more relaxed than Plitvice
-- **Plitvice Lakes** — €390 car / €450 van, 10–12 hour round trip,
+- **Plitvice Lakes** — €430 car / €495 van, 10–12 hour round trip,
   Croatia's oldest national park, 16 terraced lakes, UNESCO World Heritage
 Always private (not a shared shuttle), English-speaking driver, fixed
 price for the whole day, driver waits at the park.
