@@ -40,7 +40,7 @@ though the wording is always new.
 ### 1. Airport transfer post (Mondays 09:00)
 Angles to rotate through:
 - Fixed price, no meter, quoted upfront
-- Flight monitoring — driver waits if the flight is late, free waiting time
+- Flight monitoring — driver waits if the flight is late, 1 hour free waiting time (Ivan, 2026-10-05)
 - Door-to-door — met at arrivals, taken straight to the address
 - The fleet — Škoda Superb sedan, Mercedes V-Class, Renault Trafic van,
   covering 1–8 passengers
