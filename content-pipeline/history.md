@@ -165,4 +165,17 @@ all four destinations pages; `DESTINATION_NAMES` keys `acisplit`,
 `marinadalmacija`; 28 sitemap entries; hreflang via `tools/sync_i18n.py`.
 Don't propose these marinas again as new topics.
 
+## 2026-10-05 — Marina Frapa and Marina Kornati split out (2 marinas × EN/DE/SV/NO, 8 pages)
+
+`destinations/{marina-frapa, marina-kornati}.html` plus `de/`, `sv/`, `no/`
+twins, same generator and format as the 2026-10-04 marinas. Reason: Search
+Console showed "split airport to marina frapa" (22 impressions) and
+"split airport to marina kornati" (12) landing on the combined town pages.
+`rogoznica.html` and `biograd.html` (all 4 languages) are now town pages:
+title, meta, H1, breadcrumb and FAQ say Rogoznica / Biograd na Moru, and the
+hero links to the marina page (the marina pages link back). Keys:
+`frapa`, `kornati` added; `rogoznica` now prefills "Rogoznica, Croatia".
+Grid cards added after Marina Dalmacija; town cards renamed; 8 sitemap
+entries. Don't propose these two marinas again as new topics.
+
 <!-- New entries are appended above this line by each scheduled firing. -->
