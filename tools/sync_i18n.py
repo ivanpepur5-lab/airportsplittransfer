@@ -22,7 +22,7 @@ import glob, os, re
 BASE = "https://airportsplittransfer.com/"
 LANGS = [("en", "", "English", "EN"), ("de", "de/", "Deutsch", "DE"),
          ("sv", "sv/", "Svenska", "SV"), ("no", "no/", "Norsk", "NO")]
-SECTIONS = ["*.html", "blog/*.html", "destinations/*.html", "day-trips/*.html", "hotel-transfers/*.html"]
+SECTIONS = ["*.html", "blog/*.html", "destinations/*.html", "day-trips/*.html", "hotel-transfers/*.html", "services/*.html"]
 
 
 def keys_for(prefix):

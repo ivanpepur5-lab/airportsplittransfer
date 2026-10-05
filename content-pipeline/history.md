@@ -178,4 +178,19 @@ hero links to the marina page (the marina pages link back). Keys:
 Grid cards added after Marina Dalmacija; town cards renamed; 8 sitemap
 entries. Don't propose these two marinas again as new topics.
 
+## 2026-10-05 — Audience pages under services/ (3 pages × EN/DE/SV/NO, 12 pages)
+
+`services/{split-airport-transfer-with-kids, split-group-transfers,
+split-port-transfers}.html` plus `de/`, `sv/`, `no/` twins. Pages by who is
+travelling rather than where to (families with kids, groups and events,
+cruise and ferry passengers). Same layout as the marina pages: hero, one
+button, facts line, copy, four steps, five FAQs, no on-page form, no em
+dashes. Buttons: families `index.html#booking`, groups
+`index.html?vehicle=trafic#booking`, port `index.html?from=splitport#booking`
+(new `DESTINATION_NAMES` key `splitport`). Linked from a new "Who we drive"
+block on all four services pages; 12 sitemap entries; `services/*.html`
+added to `tools/sync_i18n.py`. Don't propose these three audiences again.
+Business travellers and weddings as separate pages are on hold until Ivan
+confirms R1 invoices / wedding logistics.
+
 <!-- New entries are appended above this line by each scheduled firing. -->

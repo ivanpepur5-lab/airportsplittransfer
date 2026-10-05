@@ -72,6 +72,7 @@ const RETURN_DISCOUNT = 0.05; // discount applied to the combined return-trip to
  */
 const DESTINATION_NAMES = {
   split: "Split, Croatia",
+  splitport: "Split Ferry Port, Split, Croatia",
   podstrana: "Podstrana, Croatia",
   omis: "Omiš, Croatia",
   baskavoda: "Baška Voda, Croatia",
