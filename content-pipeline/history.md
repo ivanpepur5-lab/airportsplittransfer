@@ -190,7 +190,8 @@ dashes. Buttons: families `index.html#booking`, groups
 (new `DESTINATION_NAMES` key `splitport`). Linked from a new "Who we drive"
 block on all four services pages; 12 sitemap entries; `services/*.html`
 added to `tools/sync_i18n.py`. Don't propose these three audiences again.
-Business travellers and weddings as separate pages are on hold until Ivan
-confirms R1 invoices / wedding logistics.
+Business travellers added the same day as a fourth page
+(`services/split-airport-business-transfers.html`): Ivan confirmed he
+issues R1 / company invoices. A separate weddings page is still not built.
 
 <!-- New entries are appended above this line by each scheduled firing. -->
