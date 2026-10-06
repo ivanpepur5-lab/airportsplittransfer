@@ -209,4 +209,7 @@ T = {
 "© 2026 Airport Split Transfer. All rights reserved.": "© 2026 Airport Split Transfer. Sva prava pridržana.",
 "Terms & Conditions": "Uvjeti poslovanja",
 "Cookie Preferences": "Postavke kolačića",
+"The exact price depends on your pickup and drop-off address and the vehicle you choose. Enter your details in the booking form above for an instant, fixed price: tolls, fuel and meet-and-greet at arrivals are always included, with no hidden fees. Our": "Točna cijena ovisi o adresi polazišta i odredišta te o vozilu koje odaberete. Upišite podatke u obrazac za rezervaciju iznad i odmah dobivate fiksnu cijenu: cestarina, gorivo i doček u dolaznom terminalu uvijek su uključeni, bez skrivenih troškova. Na stranici",
+"Split Airport taxi": "Taxi Split aerodrom",
+"page explains how the fixed price compares with a metered rank taxi.": "pogledajte kako se fiksna cijena razlikuje od taksija s taksimetrom.",
 }
