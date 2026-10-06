@@ -22,7 +22,7 @@ import glob, os, re
 BASE = "https://airportsplittransfer.com/"
 LANGS = [("en", "", "English", "EN"), ("de", "de/", "Deutsch", "DE"),
          ("sv", "sv/", "Svenska", "SV"), ("no", "no/", "Norsk", "NO"),
-         ("hr", "hr/", "Hrvatski", "HR")]
+         ("hr", "hr/", "Hrvatski", "HR"), ("it", "it/", "Italiano", "IT")]
 SECTIONS = ["*.html", "blog/*.html", "destinations/*.html", "day-trips/*.html", "hotel-transfers/*.html", "services/*.html"]
 
 

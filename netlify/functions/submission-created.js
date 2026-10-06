@@ -43,7 +43,7 @@ const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || "info@airportsplittr
 
 const adminTemplateSrc = ADMIN_TEMPLATE;
 
-const LANGUAGE_NAMES = { en: "English", de: "German", sv: "Swedish", no: "Norwegian", hr: "Croatian" };
+const LANGUAGE_NAMES = { en: "English", de: "German", sv: "Swedish", no: "Norwegian", hr: "Croatian", it: "Italian" };
 
 const CUSTOMER_SUBJECTS = {
   en: {
@@ -65,6 +65,10 @@ const CUSTOMER_SUBJECTS = {
   hr: {
     booking: (d) => `Rezervacija potvrđena: ${d.date} u ${d.pickup_time} | Airport Split Transfer`,
     daytrip: (d) => `Izlet potvrđen: ${d.trip_name}, ${d.date} | Airport Split Transfer`,
+  },
+  it: {
+    booking: (d) => `Prenotazione confermata: ${d.date} alle ${d.pickup_time} | Airport Split Transfer`,
+    daytrip: (d) => `Escursione confermata: ${d.trip_name}, ${d.date} | Airport Split Transfer`,
   },
 };
 
@@ -289,6 +293,7 @@ const CONTACT_SUBJECTS = {
   sv: (d) => (d.subject ? `Vi har tagit emot ditt meddelande: ${d.subject}` : "Vi har tagit emot ditt meddelande"),
   no: (d) => (d.subject ? `Vi har mottatt meldingen din: ${d.subject}` : "Vi har mottatt meldingen din"),
   hr: (d) => (d.subject ? `Primili smo vašu poruku: ${d.subject}` : "Primili smo vašu poruku"),
+  it: (d) => (d.subject ? `Abbiamo ricevuto il tuo messaggio: ${d.subject}` : "Abbiamo ricevuto il tuo messaggio"),
 };
 
 const CONTACT_ACK_TEXT = {
@@ -320,6 +325,12 @@ const CONTACT_ACK_TEXT = {
     greeting: (name) => `Pozdrav${name ? " " + name : ""},`,
     body: "Hvala vam na poruci. Primili smo je i odgovaramo unutar nekoliko minuta tijekom dana, a noću unutar sat vremena.",
     yourMessage: "Vaša poruka:",
+    signoff: "Airport Split Transfer",
+  },
+  it: {
+    greeting: (name) => `Ciao${name ? " " + name : ""},`,
+    body: "Grazie per averci scritto. Abbiamo ricevuto il tuo messaggio e rispondiamo entro pochi minuti durante il giorno, o entro un'ora di notte.",
+    yourMessage: "Il tuo messaggio:",
     signoff: "Airport Split Transfer",
   },
 };

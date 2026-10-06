@@ -1,0 +1,51 @@
+PRENOTAZIONE CONFERMATA
+Airport Split Transfer
+
+Grazie per aver scelto Airport Split Transfer.
+{{#if booking_reference}}
+Numero di prenotazione: {{booking_reference}}
+{{/if}}
+DETTAGLI DEL VIAGGIO
+-----------------------------------------
+Data: {{date}}
+Ora di ritiro: {{pickup_time}}
+Luogo di ritiro: {{pickup}}
+Destinazione: {{dropoff}}
+Tipo di viaggio: {{trip_type}}
+{{#if return_date}}
+Data di ritorno: {{return_date}}
+{{/if}}
+{{#if return_time}}
+Ora di ritorno: {{return_time}}
+{{/if}}
+Passeggeri: {{passengers}}
+Veicolo: {{vehicle}}
+Prezzo: {{price_display}}
+
+PASSEGGERO
+-----------------------------------------
+Nome: {{full_name}}
+Email: {{email}}
+Telefono: {{phone}}
+{{#if flight_number}}
+Numero di volo: {{flight_number}}
+{{/if}}
+
+COSA È INCLUSO
+-----------------------------------------
+- Autista professionista
+- Monitoraggio del volo
+- Accoglienza con cartello nominativo
+- Attesa gratuita
+- Prezzo fisso
+{{#if show_daytrips_promo}}
+Visiti anche i Laghi di Plitvice o il Parco nazionale di Krka? Organizziamo anche escursioni private di un giorno.
+Scopri le escursioni: https://airportsplittransfer.com/day-trips
+{{/if}}
+
+Devi modificare la prenotazione?
+info@airportsplittransfer.com
++385 91 785 6056
+
+Airport Split Transfer, Spalato, Croazia
+Transfer privati dall'aeroporto lungo tutta la costa dalmata.

@@ -208,7 +208,7 @@ header{
 
 /* Language row inside the mobile menu: plain codes, no flags — a flag is a
    country, not a language, and three of them dominated the menu's foot. */
-.mobile-lang{display:flex; gap:8px; margin-top:auto; padding-top:26px;}
+.mobile-lang{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto; padding-top:26px;}
 .mobile-lang-opt{
   display:inline-flex; align-items:center; justify-content:center;
   min-width:52px; height:38px; padding:0 14px;

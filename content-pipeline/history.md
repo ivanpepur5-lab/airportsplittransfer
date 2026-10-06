@@ -248,4 +248,17 @@ Verified before commit: every link on all four pages returns 200, the
 EN/DE/SV/NO switcher links resolve, all JSON-LD blocks parse, no
 horizontal overflow at 1280/375 px, no JS errors.
 
+## 2026-10-06 — Italian (it/), phase 1: 26 pages, booking and emails
+
+Same 26 pages as hr phase 1: core pages and the main routes both ways.
+Booking widget (`partials/booking-widget.it.html`), form validation,
+contact form, Klaro cookie banner, customer confirmation email
+(`booking-confirmation-customer.it.*`) and subjects in Italian; forms send
+`lang=it`. Split is "Spalato" in text, other place names stay Croatian.
+IT added to every page's language switcher and hreflang via
+`tools/sync_i18n.py`; 26 sitemap URLs. Built with `tools/it/build.py`
+(see `tools/it/README.md`). Mobile menu language pills now wrap (6 langs).
+New content from the scheduled pipeline stays EN/DE/SV/NO; untranslated
+it links fall back to English automatically.
+
 <!-- New entries are appended above this line by each scheduled firing. -->

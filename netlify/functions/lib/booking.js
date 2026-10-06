@@ -34,12 +34,17 @@ const VEHICLE_LABELS_I18N = {
     vclass: "Poslovni kombi (Mercedes-Benz V-Class)",
     trafic: "Kombi (Renault Trafic ili slično)",
   },
+  it: {
+    skoda: "Berlina (Škoda Superb o simile)",
+    vclass: "Van business (Mercedes-Benz Classe V)",
+    trafic: "Van (Renault Trafic o simile)",
+  },
 };
 
 // The forms send a hidden `lang` field (en/de/sv/no/hr) so the customer's
 // confirmation matches the language they booked in; anything else is en.
 function normalizeLang(lang) {
-  return lang === "de" || lang === "sv" || lang === "no" || lang === "hr" ? lang : "en";
+  return lang === "de" || lang === "sv" || lang === "no" || lang === "hr" || lang === "it" ? lang : "en";
 }
 
 function vehicleLabel(vehicleKey, lang = "en") {
@@ -57,6 +62,7 @@ const DAYTRIP_NAMES = {
   sv: { krka: "Nationalparken Krka", plitvice: "Plitvicesjöarna" },
   no: { krka: "Krka nasjonalpark", plitvice: "Plitvicesjøene" },
   hr: { krka: "Nacionalni park Krka", plitvice: "Plitvička jezera" },
+  it: { krka: "Parco nazionale di Krka", plitvice: "Laghi di Plitvice" },
 };
 
 const DAYTRIP_VEHICLE_LABELS = {
@@ -65,6 +71,7 @@ const DAYTRIP_VEHICLE_LABELS = {
   sv: { car: "Bil (Škoda Superb eller liknande, 1–4 personer)", van: "Van (upp till 8 personer)" },
   no: { car: "Bil (Škoda Superb eller tilsvarende, 1–4 personer)", van: "Van (opptil 8 personer)" },
   hr: { car: "Automobil (Škoda Superb ili slično, 1–4 putnika)", van: "Kombi (do 8 putnika)" },
+  it: { car: "Auto (Škoda Superb o simile, 1–4 passeggeri)", van: "Van (fino a 8 passeggeri)" },
 };
 
 const DAYTRIP_TEXT = {
@@ -73,6 +80,7 @@ const DAYTRIP_TEXT = {
   sv: { label: "Dagsutflykt", pickupFallback: "Upphämtning vid hotell/boende i Split" },
   no: { label: "Dagstur", pickupFallback: "Henting ved hotell/overnattingssted i Split" },
   hr: { label: "Jednodnevni izlet", pickupFallback: "Preuzimanje u hotelu / smještaju u Splitu" },
+  it: { label: "Escursione di un giorno", pickupFallback: "Ritiro in hotel / alloggio a Spalato" },
 };
 
 function daytripText(lang) {
@@ -110,6 +118,7 @@ const TRIP_TYPE_LABELS = {
   sv: { oneway: "Enkel resa", return: "Tur och retur" },
   no: { oneway: "Enveis", return: "Tur-retur" },
   hr: { oneway: "U jednom smjeru", return: "Povratna" },
+  it: { oneway: "Solo andata", return: "Andata e ritorno" },
 };
 
 function tripTypeLabel(tripType, lang = "en") {
@@ -150,6 +159,7 @@ function formatDate(isoDate, lang = "en") {
   if (l === "sv") return `${day} ${MONTH_ABBR_SV[month - 1]} ${year}`;
   if (l === "no") return `${day}. ${MONTH_ABBR_NO[month - 1]} ${year}`;
   if (l === "hr") return `${day}. ${month}. ${year}.`;
+  if (l === "it") return `${day}/${month}/${year}`;
   return `${dd} ${MONTH_ABBR[month - 1]} ${year}`;
 }
 
@@ -168,7 +178,7 @@ function buildBookingReference(payload) {
 // the distance/price never resolved (e.g. an address Google's Distance
 // Matrix couldn't geocode), so this always returns a safe display string
 // rather than emitting a bare "€" or "€NaN".
-const PRICE_TBC = { en: "Price to be confirmed", de: "Preis wird bestätigt", sv: "Pris bekräftas", no: "Pris bekreftes", hr: "Cijena će biti potvrđena" };
+const PRICE_TBC = { en: "Price to be confirmed", de: "Preis wird bestätigt", sv: "Pris bekräftas", no: "Pris bekreftes", hr: "Cijena će biti potvrđena", it: "Prezzo da confermare" };
 
 function formatPrice(rawPrice, lang = "en") {
   const num = Number(rawPrice);

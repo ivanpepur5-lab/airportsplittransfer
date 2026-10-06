@@ -15,7 +15,7 @@ var klaroConfig = {
   cookieExpiresAfterDays: 365,
   lang: (function () {
     var pageLang = (document.documentElement.lang || "en").slice(0, 2);
-    return pageLang === "de" || pageLang === "sv" || pageLang === "no" || pageLang === "hr" ? pageLang : "en";
+    return pageLang === "de" || pageLang === "sv" || pageLang === "no" || pageLang === "hr" || pageLang === "it" ? pageLang : "en";
   })(),
 
   default: false,
@@ -286,6 +286,54 @@ var klaroConfig = {
           "Pomaže nam vidjeti kako posjetitelji koriste obrazac za rezervaciju (klikovi, pomicanje stranice, anonimizirane snimke sesija) kako bismo ga poboljšali. Podaci se ne koriste za oglašavanje."
       },
       poweredBy: "Kolačići"
+    },
+    it: {
+      privacyPolicyUrl: "/it/privacy",
+      privacyPolicy: {
+        name: "informativa sulla privacy",
+        text: "Maggiori informazioni nella nostra {privacyPolicy}."
+      },
+      consentModal: {
+        title: "Impostazioni di cookie e privacy",
+        description:
+          "Usiamo cookie necessari per il corretto funzionamento del sito. Con il tuo consenso usiamo anche cookie analitici per capire come viene utilizzato il sito. Puoi cambiare la tua scelta in qualsiasi momento."
+      },
+      consentNotice: {
+        title: "Rispettiamo la tua privacy",
+        description:
+          "Usiamo cookie necessari per far funzionare il sito e, solo con il tuo consenso, cookie analitici per migliorarlo.",
+        learnMore: "Gestisci preferenze"
+      },
+      purposes: {
+        analytics: "Analisi"
+      },
+      purposeItem: {
+        service: "servizio",
+        services: "servizi"
+      },
+      acceptAll: "Accetta tutti",
+      acceptSelected: "Salva preferenze",
+      decline: "Solo necessari",
+      ok: "Accetta tutti",
+      close: "Chiudi",
+      save: "Salva",
+      service: {
+        disableAll: {
+          title: "Attiva o disattiva tutti i servizi",
+          description: "Usa questo interruttore per attivare o disattivare tutti i servizi insieme."
+        }
+      },
+      "google-analytics": {
+        title: "Google Analytics",
+        description:
+          "Ci aiuta a capire come i visitatori usano il sito (pagine viste, fonti di traffico) per migliorarlo. Nessun dato viene usato per la pubblicità."
+      },
+      "microsoft-clarity": {
+        title: "Microsoft Clarity",
+        description:
+          "Ci aiuta a vedere come i visitatori usano il modulo di prenotazione (clic, scorrimento, registrazioni di sessione anonimizzate) per migliorarlo. Nessun dato viene usato per la pubblicità."
+      },
+      poweredBy: "Cookie"
     }
   }
 };

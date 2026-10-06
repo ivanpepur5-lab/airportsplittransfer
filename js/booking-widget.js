@@ -12,7 +12,7 @@
 // the widget markup to load (partials/booking-widget[.de|.sv].html).
 const BW_LANG = (function(){
   const l = (document.documentElement.lang || 'en').slice(0, 2);
-  return (l === 'de' || l === 'sv' || l === 'no' || l === 'hr') ? l : 'en';
+  return (l === 'de' || l === 'sv' || l === 'no' || l === 'hr' || l === 'it') ? l : 'en';
 })();
 const BW_SCRIPT_SRC = document.currentScript ? document.currentScript.src : '';
 const BW_TEXT = {
@@ -60,6 +60,15 @@ const BW_TEXT = {
     noteOneway: km => `${km} km · fiksna cijena, sve uključeno.`,
     at: ' u ', sending: 'Šaljem...', submit: 'Rezerviraj',
     error: 'Nešto je pošlo po krivu pri slanju rezervacije. Pokušajte ponovno ili nam se javite na WhatsApp.'
+  },
+  it: {
+    legend: 'Dettagli del viaggio', legendReturn: 'Andata e ritorno',
+    date: 'Data', dateReturn: 'Data di andata', time: 'Ora', timeReturn: 'Ora di andata',
+    oneway: 'Solo andata', ret: 'Andata e ritorno', priceOneway: '(solo andata)', priceReturn: '(andata e ritorno)',
+    noteReturn: 'Prezzo andata e ritorno: include automaticamente uno sconto del 5% sul totale.',
+    noteOneway: km => `${km} km · prezzo fisso, tutto incluso.`,
+    at: ' alle ', sending: 'Invio in corso...', submit: 'Prenota ora',
+    error: 'Si è verificato un errore durante l\'invio della prenotazione. Riprova o contattaci su WhatsApp.'
   }
 }[BW_LANG];
 
