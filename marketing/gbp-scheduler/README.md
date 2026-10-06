@@ -112,8 +112,8 @@ Note the range of trips these cover — airport transfers, the ferry port,
 and longer runs to Dubrovnik and even Montenegro — useful for varying the
 post's framing beyond "just" an airport pickup.
 
-The business currently has a 5.0 rating from 33+ Google reviews — safe to
-reference that stat generically ("5.0 stars, 33+ Google reviews") without
+The business currently has a 5.0 rating from 35+ Google reviews — safe to
+reference that stat generically ("5.0 stars, 35+ Google reviews") without
 citing an exact number that will go stale.
 
 **When all 9 reviews have been used recently**: just start the rotation
