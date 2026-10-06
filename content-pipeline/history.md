@@ -208,4 +208,44 @@ Phase 2 (blog, hotels, marinas, day trips, other routes, services/ pages)
 waits for Ivan's go-ahead. New content from the scheduled pipeline stays
 EN/DE/SV/NO; untranslated hr links fall back to English automatically.
 
+## 2026-10-06 — Blog — `blog/split-airport-to-bol-brac` — EN/DE/SV/NO — "Split Airport to Bol and Zlatni Rat: Getting to Brač"
+Pre-publish checklist: listed `/destinations/` (35 route pages incl. the
+9 charter marinas, Kaštela, Trogir, Primošten; none on Brač or any
+island) and `/blog/` (21 articles; Hvar is the only island guide);
+read `history.md` in full (latest: Croatian phase 1, audience pages,
+Frapa/Kornati, marinas, Kaštela 2026-10-02, Hvar 2026-09-29).
+Candidates considered:
+- **Bol & Zlatni Rat, Brač** (backlog #5) — selected. Croatia's best-known
+  beach, strongest name recognition left in the backlog, and it was only
+  held back last time to avoid two island guides in a row. Ferry-dependent,
+  so written as a blog guide like Hvar (airport → Split ferry port →
+  summer catamaran to Bol or car ferry to Supetar), not a route page.
+- Klis Fortress (#6), Vis (#7), Neum (#10), Solin & Salona (#11) — lower
+  search demand; left open for later firings.
+- Split ferry port & island connections (#9) — now largely covered by
+  `services/split-port-transfers` (2026-10-05) plus the Hvar and Bol
+  guides; treat as covered unless a distinct angle appears.
+- Biograd na Moru (#8) — already live (`destinations/biograd`).
+
+Published all four languages together: `blog/split-airport-to-bol-brac.html`,
+`de/…`, `sv/…`, `no/blog/split-airport-to-bol-brac.html`. SEO titles
+EN 60 / DE 61 / SV 61 / NO 61 chars, descriptions 146 / 153 / 154 / 153;
+~1,080–1,200 words each; same 5 FAQs in the same order with FAQPage
+JSON-LD; Article + BreadcrumbList JSON-LD per language URL. No prices;
+crossing times approximate (car ferry to Supetar ~50 min, summer
+catamaran to Bol ~1 h, Supetar to Bol ~40 min drive) with a note to check
+timetables; airport → port ~25 min reused from `destinations/split`;
+Vidova Gora 778 m. CTA "Book your private transfer" to
+`../index.html?to=splitport#booking` (existing key). No images.
+
+Internal links: `destinations/split`, `services/split-port-transfers`,
+`blog/split-airport-to-split-taxi-bus-transfer`, `blog/flight-delay-guide`,
+`blog/split-airport-to-hvar` (body + Related Reading), all to the same
+language. Wired in: top card on the four `blog/index.html` files; four
+sitemap entries (0.5, monthly). No `DESTINATION_NAMES` entry needed.
+
+Verified before commit: every link on all four pages returns 200, the
+EN/DE/SV/NO switcher links resolve, all JSON-LD blocks parse, no
+horizontal overflow at 1280/375 px, no JS errors.
+
 <!-- New entries are appended above this line by each scheduled firing. -->
