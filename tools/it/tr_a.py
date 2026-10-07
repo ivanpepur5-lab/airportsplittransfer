@@ -119,7 +119,7 @@ T = {
 "DE": "DE",
 "SV": "SV",
 "NO": "NO",
-"Split Airport Transfers": "Transfer dall'aeroporto di Spalato",
+"Split Airport Transfers": "Transfer aeroporto di Spalato",
 "Fixed-price private transfers from Split Airport across the Dalmatian coast.": "Transfer privati a prezzo fisso dall'aeroporto di Spalato lungo tutta la costa dalmata.",
 "35+ Google Reviews": "35+ recensioni Google",
 "Licensed Taxi": "Taxi autorizzato",

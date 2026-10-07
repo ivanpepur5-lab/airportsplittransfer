@@ -119,7 +119,7 @@ T = {
 "DE": "DE",
 "SV": "SV",
 "NO": "NO",
-"Split Airport Transfers": "Taxi i transfer sa Zračne luke Split",
+"Split Airport Transfers": "Transfer iz Zračne luke Split",
 "Fixed-price private transfers from Split Airport across the Dalmatian coast.": "Privatni transferi sa Zračne luke Split po fiksnoj cijeni, duž cijele dalmatinske obale.",
 "35+ Google Reviews": "35+ Google recenzija",
 "Licensed Taxi": "Licencirani taxi prijevoz",
