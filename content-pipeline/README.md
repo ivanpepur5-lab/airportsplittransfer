@@ -75,10 +75,11 @@ Both get the same content bar: 900–1400 words, 5-question FAQ, SEO title
 existing route/blog pages, and the CTA "Book your private transfer"
 linking to `../index.html#booking`.
 
-## Languages — publish in all four at once
+## Languages — publish in all languages at once
 
-Every new route or blog page ships in English, German, Swedish and
-Norwegian (Bokmål) **together, in the same firing** — not English-first
+Every new route or blog page ships in English, German, Swedish,
+Norwegian (Bokmål), Croatian and Italian **together, in the same firing**
+(hr and it are generated, see "Croatian and Italian" below) — not English-first
 with translations to follow. This is a hard requirement, not a
 nice-to-have: a page that only exists in English is not considered
 published for the purposes of the never-repeat rule or the history log.
@@ -126,6 +127,44 @@ For each new page:
 7. `js/pricing.js`'s `DESTINATION_NAMES` is shared across all languages
    (one entry, just a place name used to prefill an address field) — add
    it once, not per language.
+
+### Croatian and Italian (generated, same firing)
+
+Since 2026-10-07 every page also exists in Croatian (`hr/`) and Italian
+(`it/`). These are not hand-written HTML files: they are generated from the
+English page by `tools/hr/build.py` and `tools/it/build.py` (see
+`tools/hr/README.md`). A new page is published in all six languages in the
+same firing:
+
+1. Add the English path (e.g. `destinations/<slug>.html` or
+   `blog/<slug>.html`) to `tools/hr/pages.txt` and `tools/it/pages.txt`.
+2. Write the translations as new dictionary files, one per language:
+   `tools/hr/tr_z_<slug_with_underscores>.py` and
+   `tools/it/tr_z_<slug_with_underscores>.py`, each defining
+   `T = {"English segment": "translation", ...}`. The `tr_z_` prefix makes
+   them load after the base files. Cover every segment the build reports:
+   the page text, title, meta description, alt/aria text, JSON-LD strings
+   (FAQ questions and answers, breadcrumb names) and the new card on
+   `destinations.html` or `blog/index.html` (title, excerpt, and for blog
+   the "Category · date" line). Reuse existing entries; don't redefine
+   shared strings like nav labels.
+3. Run `python3 tools/hr/build.py && python3 tools/it/build.py`. Each build
+   prints `MISSING in <page>` with every untranslated segment; add them to
+   the `tr_z_` file and rebuild until both print `done, pages with
+   missing: 0`. Never ship a page with English segments left in it.
+4. Then `python3 tools/sync_i18n.py` (hreflang now covers
+   en/de/sv/no/hr/it/x-default) and `python3 tools/sitemap_lang.py hr it`
+   (adds the `hr/` and `it/` sitemap entries with the English priority).
+
+Language rules: Croatian uses correct cases for place names (do Omiša,
+iz Makarske, u Kaštelima; "Zračna luka Split", "vozač", "fiksna cijena").
+Italian writes Split as "Spalato" / "aeroporto di Spalato" in running
+text; other places keep their Croatian names so they match the booking
+widget. Both: no em dashes, no invented facts or prices, same 5 FAQ
+questions in the same order, own SEO title (ending in
+` | Airport Split Transfer`) and meta description tuned for the language.
+If a short English string means something else in context, use a
+page-specific key `"segment@@<file>.html"` (see `tools/hr/README.md`).
 
 ## Images
 
@@ -212,18 +251,22 @@ caveat applies here):
    section above — same structure, own tuned SEO title/description,
    nav markup copied from an existing de/sv/no page — then run
    `python3 tools/sync_i18n.py` for hreflang and language switchers.
+   Then generate Croatian and Italian per "Croatian and Italian" above
+   (pages.txt, `tr_z_` dictionaries, both builds at 0 missing,
+   `sync_i18n.py`, `sitemap_lang.py hr it`).
 5. If it's a route: add all four versions to `destinations.html` /
    `de/destinations.html` / `sv/destinations.html` / `no/destinations.html`
    grids and one entry to `js/pricing.js`'s `DESTINATION_NAMES`. If it's a
-   blog article: add all four to the `blog/index.html` lists.
+   blog article: add all four to the `blog/index.html` lists. The hr/ and
+   it/ grids and lists are rebuilt from the English file automatically.
 6. Add four URLs to `sitemap.xml` — English, German, Swedish and Norwegian (match
    the existing entry format — priority 0.8 for routes, 0.5 for blog
    articles, changefreq monthly).
 7. Append an entry to `content-pipeline/history.md` (date, type, slug,
-   title, all four URLs published, and which pre-publish-checklist
+   title, all six URLs published (en/de/sv/no/hr/it), and which pre-publish-checklist
    candidates were rejected and why — keeps the audit trail honest for
    the next firing).
 8. Commit and push everything on the current branch.
 9. Send a short PushNotification naming what was published, with the live
-   path (e.g. `/destinations/trogir`, published in EN/DE/SV/NO).
-10. Reply in the session with a short summary and all four links.
+   path (e.g. `/destinations/trogir`, published in EN/DE/SV/NO/HR/IT).
+10. Reply in the session with a short summary and all six links.
