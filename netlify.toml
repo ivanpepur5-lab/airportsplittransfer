@@ -1,6 +1,13 @@
 [build]
   publish = "."
   functions = "netlify/functions"
+  # Skip the production build when a push only touches files that are not
+  # part of the published site (GBP post log, content-pipeline notes,
+  # translation tools, READMEs). Every production deploy costs Netlify
+  # credits, and the scheduled routines push those files several times a
+  # week. Exit code 0 = skip. If the previous commit is unknown the diff
+  # fails and the site builds as usual.
+  ignore = "[ -n \"$CACHED_COMMIT_REF\" ] && git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- . ':(exclude)marketing' ':(exclude)content-pipeline' ':(exclude)tools' ':(exclude)*.md'"
 
 [build.environment]
   NODE_VERSION = "18"
