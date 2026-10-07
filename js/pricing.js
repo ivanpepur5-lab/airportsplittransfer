@@ -19,10 +19,10 @@ const VEHICLES = {
     suitcases: 3,
     minPrice: 33,
     tiers: [
-      { upToKm: 20, ratePerKm: 2.42 },
-      { upToKm: 50, ratePerKm: 1.98 },
-      { upToKm: 100, ratePerKm: 1.76 },
-      { upToKm: Infinity, ratePerKm: 1.65 }
+      { upToKm: 20, ratePerKm: 2.662 },
+      { upToKm: 50, ratePerKm: 2.178 },
+      { upToKm: 100, ratePerKm: 1.936 },
+      { upToKm: Infinity, ratePerKm: 1.815 }
     ]
   },
   vclass: {
@@ -36,10 +36,10 @@ const VEHICLES = {
     suitcases: 7,
     minPrice: 44,
     tiers: [
-      { upToKm: 20, ratePerKm: 3.52 },
-      { upToKm: 50, ratePerKm: 2.86 },
-      { upToKm: 100, ratePerKm: 2.09 },
-      { upToKm: Infinity, ratePerKm: 1.98 }
+      { upToKm: 20, ratePerKm: 3.872 },
+      { upToKm: 50, ratePerKm: 3.146 },
+      { upToKm: 100, ratePerKm: 2.299 },
+      { upToKm: Infinity, ratePerKm: 2.178 }
     ]
   },
   trafic: {
@@ -54,10 +54,10 @@ const VEHICLES = {
     minPrice: 44,
     // Same per-km tariff as the V-Class, as specified.
     tiers: [
-      { upToKm: 20, ratePerKm: 3.52 },
-      { upToKm: 50, ratePerKm: 2.86 },
-      { upToKm: 100, ratePerKm: 2.09 },
-      { upToKm: Infinity, ratePerKm: 1.98 }
+      { upToKm: 20, ratePerKm: 3.872 },
+      { upToKm: 50, ratePerKm: 3.146 },
+      { upToKm: 100, ratePerKm: 2.299 },
+      { upToKm: Infinity, ratePerKm: 2.178 }
     ]
   }
 };
@@ -123,7 +123,7 @@ const DESTINATION_NAMES = {
  * brackets.
  *
  * Example (Škoda, 105 km — falls in the 100+ bracket):
- *   105 km @ 1.65/km = 173.25 → rounded to nearest €5 = 175
+ *   105 km @ 1.815/km = 190.575 → rounded to nearest €5 = 190
  *
  * The last tier's upToKm is Infinity, so any distance is always matched by
  * some bracket — there's no unhandled distance.

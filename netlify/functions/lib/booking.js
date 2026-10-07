@@ -88,8 +88,8 @@ function daytripText(lang) {
 }
 
 const DAYTRIP_PRICES = {
-  krka: { car: 255, van: 295 },
-  plitvice: { car: 430, van: 495 },
+  krka: { car: 280, van: 325 },
+  plitvice: { car: 475, van: 545 },
 };
 
 function daytripName(tripKey, lang = "en") {
