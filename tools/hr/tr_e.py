@@ -33,7 +33,9 @@ T = {
 "is a similar charter base a little further north, worth knowing about if you're comparing marinas for a sailing trip. And for a longer day out inland,": "slična je charter baza malo sjevernije, korisno ako uspoređujete marine za plovidbu. A za dulji izlet u unutrašnjost,",
 "Plitvice Lakes National Park": "Nacionalni park Plitvička jezera",
 "or the closer waterfalls at": "ili bliži slapovi u",
-"Krka National Park": "Nacionalnom parku Krka",
+"Krka National Park": "Nacionalni park Krka",
+"Krka National Park@@trogir.html": "Nacionalnom parku Krka",
+"Krka National Park@@trogir-to-split-airport.html": "Nacionalnom parku Krka",
 "are both reachable as a full-day private excursion from a Trogir base.": "dostupni su kao cjelodnevni privatni izlet iz Trogira.",
 "Book Your Private Transfer": "Rezervirajte privatni transfer",
 

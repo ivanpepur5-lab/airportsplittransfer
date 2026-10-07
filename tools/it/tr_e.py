@@ -34,6 +34,9 @@ T = {
 "Plitvice Lakes National Park": "Parco nazionale dei Laghi di Plitvice",
 "or the closer waterfalls at": "o le cascate più vicine del",
 "Krka National Park": "Parco nazionale di Krka",
+"Krka National Park@@kastela.html": "il Parco nazionale di Krka",
+"Plitvice Lakes National Park@@trogir.html": "il Parco nazionale dei Laghi di Plitvice",
+"Plitvice Lakes National Park@@trogir-to-split-airport.html": "il Parco nazionale dei Laghi di Plitvice",
 "are both reachable as a full-day private excursion from a Trogir base.": "sono raggiungibili con un'escursione privata di un giorno partendo da Trogir.",
 "Book Your Private Transfer": "Prenota il tuo transfer privato",
 

@@ -1,1 +1,15 @@
 partials/booking-widget.html index.html split-airport-transfers.html destinations.html fleet.html services.html about.html contact.html privacy.html terms.html destinations/split.html destinations/podstrana.html destinations/omis.html destinations/makarska.html destinations/dubrovnik.html destinations/brela.html destinations/baskavoda.html destinations/trogir.html destinations/kastela.html  destinations/split-to-split-airport.html destinations/podstrana-to-split-airport.html destinations/omis-to-split-airport.html destinations/makarska-to-split-airport.html destinations/dubrovnik-to-split-airport.html destinations/brela-to-split-airport.html destinations/baskavoda-to-split-airport.html destinations/trogir-to-split-airport.html 
+services/split-airport-transfer-with-kids.html
+services/split-group-transfers.html
+services/split-port-transfers.html
+services/split-airport-business-transfers.html
+day-trips.html
+day-trips/krka-national-park.html
+day-trips/plitvice-lakes.html
+hotel-transfers.html
+hotel-transfers/amadria-park-sibenik-solaris.html
+hotel-transfers/amphora-hotel-split.html
+hotel-transfers/hotel-ambasador-split.html
+hotel-transfers/le-meridien-lav.html
+hotel-transfers/medora-auri-podgora.html
+hotel-transfers/radisson-blu-resort-split.html

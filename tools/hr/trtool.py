@@ -135,8 +135,9 @@ def build(en_path, out_path, T, exists_hr, prefix_depth=True):
             s = s[:a] + '<script type="application/ld+json">' + json.dumps(new, ensure_ascii=False) + '</script>' + s[b:]
             continue
         n = norm(t)
-        if n not in T: missing.append(n); continue
-        rep = T[n]
+        # page-specific override: "segment@@file.html" beats the shared entry
+        rep = T.get(n + '@@' + os.path.basename(en_path), T.get(n))
+        if rep is None: missing.append(n); continue
         lead = re.match(r'\s*', t).group(0); trail = re.search(r'\s*$', t).group(0)
         if rep[:1] in '.,;:!?': lead = ''
         rep = html.escape(rep, quote=(kind == 'attr'))
