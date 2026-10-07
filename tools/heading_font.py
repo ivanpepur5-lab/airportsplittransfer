@@ -64,7 +64,7 @@ def block(files_dir):
    tools/heading_font.py: edit there, not here. */
 @font-face{{font-family:'Montserrat Heading'; font-style:normal; font-weight:800; font-display:swap; src:url(data:font/woff2;base64,{latin}) format('woff2');}}
 @font-face{{font-family:'Montserrat Heading'; font-style:normal; font-weight:800; font-display:swap; src:url(data:font/woff2;base64,{ext}) format('woff2'); unicode-range:{rng};}}
-:root{{--heading:#0D2A52;}}
+:root{{--heading:#07264C;}}
 h1, h2{{font-family:'Montserrat Heading','Schibsted Grotesk',sans-serif; font-weight:800; letter-spacing:-0.025em; line-height:1.18; color:var(--heading); text-wrap:balance;}}
 .hero h1{{color:var(--heading);}}
 body.page-home .hero h1{{max-width:880px;}}
