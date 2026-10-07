@@ -333,13 +333,15 @@ header{
 .hero-skoda{left:0; animation:drive-in-left .9s cubic-bezier(.22,1,.36,1) .1s both;}
 .hero-vclass{right:0; animation:drive-in-right .9s cubic-bezier(.22,1,.36,1) .2s both;}
 
+/* Transform only, no fade: the cars start fully off-screen anyway, and an
+   opacity:0 start made the (largest) car the late LCP element. */
 @keyframes drive-in-left{
-  from{transform:translateX(-120%); opacity:0;}
-  to{transform:translateX(0); opacity:1;}
+  from{transform:translateX(-120%);}
+  to{transform:translateX(0);}
 }
 @keyframes drive-in-right{
-  from{transform:translateX(120%); opacity:0;}
-  to{transform:translateX(0); opacity:1;}
+  from{transform:translateX(120%);}
+  to{transform:translateX(0);}
 }
 @media (prefers-reduced-motion:reduce){
   .hero-skoda, .hero-vclass{animation:none;}
