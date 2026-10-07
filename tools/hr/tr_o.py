@@ -58,3 +58,16 @@ T = {
 "Mercedes V-Class vs Renault Trafic: Choosing the Right Group Vehicle": "Mercedes V-Class ili Renault Trafic: kako odabrati vozilo za grupu",
 "Both vehicles carry a group comfortably: the right choice depends on party size, luggage, and how the journey should feel.": "Oba vozila udobno voze grupu: pravi izbor ovisi o veličini grupe, prtljazi i tome kakva vožnja treba biti.",
 }
+
+# category · date lines and "Related Reading" links (title + arrow)
+_CAT = {"Airport Transfers": "Aerodromski transferi", "Croatia Destinations": "Odredišta u Hrvatskoj", "Luxury Travel": "Luksuzna putovanja",
+        "Split Travel Guide": "Vodič za Split", "Travel Tips": "Savjeti za putovanje"}
+_MON = {"January": "siječanj", "February": "veljača", "March": "ožujak", "April": "travanj", "May": "svibanj", "June": "lipanj",
+        "July": "srpanj", "August": "kolovoz", "September": "rujan", "October": "listopad", "November": "studeni", "December": "prosinac"}
+for _c, _ch in _CAT.items():
+    for _m, _mh in _MON.items():
+        T[f"{_c} · {_m} 2026"] = f"{_ch} · {_mh} 2026."
+for _k in list(T):
+    if ":" in _k or "?" in _k or "Guide" in _k or "Transfer" in _k:
+        T.setdefault(_k + " →", T[_k] + " →")
+T["Related Reading"] = "Pročitajte i"

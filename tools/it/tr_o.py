@@ -58,3 +58,16 @@ T = {
 "Mercedes V-Class vs Renault Trafic: Choosing the Right Group Vehicle": "Mercedes Classe V o Renault Trafic: scegliere il veicolo giusto per il gruppo",
 "Both vehicles carry a group comfortably: the right choice depends on party size, luggage, and how the journey should feel.": "Entrambi i veicoli trasportano comodamente un gruppo: la scelta giusta dipende dal numero di persone, dai bagagli e da come vuoi che sia il viaggio.",
 }
+
+# category · date lines and "Related Reading" links (title + arrow)
+_CAT = {"Airport Transfers": "Transfer aeroportuali", "Croatia Destinations": "Destinazioni in Croazia", "Luxury Travel": "Viaggi di lusso",
+        "Split Travel Guide": "Guida di Spalato", "Travel Tips": "Consigli di viaggio"}
+_MON = {"January": "gennaio", "February": "febbraio", "March": "marzo", "April": "aprile", "May": "maggio", "June": "giugno",
+        "July": "luglio", "August": "agosto", "September": "settembre", "October": "ottobre", "November": "novembre", "December": "dicembre"}
+for _c, _ch in _CAT.items():
+    for _m, _mh in _MON.items():
+        T[f"{_c} · {_m} 2026"] = f"{_ch} · {_mh} 2026"
+for _k in list(T):
+    if ":" in _k or "?" in _k or "Guide" in _k or "Transfer" in _k:
+        T.setdefault(_k + " →", T[_k] + " →")
+T["Related Reading"] = "Leggi anche"

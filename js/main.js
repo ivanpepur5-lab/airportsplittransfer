@@ -303,7 +303,8 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         catPills.forEach(p => p.classList.remove("active"));
         pill.classList.add("active");
-        const cat = pill.dataset.cat;
+        // Compare visible labels: pills and card tags are translated the same way in every language.
+        const cat = pill.dataset.cat === "all" ? "all" : pill.textContent.trim();
         blogCards.forEach((card) => {
           const cardCat = card.querySelector(".blog-cat")?.textContent.trim();
           card.style.display = (cat === "all" || cardCat === cat) ? "" : "none";

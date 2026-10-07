@@ -261,4 +261,17 @@ IT added to every page's language switcher and hreflang via
 New content from the scheduled pipeline stays EN/DE/SV/NO; untranslated
 it links fall back to English automatically.
 
+## 2026-10-07 — Croatian and Italian, phase 2: every page (81 more per language)
+
+hr/ and it/ now mirror the full English site, 107 pages each: services/
+audience pages, day trips (form, inline script strings, price label), hotel
+transfers, the remaining 45 route/marina/village pages, and the whole blog
+(index + 21 posts). 162 new sitemap URLs (tools/sitemap_lang.py). Tooling:
+page-specific dictionary entries (`segment@@file.html`), `JSR` replacements
+for inline scripts, all `tr_*.py` loaded automatically. Fixes along the
+way: blog category filter now compares visible labels (it broke on hr/it,
+where data-cat stays English); Croatian case of "Nacionalni park Krka" on
+the Kaštela page. New EN content from the scheduled pipeline is not
+translated automatically; hr/it links to it fall back to English.
+
 <!-- New entries are appended above this line by each scheduled firing. -->
