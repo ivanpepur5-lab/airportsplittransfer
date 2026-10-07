@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dots = Array.from(items).map((_, i) => {
         const b = document.createElement("button");
         b.type = "button";
-        b.setAttribute("aria-label", "Go to slide " + (i + 1));
+        b.setAttribute("aria-label", ({ de: "Zu Folie ", sv: "Gå till bild ", no: "Gå til bilde ", hr: "Idi na slajd ", it: "Vai alla slide " }[document.documentElement.lang] || "Go to slide ") + (i + 1));
         b.addEventListener("click", () => { stopAutoplay(); scrollToIndex(i); });
         dotsWrap.appendChild(b);
         return b;

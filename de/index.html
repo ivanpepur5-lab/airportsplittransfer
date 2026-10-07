@@ -62,9 +62,10 @@
 <link rel="icon" type="image/png" href="../assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
+<link rel="preload" href="/assets/hero-vclass.avif" as="image" type="image/avif" media="(min-width:1011px)" fetchpriority="high">
 <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/style.css?v=20261009">
+<link rel="stylesheet" href="../css/style.css?v=20261010">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Airport Split Transfer", "image": "https://airportsplittransfer.com/assets/og-image.jpg?v=2", "url": "https://airportsplittransfer.com/de/", "telephone": "+385 91 785 6056", "priceRange": "€€€", "address": {"@type": "PostalAddress", "addressLocality": "Split", "addressCountry": "HR"}, "areaServed": "Split-Dalmatia County, Croatia", "openingHours": "Mo-Su 00:00-23:59", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "35", "bestRating": "5"}, "sameAs": ["https://www.instagram.com/airport.taxi.split", "https://www.tiktok.com/@airport.split.transfer", "https://maps.app.goo.gl/Uxt5aKhvFQ8sofAFA"]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Wie viel kostet ein privater Transfer vom Flughafen Split?","acceptedAnswer":{"@type":"Answer","text":"Der genaue Preis hängt von Ihrer Abhol- und Zieladresse sowie dem gewählten Fahrzeug ab. Geben Sie Ihre Daten oben im Buchungsformular ein, um sofort einen Festpreis zu erhalten: Mautgebühren, Kraftstoff und Empfang bei der Ankunft sind immer inbegriffen, ohne versteckte Kosten."}},{"@type":"Question","name":"Welche Reiseziele decken Sie vom Flughafen Split aus ab?","acceptedAnswer":{"@type":"Answer","text":"Wir bieten private Transfers zum Festpreis vom Flughafen Split nach Split, Trogir, Omiš, Makarska, Šibenik, Zadar, Dubrovnik, zu den Plitvicer Seen und in jede andere größere Stadt oder jedes Dorf entlang der dalmatinischen Küste."}},{"@type":"Question","name":"Was passiert, wenn sich mein Flug verspätet?","acceptedAnswer":{"@type":"Answer","text":"Wir verfolgen Ihre Flugnummer in Echtzeit, sodass Ihr Fahrer die Abholung automatisch anpasst. Bei angemessenen Verspätungen entstehen keine zusätzlichen Kosten."}},{"@type":"Question","name":"Kann ich einen Rücktransfer buchen?","acceptedAnswer":{"@type":"Answer","text":"Ja, wählen Sie bei der Buchung \"Rückfahrt\", um beide Etappen Ihrer Reise gemeinsam zu planen, mit 5% Rabatt auf den Gesamtpreis."}},{"@type":"Question","name":"Welche Fahrzeuge kann ich wählen?","acceptedAnswer":{"@type":"Answer","text":"Einen Škoda Superb (1–4 Personen), eine Mercedes-Benz V-Class (1–7 Personen) oder einen Renault Trafic (1–8 Personen), jeweils zum Festpreis pro Fahrzeug."}},{"@type":"Question","name":"Sind Kindersitze verfügbar?","acceptedAnswer":{"@type":"Answer","text":"Ja, Kindersitze werden auf Anfrage kostenlos bereitgestellt, erwähnen Sie dies einfach bei der Buchung."}},{"@type":"Question","name":"Wie bezahle ich meinen Transfer?","acceptedAnswer":{"@type":"Answer","text":"Wir akzeptieren sowohl Karte als auch Bargeld. Der Preis wird vor der Fahrt vereinbart und bestätigt, sodass es am Reisetag keine Überraschungen gibt."}}]}</script>
 </head>
@@ -198,7 +199,7 @@
     <div class="fleet-layout">
       <div class="fleet-grid">
         <div class="fleet-card reveal">
-      <div class="fleet-media"><picture><source media="(max-width:640px)" srcset="../assets/vehicle-skoda-sm.avif?v=2" type="image/avif"><source media="(max-width:640px)" srcset="../assets/vehicle-skoda-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-skoda.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-skoda.webp?v=2" type="image/webp"><img src="../assets/vehicle-skoda.webp?v=2" alt="Weißer Škoda Superb für private Flughafentransfers ab Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
+      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-skoda-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-skoda-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-skoda.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-skoda.webp?v=2" type="image/webp"><img src="../assets/vehicle-skoda.webp?v=2" alt="Weißer Škoda Superb für private Flughafentransfers ab Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
       <div class="fleet-body">
         <span class="fleet-class">Weiß &middot; Business-Limousine</span>
         <h3>Limousine</h3>
@@ -211,7 +212,7 @@
       </div>
     </div>
     <div class="fleet-card reveal">
-      <div class="fleet-media"><picture><source media="(max-width:640px)" srcset="../assets/vehicle-vclass-sm.avif?v=2" type="image/avif"><source media="(max-width:640px)" srcset="../assets/vehicle-vclass-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-vclass.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-vclass.webp?v=2" type="image/webp"><img src="../assets/vehicle-vclass.webp?v=2" alt="Schwarzer Mercedes-Benz V-Klasse für Gruppentransfers ab Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
+      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-vclass-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-vclass-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-vclass.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-vclass.webp?v=2" type="image/webp"><img src="../assets/vehicle-vclass.webp?v=2" alt="Schwarzer Mercedes-Benz V-Klasse für Gruppentransfers ab Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
       <div class="fleet-body">
         <span class="fleet-class">Schwarz &middot; Premium-Van</span>
         <h3>Business-Van</h3>
@@ -224,7 +225,7 @@
       </div>
     </div>
     <div class="fleet-card reveal">
-      <div class="fleet-media"><picture><source media="(max-width:640px)" srcset="../assets/vehicle-trafic-sm.avif?v=2" type="image/avif"><source media="(max-width:640px)" srcset="../assets/vehicle-trafic-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-trafic.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-trafic.webp?v=2" type="image/webp"><img src="../assets/vehicle-trafic.webp?v=2" alt="Weißer Renault Trafic für größere Gruppentransfers ab Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
+      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-trafic-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-trafic-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-trafic.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-trafic.webp?v=2" type="image/webp"><img src="../assets/vehicle-trafic.webp?v=2" alt="Weißer Renault Trafic für größere Gruppentransfers ab Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
       <div class="fleet-body">
         <span class="fleet-class">Weiß &middot; Gruppentransfer</span>
         <h3>Van</h3>

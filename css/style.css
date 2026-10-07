@@ -1357,13 +1357,17 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 }
 .carousel-dots{display:none;}
 @media (max-width:640px){
-  .carousel-dots{display:flex; justify-content:center; gap:8px; margin-top:18px;}
+  .carousel-dots{display:flex; justify-content:center; gap:0; margin-top:10px;}
+  /* 24px tap target, 8px visible dot */
   .carousel-dots button{
-    width:8px; height:8px; border-radius:50%; border:none; padding:0;
-    background:var(--line-strong); cursor:pointer;
-    transition:background-color .2s ease, transform .2s ease;
+    width:24px; height:24px; border:none; padding:0; background:none; cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center;
   }
-  .carousel-dots button.active{background:var(--gold); transform:scale(1.35);}
+  .carousel-dots button::before{
+    content:""; width:8px; height:8px; border-radius:50%;
+    background:var(--line-strong); transition:background-color .2s ease, transform .2s ease;
+  }
+  .carousel-dots button.active::before{background:var(--gold); transform:scale(1.35);}
 }
 
 /* ============ MOBILE CARD PADDING — BOOKING/PRICE CARDS ============ */

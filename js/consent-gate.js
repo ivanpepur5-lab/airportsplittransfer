@@ -46,12 +46,29 @@
         var klaroScript = document.createElement("script");
         klaroScript.src = base + "js/vendor/klaro.js";
         klaroScript.setAttribute("data-config", "klaroConfig");
-        klaroScript.onload = function () { resolve(); };
+        klaroScript.onload = function () { labelNotice(); resolve(); };
         document.body.appendChild(klaroScript);
       };
       document.head.appendChild(configScript);
     });
     return klaroLoading;
+  }
+
+  // Klaro's notice points aria-labelledby at a title it never renders
+  // (showNoticeTitle is off), so give the dialog a name of its own.
+  function labelNotice() {
+    var names = { de: "Cookie-Einstellungen", sv: "Cookieinställningar", no: "Informasjonskapsler", hr: "Postavke kolačića", it: "Preferenze cookie" };
+    var name = names[document.documentElement.lang] || "Cookie preferences";
+    function fix() {
+      var el = document.getElementById("klaro-cookie-notice");
+      if (el && !document.getElementById("id-cookie-title")) {
+        el.removeAttribute("aria-labelledby");
+        el.setAttribute("aria-label", name);
+      }
+    }
+    fix();
+    var klaroEl = document.getElementById("klaro") || document.body;
+    if (klaroEl && window.MutationObserver) new MutationObserver(fix).observe(klaroEl, { childList: true, subtree: true });
   }
 
   // Exposed so the footer "Cookie Preferences" link works even for visitors
