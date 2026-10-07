@@ -564,17 +564,75 @@ function submitContactForm(e) {
   return false;
 }
 
-// Homepage sticky booking bar (phones): shown only once the hero booking form
-// has scrolled up out of view, hidden again whenever the form is on screen.
+// Sticky booking bar (phones). The homepage has its own markup and shows the
+// bar once the hero booking form has scrolled up out of view. Every other page
+// with a booking button (routes, marinas, hotels, services, blog, day trips)
+// gets the same bar built from its first booking button, so the label is
+// already in the page's language: it appears once that button has scrolled
+// away and hides again while a booking form, the closing WhatsApp banner or
+// the footer is on screen, so it never covers the thing it points to.
 (function () {
-  const bar = document.getElementById("mobile-cta");
+  if (!("IntersectionObserver" in window)) return;
+  let bar = document.getElementById("mobile-cta");
   const form = document.getElementById("booking");
-  if (!bar || !form || !("IntersectionObserver" in window)) return;
-  new IntersectionObserver(function (entries) {
-    const e = entries[0];
-    bar.classList.toggle("is-visible", !e.isIntersecting && e.boundingClientRect.top < 0);
-  }).observe(form);
-  const book = bar.querySelector(".mobile-cta-book");
+  if (bar && form) {
+    new IntersectionObserver(function (entries) {
+      const e = entries[0];
+      bar.classList.toggle("is-visible", !e.isIntersecting && e.boundingClientRect.top < 0);
+    }).observe(form);
+  } else if (!bar) {
+    const main = document.querySelector("main") || document.body;
+    const src = main.querySelector('a.btn-gold[href*="#booking"], a.trip-hero-cta');
+    // The fleet page's buttons pick a specific vehicle; no bar there.
+    if (!src || src.closest(".fleet-card")) return;
+    const label = src.textContent.replace(/\s+/g, " ").trim();
+    if (!label) return;
+    const wa = document.querySelector('.wa-banner a[href*="wa.me"]');
+    bar = document.createElement("div");
+    bar.className = "mobile-cta";
+    bar.id = "mobile-cta";
+    const book = document.createElement("a");
+    book.className = "mobile-cta-book";
+    book.href = src.getAttribute("href");
+    book.textContent = label;
+    bar.appendChild(book);
+    if (wa) {
+      const w = document.createElement("a");
+      w.className = "mobile-cta-wa";
+      w.href = wa.getAttribute("href");
+      w.target = "_blank";
+      w.rel = "noopener";
+      w.setAttribute("aria-label", "WhatsApp");
+      w.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>';
+      bar.appendChild(w);
+    }
+    document.body.appendChild(bar);
+    // Visible once the source button has been passed and none of the
+    // blocking zones (booking form, mid-page booking callout, WhatsApp banner,
+    // footer) is on screen. A button lower down the page (blog articles end with one) also counts
+    // as passed once the reader is well into the page and it is not yet in
+    // view, so the bar is there while they read rather than only at the end.
+    let passed = false;
+    const blocking = new Set();
+    const update = () => bar.classList.toggle("is-visible", passed && blocking.size === 0);
+    let ticking = false;
+    const check = () => {
+      ticking = false;
+      const r = src.getBoundingClientRect();
+      const inView = r.bottom > 0 && r.top < window.innerHeight;
+      passed = !inView && (r.bottom <= 0 || window.scrollY > 700);
+      update();
+    };
+    window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(check); } }, { passive: true });
+    check();
+    const zones = document.querySelectorAll("#booking, #book-trip, .price-cta, .wa-banner, footer");
+    const zio = new IntersectionObserver(function (entries) {
+      entries.forEach(e => { if (e.isIntersecting) blocking.add(e.target); else blocking.delete(e.target); });
+      update();
+    });
+    zones.forEach(z => zio.observe(z));
+  }
+  const book = bar && bar.querySelector(".mobile-cta-book");
   if (book) book.addEventListener("click", function () {
     sendGaEvent("sticky_bar_click", { link_location: "sticky_bar" });
   });

@@ -1659,6 +1659,72 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   .mobile-cta, .mobile-cta.is-visible{transition:none;}
 }
 
+/* ============ CONVERSION POLISH ============ */
+/* Mid-page booking callout on route pages: the price note plus the same
+   "get your fixed price" button as the page hero (button only, the form
+   itself stays on the homepage). */
+.price-cta{
+  display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
+  padding:22px 26px; border-radius:16px;
+  background:linear-gradient(180deg, #F3F8FE 0%, #EAF3FC 100%);
+  border:1px solid rgba(0,87,193,0.14);
+}
+.price-cta p{margin:0; flex:1 1 320px; color:var(--cream); font-size:0.95rem; line-height:1.55;}
+.price-cta .btn{flex:0 0 auto; white-space:nowrap;}
+@media (max-width:640px){
+  .price-cta{padding:20px 18px;}
+  .price-cta .btn{width:100%; text-align:center; white-space:normal;}
+}
+.price-cta{margin-bottom:60px;}
+
+/* Day trips: booking button in the photo hero, jumping to the trip form. */
+.trip-hero-cta{margin-top:18px; display:inline-block;}
+#book-trip{scroll-margin-top:96px;}
+
+/* Footer "Cookie Preferences" trigger: styled here as well, because the
+   consent theme stylesheet is only loaded while the banner is open. */
+.footer-bottom .cookie-settings-link{background:none; border:none; padding:0; font:inherit; color:rgba(255,255,255,0.6); cursor:pointer; text-decoration:none;}
+.footer-bottom .cookie-settings-link:hover{color:#fff;}
+
+/* Longer translations: keep the hero rating on one line on phones, the
+   four hero badges on one row on desktop, the One way / Return toggle
+   labels on one line, and the small stat labels in balanced lines. */
+.hero .hero-badges{max-width:900px;}
+.hero-trust-count{white-space:nowrap;}
+@media (max-width:480px){
+  .hero-trust-bar{flex-wrap:nowrap; gap:8px;}
+  .hero-trust-stars{margin-left:0; letter-spacing:0;}
+  .hero-trust-count{font-size:min(0.88rem, 3.4vw);}
+}
+@media (max-width:640px){
+  .toggle-group .toggle-opt{white-space:nowrap; font-size:clamp(0.7rem, 3.3vw, 0.82rem); padding:11px 6px;}
+  .toggle-badge{margin-left:4px; padding:2px 5px;}
+  .trust-item span{display:block; letter-spacing:0.03em; line-height:1.45; text-wrap:balance;}
+}
+.trust-item b{text-wrap:balance;}
+
+/* Homepage, phones: three reassurances right under the booking form (the
+   hero badges above the form are hidden on phones to keep the form high). */
+.hero-assure{display:none;}
+@media (max-width:640px){
+  .hero-assure{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:6px 14px;
+    list-style:none; margin:16px auto 0; padding:0 8px;
+    font-size:0.76rem; color:var(--cream); font-weight:500;
+  }
+  .hero-assure li{display:inline-flex; align-items:center; gap:5px; white-space:nowrap;}
+  .hero-assure li::before{
+    content:''; width:14px; height:14px; flex-shrink:0; border-radius:50%;
+    background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.9' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat;
+  }
+  .hero-assure + .hero-wa{margin-top:12px;}
+}
+
+/* "Why choose us": five items sit on one row on desktop, and the odd one
+   out is centred across both columns on smaller screens. */
+@media (min-width:1101px){ .why-mini-row:has(> .why-mini-item:nth-child(5):last-child){grid-template-columns:repeat(5,1fr);} }
+@media (max-width:1100px){ .why-mini-row > .why-mini-item:last-child:nth-child(odd){grid-column:1 / -1;} }
+
 /* heading-font:start */
 /* ============ HEADINGS: LOGO TYPEFACE ============
    h1 and h2 in Montserrat ExtraBold (SIL OFL, assets/fonts/OFL-montserrat.txt),
