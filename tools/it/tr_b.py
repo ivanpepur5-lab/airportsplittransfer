@@ -18,6 +18,8 @@ T = {
 "How do I book a Split Airport taxi online?": "Come prenoto online un taxi dall'aeroporto di Spalato?",
 "Enter your pickup and drop-off address, choose your date, time and vehicle in the booking form on this page, and you'll see an instant fixed price, no account or deposit required to reserve.": "Nel modulo di questa pagina inserisci partenza e destinazione, scegli data, ora e veicolo e vedrai subito il prezzo fisso. Per prenotare non servono account né acconti.",
 "Hrvatski": "Hrvatski",
+"Italiano": "Italiano",
+"IT": "IT",
 "HR": "HR",
 "Private Airport Taxi": "Taxi privato dall'aeroporto",
 "Fixed-price private taxi from Split Airport to Split, Trogir, Omiš, Makarska and the whole Dalmatian coast: English-speaking drivers, flight tracking and 24/7 service.": "Taxi privato a prezzo fisso dall'aeroporto di Spalato verso Spalato, Trogir, Omiš, Makarska e tutta la costa dalmata: autisti che parlano inglese, monitoraggio del volo e servizio 24/7.",

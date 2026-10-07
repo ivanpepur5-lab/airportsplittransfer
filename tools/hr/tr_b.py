@@ -18,6 +18,8 @@ T = {
 "How do I book a Split Airport taxi online?": "Kako online rezervirati taxi sa Zračne luke Split?",
 "Enter your pickup and drop-off address, choose your date, time and vehicle in the booking form on this page, and you'll see an instant fixed price, no account or deposit required to reserve.": "U obrazac na ovoj stranici upišite polazište i odredište, odaberite datum, vrijeme i vozilo i odmah ćete vidjeti fiksnu cijenu. Za rezervaciju ne trebate račun ni polog.",
 "Hrvatski": "Hrvatski",
+"Italiano": "Italiano",
+"IT": "IT",
 "HR": "HR",
 "Private Airport Taxi": "Privatni taxi s aerodroma",
 "Fixed-price private taxi from Split Airport to Split, Trogir, Omiš, Makarska and the whole Dalmatian coast: English-speaking drivers, flight tracking and 24/7 service.": "Privatni taxi sa Zračne luke Split po fiksnoj cijeni do Splita, Trogira, Omiša, Makarske i cijele dalmatinske obale: praćenje leta i usluga 0-24.",
