@@ -111,6 +111,21 @@ exports.handler = async (event) => {
   const data = payload.data || {};
   const lang = normalizeLang(data.lang);
 
+  // A submission with no way to reach the guest (no name, email or phone,
+  // or for the contact form no email and no message) can't be a real
+  // booking: the forms require those fields in the browser, so it was
+  // posted straight to Netlify by a bot or crawler with only the hidden
+  // defaults. Send nothing, so it doesn't arrive as an empty NEW BOOKING
+  // plus a "customer email FAILED" alert.
+  const blank = (v) => !String(v || "").trim();
+  const isJunk = payload.form_name === "contact"
+    ? blank(data.email) && blank(data.message)
+    : blank(data.full_name) && blank(data.email) && blank(data.phone);
+  if (isJunk) {
+    console.warn("[booking-email] Ignored empty", payload.form_name, "submission", payload.id, "(no name, email or phone)");
+    return { statusCode: 200, body: "Ignored (empty submission)" };
+  }
+
   if (payload.form_name === "contact") {
     return handleContactSubmission(payload, data, lang);
   }

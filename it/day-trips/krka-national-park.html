@@ -174,7 +174,8 @@
       </div>
       <div class="summary-box reveal" id="book-trip">
         <h3>Prenota l'escursione</h3>
-        <form name="daytrip" method="POST" data-netlify="true" netlify id="d-form" onsubmit="return submitDayTrip(event)">
+        <form name="daytrip" method="POST" data-netlify="true" netlify-honeypot="bot-field" netlify id="d-form" onsubmit="return submitDayTrip(event)">
+          <input type="text" name="bot-field" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
           <input type="hidden" name="form-name" value="daytrip">
           <input type="hidden" name="lang" value="it">
           <input type="hidden" name="trip" value="krka">

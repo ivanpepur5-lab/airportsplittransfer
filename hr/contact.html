@@ -132,7 +132,8 @@
     <div class="booking-form-box reveal">
       <h2>Pošaljite poruku</h2>
       <p class="sub">Danju odgovaramo unutar nekoliko minuta, a noću unutar sat vremena.</p>
-      <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify onsubmit="return submitContactForm(event)">
+      <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" netlify onsubmit="return submitContactForm(event)">
+          <input type="text" name="bot-field" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
         <input type="hidden" name="form-name" value="contact">
         <input type="hidden" name="lang" value="hr">
         <div class="form-row">

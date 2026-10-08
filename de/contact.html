@@ -132,7 +132,8 @@
     <div class="booking-form-box reveal">
       <h2>Nachricht Senden</h2>
       <p class="sub">Wir antworten tagsüber innerhalb weniger Minuten und über Nacht innerhalb einer Stunde.</p>
-      <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify onsubmit="return submitContactForm(event)">
+      <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" netlify onsubmit="return submitContactForm(event)">
+          <input type="text" name="bot-field" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
         <input type="hidden" name="form-name" value="contact">
         <input type="hidden" name="lang" value="de">
         <div class="form-row">
