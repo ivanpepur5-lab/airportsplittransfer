@@ -51,4 +51,10 @@ A late flight should never be your problem. We follow your flight number live, s
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-08 16:14 UTC — Day trip post — Krka National Park
+
+Spend a slow day among the waterfalls of Skradinski Buk, without a timetable to chase. Your private driver collects you in Split, speaks English and waits at the park while you swim, walk and take your time. A fixed price covers the whole 8-10 hour trip: €280 by car, €325 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
