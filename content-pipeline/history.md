@@ -275,3 +275,26 @@ the Kaštela page. New EN content from the scheduled pipeline is not
 translated automatically; hr/it links to it fall back to English.
 
 <!-- New entries are appended above this line by each scheduled firing. -->
+
+## 2026-10-08 — Structure: one page per destination (Google doorway / scaled-content rules)
+
+Ivan asked for the site to follow Google's rules on AI content and spam
+(using-gen-ai-content, spam-policies). Measured before the change: the 26
+"X to Split Airport" pages shared 47–69% of their text with the matching
+"Split Airport to X" page (6-word shingles), times six languages.
+
+- The 26 reverse pages were merged into their destination page as a
+  `#to-airport` section (in each language, taken from that language's own
+  reverse page: its heading, the paragraphs and FAQ answers not already on
+  the destination page, and its `?from=` booking button), then deleted:
+  156 pages (26 × EN/DE/SV/NO/HR/IT).
+- 312 permanent redirects in `_redirects` (each old URL, with and without
+  `.html`, all six languages) to the destination page.
+- `destinations.html` cards: "To Airport" now opens `<page>#to-airport`.
+  All other links updated the same way; sitemap entries removed.
+- The pipeline now drafts one article a week for Ivan's approval instead of
+  publishing twice a week unreviewed (see README). Friday Routine off.
+- Still open (needs Ivan's first-hand input): the 12 short templated town
+  pages (Split, Makarska, Omiš, Dubrovnik, Brela, Podstrana, Baška Voda,
+  Šibenik, Vodice, Zadar, Murter, Podgora, ~290 words, 63–67% shared text)
+  should get real local detail, one town at a time.

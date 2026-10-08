@@ -10,3 +10,13 @@
 
 /js/*
   Cache-Control: public, max-age=0, must-revalidate
+
+# Working files that live in the repo but are not part of the site
+# (article drafts, the GBP post log, build tools): served if someone has
+# the URL, but kept out of search results.
+/content-pipeline/*
+  X-Robots-Tag: noindex, nofollow
+/marketing/*
+  X-Robots-Tag: noindex, nofollow
+/tools/*
+  X-Robots-Tag: noindex, nofollow

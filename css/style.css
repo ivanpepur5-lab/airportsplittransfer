@@ -1720,6 +1720,26 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   .hero-assure + .hero-wa{margin-top:12px;}
 }
 
+/* Route pages: the trip back to the airport, on the same page as the trip
+   out (one page per destination, both directions). */
+.to-airport{
+  margin:0 0 72px; padding:34px 36px; border-radius:18px;
+  background:var(--bg-2); border:1px solid var(--line);
+  scroll-margin-top:96px;
+}
+.to-airport h2{font-size:1.6rem; margin:6px 0 16px;}
+.to-airport > p{color:var(--gray); margin-bottom:16px; max-width:760px;}
+.to-airport .faq-list{margin:22px 0 4px;}
+.to-airport .faq-item{padding:16px 0; border-top:1px solid var(--line);}
+.to-airport .faq-item h3{font-size:1rem; margin-bottom:6px;}
+.to-airport .faq-item p{color:var(--gray); margin:0;}
+.to-airport-cta{margin-top:22px;}
+@media (max-width:640px){
+  .to-airport{padding:24px 18px; margin-bottom:56px;}
+  .to-airport h2{font-size:1.35rem;}
+  .to-airport-cta .btn{width:100%; text-align:center;}
+}
+
 /* "Why choose us": five items sit on one row on desktop, and the odd one
    out is centred across both columns on smaller screens. */
 @media (min-width:1101px){ .why-mini-row:has(> .why-mini-item:nth-child(5):last-child){grid-template-columns:repeat(5,1fr);} }

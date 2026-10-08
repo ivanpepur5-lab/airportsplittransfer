@@ -1,8 +1,39 @@
-# Auto SEO content pipeline — routes & blog
+# SEO content pipeline — routes & blog
 
-Twice a week, publish one new transfer-route page or SEO blog article for
-airportsplittransfer.com, sourced automatically, never repeating a topic
-already covered.
+Once a week (Tuesday) the routine researches and **drafts** one new
+transfer-route page or blog article for airportsplittransfer.com, never
+repeating a topic already covered. **Nothing is published until Ivan has
+read the draft and approved it** (since 2026-10-08, see "Google's rules"
+below). Before that date the pipeline published twice a week without
+review; that is no longer allowed.
+
+## Google's rules this pipeline follows (2026-10-08)
+
+Google's guidance on generative AI content and its spam policies:
+https://developers.google.com/search/docs/fundamentals/using-gen-ai-content
+https://developers.google.com/search/docs/essentials/spam-policies
+
+- **Scaled content abuse:** many pages that add little value (generated,
+  translated or reworded) are spam whatever tool made them. So: one
+  article a week at most, each one genuinely useful on its own, and no
+  new page just to cover one more place name.
+- **Doorway abuse:** many near-identical pages for different towns that
+  all lead to the same form are spam. So: **one page per destination for
+  both directions.** The trip back to the airport is a `#to-airport`
+  section on the destination page (see `destinations/trogir.html`), never
+  a separate "X to Split Airport" page. The 26 old reverse pages were
+  merged on 2026-10-08 and 301-redirected (`_redirects`).
+- **Human review and accuracy:** a person checks AI text, titles, meta
+  descriptions and alt text before they go live. The draft lists every
+  fact that needs checking; Ivan confirms or corrects them.
+- **First-hand experience:** each draft asks Ivan one to three concrete
+  questions about the route or topic (where guests are dropped, traffic,
+  what guests ask). His answers go into the page in his words, never
+  invented. If he has nothing to add, the page goes out without it, but
+  nothing is made up to fill the gap.
+- **No new pages for small places** unless there is real demand and real
+  content: a new destination page needs at least as much unique, useful
+  content as the existing village pages, not a template with a new name.
 
 ## Pre-publish checklist — run every time, in this order, before writing anything
 
@@ -56,7 +87,8 @@ mapped onto what actually exists here instead:
 *to* from Split Airport: a town, marina, ferry port, or specific address.
 Uses the destination-page template (breadcrumb → page-hero → trust-strip →
 journey overview → about-the-place → what-to-expect → nearby places →
-FAQPage JSON-LD). Price is never hardcoded — every route page points to
+`#to-airport` section for the trip back → FAQ → FAQPage JSON-LD). One page
+covers both directions; never create a separate "X to Split Airport" page. Price is never hardcoded — every route page points to
 the live booking form, which quotes an exact price once a real
 pickup/drop-off address is entered. Linked from `destinations.html`'s grid
 and added to `js/pricing.js`'s `DESTINATION_NAMES` map so the "Book This
@@ -78,7 +110,7 @@ linking to `../index.html#booking`.
 ## Languages — publish in all languages at once
 
 Every new route or blog page ships in English, German, Swedish,
-Norwegian (Bokmål), Croatian and Italian **together, in the same firing**
+Norwegian (Bokmål), Croatian and Italian **together, in the same publication**
 (hr and it are generated, see "Croatian and Italian" below) — not English-first
 with translations to follow. This is a hard requirement, not a
 nice-to-have: a page that only exists in English is not considered
@@ -128,13 +160,13 @@ For each new page:
    (one entry, just a place name used to prefill an address field) — add
    it once, not per language.
 
-### Croatian and Italian (generated, same firing)
+### Croatian and Italian (generated, same publication)
 
 Since 2026-10-07 every page also exists in Croatian (`hr/`) and Italian
 (`it/`). These are not hand-written HTML files: they are generated from the
 English page by `tools/hr/build.py` and `tools/it/build.py` (see
 `tools/hr/README.md`). A new page is published in all six languages in the
-same firing:
+same publication:
 
 1. Add the English path (e.g. `destinations/<slug>.html` or
    `blog/<slug>.html`) to `tools/hr/pages.txt` and `tools/it/pages.txt`.
@@ -199,9 +231,9 @@ as genuine.
   pages relevant to the topic (nearby routes, related guides).
 - CTA: a `<div class="route-cta">` "Get your fixed price" button straight
   under the page hero, linking to the same language's homepage form with
-  the route prefilled: `../index.html?to=<key>#booking` for "Split Airport
-  to X" pages and `../index.html?from=<key>#booking` for "X to Split
-  Airport" pages. Add `<key>` to `DESTINATION_NAMES` in `js/pricing.js`
+  the route prefilled: `../index.html?to=<key>#booking`. The `#to-airport`
+  section ends with its own button for the trip back,
+  `../index.html?from=<key>#booking`. Add `<key>` to `DESTINATION_NAMES` in `js/pricing.js`
   (a geocodable "Place, Croatia" name), otherwise the prefill is skipped.
 - Keep the `<!--email_off-->` right after `<body>` and `<!--/email_off-->`
   right before `</body>` (copying an existing page keeps them). The site
@@ -231,42 +263,62 @@ radius before repeating anything (e.g. Korčula, Pag, Zlarin, Krapanj,
 
 ## Schedule
 
-Two Routines fire weekly (Europe/Zagreb time, currently CEST/UTC+2 — see
+One Routine fires weekly (Europe/Zagreb time, currently CEST/UTC+2 — see
 the daylight-saving note in `marketing/gbp-scheduler/README.md`, same
 caveat applies here):
 
-- Tuesday 10:00 local → `0 8 * * 2` UTC
-- Friday 10:00 local → `0 8 * * 5` UTC
+- Tuesday 10:00 local → `0 8 * * 2` UTC: research and **draft only**.
 
-## Workflow for each firing
+The Friday Routine was switched off on 2026-10-08.
+
+## Workflow
+
+### Phase 1: the Tuesday firing (draft, nothing published)
 
 1. Run the pre-publish checklist above (steps 1–4).
 2. Decide route vs blog template.
-3. Write the full English page: copy an existing page of the matching type
-   as a structural starting point, replace all content, get the `<head>`
+3. Write the English draft as Markdown in
+   `content-pipeline/drafts/YYYY-MM-DD-<slug>.md`: proposed SEO title and
+   meta description, H1, the full body (900–1400 words), the 5 FAQ
+   questions and answers, the internal links you plan, and for a route the
+   `#to-airport` section text. Content rules below apply in full.
+4. At the end of the draft add two lists: **Facts to check** (every
+   distance, time, opening rule, ferry or road detail, place name, with
+   where it came from) and **Questions for Ivan** (one to three concrete
+   questions about first-hand experience of this route or topic).
+5. Commit and push only the draft (Netlify skips the build for
+   `content-pipeline/`, so this costs no deploy credits).
+6. Reply in the session in Croatian: topic and why, a short summary, the
+   facts to check, the questions, and that nothing is published until he
+   approves. No PushNotification about a publication, because there is
+   none.
+
+### Phase 2: after Ivan approves (in the session)
+
+1. Apply his corrections and put his answers into the text in his words.
+   If he corrected a fact, fix it everywhere it appears.
+2. Build the English page from the approved draft: copy an existing page
+   of the matching type as a structural starting point, get the `<head>`
    SEO tags right (title 50–60 chars, meta description 140–160 chars,
-   canonical/og/twitter URLs, JSON-LD), 900–1400 words body, 5-question
-   FAQ, internal links, CTA.
-4. Translate it into German, Swedish and Norwegian per the Languages
-   section above — same structure, own tuned SEO title/description,
-   nav markup copied from an existing de/sv/no page — then run
-   `python3 tools/sync_i18n.py` for hreflang and language switchers.
-   Then generate Croatian and Italian per "Croatian and Italian" above
-   (pages.txt, `tr_z_` dictionaries, both builds at 0 missing,
-   `sync_i18n.py`, `sitemap_lang.py hr it`).
-5. If it's a route: add all four versions to `destinations.html` /
-   `de/destinations.html` / `sv/destinations.html` / `no/destinations.html`
-   grids and one entry to `js/pricing.js`'s `DESTINATION_NAMES`. If it's a
-   blog article: add all four to the `blog/index.html` lists. The hr/ and
-   it/ grids and lists are rebuilt from the English file automatically.
-6. Add four URLs to `sitemap.xml` — English, German, Swedish and Norwegian (match
-   the existing entry format — priority 0.8 for routes, 0.5 for blog
-   articles, changefreq monthly).
-7. Append an entry to `content-pipeline/history.md` (date, type, slug,
-   title, all six URLs published (en/de/sv/no/hr/it), and which pre-publish-checklist
-   candidates were rejected and why — keeps the audit trail honest for
-   the next firing).
-8. Commit and push everything on the current branch.
-9. Send a short PushNotification naming what was published, with the live
-   path (e.g. `/destinations/trogir`, published in EN/DE/SV/NO/HR/IT).
-10. Reply in the session with a short summary and all six links.
+   canonical/og/twitter URLs, JSON-LD), FAQ, internal links, CTA.
+3. Translate it into German, Swedish and Norwegian per the Languages
+   section above — same structure, own tuned SEO title/description, nav
+   markup copied from an existing de/sv/no page — then run
+   `python3 tools/sync_i18n.py`. Then generate Croatian and Italian per
+   "Croatian and Italian" above (pages.txt, `tr_z_` dictionaries, both
+   builds at 0 missing, `sync_i18n.py`, `sitemap_lang.py hr it`).
+4. Route: add all four versions to the `destinations.html` grids (de/sv/no
+   too) with both buttons ("From Airport" → page, "To Airport" →
+   page`#to-airport`) and one entry to `js/pricing.js`'s
+   `DESTINATION_NAMES`. Blog: add all four to the `blog/index.html` lists.
+   The hr/ and it/ versions are rebuilt from English automatically.
+5. Add the en/de/sv/no URLs to `sitemap.xml` (priority 0.8 routes, 0.5
+   blog, changefreq monthly); `sitemap_lang.py` adds hr/it.
+6. Verify: internal links resolve, language switch works, every JSON-LD
+   block parses, no em dashes.
+7. Append to `content-pipeline/history.md` (date, type, slug, title, all six
+   URLs, candidates considered/rejected, and "approved by Ivan on <date>").
+   Move the draft to `content-pipeline/drafts/published/`.
+8. Commit and push everything in **one** push (each push to the site is a
+   Netlify production deploy and costs credits; never push in pieces).
+9. Reply in Croatian with a short summary and all six links.

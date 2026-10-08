@@ -608,7 +608,8 @@ function submitContactForm(e) {
     }
     document.body.appendChild(bar);
     // Visible once the source button has been passed and none of the
-    // blocking zones (booking form, mid-page booking callout, WhatsApp banner,
+    // blocking zones (booking form, mid-page booking callout, the to-airport
+    // section with its own button, WhatsApp banner,
     // footer) is on screen. A button lower down the page (blog articles end with one) also counts
     // as passed once the reader is well into the page and it is not yet in
     // view, so the bar is there while they read rather than only at the end.
@@ -625,7 +626,7 @@ function submitContactForm(e) {
     };
     window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(check); } }, { passive: true });
     check();
-    const zones = document.querySelectorAll("#booking, #book-trip, .price-cta, .wa-banner, footer");
+    const zones = document.querySelectorAll("#booking, #book-trip, .price-cta, .to-airport, .wa-banner, footer");
     const zio = new IntersectionObserver(function (entries) {
       entries.forEach(e => { if (e.isIntersecting) blocking.add(e.target); else blocking.delete(e.target); });
       update();

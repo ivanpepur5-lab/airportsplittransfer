@@ -39,7 +39,7 @@ Extras in the tool:
 
 When an English page changes, rebuild both languages; the build lists any new
 English text that still needs a translation. New pages from the scheduled
-content pipeline (Tue/Fri) are added here in the same firing: the page goes
+content pipeline (weekly, after Ivan approves a draft) are added here in the same publication: the page goes
 into both `pages.txt` files and its translations into
 `tr_z_<slug_with_underscores>.py` in each folder (see "Croatian and
 Italian" in `content-pipeline/README.md`).
