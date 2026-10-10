@@ -57,4 +57,10 @@ Spend a slow day among the waterfalls of Skradinski Buk, without a timetable to 
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-10 08:03 UTC — Customer review post — Chaneze B. (3 of 9)
+
+Running late for a flight is stressful enough. Chaneze put it simply in her Google review: "We were late for our plane and he helped us a lot! Nice drive and kind man." A calm driver and a car that gets you there on time are what every transfer is built around. 5.0 stars from 35+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
