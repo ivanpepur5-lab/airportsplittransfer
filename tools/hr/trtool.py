@@ -101,7 +101,8 @@ def hr_url(u, exists_hr):
     if re.match(r'(assets|css|js|de/|sv/|no/|hr/)', path) or re.search(r'\.(jpg|png|webp|avif|svg|ico)(\?|$)', path): return u
     key = (path.split('?')[0].split('#')[0] or 'index') 
     key = key.rstrip('/') or 'index'
-    if key + '.html' in exists_hr or path == '':
+    if key.endswith('.html'): key = key[:-5]
+    if key + '.html' in exists_hr or key + '/index.html' in exists_hr or path == '':
         return BASE + 'hr/' + path
     return u
 
