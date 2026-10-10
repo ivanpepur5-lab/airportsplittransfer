@@ -1745,6 +1745,20 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 @media (min-width:1101px){ .why-mini-row:has(> .why-mini-item:nth-child(5):last-child){grid-template-columns:repeat(5,1fr);} }
 @media (max-width:1100px){ .why-mini-row > .why-mini-item:last-child:nth-child(odd){grid-column:1 / -1;} }
 
+/* ============ HOTEL PHOTOS ============ */
+.hotel-photo{max-width:1280px; margin:0 auto 36px; padding:0 40px;}
+.hotel-photo picture{display:block;}
+.hotel-photo img{display:block; width:100%; height:auto; aspect-ratio:21/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(7,38,76,0.12);}
+@media (max-width:640px){
+  .hotel-photo{padding:0 20px; margin-bottom:24px;}
+  .hotel-photo img{aspect-ratio:4/3; border-radius:14px;}
+}
+a.dest-card.hotel-card{flex-direction:column; justify-content:flex-start; padding:0; min-height:0;}
+a.dest-card.hotel-card picture{display:block; width:100%;}
+a.dest-card.hotel-card img{display:block; width:100%; height:auto; aspect-ratio:4/3; object-fit:cover;}
+a.dest-card.hotel-card h3{padding:18px 18px 22px;}
+@media (max-width:640px){ a.dest-card.hotel-card h3{padding:14px 12px 18px; font-size:1.05rem;} }
+
 /* heading-font:start */
 /* ============ HEADINGS: LOGO TYPEFACE ============
    h1 and h2 in Montserrat ExtraBold (SIL OFL, assets/fonts/OFL-montserrat.txt),
