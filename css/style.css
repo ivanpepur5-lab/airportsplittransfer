@@ -1759,6 +1759,15 @@ a.dest-card.hotel-card img{display:block; width:100%; height:auto; aspect-ratio:
 a.dest-card.hotel-card h3{padding:18px 18px 22px;}
 @media (max-width:640px){ a.dest-card.hotel-card h3{padding:14px 12px 18px; font-size:1.05rem;} }
 
+/* Single photo under a page hero (V-Class above Dubrovnik on the Dubrovnik route and fleet pages) */
+.page-photo{max-width:1280px; margin:0 auto 36px; padding:0 40px;}
+.page-photo picture{display:block;}
+.page-photo img{display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(7,38,76,0.12);}
+@media (max-width:640px){
+  .page-photo{padding:0 20px; margin-bottom:24px;}
+  .page-photo img{aspect-ratio:4/5; border-radius:14px;}
+}
+
 /* heading-font:start */
 /* ============ HEADINGS: LOGO TYPEFACE ============
    h1 and h2 in Montserrat ExtraBold (SIL OFL, assets/fonts/OFL-montserrat.txt),
