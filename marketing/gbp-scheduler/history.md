@@ -63,4 +63,10 @@ Running late for a flight is stressful enough. Chaneze put it simply in her Goog
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-12 07:18 UTC — Airport transfer post — Door-to-door
+
+Land in Split and your driver is already waiting in the arrivals hall with a name board. From there it is one private ride to the exact address you gave us, whether that is a hotel, an apartment or a marina. No taxi queue, no shuttle stops, no suitcases dragged across town.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
