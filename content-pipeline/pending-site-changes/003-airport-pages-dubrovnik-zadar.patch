@@ -1,6 +1,6 @@
 diff --git a/airports/dubrovnik-airport.html b/airports/dubrovnik-airport.html
 new file mode 100644
-index 0000000..54de86f
+index 0000000..cd63c4a
 --- /dev/null
 +++ b/airports/dubrovnik-airport.html
 @@ -0,0 +1,271 @@
@@ -136,7 +136,7 @@ index 0000000..54de86f
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Dubrovnik Airport → Split &amp; Makarska</div>
 +  <h1>Private Transfer from Dubrovnik Airport to Split and Makarska</h1>
-+  <p>Land at Dubrovnik Airport and ride straight to Split, Makarska or any other address on the Dalmatian coast, in a private car at a fixed price agreed before you travel.</p>
++  <p>Land at Dubrovnik Airport and ride straight to Split, Makarska or another destination at least 50 km away, in a private car at a fixed price agreed before you travel.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -152,7 +152,7 @@ index 0000000..54de86f
 +      <p style="color:var(--gray); margin-bottom:32px;">Dubrovnik Airport sits at Čilipi in the Konavle region, about 20 km from the old town, and from there the coast road runs north towards Split and Makarska. Your driver meets you in the arrivals hall with a name board and takes you straight to your address, with no shared shuttle, no waiting for a full minibus and no changes along the way.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Distances and Drive Times</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route. We offer transfers from this airport to destinations at least 50 km away.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Route</th><th>Distance</th><th>Drive time</th></tr><tr><td>Split (city, ferry port, Split Airport)</td><td>about 250 km</td><td>3 to 3.5 hours</td></tr><tr><td>Makarska</td><td>about 175 km</td><td>about 2 hours 45 minutes to 3 hours</td></tr></table></div>
 +      <a href="../index.html?pickup=dbvairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Dubrovnik Airport to Split</a>
 +      <a href="../index.html?pickup=dbvairport&amp;to=makarska#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Dubrovnik Airport to Makarska</a>
@@ -277,7 +277,7 @@ index 0000000..54de86f
 +</html>
 diff --git a/airports/zadar-airport.html b/airports/zadar-airport.html
 new file mode 100644
-index 0000000..ded919c
+index 0000000..f1d3901
 --- /dev/null
 +++ b/airports/zadar-airport.html
 @@ -0,0 +1,276 @@
@@ -413,7 +413,7 @@ index 0000000..ded919c
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Zadar Airport → Šibenik, Split &amp; Plitvice</div>
 +  <h1>Private Transfer from Zadar Airport to Šibenik, Split and Plitvice</h1>
-+  <p>Land at Zadar Airport and ride straight to Šibenik, Split, the Plitvice Lakes or any other address along the coast, in a private car at a fixed price agreed before you travel.</p>
++  <p>Land at Zadar Airport and ride straight to Šibenik, Split, the Plitvice Lakes or another destination at least 50 km away, in a private car at a fixed price agreed before you travel.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -429,7 +429,7 @@ index 0000000..ded919c
 +      <p style="color:var(--gray); margin-bottom:32px;">Zadar Airport is at Zemunik, roughly 12 to 15 km inland from the city of Zadar, and from there the motorway and coast roads lead south to Šibenik and Split. Your driver meets you in the arrivals hall with a name board and takes you straight to your address, with no shared shuttle, no waiting for a full minibus and no changes along the way.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Distances and Drive Times</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route. We offer transfers from this airport to destinations at least 50 km away.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Route</th><th>Distance</th><th>Drive time</th></tr><tr><td>Šibenik</td><td>about 75 km</td><td>about 1 hour</td></tr><tr><td>Split (city, ferry port, Split Airport)</td><td>about 150 km</td><td>about 1 hour 40 minutes to 2 hours</td></tr><tr><td>Plitvice Lakes National Park</td><td>about 120 to 130 km</td><td>about 1 hour 30 minutes to 1 hour 45 minutes</td></tr></table></div>
 +      <a href="../index.html?pickup=zadairport&amp;to=sibenik#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zadar Airport to Šibenik</a>
 +      <a href="../index.html?pickup=zadairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zadar Airport to Split</a>
@@ -559,7 +559,7 @@ index 0000000..ded919c
 +</html>
 diff --git a/de/airports/dubrovnik-airport.html b/de/airports/dubrovnik-airport.html
 new file mode 100644
-index 0000000..74062f9
+index 0000000..eed9191
 --- /dev/null
 +++ b/de/airports/dubrovnik-airport.html
 @@ -0,0 +1,270 @@
@@ -695,7 +695,7 @@ index 0000000..74062f9
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Flughafen Dubrovnik → Split &amp; Makarska</div>
 +  <h1>Privater Transfer vom Flughafen Dubrovnik nach Split und Makarska</h1>
-+  <p>Landen Sie am Flughafen Dubrovnik und fahren Sie direkt nach Split, Makarska oder an jede andere Adresse an der dalmatinischen Küste, im Privatwagen zu einem Festpreis, der vor der Fahrt vereinbart wird.</p>
++  <p>Landen Sie am Flughafen Dubrovnik und fahren Sie direkt nach Split, Makarska oder zu einem anderen Ziel in mindestens 50 km Entfernung, im Privatwagen zu einem Festpreis, der vor der Fahrt vereinbart wird.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -711,7 +711,7 @@ index 0000000..74062f9
 +      <p style="color:var(--gray); margin-bottom:32px;">Der Flughafen Dubrovnik liegt in Čilipi in der Region Konavle, etwa 20 km von der Altstadt entfernt, und von dort führt die Küstenstraße nach Norden Richtung Split und Makarska. Ihr Fahrer erwartet Sie in der Ankunftshalle mit einem Namensschild und bringt Sie direkt zu Ihrer Adresse, ohne Sammelshuttle, ohne Warten auf einen vollen Minibus und ohne Umsteigen.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Entfernungen und Fahrzeiten</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Dies sind typische Werte bei normalem Verkehr. Die genaue Strecke hängt von Ihrer Abhol- und Zieladresse ab, und das Buchungsformular zeigt Ihnen den endgültigen Festpreis für Ihre Route.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Dies sind typische Werte bei normalem Verkehr. Die genaue Strecke hängt von Ihrer Abhol- und Zieladresse ab, und das Buchungsformular zeigt Ihnen den endgültigen Festpreis für Ihre Route. Wir bieten Transfers ab diesem Flughafen zu Zielen in mindestens 50 km Entfernung an.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Route</th><th>Entfernung</th><th>Fahrzeit</th></tr><tr><td>Split (Stadt, Fährhafen, Flughafen Split)</td><td>etwa 250 km</td><td>3 bis 3,5 Stunden</td></tr><tr><td>Makarska</td><td>etwa 175 km</td><td>etwa 2 Std. 45 Min. bis 3 Stunden</td></tr></table></div>
 +      <a href="../index.html?pickup=dbvairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Flughafen Dubrovnik nach Split</a>
 +      <a href="../index.html?pickup=dbvairport&amp;to=makarska#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Flughafen Dubrovnik nach Makarska</a>
@@ -835,7 +835,7 @@ index 0000000..74062f9
 +</html>
 diff --git a/de/airports/zadar-airport.html b/de/airports/zadar-airport.html
 new file mode 100644
-index 0000000..4667aa4
+index 0000000..ff48405
 --- /dev/null
 +++ b/de/airports/zadar-airport.html
 @@ -0,0 +1,275 @@
@@ -971,7 +971,7 @@ index 0000000..4667aa4
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Flughafen Zadar → Šibenik, Split &amp; Plitvice</div>
 +  <h1>Privater Transfer vom Flughafen Zadar nach Šibenik, Split und Plitvice</h1>
-+  <p>Landen Sie am Flughafen Zadar und fahren Sie direkt nach Šibenik, Split, zu den Plitvicer Seen oder an jede andere Adresse an der Küste, im Privatwagen zu einem Festpreis, der vor der Fahrt vereinbart wird.</p>
++  <p>Landen Sie am Flughafen Zadar und fahren Sie direkt nach Šibenik, Split, zu den Plitvicer Seen oder zu einem anderen Ziel in mindestens 50 km Entfernung, im Privatwagen zu einem Festpreis, der vor der Fahrt vereinbart wird.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -987,7 +987,7 @@ index 0000000..4667aa4
 +      <p style="color:var(--gray); margin-bottom:32px;">Der Flughafen Zadar liegt in Zemunik, etwa 12 bis 15 km landeinwärts von der Stadt Zadar, und von dort führen Autobahn und Küstenstraßen nach Süden Richtung Šibenik und Split. Ihr Fahrer erwartet Sie in der Ankunftshalle mit einem Namensschild und bringt Sie direkt zu Ihrer Adresse, ohne Sammelshuttle, ohne Warten auf einen vollen Minibus und ohne Umsteigen.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Entfernungen und Fahrzeiten</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Dies sind typische Werte bei normalem Verkehr. Die genaue Strecke hängt von Ihrer Abhol- und Zieladresse ab, und das Buchungsformular zeigt Ihnen den endgültigen Festpreis für Ihre Route.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Dies sind typische Werte bei normalem Verkehr. Die genaue Strecke hängt von Ihrer Abhol- und Zieladresse ab, und das Buchungsformular zeigt Ihnen den endgültigen Festpreis für Ihre Route. Wir bieten Transfers ab diesem Flughafen zu Zielen in mindestens 50 km Entfernung an.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Route</th><th>Entfernung</th><th>Fahrzeit</th></tr><tr><td>Šibenik</td><td>etwa 75 km</td><td>etwa 1 Stunde</td></tr><tr><td>Split (Stadt, Fährhafen, Flughafen Split)</td><td>etwa 150 km</td><td>etwa 1 Std. 40 Min. bis 2 Stunden</td></tr><tr><td>Nationalpark Plitvicer Seen</td><td>etwa 120 bis 130 km</td><td>etwa 1 Std. 30 Min. bis 1 Std. 45 Min.</td></tr></table></div>
 +      <a href="../index.html?pickup=zadairport&amp;to=sibenik#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Flughafen Zadar nach Šibenik</a>
 +      <a href="../index.html?pickup=zadairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Flughafen Zadar nach Split</a>
@@ -1168,7 +1168,7 @@ index 8ebb63a..6dfdd98 100644
      <div class="section-head reveal"><div class="eyebrow">FAQ</div><h2>Common Questions</h2></div>
 diff --git a/hr/airports/dubrovnik-airport.html b/hr/airports/dubrovnik-airport.html
 new file mode 100644
-index 0000000..52f53d0
+index 0000000..b0956c0
 --- /dev/null
 +++ b/hr/airports/dubrovnik-airport.html
 @@ -0,0 +1,271 @@
@@ -1304,7 +1304,7 @@ index 0000000..52f53d0
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Zračna luka Dubrovnik → Split i Makarska</div>
 +  <h1>Privatni transfer od zračne luke Dubrovnik do Splita i Makarske</h1>
-+  <p>Sletite u zračnu luku Dubrovnik i odvezite se izravno u Split, Makarsku ili na bilo koju drugu adresu na dalmatinskoj obali, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.</p>
++  <p>Sletite u zračnu luku Dubrovnik i odvezite se izravno u Split, Makarsku ili na drugo odredište udaljeno najmanje 50 km, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -1320,7 +1320,7 @@ index 0000000..52f53d0
 +      <p style="color:var(--gray); margin-bottom:32px;">Zračna luka Dubrovnik nalazi se u Čilipima u Konavlima, oko 20 km od starog grada, a odatle obalna cesta vodi na sjever prema Splitu i Makarskoj. Vozač vas čeka u dolaznoj dvorani s natpisom s vašim imenom i vozi vas ravno na vašu adresu, bez zajedničkog šatla, bez čekanja da se napuni minibus i bez presjedanja.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Udaljenosti i trajanje vožnje</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Ovo su uobičajene vrijednosti pri normalnom prometu. Točna udaljenost ovisi o adresi preuzimanja i odredišta, a obrazac za rezervaciju prikazuje konačnu fiksnu cijenu za vašu rutu.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Ovo su uobičajene vrijednosti pri normalnom prometu. Točna udaljenost ovisi o adresi preuzimanja i odredišta, a obrazac za rezervaciju prikazuje konačnu fiksnu cijenu za vašu rutu. Nudimo transfere s ovog aerodroma do odredišta udaljenih najmanje 50 km.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Ruta</th><th>Udaljenost</th><th>Trajanje</th></tr><tr><td>Split (grad, trajektna luka, Zračna luka Split)</td><td>oko 250 km</td><td>3 do 3,5 sata</td></tr><tr><td>Makarska</td><td>oko 175 km</td><td>oko 2 sata 45 minuta do 3 sata</td></tr></table></div>
 +      <a href="../index.html?pickup=dbvairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zračna luka Dubrovnik do Splita</a>
 +      <a href="../index.html?pickup=dbvairport&amp;to=makarska#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zračna luka Dubrovnik do Makarske</a>
@@ -1445,7 +1445,7 @@ index 0000000..52f53d0
 +</html>
 diff --git a/hr/airports/zadar-airport.html b/hr/airports/zadar-airport.html
 new file mode 100644
-index 0000000..427722f
+index 0000000..7971a66
 --- /dev/null
 +++ b/hr/airports/zadar-airport.html
 @@ -0,0 +1,276 @@
@@ -1581,7 +1581,7 @@ index 0000000..427722f
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Zračna luka Zadar → Šibenik, Split i Plitvice</div>
 +  <h1>Privatni transfer od zračne luke Zadar do Šibenika, Splita i Plitvica</h1>
-+  <p>Sletite u zračnu luku Zadar i odvezite se izravno u Šibenik, Split, na Plitvička jezera ili na bilo koju drugu adresu uz obalu, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.</p>
++  <p>Sletite u zračnu luku Zadar i odvezite se izravno u Šibenik, Split, na Plitvička jezera ili na drugo odredište udaljeno najmanje 50 km, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -1597,7 +1597,7 @@ index 0000000..427722f
 +      <p style="color:var(--gray); margin-bottom:32px;">Zračna luka Zadar nalazi se u Zemuniku, oko 12 do 15 km u unutrašnjosti od grada Zadra, a odatle autocesta i obalne ceste vode na jug prema Šibeniku i Splitu. Vozač vas čeka u dolaznoj dvorani s natpisom s vašim imenom i vozi vas ravno na vašu adresu, bez zajedničkog šatla, bez čekanja da se napuni minibus i bez presjedanja.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Udaljenosti i trajanje vožnje</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Ovo su uobičajene vrijednosti pri normalnom prometu. Točna udaljenost ovisi o adresi preuzimanja i odredišta, a obrazac za rezervaciju prikazuje konačnu fiksnu cijenu za vašu rutu.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Ovo su uobičajene vrijednosti pri normalnom prometu. Točna udaljenost ovisi o adresi preuzimanja i odredišta, a obrazac za rezervaciju prikazuje konačnu fiksnu cijenu za vašu rutu. Nudimo transfere s ovog aerodroma do odredišta udaljenih najmanje 50 km.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Ruta</th><th>Udaljenost</th><th>Trajanje</th></tr><tr><td>Šibenik</td><td>oko 75 km</td><td>oko 1 sat</td></tr><tr><td>Split (grad, trajektna luka, Zračna luka Split)</td><td>oko 150 km</td><td>oko 1 sat 40 minuta do 2 sata</td></tr><tr><td>Nacionalni park Plitvička jezera</td><td>oko 120 do 130 km</td><td>oko 1 sat 30 minuta do 1 sat 45 minuta</td></tr></table></div>
 +      <a href="../index.html?pickup=zadairport&amp;to=sibenik#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zračna luka Zadar do Šibenika</a>
 +      <a href="../index.html?pickup=zadairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zračna luka Zadar do Splita</a>
@@ -1753,7 +1753,7 @@ index 8cd81d6..74eeb94 100644
      <div class="section-head reveal"><div class="eyebrow">Česta pitanja</div><h2>Česta pitanja</h2></div>
 diff --git a/it/airports/dubrovnik-airport.html b/it/airports/dubrovnik-airport.html
 new file mode 100644
-index 0000000..08ac35d
+index 0000000..f4f5051
 --- /dev/null
 +++ b/it/airports/dubrovnik-airport.html
 @@ -0,0 +1,271 @@
@@ -1889,7 +1889,7 @@ index 0000000..08ac35d
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Aeroporto di Dubrovnik → Spalato e Makarska</div>
 +  <h1>Transfer privato dall'aeroporto di Dubrovnik a Spalato e Makarska</h1>
-+  <p>Atterra all'aeroporto di Dubrovnik e vai direttamente a Spalato, Makarska o a qualsiasi altro indirizzo sulla costa dalmata, in auto privata a un prezzo fisso concordato prima del viaggio.</p>
++  <p>Atterra all'aeroporto di Dubrovnik e vai direttamente a Spalato, Makarska o a un'altra destinazione ad almeno 50 km di distanza, in auto privata a un prezzo fisso concordato prima del viaggio.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -1905,7 +1905,7 @@ index 0000000..08ac35d
 +      <p style="color:var(--gray); margin-bottom:32px;">L'aeroporto di Dubrovnik si trova a Čilipi, nella regione di Konavle, a circa 20 km dalla città vecchia, e da lì la strada costiera sale verso Spalato e Makarska. L'autista ti aspetta nella sala arrivi con un cartello con il tuo nome e ti porta direttamente al tuo indirizzo, senza navetta condivisa, senza attese per riempire un minibus e senza cambi lungo il percorso.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Distanze e tempi di percorrenza</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Questi sono valori tipici con traffico normale. La distanza esatta dipende dagli indirizzi di partenza e di arrivo, e il modulo di prenotazione mostra il prezzo fisso definitivo per il tuo percorso.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Questi sono valori tipici con traffico normale. La distanza esatta dipende dagli indirizzi di partenza e di arrivo, e il modulo di prenotazione mostra il prezzo fisso definitivo per il tuo percorso. Offriamo transfer da questo aeroporto verso destinazioni a una distanza di almeno 50 km.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Percorso</th><th>Distanza</th><th>Durata</th></tr><tr><td>Spalato (città, porto dei traghetti, aeroporto di Spalato)</td><td>circa 250 km</td><td>da 3 a 3,5 ore</td></tr><tr><td>Makarska</td><td>circa 175 km</td><td>circa da 2 ore 45 minuti a 3 ore</td></tr></table></div>
 +      <a href="../index.html?pickup=dbvairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Aeroporto di Dubrovnik a Spalato</a>
 +      <a href="../index.html?pickup=dbvairport&amp;to=makarska#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Aeroporto di Dubrovnik a Makarska</a>
@@ -2030,7 +2030,7 @@ index 0000000..08ac35d
 +</html>
 diff --git a/it/airports/zadar-airport.html b/it/airports/zadar-airport.html
 new file mode 100644
-index 0000000..ac72b11
+index 0000000..e47e56d
 --- /dev/null
 +++ b/it/airports/zadar-airport.html
 @@ -0,0 +1,276 @@
@@ -2166,7 +2166,7 @@ index 0000000..ac72b11
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Aeroporto di Zara → Šibenik, Spalato e Plitvice</div>
 +  <h1>Transfer privato dall'aeroporto di Zara a Šibenik, Spalato e Plitvice</h1>
-+  <p>Atterra all'aeroporto di Zara e vai direttamente a Šibenik, Spalato, ai Laghi di Plitvice o a qualsiasi altro indirizzo lungo la costa, in auto privata a un prezzo fisso concordato prima del viaggio.</p>
++  <p>Atterra all'aeroporto di Zara e vai direttamente a Šibenik, Spalato, ai Laghi di Plitvice o a un'altra destinazione ad almeno 50 km di distanza, in auto privata a un prezzo fisso concordato prima del viaggio.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -2182,7 +2182,7 @@ index 0000000..ac72b11
 +      <p style="color:var(--gray); margin-bottom:32px;">L'aeroporto di Zara si trova a Zemunik, a circa 12-15 km nell'entroterra dalla città di Zara, e da lì l'autostrada e le strade costiere portano a sud verso Šibenik e Spalato. L'autista ti aspetta nella sala arrivi con un cartello con il tuo nome e ti porta direttamente al tuo indirizzo, senza navetta condivisa, senza attese per riempire un minibus e senza cambi lungo il percorso.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Distanze e tempi di percorrenza</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Questi sono valori tipici con traffico normale. La distanza esatta dipende dagli indirizzi di partenza e di arrivo, e il modulo di prenotazione mostra il prezzo fisso definitivo per il tuo percorso.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Questi sono valori tipici con traffico normale. La distanza esatta dipende dagli indirizzi di partenza e di arrivo, e il modulo di prenotazione mostra il prezzo fisso definitivo per il tuo percorso. Offriamo transfer da questo aeroporto verso destinazioni a una distanza di almeno 50 km.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Percorso</th><th>Distanza</th><th>Durata</th></tr><tr><td>Šibenik</td><td>circa 75 km</td><td>circa 1 ora</td></tr><tr><td>Spalato (città, porto dei traghetti, aeroporto di Spalato)</td><td>circa 150 km</td><td>circa da 1 ora 40 minuti a 2 ore</td></tr><tr><td>Parco nazionale dei Laghi di Plitvice</td><td>circa 120-130 km</td><td>circa da 1 ora 30 minuti a 1 ora 45 minuti</td></tr></table></div>
 +      <a href="../index.html?pickup=zadairport&amp;to=sibenik#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Aeroporto di Zara a Šibenik</a>
 +      <a href="../index.html?pickup=zadairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Aeroporto di Zara a Spalato</a>
@@ -2386,7 +2386,7 @@ index 2b4c119..a71ad79 100644
  - [Services](/services): Full list of transfer services offered
 diff --git a/no/airports/dubrovnik-airport.html b/no/airports/dubrovnik-airport.html
 new file mode 100644
-index 0000000..53e272a
+index 0000000..bd5ff30
 --- /dev/null
 +++ b/no/airports/dubrovnik-airport.html
 @@ -0,0 +1,270 @@
@@ -2522,7 +2522,7 @@ index 0000000..53e272a
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Dubrovnik lufthavn → Split &amp; Makarska</div>
 +  <h1>Privat transfer fra Dubrovnik lufthavn til Split og Makarska</h1>
-+  <p>Land på Dubrovnik lufthavn og kjør rett til Split, Makarska eller en annen adresse langs den dalmatiske kysten, i privatbil til en fast pris avtalt før reisen.</p>
++  <p>Land på Dubrovnik lufthavn og kjør rett til Split, Makarska eller et annet reisemål minst 50 km unna, i privatbil til en fast pris avtalt før reisen.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -2538,7 +2538,7 @@ index 0000000..53e272a
 +      <p style="color:var(--gray); margin-bottom:32px;">Dubrovnik lufthavn ligger i Čilipi i Konavle, omtrent 20 km fra gamlebyen, og derfra går kystveien nordover mot Split og Makarska. Sjåføren møter deg i ankomsthallen med et navneskilt og kjører deg rett til adressen din, uten delt shuttle, uten å vente på en full minibuss og uten bytter underveis.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Avstander og kjøretider</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Dette er typiske verdier ved normal trafikk. Den nøyaktige avstanden avhenger av hente- og leveringsadressen din, og bestillingsskjemaet viser den endelige faste prisen for ruten din.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Dette er typiske verdier ved normal trafikk. Den nøyaktige avstanden avhenger av hente- og leveringsadressen din, og bestillingsskjemaet viser den endelige faste prisen for ruten din. Vi tilbyr transfer fra denne flyplassen til reisemål som ligger minst 50 km unna.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Rute</th><th>Avstand</th><th>Kjøretid</th></tr><tr><td>Split (by, fergehavn, Split lufthavn)</td><td>omtrent 250 km</td><td>3 til 3,5 timer</td></tr><tr><td>Makarska</td><td>omtrent 175 km</td><td>omtrent 2 timer 45 minutter til 3 timer</td></tr></table></div>
 +      <a href="../index.html?pickup=dbvairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Dubrovnik lufthavn til Split</a>
 +      <a href="../index.html?pickup=dbvairport&amp;to=makarska#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Dubrovnik lufthavn til Makarska</a>
@@ -2662,7 +2662,7 @@ index 0000000..53e272a
 +</html>
 diff --git a/no/airports/zadar-airport.html b/no/airports/zadar-airport.html
 new file mode 100644
-index 0000000..303fd99
+index 0000000..871a92a
 --- /dev/null
 +++ b/no/airports/zadar-airport.html
 @@ -0,0 +1,275 @@
@@ -2798,7 +2798,7 @@ index 0000000..303fd99
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Zadar lufthavn → Šibenik, Split &amp; Plitvice</div>
 +  <h1>Privat transfer fra Zadar lufthavn til Šibenik, Split og Plitvice</h1>
-+  <p>Land på Zadar lufthavn og kjør rett til Šibenik, Split, Plitvicesjøene eller en annen adresse langs kysten, i privatbil til en fast pris avtalt før reisen.</p>
++  <p>Land på Zadar lufthavn og kjør rett til Šibenik, Split, Plitvicesjøene eller et annet reisemål minst 50 km unna, i privatbil til en fast pris avtalt før reisen.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -2814,7 +2814,7 @@ index 0000000..303fd99
 +      <p style="color:var(--gray); margin-bottom:32px;">Zadar lufthavn ligger i Zemunik, omtrent 12 til 15 km inn i landet fra byen Zadar, og derfra fører motorveien og kystveiene sørover mot Šibenik og Split. Sjåføren møter deg i ankomsthallen med et navneskilt og kjører deg rett til adressen din, uten delt shuttle, uten å vente på en full minibuss og uten bytter underveis.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Avstander og kjøretider</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Dette er typiske verdier ved normal trafikk. Den nøyaktige avstanden avhenger av hente- og leveringsadressen din, og bestillingsskjemaet viser den endelige faste prisen for ruten din.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Dette er typiske verdier ved normal trafikk. Den nøyaktige avstanden avhenger av hente- og leveringsadressen din, og bestillingsskjemaet viser den endelige faste prisen for ruten din. Vi tilbyr transfer fra denne flyplassen til reisemål som ligger minst 50 km unna.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Rute</th><th>Avstand</th><th>Kjøretid</th></tr><tr><td>Šibenik</td><td>omtrent 75 km</td><td>omtrent 1 time</td></tr><tr><td>Split (by, fergehavn, Split lufthavn)</td><td>omtrent 150 km</td><td>omtrent 1 time 40 minutter til 2 timer</td></tr><tr><td>Plitvicesjøene nasjonalpark</td><td>omtrent 120 til 130 km</td><td>omtrent 1 time 30 minutter til 1 time 45 minutter</td></tr></table></div>
 +      <a href="../index.html?pickup=zadairport&amp;to=sibenik#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zadar lufthavn til Šibenik</a>
 +      <a href="../index.html?pickup=zadairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zadar lufthavn til Split</a>
@@ -3050,7 +3050,7 @@ index 440037d..c21985d 100644
  </urlset>
 diff --git a/sv/airports/dubrovnik-airport.html b/sv/airports/dubrovnik-airport.html
 new file mode 100644
-index 0000000..ecfc291
+index 0000000..2951799
 --- /dev/null
 +++ b/sv/airports/dubrovnik-airport.html
 @@ -0,0 +1,270 @@
@@ -3186,7 +3186,7 @@ index 0000000..ecfc291
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Dubrovniks flygplats → Split &amp; Makarska</div>
 +  <h1>Privat transfer från Dubrovniks flygplats till Split och Makarska</h1>
-+  <p>Landa på Dubrovniks flygplats och åk direkt till Split, Makarska eller valfri annan adress längs den dalmatiska kusten, i en privat bil till ett fast pris som överenskoms före resan.</p>
++  <p>Landa på Dubrovniks flygplats och åk direkt till Split, Makarska eller ett annat resmål minst 50 km bort, i en privat bil till ett fast pris som överenskoms före resan.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -3202,7 +3202,7 @@ index 0000000..ecfc291
 +      <p style="color:var(--gray); margin-bottom:32px;">Dubrovniks flygplats ligger i Čilipi i Konavle, cirka 20 km från gamla stan, och därifrån går kustvägen norrut mot Split och Makarska. Din förare möter dig i ankomsthallen med en namnskylt och kör dig direkt till din adress, utan delad skyttel, utan att vänta på en full minibuss och utan byten på vägen.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Avstånd och körtider</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Det här är typiska värden vid normal trafik. Det exakta avståndet beror på din upphämtnings- och avlämningsadress, och bokningsformuläret visar det slutliga fasta priset för din rutt.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Det här är typiska värden vid normal trafik. Det exakta avståndet beror på din upphämtnings- och avlämningsadress, och bokningsformuläret visar det slutliga fasta priset för din rutt. Vi erbjuder transfers från den här flygplatsen till resmål som ligger minst 50 km bort.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Rutt</th><th>Avstånd</th><th>Körtid</th></tr><tr><td>Split (stad, färjehamn, Splits flygplats)</td><td>cirka 250 km</td><td>3 till 3,5 timmar</td></tr><tr><td>Makarska</td><td>cirka 175 km</td><td>cirka 2 timmar 45 minuter till 3 timmar</td></tr></table></div>
 +      <a href="../index.html?pickup=dbvairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Dubrovniks flygplats till Split</a>
 +      <a href="../index.html?pickup=dbvairport&amp;to=makarska#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Dubrovniks flygplats till Makarska</a>
@@ -3326,7 +3326,7 @@ index 0000000..ecfc291
 +</html>
 diff --git a/sv/airports/zadar-airport.html b/sv/airports/zadar-airport.html
 new file mode 100644
-index 0000000..fe79eee
+index 0000000..f491863
 --- /dev/null
 +++ b/sv/airports/zadar-airport.html
 @@ -0,0 +1,275 @@
@@ -3462,7 +3462,7 @@ index 0000000..fe79eee
 +<div class="page-hero reveal">
 +  <div class="eyebrow">Zadars flygplats → Šibenik, Split &amp; Plitvice</div>
 +  <h1>Privat transfer från Zadars flygplats till Šibenik, Split och Plitvice</h1>
-+  <p>Landa på Zadars flygplats och åk direkt till Šibenik, Split, Plitvicesjöarna eller valfri annan adress längs kusten, i en privat bil till ett fast pris som överenskoms före resan.</p>
++  <p>Landa på Zadars flygplats och åk direkt till Šibenik, Split, Plitvicesjöarna eller ett annat resmål minst 50 km bort, i en privat bil till ett fast pris som överenskoms före resan.</p>
 +</div>
 +<section class="section-tight">
 +  <div class="wrap">
@@ -3478,7 +3478,7 @@ index 0000000..fe79eee
 +      <p style="color:var(--gray); margin-bottom:32px;">Zadars flygplats ligger i Zemunik, cirka 12 till 15 km inåt landet från staden Zadar, och därifrån leder motorvägen och kustvägarna söderut mot Šibenik och Split. Din förare möter dig i ankomsthallen med en namnskylt och kör dig direkt till din adress, utan delad skyttel, utan att vänta på en full minibuss och utan byten på vägen.</p>
 +
 +      <h2 style="font-size:1.8rem; text-transform:uppercase; margin-bottom:18px;">Avstånd och körtider</h2>
-+      <p style="color:var(--gray); margin-bottom:18px;">Det här är typiska värden vid normal trafik. Det exakta avståndet beror på din upphämtnings- och avlämningsadress, och bokningsformuläret visar det slutliga fasta priset för din rutt.</p>
++      <p style="color:var(--gray); margin-bottom:18px;">Det här är typiska värden vid normal trafik. Det exakta avståndet beror på din upphämtnings- och avlämningsadress, och bokningsformuläret visar det slutliga fasta priset för din rutt. Vi erbjuder transfers från den här flygplatsen till resmål som ligger minst 50 km bort.</p>
 +      <div class="price-table-wrap" style="margin-bottom:24px;"><table class="price-table"><tr><th>Rutt</th><th>Avstånd</th><th>Körtid</th></tr><tr><td>Šibenik</td><td>cirka 75 km</td><td>cirka 1 timme</td></tr><tr><td>Split (stad, färjehamn, Splits flygplats)</td><td>cirka 150 km</td><td>cirka 1 timme 40 minuter till 2 timmar</td></tr><tr><td>Plitvicesjöarnas nationalpark</td><td>cirka 120 till 130 km</td><td>cirka 1 timme 30 minuter till 1 timme 45 minuter</td></tr></table></div>
 +      <a href="../index.html?pickup=zadairport&amp;to=sibenik#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zadars flygplats till Šibenik</a>
 +      <a href="../index.html?pickup=zadairport&amp;to=split#booking" class="btn btn-gold" style="display:inline-block; margin:0 12px 12px 0;">Zadars flygplats till Split</a>
@@ -3643,7 +3643,7 @@ index 2c85f1e..292689b 100644
 +airports/zadar-airport.html
 diff --git a/tools/hr/tr_x_airports.py b/tools/hr/tr_x_airports.py
 new file mode 100644
-index 0000000..ff7afdf
+index 0000000..107c2bd
 --- /dev/null
 +++ b/tools/hr/tr_x_airports.py
 @@ -0,0 +1,69 @@
@@ -3660,13 +3660,13 @@ index 0000000..ff7afdf
 +'Transfers from Split Airport': 'Transferi sa Zračne luke Split',
 +'Yes, choose the Return option when booking to arrange both legs together, which also applies an automatic 5% discount to the total price.': 'Da, pri rezervaciji odaberite Povratna i dogovorite obje vožnje odjednom. Na ukupnu cijenu automatski dobivate 5% popusta.',
 +'Why Choose a Private Transfer for a Long Journey': 'Zašto privatni transfer na dugoj relaciji',
-+'These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route.': 'Ovo su uobičajene vrijednosti pri normalnom prometu. Točna udaljenost ovisi o adresi preuzimanja i odredišta, a obrazac za rezervaciju prikazuje konačnu fiksnu cijenu za vašu rutu.',
++'These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route. We offer transfers from this airport to destinations at least 50 km away.': 'Ovo su uobičajene vrijednosti pri normalnom prometu. Točna udaljenost ovisi o adresi preuzimanja i odredišta, a obrazac za rezervaciju prikazuje konačnu fiksnu cijenu za vašu rutu. Nudimo transfere s ovog aerodroma do odredišta udaljenih najmanje 50 km.',
 +'Distances and Drive Times': 'Udaljenosti i trajanje vožnje',
 +'Dubrovnik Airport Transfer to Split and Makarska | Airport Split Transfer': 'Transfer od zračne luke Dubrovnik do Splita i Makarske | Airport Split Transfer',
 +'Private transfer from Dubrovnik Airport (DBV) to Split and Makarska, a 3 to 3.5 hour drive to Split. Fixed all-inclusive price, meet & greet, flight tracking.': 'Privatni transfer od zračne luke Dubrovnik (DBV) do Splita i Makarske, do Splita 3 do 3,5 sata vožnje. Fiksna cijena sve uključeno, doček u dolaznoj dvorani, praćenje leta.',
 +'Dubrovnik Airport → Split & Makarska': 'Zračna luka Dubrovnik → Split i Makarska',
 +'Private Transfer from Dubrovnik Airport to Split and Makarska': 'Privatni transfer od zračne luke Dubrovnik do Splita i Makarske',
-+'Land at Dubrovnik Airport and ride straight to Split, Makarska or any other address on the Dalmatian coast, in a private car at a fixed price agreed before you travel.': 'Sletite u zračnu luku Dubrovnik i odvezite se izravno u Split, Makarsku ili na bilo koju drugu adresu na dalmatinskoj obali, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.',
++'Land at Dubrovnik Airport and ride straight to Split, Makarska or another destination at least 50 km away, in a private car at a fixed price agreed before you travel.': 'Sletite u zračnu luku Dubrovnik i odvezite se izravno u Split, Makarsku ili na drugo odredište udaljeno najmanje 50 km, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.',
 +'Distance to Split': 'Udaljenost do Splita',
 +'Drive Time to Split': 'Trajanje vožnje do Splita',
 +'Your Private Transfer from Dubrovnik Airport': 'Vaš privatni transfer od zračne luke Dubrovnik',
@@ -3690,7 +3690,7 @@ index 0000000..ff7afdf
 +'Private transfer from Zadar Airport (ZAD) to Šibenik, Split and the Plitvice Lakes. Fixed all-inclusive price, meet & greet at arrivals, flight tracking.': 'Privatni transfer od zračne luke Zadar (ZAD) do Šibenika, Splita i Plitvičkih jezera. Fiksna cijena sve uključeno, doček u dolaznoj dvorani, praćenje leta.',
 +'Zadar Airport → Šibenik, Split & Plitvice': 'Zračna luka Zadar → Šibenik, Split i Plitvice',
 +'Private Transfer from Zadar Airport to Šibenik, Split and Plitvice': 'Privatni transfer od zračne luke Zadar do Šibenika, Splita i Plitvica',
-+'Land at Zadar Airport and ride straight to Šibenik, Split, the Plitvice Lakes or any other address along the coast, in a private car at a fixed price agreed before you travel.': 'Sletite u zračnu luku Zadar i odvezite se izravno u Šibenik, Split, na Plitvička jezera ili na bilo koju drugu adresu uz obalu, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.',
++'Land at Zadar Airport and ride straight to Šibenik, Split, the Plitvice Lakes or another destination at least 50 km away, in a private car at a fixed price agreed before you travel.': 'Sletite u zračnu luku Zadar i odvezite se izravno u Šibenik, Split, na Plitvička jezera ili na drugo odredište udaljeno najmanje 50 km, privatnim automobilom po fiksnoj cijeni dogovorenoj prije putovanja.',
 +'Your Private Transfer from Zadar Airport': 'Vaš privatni transfer od zračne luke Zadar',
 +'Zadar Airport is at Zemunik, roughly 12 to 15 km inland from the city of Zadar, and from there the motorway and coast roads lead south to Šibenik and Split. Your driver meets you in the arrivals hall with a name board and takes you straight to your address, with no shared shuttle, no waiting for a full minibus and no changes along the way.': 'Zračna luka Zadar nalazi se u Zemuniku, oko 12 do 15 km u unutrašnjosti od grada Zadra, a odatle autocesta i obalne ceste vode na jug prema Šibeniku i Splitu. Vozač vas čeka u dolaznoj dvorani s natpisom s vašim imenom i vozi vas ravno na vašu adresu, bez zajedničkog šatla, bez čekanja da se napuni minibus i bez presjedanja.',
 +'about 75 km': 'oko 75 km',
@@ -3746,7 +3746,7 @@ index 2c85f1e..292689b 100644
 +airports/zadar-airport.html
 diff --git a/tools/it/tr_x_airports.py b/tools/it/tr_x_airports.py
 new file mode 100644
-index 0000000..ccc1f47
+index 0000000..8e31049
 --- /dev/null
 +++ b/tools/it/tr_x_airports.py
 @@ -0,0 +1,69 @@
@@ -3763,13 +3763,13 @@ index 0000000..ccc1f47
 +'Transfers from Split Airport': "Transfer dall'aeroporto di Spalato",
 +'Yes, choose the Return option when booking to arrange both legs together, which also applies an automatic 5% discount to the total price.': 'Sì, scegli Andata e ritorno al momento della prenotazione per organizzare entrambe le tratte insieme: si applica automaticamente uno sconto del 5% sul prezzo totale.',
 +'Why Choose a Private Transfer for a Long Journey': 'Perché scegliere un transfer privato per un lungo viaggio',
-+'These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route.': 'Questi sono valori tipici con traffico normale. La distanza esatta dipende dagli indirizzi di partenza e di arrivo, e il modulo di prenotazione mostra il prezzo fisso definitivo per il tuo percorso.',
++'These are typical figures under normal traffic. The exact distance depends on your pickup and drop-off address, and the booking form shows the final fixed price for your route. We offer transfers from this airport to destinations at least 50 km away.': 'Questi sono valori tipici con traffico normale. La distanza esatta dipende dagli indirizzi di partenza e di arrivo, e il modulo di prenotazione mostra il prezzo fisso definitivo per il tuo percorso. Offriamo transfer da questo aeroporto verso destinazioni a una distanza di almeno 50 km.',
 +'Distances and Drive Times': 'Distanze e tempi di percorrenza',
 +'Dubrovnik Airport Transfer to Split and Makarska | Airport Split Transfer': "Transfer dall'aeroporto di Dubrovnik a Spalato e Makarska | Airport Split Transfer",
 +'Private transfer from Dubrovnik Airport (DBV) to Split and Makarska, a 3 to 3.5 hour drive to Split. Fixed all-inclusive price, meet & greet, flight tracking.': "Transfer privato dall'aeroporto di Dubrovnik (DBV) a Spalato e Makarska, 3-3,5 ore di viaggio fino a Spalato. Prezzo fisso tutto incluso, accoglienza e monitoraggio del volo.",
 +'Dubrovnik Airport → Split & Makarska': 'Aeroporto di Dubrovnik → Spalato e Makarska',
 +'Private Transfer from Dubrovnik Airport to Split and Makarska': "Transfer privato dall'aeroporto di Dubrovnik a Spalato e Makarska",
-+'Land at Dubrovnik Airport and ride straight to Split, Makarska or any other address on the Dalmatian coast, in a private car at a fixed price agreed before you travel.': "Atterra all'aeroporto di Dubrovnik e vai direttamente a Spalato, Makarska o a qualsiasi altro indirizzo sulla costa dalmata, in auto privata a un prezzo fisso concordato prima del viaggio.",
++'Land at Dubrovnik Airport and ride straight to Split, Makarska or another destination at least 50 km away, in a private car at a fixed price agreed before you travel.': "Atterra all'aeroporto di Dubrovnik e vai direttamente a Spalato, Makarska o a un'altra destinazione ad almeno 50 km di distanza, in auto privata a un prezzo fisso concordato prima del viaggio.",
 +'Distance to Split': 'Distanza da Spalato',
 +'Drive Time to Split': 'Durata del viaggio fino a Spalato',
 +'Your Private Transfer from Dubrovnik Airport': "Il tuo transfer privato dall'aeroporto di Dubrovnik",
@@ -3793,7 +3793,7 @@ index 0000000..ccc1f47
 +'Private transfer from Zadar Airport (ZAD) to Šibenik, Split and the Plitvice Lakes. Fixed all-inclusive price, meet & greet at arrivals, flight tracking.': "Transfer privato dall'aeroporto di Zara (ZAD) a Šibenik, Spalato e ai Laghi di Plitvice. Prezzo fisso tutto incluso, accoglienza e monitoraggio del volo.",
 +'Zadar Airport → Šibenik, Split & Plitvice': 'Aeroporto di Zara → Šibenik, Spalato e Plitvice',
 +'Private Transfer from Zadar Airport to Šibenik, Split and Plitvice': "Transfer privato dall'aeroporto di Zara a Šibenik, Spalato e Plitvice",
-+'Land at Zadar Airport and ride straight to Šibenik, Split, the Plitvice Lakes or any other address along the coast, in a private car at a fixed price agreed before you travel.': "Atterra all'aeroporto di Zara e vai direttamente a Šibenik, Spalato, ai Laghi di Plitvice o a qualsiasi altro indirizzo lungo la costa, in auto privata a un prezzo fisso concordato prima del viaggio.",
++'Land at Zadar Airport and ride straight to Šibenik, Split, the Plitvice Lakes or another destination at least 50 km away, in a private car at a fixed price agreed before you travel.': "Atterra all'aeroporto di Zara e vai direttamente a Šibenik, Spalato, ai Laghi di Plitvice o a un'altra destinazione ad almeno 50 km di distanza, in auto privata a un prezzo fisso concordato prima del viaggio.",
 +'Your Private Transfer from Zadar Airport': "Il tuo transfer privato dall'aeroporto di Zara",
 +'Zadar Airport is at Zemunik, roughly 12 to 15 km inland from the city of Zadar, and from there the motorway and coast roads lead south to Šibenik and Split. Your driver meets you in the arrivals hall with a name board and takes you straight to your address, with no shared shuttle, no waiting for a full minibus and no changes along the way.': "L'aeroporto di Zara si trova a Zemunik, a circa 12-15 km nell'entroterra dalla città di Zara, e da lì l'autostrada e le strade costiere portano a sud verso Šibenik e Spalato. L'autista ti aspetta nella sala arrivi con un cartello con il tuo nome e ti porta direttamente al tuo indirizzo, senza navetta condivisa, senza attese per riempire un minibus e senza cambi lungo il percorso.",
 +'about 75 km': 'circa 75 km',
