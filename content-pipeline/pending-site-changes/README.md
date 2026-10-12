@@ -17,3 +17,4 @@ each patch after it is applied.
 | # | Patch | What | Queued |
 |---|-------|------|--------|
 | 001 | 001-remove-vclass-photo-from-fleet.patch | Remove the V-Class on-the-road photo from the Vehicles page (all 6 languages). It stays on the Dubrovnik route page. Ivan: "debilno izgleda". | 2026-10-12 |
+| 002 | 002-swap-button-restyle.patch | Booking form swap button: arrows icon (up/down on phones, sideways on desktop), white round button centred between the Pickup and Dropoff fields instead of on the Dropoff label line. Touches css/style.css and the six booking-widget partials. Ivan: "promijenit izgled i stavit po sredini". | 2026-10-12 |
