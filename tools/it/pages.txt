@@ -21,3 +21,5 @@ blog/split-to-makarska-guide.html
 blog/taxi-vs-private-transfer.html
 blog/vclass-vs-trafic.html
 blog/visiting-plitvice.html
+airports/dubrovnik-airport.html
+airports/zadar-airport.html

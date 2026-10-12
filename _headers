@@ -20,3 +20,16 @@
   X-Robots-Tag: noindex, nofollow
 /tools/*
   X-Robots-Tag: noindex, nofollow
+
+# Security headers on every page.
+# - nosniff: browsers must not guess a different content type.
+# - SAMEORIGIN: other sites cannot put this site in a frame (clickjacking).
+# - Referrer-Policy: other sites only see the domain, not the full address.
+# - Permissions-Policy: switch off browser features the site never uses.
+# - HSTS: browsers remember to use HTTPS for a year.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000

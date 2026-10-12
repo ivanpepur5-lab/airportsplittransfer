@@ -113,7 +113,10 @@ const DESTINATION_NAMES = {
   ambasador: "Hotel Ambasador, Split, Croatia",
   lemeridien: "Le Méridien Lav Split, Podstrana, Croatia",
   medora: "Medora Auri Family Beach Resort, Podgora, Croatia",
-  radisson: "Radisson Blu Resort Split, Split, Croatia"
+  radisson: "Radisson Blu Resort Split, Split, Croatia",
+  // other airports: pickup points for the pages under /airports/ (?pickup=...)
+  dbvairport: "Dubrovnik Airport (DBV), Croatia",
+  zadairport: "Zadar Airport (ZAD), Croatia"
 };
 
 /**

@@ -620,6 +620,14 @@ function runBookingPrefill(){
     document.getElementById('b-pickup').value = 'Split Airport (SPU), Croatia';
     gotEnough = true;
   }
+  // ?pickup=<key>&to=<key>: a pickup other than Split Airport, used by the
+  // pages for Dubrovnik Airport and Zadar Airport.
+  const pickupKey = params.get('pickup');
+  if(pickupKey && DESTINATION_NAMES[pickupKey] && toKey && DESTINATION_NAMES[toKey]){
+    document.getElementById('b-pickup').value = DESTINATION_NAMES[pickupKey];
+    document.getElementById('b-dropoff').value = DESTINATION_NAMES[toKey];
+    gotEnough = true;
+  }
   // ?from= is the same route the other way round, for the "X to Split
   // Airport" pages: the place is the pickup and the airport the drop-off.
   const fromKey = params.get('from');

@@ -62,8 +62,26 @@ const SAMPLE_BOOKING_DATA = {
   flight_number: "OU491",
 };
 
+// Access control. This URL is public, and ?sendTestTo= makes the site send a
+// real email from the business domain through Resend, so anyone who found it
+// could use it to send mail to any address. It is therefore off unless
+// BOOKING_STATUS_TOKEN is set in the Netlify environment, and every call must
+// then carry ?token=<the same value>. Without a match it answers like a page
+// that does not exist.
+const crypto = require("crypto");
+function tokenOk(given) {
+  const expected = process.env.BOOKING_STATUS_TOKEN;
+  if (!expected || typeof given !== "string" || !given) return false;
+  const a = Buffer.from(given);
+  const b = Buffer.from(expected);
+  return a.length === b.length && crypto.timingSafeEqual(a, b);
+}
+
 exports.handler = async (event) => {
   const params = event.queryStringParameters || {};
+  if (!tokenOk(params.token)) {
+    return { statusCode: 404, headers: { "Content-Type": "text/plain" }, body: "Not found" };
+  }
   const wantsResendCheck = Boolean(params.checkResend);
   const sendTestTo = params.sendTestTo;
   const useFullTemplate = Boolean(params.fullTemplate);

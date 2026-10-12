@@ -11,6 +11,8 @@ Vehicles: Sedan (up to 4 passengers), Business Van / Mercedes V-Class (up to 7 p
 - [Homepage & Booking](/): Book a transfer with live address autocomplete and instant fixed pricing
 - [All Destinations](/destinations): Every route served, both directions, with a search filter
 - [Hotel Transfers](/hotel-transfers): Fixed-price transfers to named hotels and resorts
+- [Dubrovnik Airport transfers](/airports/dubrovnik-airport): Private transfers from Dubrovnik Airport to Split and Makarska
+- [Zadar Airport transfers](/airports/zadar-airport): Private transfers from Zadar Airport to Šibenik, Split and Plitvice
 - [Day Trips](/day-trips): Private day trips to Plitvice Lakes and Krka National Park
 - [Fleet](/fleet): Vehicle classes and capacity
 - [Services](/services): Full list of transfer services offered
