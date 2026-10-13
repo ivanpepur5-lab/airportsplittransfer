@@ -622,11 +622,15 @@ function runBookingPrefill(){
   }
   // ?pickup=<key>&to=<key>: a pickup other than Split Airport, used by the
   // pages for Dubrovnik Airport and Zadar Airport.
+  // With only ?pickup= the guest picks the destination themselves; with
+  // ?to= as well the whole route is filled in and priced.
   const pickupKey = params.get('pickup');
-  if(pickupKey && DESTINATION_NAMES[pickupKey] && toKey && DESTINATION_NAMES[toKey]){
+  if(pickupKey && DESTINATION_NAMES[pickupKey]){
     document.getElementById('b-pickup').value = DESTINATION_NAMES[pickupKey];
-    document.getElementById('b-dropoff').value = DESTINATION_NAMES[toKey];
-    gotEnough = true;
+    if(toKey && DESTINATION_NAMES[toKey]){
+      document.getElementById('b-dropoff').value = DESTINATION_NAMES[toKey];
+      gotEnough = true;
+    }
   }
   // ?from= is the same route the other way round, for the "X to Split
   // Airport" pages: the place is the pickup and the airport the drop-off.

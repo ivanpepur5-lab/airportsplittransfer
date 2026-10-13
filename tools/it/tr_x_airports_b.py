@@ -9,4 +9,7 @@ T = {
 'Dubrovnik Airport transfers to Split and Makarska': "Transfer dall'aeroporto di Dubrovnik a Spalato e Makarska",
 'Flying into Zadar Airport instead?': 'Voli invece a Zara?',
 'Zadar Airport transfers to Šibenik, Split and Plitvice': "Transfer dall'aeroporto di Zara a Šibenik, Spalato e Plitvice",
+'Other airports': 'Altri aeroporti',
+'Transfers from Dubrovnik and Zadar Airports': 'Transfer dagli aeroporti di Dubrovnik e Zara',
+'Long private transfers from the two other Dalmatian airports, to destinations at least 50 km away, at a fixed price.': 'Lunghi transfer privati dagli altri due aeroporti dalmati, verso destinazioni ad almeno 50 km di distanza, a prezzo fisso.',
 }
