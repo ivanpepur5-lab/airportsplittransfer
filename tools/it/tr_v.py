@@ -1,6 +1,6 @@
 # Blog post, batch 7 (phase 2): Hvar
 T = {
-"Split Airport to Hvar: Ferry & Transfer Guide | Airport Split Transfer": "Dall'aeroporto di Spalato a Hvar: traghetti e transfer | Airport Split Transfer",
+"Split Airport to Hvar: Ferry & Transfer Guide": "Dall'aeroporto di Spalato a Hvar: traghetti e transfer",
 "How do I get from Split Airport to Hvar?": "Come si va dall'aeroporto di Spalato a Hvar?",
 "Travel from the airport to Split ferry port, about 25 minutes by car, then take a catamaran to Hvar Town or the car ferry to Stari Grad.": "Dall'aeroporto si va al porto di Spalato, circa 25 minuti in auto, poi si prende un catamarano per Hvar città o il traghetto per Stari Grad.",
 "How long is the boat from Split to Hvar?": "Quanto dura la traversata da Spalato a Hvar?",

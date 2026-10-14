@@ -1,6 +1,6 @@
 # Blog posts, batch 3 (phase 2): taxi prices; Split taxi/bus/transfer
 T = {
-"Split Airport Taxi Prices (2026 Guide) | Airport Split Transfer": "Prezzi dei taxi dall'aeroporto di Spalato (2026) | Airport Split Transfer",
+"Split Airport Taxi Prices (2026 Guide)": "Prezzi dei taxi dall'aeroporto di Spalato (2026)",
 "How much is a taxi from Split Airport to Split?": "Quanto costa un taxi dall'aeroporto di Spalato a Spalato?",
 "A metered rank taxi usually costs €35–50 to Split city centre. A fixed-price private transfer costs around €50 for a car or €65–70 for a van.": "Un taxi al posteggio con tassametro costa di solito 35–50 € fino al centro di Spalato. Un transfer privato a prezzo fisso costa circa 50 € in auto o 65–70 € in van.",
 "Do Split Airport taxis take cards?": "I taxi dell'aeroporto di Spalato accettano carte?",
@@ -38,7 +38,7 @@ T = {
 "Private transfers:": "Transfer privati:",
 "extra stops or route changes asked for on the day. With us these are always agreed before the ride, never added at the end.": "soste extra o cambi di percorso richiesti il giorno stesso. Con noi si concordano sempre prima del viaggio, mai aggiunti alla fine.",
 "Frequently Asked Questions": "Domande frequenti",
-"Split Airport to Split: Taxi, Bus or Transfer | Airport Split Transfer": "Dall'aeroporto a Spalato: taxi, autobus o transfer | Airport Split Transfer",
+"Split Airport to Split: Taxi, Bus or Transfer": "Dall'aeroporto a Spalato: taxi, autobus o transfer",
 "How far is Split Airport from Split city centre?": "Quanto dista l'aeroporto di Spalato dal centro?",
 "About 20 km. The drive takes 25–30 minutes in normal traffic and longer on summer afternoons.": "Circa 20 km. Il viaggio dura 25–30 minuti con traffico normale, di più nei pomeriggi d'estate.",
 "What is the cheapest way from Split Airport to Split?": "Qual è il modo più economico per andare dall'aeroporto a Spalato?",

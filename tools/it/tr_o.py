@@ -1,6 +1,6 @@
 # blog/index.html and post titles/descriptions (phase 2)
 T = {
-"Split Airport Transfer Blog and Travel Tips | Airport Split Transfer": "Blog e consigli di viaggio | Airport Split Transfer",
+"Split Airport Transfer Blog and Travel Tips": "Blog e consigli di viaggio | Airport Split Transfer",
 "Guides on Split Airport transfers, Croatia destinations and travel tips from Airport Split Transfer.": "Guide sui transfer dall'aeroporto di Spalato, sulle destinazioni in Croazia e consigli di viaggio da Airport Split Transfer.",
 "Airport Split Transfer Journal": "Il blog di Airport Split Transfer",
 "Journal": "Blog",

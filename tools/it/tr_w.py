@@ -1,7 +1,7 @@
 # Blog post, batch 8 (phase 2): Bol and Zlatni Rat
 T = {
 "A@@split-airport-to-bol-brac.html": "",
-"Split Airport to Bol and Zlatni Rat | Airport Split Transfer": "Dall'aeroporto di Spalato a Bol e Zlatni Rat | Airport Split Transfer",
+"Split Airport to Bol and Zlatni Rat | Airport Split Transfer": "Dall'aeroporto di Spalato a Bol e Zlatni Rat",
 "How to get from Split Airport to Bol and Zlatni Rat on Brač: the transfer to Split ferry port, catamaran or car ferry, and timing your connection.": "Come arrivare dall'aeroporto di Spalato a Bol e Zlatni Rat sull'isola di Brač: il transfer al porto, catamarano o traghetto e come organizzare la coincidenza.",
 "How do I get from Split Airport to Bol?": "Come si va dall'aeroporto di Spalato a Bol?",
 "Travel from the airport to Split ferry port, about 25 minutes by car, then take the summer catamaran to Bol or the car ferry to Supetar and drive across the island.": "Dall'aeroporto si va al porto di Spalato, circa 25 minuti in auto, poi si prende il catamarano estivo per Bol oppure il traghetto per Supetar e si attraversa l'isola in auto.",

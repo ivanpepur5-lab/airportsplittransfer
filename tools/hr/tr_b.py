@@ -1,6 +1,6 @@
 T = {
 # split-airport-transfers
-"Split Airport Taxi at a Fixed Price | Airport Split Transfer": "Taxi Zračna luka Split, cijene bez taksimetra | Airport Split Transfer",
+"Split Airport Taxi at a Fixed Price | Airport Split Transfer": "Taxi Zračna luka Split, cijene bez taksimetra",
 "Private Split Airport taxi at a fixed price, no meter. English-speaking drivers, flight tracking and 24/7 pickups to Split, Trogir, Omiš, Makarska and more.": "Privatni taxi sa Zračne luke Split po fiksnoj cijeni, bez taksimetra. Praćenje leta i vožnje 0-24 do Splita, Trogira, Omiša, Makarske i dalje.",
 "Airport Taxi": "Taxi aerodrom",
 "How much does a taxi from Split Airport cost?": "Koliko košta taxi sa Zračne luke Split?",
@@ -48,7 +48,7 @@ T = {
 "Nikola Stosic, Google review": "Nikola Stosic, Google recenzija (prijevod)",
 "“Excellent transfer service: the driver was professional, friendly and punctual, and the journey was smooth and comfortable. Communication was great throughout.”": "„Izvrstan transfer: vozač je bio profesionalan, ljubazan i točan, a vožnja ugodna i udobna. Komunikacija je cijelo vrijeme bila odlična.”",
 "Zacker Zap, Google review": "Zacker Zap, Google recenzija (prijevod)",
-"Split Airport Taxi: Common Questions": "Taxi Zračna luka Split: česta pitanja",
+"Split Airport Taxi: Frequently Asked Questions": "Taxi Zračna luka Split: česta pitanja",
 "Enter your pickup and drop-off address, choose your date, time and vehicle in the booking form below, and you'll see an instant fixed price, no account or deposit required to reserve.": "U obrazac ispod upišite polazište i odredište, odaberite datum, vrijeme i vozilo i odmah ćete vidjeti fiksnu cijenu. Za rezervaciju ne trebate račun ni polog.",
 "Book Your Fixed-Price Split Airport Taxi": "Rezervirajte taxi s aerodroma po fiksnoj cijeni",
 "Enter your route below for an instant quote: no hidden fees, no obligation.": "Upišite rutu i odmah dobivate cijenu: bez skrivenih troškova i bez obveze.",
@@ -56,7 +56,7 @@ T = {
 "Split Airport → Zadar": "Zračna luka Split → Zadar",
 
 # destinations
-"Split Airport Transfers: All Destinations | Airport Split Transfer": "Transferi sa Zračne luke Split: sva odredišta | Airport Split Transfer",
+"Split Airport Transfers: All Destinations": "Transferi sa Zračne luke Split: sva odredišta",
 "Browse every destination served by Airport Split Transfer from Split Airport, with fixed prices, distances and travel times.": "Sva odredišta do kojih vozimo sa Zračne luke Split, s fiksnim cijenama, udaljenostima i trajanjem vožnje.",
 "Destinations": "Odredišta",
 "How many destinations do you serve from Split Airport?": "Do koliko odredišta vozite sa Zračne luke Split?",
@@ -107,7 +107,7 @@ T = {
 "My destination isn't listed: can I still book a transfer?": "Mog odredišta nema na popisu: mogu li ipak rezervirati?",
 
 # fleet
-"Our Fleet: Škoda Superb, V-Class, Trafic | Airport Split Transfer": "Vozila: Škoda Superb, V-Class, Trafic | Airport Split Transfer",
+"Our Fleet: Škoda Superb, V-Class, Trafic": "Vozila: Škoda Superb, V-Class, Trafic",
 "Explore the Airport Split Transfer fleet: Škoda Superb executive sedan, Mercedes-Benz V-Class premium van, and Renault Trafic for groups.": "Naša vozila: poslovna limuzina Škoda Superb, premium kombi Mercedes-Benz V-Class i Renault Trafic za grupe.",
 "Fleet": "Vozila",
 "What's the difference between the Sedan, Business Van and Van?": "Koja je razlika između limuzine, poslovnog kombija i kombija?",
@@ -136,7 +136,7 @@ T = {
 "Select Van": "Odaberi kombi",
 
 # services
-"Services: Airport, Direct and Group Transfers | Airport Split Transfer": "Usluge: aerodromski, izravni i grupni transferi | Airport Split Transfer",
+"Services: Airport, Direct and Group Transfers": "Usluge: aerodromski, izravni i grupni transferi",
 "Private airport transfers, point-to-point rides, return trips, group and wedding transfers, and hourly hire across the Dalmatian coast.": "Privatni transferi s aerodroma, izravne vožnje između mjesta, povratne vožnje, grupni transferi i svatovi te najam vozila s vozačem po satu duž dalmatinske obale.",
 "What transfer services do you offer besides airport pickups?": "Koje usluge nudite osim preuzimanja na aerodromu?",
 "Airport arrivals and departures, point-to-point transfers between towns, return transfers, group and wedding transfers, and hourly or full-day vehicle hire.": "Dolaske i odlaske s aerodroma, izravne transfere između mjesta, povratne transfere, grupne transfere i svatove te najam vozila s vozačem na sat ili cijeli dan.",

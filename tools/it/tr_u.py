@@ -1,6 +1,6 @@
 # Blog posts, batch 6 (phase 2): Trogir; Baška Voda; Amadria Park
 T = {
-"Split Airport to Trogir Transfer Guide (2026) | Airport Split Transfer": "Guida al transfer dall'aeroporto di Spalato a Trogir (2026) | Airport Split Transfer",
+"Split Airport to Trogir Transfer Guide (2026)": "Guida al transfer dall'aeroporto di Spalato a Trogir (2026)",
 "About 7 km. The drive takes 10–15 minutes, longer on summer Saturdays.": "Circa 7 km. Il viaggio dura 10–15 minuti, di più il sabato d'estate.",
 "How much is a transfer from Split Airport to Trogir?": "Quanto costa un transfer dall'aeroporto di Spalato a Trogir?",
 "Around €35 for a car with up to 4 passengers and around €45 for a van with up to 8, per vehicle. The booking form shows the exact price for your address.": "Circa 35 € per un'auto fino a 4 passeggeri e circa 45 € per un van fino a 8, per veicolo. Il modulo di prenotazione mostra il prezzo esatto per il tuo indirizzo.",
@@ -21,7 +21,7 @@ T = {
 "Trogir is one of the busiest sailing bases in Croatia, and Saturday is charter changeover day. Traffic on the bridges gets slow in the afternoon. If you're joining a boat, write the marina name and the charter company in the booking notes and we'll drop you at the reception, not at the town car park.": "Trogir è una delle basi nautiche più trafficate della Croazia e il sabato è il giorno di cambio dei charter. Nel pomeriggio il traffico sui ponti rallenta. Se ti imbarchi, scrivi nelle note il nome della marina e della società di charter e ti lasceremo alla reception, non al parcheggio del paese.",
 "Going back to the airport": "Tornare in aeroporto",
 "Because the airport is so close, it's tempting to leave late. On summer Saturdays the bridge between Trogir and Čiovo can back up badly, so allow more time than the distance suggests. We plan pickup times around your flight time, tell us when you fly and we'll tell you when to be ready.": "Con l'aeroporto così vicino, viene la tentazione di partire tardi. Il sabato d'estate il ponte tra Trogir e Čiovo può intasarsi molto, quindi calcola più tempo di quanto suggerisca la distanza. Programmiamo i ritiri in base all'orario del volo: dicci quando parti e ti diremo quando essere pronto.",
-"Split Airport to Baška Voda Transfer (2026) | Airport Split Transfer": "Transfer dall'aeroporto di Spalato a Baška Voda (2026) | Airport Split Transfer",
+"Split Airport to Baška Voda Transfer (2026)": "Transfer dall'aeroporto di Spalato a Baška Voda (2026)",
 "How far is Baška Voda from Split Airport?": "Quanto dista Baška Voda dall'aeroporto di Spalato?",
 "About 65 km, around 1 hour 10 minutes by car.": "Circa 65 km, circa 1 ora e 10 minuti in auto.",
 "How much is a transfer from Split Airport to Baška Voda?": "Quanto costa un transfer dall'aeroporto di Spalato a Baška Voda?",
@@ -44,7 +44,7 @@ T = {
 "Biokovo Nature Park": "Il Parco naturale del Biokovo",
 "rises right behind the village, with the Skywalk and a road to the summit.": "si innalza subito dietro il paese, con lo Skywalk e una strada fino alla vetta.",
 "If you're travelling with friends staying elsewhere on the Riviera, we can combine drop-offs in one booking, mention the extra stop and we'll confirm the price first.": "Se viaggi con amici che alloggiano altrove sulla Riviera, possiamo combinare le fermate in un'unica prenotazione: indica la sosta in più e ti confermeremo prima il prezzo.",
-"Split Airport to Amadria Park Solaris Šibenik | Airport Split Transfer": "Dall'aeroporto di Spalato all'Amadria Park Solaris Šibenik | Airport Split Transfer",
+"Split Airport to Amadria Park Solaris Šibenik": "Dall'aeroporto di Spalato all'Amadria Park Solaris Šibenik",
 "Traveling from Split Airport to Amadria Park Hotel Solaris in Šibenik? Fixed-price private transfer, meet & greet at arrivals, and door-to-door service.": "Vai dall'aeroporto di Spalato all'Amadria Park Hotel Solaris di Šibenik? Transfer privato a prezzo fisso, accoglienza agli arrivi e servizio porta a porta.",
 "How long does the transfer take?": "Quanto dura il transfer?",
 "Typically 50 to 70 minutes from Split Airport to Amadria Park Solaris.": "Di solito 50–70 minuti dall'aeroporto di Spalato all'Amadria Park Solaris.",

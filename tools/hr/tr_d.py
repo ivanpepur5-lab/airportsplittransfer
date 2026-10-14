@@ -30,9 +30,9 @@ for en, nom, gen, tm, loc in PLACES:
     T[f"{en} to Split Airport Transfer | Airport Split Transfer"] = f"Transfer iz {gen} do Zračne luke Split | Airport Split Transfer"
 
 T.update({
-"Split Airport to Split City and Ferry Port | Airport Split Transfer": "Taxi Split aerodrom do centra i trajektne luke | Airport Split Transfer",
-"Split City and Ferry Port to Split Airport | Airport Split Transfer": "Taxi od centra Splita i trajekta do aerodroma | Airport Split Transfer",
-"Split Airport to Dubrovnik Private Transfer | Airport Split Transfer": "Privatni transfer Zračna luka Split do Dubrovnika | Airport Split Transfer",
+"Split Airport to Split City and Ferry Port": "Taxi Split aerodrom do centra i trajektne luke",
+"Split City and Ferry Port to Split Airport | Airport Split Transfer": "Taxi od centra Splita i trajekta do aerodroma",
+"Split Airport to Dubrovnik Private Transfer": "Privatni transfer Zračna luka Split do Dubrovnika",
 "The exact price depends on your pickup and drop-off address. Enter both in our booking form to see an instant, fixed price for the Sedan or for the Business Van/Van: tolls, fuel and meet-and-greet at arrivals are always included.": "Točna cijena ovisi o adresi polazišta i odredišta. Upišite obje u obrazac za rezervaciju i odmah ćete vidjeti fiksnu cijenu za limuzinu ili kombi: cestarina, gorivo i doček u dolaznom terminalu uvijek su uključeni.",
 "Yes, select \"Return\" when booking to schedule both legs of your trip together. A return transfer automatically includes a 5% discount on the total price.": "Da, pri rezervaciji odaberite \"Povratna\" i dogovorite obje vožnje odjednom. Povratni transfer automatski uključuje 5% popusta na ukupnu cijenu.",
 "Airport Transfer": "Aerodromski transfer",

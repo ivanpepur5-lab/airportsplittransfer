@@ -1,6 +1,6 @@
 # Blog posts, batch 4 (phase 2): early morning; how to book; Dubrovnik worth it
 T = {
-"Early Morning Transfer to Split Airport | Airport Split Transfer": "Rani jutarnji transfer do Zračne luke Split | Airport Split Transfer",
+"Early Morning Transfer to Split Airport": "Rani jutarnji transfer do Zračne luke Split",
 "Is there a bus to Split Airport early in the morning?": "Vozi li rano ujutro autobus do Zračne luke Split?",
 "Service at very early hours is limited. Check the first airport shuttle departure against your flight time before you rely on it.": "U vrlo rane sate prijevoz je ograničen. Prije nego što se na njega oslonite, usporedite prvi polazak aerodromskog shuttlea s vremenom svog leta.",
 "How early should I get to Split Airport?": "Koliko ranije trebam doći na Zračnu luku Split?",
@@ -33,7 +33,7 @@ T = {
 "Tell us if your accommodation has a hard-to-find entrance or gate.": "Javite nam ako vaš smještaj ima teško uočljiv ulaz ili kapiju.",
 "Check your flight status in case of a time change.": "Provjerite status leta za slučaj da se vrijeme promijenilo.",
 "Have your passport and boarding pass ready. You'll be sleepy.": "Pripremite putovnicu i kartu za ukrcaj. Bit ćete pospani.",
-"How to Book a Reliable Split Airport Transfer | Airport Split Transfer": "Kako rezervirati pouzdan transfer sa Zračne luke Split | Airport Split Transfer",
+"How to Book a Reliable Split Airport Transfer": "Kako rezervirati pouzdan transfer sa Zračne luke Split",
 "What happens if my flight to Split is delayed?": "Što ako moj let za Split kasni?",
 "We track your flight number and your driver adjusts the pickup time automatically. There is no extra charge for reasonable delays.": "Pratimo vaš let, a vozač sam prilagođava vrijeme preuzimanja. Za uobičajena kašnjenja nema dodatne naplate.",
 "Can I cancel my Split Airport transfer?": "Mogu li otkazati transfer sa Zračne luke Split?",
@@ -65,7 +65,7 @@ T = {
 "Your driver tracks your flight and waits in arrivals with your name.": "Vozač prati vaš let i čeka vas u dolaznom terminalu s vašim imenom.",
 "Questions before you book? Message us on": "Imate pitanja prije rezervacije? Pišite nam na",
 "we usually reply within minutes.": ", obično odgovaramo u nekoliko minuta.",
-"Split Airport to Dubrovnik: Is It Worth It? | Airport Split Transfer": "Od Zračne luke Split do Dubrovnika: isplati li se? | Airport Split Transfer",
+"Split Airport to Dubrovnik: Is It Worth It?": "Od Zračne luke Split do Dubrovnika: isplati li se?",
 "About 3 to 3.5 hours, depending on traffic and the route.": "Oko 3 do 3,5 sata, ovisno o prometu i ruti.",
 "Do I need a passport to drive from Split to Dubrovnik?": "Trebam li putovnicu za vožnju od Splita do Dubrovnika?",
 "The route over the Pelješac Bridge stays in Croatia, but keep passports with you in case the driver uses the road through Neum in Bosnia and Herzegovina.": "Ruta preko Pelješkog mosta ostaje u Hrvatskoj, ali dokumente imajte uza se za slučaj da vozač krene cestom kroz Neum u Bosni i Hercegovini.",

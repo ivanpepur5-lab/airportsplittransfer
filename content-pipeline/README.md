@@ -322,3 +322,14 @@ The Friday Routine was switched off on 2026-10-08.
 8. Commit and push everything in **one** push (each push to the site is a
    Netlify production deploy and costs credits; never push in pieces).
 9. Reply in Croatian with a short summary and all six links.
+
+## Title length rule (2026-10-14)
+
+Keep every `<title>` at 60 characters or less. The brand suffix
+` | Airport Split Transfer` (25 characters) is only kept when the whole
+title still fits; otherwise the title is the descriptive part alone (the
+brand already shows next to the result). The homepages keep the suffix.
+`tools/hr` and `tools/it` apply the same rule to the Croatian and Italian
+titles automatically (see `trtool.py`); for EN, DE, SV and NO it is applied
+by hand when a page is written. Use "Frequently Asked Questions" (not
+"Common Questions") and "passengers" (not "pax") in customer-facing text.

@@ -27,7 +27,7 @@ for en, nom, to, frm, tm, loc in PLACES:
     T[f"Split Airport to {en} Transfer | Airport Split Transfer"] = f"Transfer dall'aeroporto di Spalato {to} | Airport Split Transfer"
     T[f"{en} to Split Airport Transfer | Airport Split Transfer"] = f"Transfer {frm} all'aeroporto di Spalato | Airport Split Transfer"
 T.update({
-"Split Airport to Biograd na Moru | Airport Split Transfer": "Transfer dall'aeroporto di Spalato a Biograd na Moru | Airport Split Transfer",
+"Split Airport to Biograd na Moru | Airport Split Transfer": "Transfer dall'aeroporto di Spalato a Biograd na Moru",
 "Private transfer from Split Airport to Biograd na Moru: 1 h 10 min drive. Enter your addresses for an instant fixed price.": "Transfer privato dall'aeroporto di Spalato a Biograd na Moru: 1 h 10 min di viaggio. Inserisci gli indirizzi e ottieni subito un prezzo fisso.",
 "Biograd na Moru is a historic coastal town midway to Zadar, home to Marina Kornati, one of Croatia's largest marinas and the main gateway for sailing charters to the Kornati and Telašćica national parks. Joining a charter? See our": "Biograd na Moru è una storica cittadina costiera a metà strada verso Zadar, sede della Marina Kornati, una delle marine più grandi della Croazia e principale punto di partenza dei charter verso il Parco nazionale delle Kornati e il Parco naturale di Telašćica. Ti imbarchi su un charter? Vedi la nostra",
 "Marina Kornati transfer page": "pagina dei transfer per la Marina Kornati",

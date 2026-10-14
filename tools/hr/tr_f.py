@@ -1,6 +1,6 @@
 T = {
 # services/ audience pages (phase 2)
-"Business Transfers from Split Airport | Airport Split Transfer": "Poslovni transferi sa Zračne luke Split | Airport Split Transfer",
+"Business Transfers from Split Airport": "Poslovni transferi sa Zračne luke Split",
 "Private business transfers from Split Airport: company invoice on request, flight tracking, Škoda Superb or Mercedes V-Class, fixed price agreed in advance.": "Privatni poslovni transferi sa Zračne luke Split: R1 račun na firmu, praćenje leta, Škoda Superb ili Mercedes V-Class i fiksna cijena dogovorena unaprijed.",
 "Can I get an invoice for my company?": "Mogu li dobiti račun na firmu?",
 "Yes. Give us the company name, address and tax number when you book, and we issue the invoice in the company's name after the ride. Croatian companies receive an R1 invoice.": "Da. Pri rezervaciji nam pošaljite naziv tvrtke, adresu i OIB, a račun na tvrtku izdajemo nakon vožnje. Hrvatske tvrtke dobivaju R1 račun.",
@@ -40,7 +40,7 @@ T = {
 "hotel transfers": "transfere do hotela",
 "Questions": "Pitanja",
 
-"Split Airport Transfer with Kids | Airport Split Transfer": "Transfer sa Zračne luke Split s djecom | Airport Split Transfer",
+"Split Airport Transfer with Kids | Airport Split Transfer": "Transfer sa Zračne luke Split s djecom",
 "Private transfer from Split Airport for families: free child seats on request, no shared stops, room for pushchairs, fixed price per vehicle.": "Privatni transfer sa Zračne luke Split za obitelji: besplatne dječje sjedalice na zahtjev, bez usputnih stajanja, mjesta za kolica i fiksna cijena po vozilu.",
 "Are child seats really free?": "Jesu li dječje sjedalice stvarno besplatne?",
 "Yes. Baby and child seats are free on request in all three vehicles. Tell us how many children are travelling and how old they are when you book.": "Da. Sjedalice za bebe i djecu besplatne su na zahtjev u sva tri vozila. Pri rezervaciji nam napišite koliko djece putuje i koliko imaju godina.",
@@ -74,7 +74,7 @@ T = {
 "to Krka and Plitvice, or": "do Krke i Plitvica ili",
 "compare the vehicles": "usporedite vozila",
 
-"Group Transfers from Split Airport | Airport Split Transfer": "Grupni transferi sa Zračne luke Split | Airport Split Transfer",
+"Group Transfers from Split Airport | Airport Split Transfer": "Grupni transferi sa Zračne luke Split",
 "Private group transfers from Split Airport: one van for up to 8 people and their bags, several vehicles for bigger groups, fixed price per vehicle.": "Privatni grupni transferi sa Zračne luke Split: jedan kombi za do 8 osoba s prtljagom, više vozila za veće grupe i fiksna cijena po vozilu.",
 "How many people fit in one vehicle?": "Koliko osoba stane u jedno vozilo?",
 "Up to 8 in the Renault Trafic and up to 7 in the Mercedes V-Class, each with room for one suitcase per person. The Škoda Superb takes up to 4.": "Do 8 u Renault Trafic i do 7 u Mercedes V-Class, svaki s mjestom za jedan kofer po osobi. Škoda Superb prima do 4 osobe.",
@@ -108,7 +108,7 @@ T = {
 ", or read": " ili pročitajte",
 "which van suits your group": "koji kombi odgovara vašoj grupi",
 
-"Split Cruise and Ferry Port Transfers | Airport Split Transfer": "Transferi iz splitske luke za kruzere i trajekte | Airport Split Transfer",
+"Split Cruise and Ferry Port Transfers": "Transferi iz splitske luke za kruzere i trajekte",
 "Private transfer from Split cruise and ferry port to Split Airport or your hotel: about 25 to 30 minutes to the airport, fixed price per vehicle.": "Privatni transfer iz splitske luke za kruzere i trajekte do Zračne luke Split ili hotela: oko 25 do 30 minuta do aerodroma, fiksna cijena po vozilu.",
 "How long is the drive from Split port to the airport?": "Koliko traje vožnja od splitske luke do aerodroma?",
 "About 25 to 30 minutes for roughly 20 km. Allow more time on summer Saturdays.": "Oko 25 do 30 minuta za otprilike 20 km. Ljeti subotom računajte na više vremena.",

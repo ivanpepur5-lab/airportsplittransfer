@@ -23,9 +23,9 @@ for en, nom, to, frm, tm, loc in PLACES:
     T[f"{en} to Split Airport Transfer | Airport Split Transfer"] = f"Transfer {frm} all'aeroporto di Spalato | Airport Split Transfer"
 
 T.update({
-"Split Airport to Split City and Ferry Port | Airport Split Transfer": "Transfer dall'aeroporto di Spalato al centro e al porto | Airport Split Transfer",
-"Split City and Ferry Port to Split Airport | Airport Split Transfer": "Transfer dal centro di Spalato e dal porto all'aeroporto | Airport Split Transfer",
-"Split Airport to Dubrovnik Private Transfer | Airport Split Transfer": "Transfer privato dall'aeroporto di Spalato a Dubrovnik | Airport Split Transfer",
+"Split Airport to Split City and Ferry Port": "Transfer dall'aeroporto di Spalato al centro e al porto",
+"Split City and Ferry Port to Split Airport | Airport Split Transfer": "Transfer dal centro di Spalato e dal porto all'aeroporto",
+"Split Airport to Dubrovnik Private Transfer": "Transfer privato dall'aeroporto di Spalato a Dubrovnik",
 "The exact price depends on your pickup and drop-off address. Enter both in our booking form to see an instant, fixed price for the Sedan or for the Business Van/Van: tolls, fuel and meet-and-greet at arrivals are always included.": "Il prezzo esatto dipende dall'indirizzo di partenza e di arrivo. Inseriscili entrambi nel modulo di prenotazione e vedrai subito il prezzo fisso per la berlina o per il van: pedaggi, carburante e accoglienza agli arrivi sono sempre inclusi.",
 "Yes, select \"Return\" when booking to schedule both legs of your trip together. A return transfer automatically includes a 5% discount on the total price.": "Sì, scegli \"Andata e ritorno\" durante la prenotazione per organizzare entrambe le tratte insieme. Il ritorno include automaticamente uno sconto del 5% sul prezzo totale.",
 "Airport Transfer": "Transfer aeroportuale",

@@ -1,6 +1,6 @@
 T = {
 # day-trips.html
-"Private Day Trips from Split: Plitvice, Krka | Airport Split Transfer": "Escursioni private da Spalato: Plitvice e Krka | Airport Split Transfer",
+"Private Day Trips from Split: Plitvice, Krka": "Escursioni private da Spalato: Plitvice e Krka",
 "Private day trips from Split with an English-speaking driver: Plitvice Lakes, Krka National Park and fully custom excursions.": "Escursioni private di un giorno da Spalato con autista che parla inglese: Laghi di Plitvice, Parco nazionale di Krka ed escursioni su misura.",
 "Plitvice Lakes Day Trip": "Escursione ai Laghi di Plitvice",
 "Krka National Park Day Trip": "Escursione al Parco nazionale di Krka",
@@ -42,7 +42,7 @@ T = {
 "Custom Tour Request": "Richiesta tour su misura",
 
 # krka
-"Krka Day Trip from Split, Private Tour | Airport Split Transfer": "Escursione a Krka da Spalato, tour privato | Airport Split Transfer",
+"Krka Day Trip from Split, Private Tour": "Escursione a Krka da Spalato, tour privato",
 "Private day trip from Split to Krka National Park with an English-speaking driver. See Skradinski Buk waterfalls, fixed price, flexible 8-10 hour itinerary.": "Escursione privata da Spalato al Parco nazionale di Krka con autista che parla inglese. Cascate di Skradinski Buk, prezzo fisso, itinerario flessibile di 8–10 ore.",
 "Krka National Park Day Trip from Split": "Escursione da Spalato al Parco nazionale di Krka",
 "A private, flexible day excursion from Split to Krka National Park with an English-speaking driver, round-trip transfer and time to explore the Skradinski Buk waterfalls.": "Un'escursione privata e flessibile da Spalato al Parco nazionale di Krka con autista che parla inglese, trasporto di andata e ritorno e tempo per esplorare le cascate di Skradinski Buk.",
@@ -107,7 +107,7 @@ T = {
 "This is a suggested schedule: departure time, lunch stop and time spent in the park are all flexible and arranged directly with your driver.": "Questo è un programma indicativo: orario di partenza, sosta per il pranzo e tempo al parco sono flessibili e si concordano direttamente con l'autista.",
 
 # plitvice
-"Plitvice Day Trip from Split, Private Tour | Airport Split Transfer": "Escursione a Plitvice da Spalato, tour privato | Airport Split Transfer",
+"Plitvice Day Trip from Split, Private Tour": "Escursione a Plitvice da Spalato, tour privato",
 "Private day trip from Split to Plitvice Lakes National Park with an English-speaking driver. Fixed price, flexible pickup, 10-12 hours round trip. Book online.": "Escursione privata da Spalato al Parco nazionale dei Laghi di Plitvice con autista che parla inglese. Prezzo fisso, partenza flessibile, 10–12 ore andata e ritorno. Prenota online.",
 "Plitvice Lakes Day Trip from Split": "Escursione da Spalato ai Laghi di Plitvice",
 "A private, full-day excursion from Split to Plitvice Lakes National Park with an English-speaking driver, round-trip transfer and flexible pickup time.": "Un'escursione privata di un'intera giornata da Spalato al Parco nazionale dei Laghi di Plitvice con autista che parla inglese, trasporto di andata e ritorno e orario di partenza flessibile.",

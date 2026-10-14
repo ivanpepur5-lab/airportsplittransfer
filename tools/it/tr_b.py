@@ -1,6 +1,6 @@
 T = {
 # split-airport-transfers
-"Split Airport Taxi at a Fixed Price | Airport Split Transfer": "Taxi aeroporto di Spalato a prezzo fisso | Airport Split Transfer",
+"Split Airport Taxi at a Fixed Price | Airport Split Transfer": "Taxi aeroporto di Spalato a prezzo fisso",
 "Private Split Airport taxi at a fixed price, no meter. English-speaking drivers, flight tracking and 24/7 pickups to Split, Trogir, Omiš, Makarska and more.": "Taxi privato dall'aeroporto di Spalato (Split) a prezzo fisso, senza tassametro. Autisti che parlano inglese, monitoraggio del volo e servizio 24/7 per Spalato, Trogir, Omiš, Makarska e oltre.",
 "Airport Taxi": "Taxi aeroporto",
 "How much does a taxi from Split Airport cost?": "Quanto costa un taxi dall'aeroporto di Spalato?",
@@ -48,7 +48,7 @@ T = {
 "Nikola Stosic, Google review": "Nikola Stosic, recensione Google (tradotta)",
 "“Excellent transfer service: the driver was professional, friendly and punctual, and the journey was smooth and comfortable. Communication was great throughout.”": "“Servizio di transfer eccellente: l'autista è stato professionale, cordiale e puntuale, e il viaggio è stato tranquillo e confortevole. Comunicazione ottima dall'inizio alla fine.”",
 "Zacker Zap, Google review": "Zacker Zap, recensione Google (tradotta)",
-"Split Airport Taxi: Common Questions": "Taxi aeroporto di Spalato: domande frequenti",
+"Split Airport Taxi: Frequently Asked Questions": "Taxi aeroporto di Spalato: domande frequenti",
 "Enter your pickup and drop-off address, choose your date, time and vehicle in the booking form below, and you'll see an instant fixed price, no account or deposit required to reserve.": "Nel modulo qui sotto inserisci partenza e destinazione, scegli data, ora e veicolo e vedrai subito il prezzo fisso. Per prenotare non servono account né acconti.",
 "Book Your Fixed-Price Split Airport Taxi": "Prenota il taxi dall'aeroporto a prezzo fisso",
 "Enter your route below for an instant quote: no hidden fees, no obligation.": "Inserisci il percorso qui sotto e ricevi subito il prezzo: nessun costo nascosto, nessun impegno.",
@@ -56,7 +56,7 @@ T = {
 "Split Airport → Zadar": "Aeroporto di Spalato → Zadar",
 
 # destinations
-"Split Airport Transfers: All Destinations | Airport Split Transfer": "Transfer dall'aeroporto di Spalato: tutte le destinazioni | Airport Split Transfer",
+"Split Airport Transfers: All Destinations": "Transfer dall'aeroporto di Spalato: tutte le destinazioni",
 "Browse every destination served by Airport Split Transfer from Split Airport, with fixed prices, distances and travel times.": "Tutte le destinazioni che serviamo dall'aeroporto di Spalato, con prezzi fissi, distanze e tempi di percorrenza.",
 "Destinations": "Destinazioni",
 "How many destinations do you serve from Split Airport?": "Quante destinazioni servite dall'aeroporto di Spalato?",
@@ -107,7 +107,7 @@ T = {
 "My destination isn't listed: can I still book a transfer?": "La mia destinazione non è in elenco: posso comunque prenotare?",
 
 # fleet
-"Our Fleet: Škoda Superb, V-Class, Trafic | Airport Split Transfer": "I nostri veicoli: Škoda Superb, Classe V, Trafic | Airport Split Transfer",
+"Our Fleet: Škoda Superb, V-Class, Trafic": "I nostri veicoli: Škoda Superb, Classe V, Trafic",
 "Explore the Airport Split Transfer fleet: Škoda Superb executive sedan, Mercedes-Benz V-Class premium van, and Renault Trafic for groups.": "Scopri i veicoli di Airport Split Transfer: berlina executive Škoda Superb, van premium Mercedes-Benz Classe V e Renault Trafic per i gruppi.",
 "Fleet": "Veicoli",
 "What's the difference between the Sedan, Business Van and Van?": "Che differenza c'è tra berlina, van business e van?",
@@ -136,7 +136,7 @@ T = {
 "Select Van": "Scegli il van",
 
 # services
-"Services: Airport, Direct and Group Transfers | Airport Split Transfer": "Servizi: transfer aeroportuali, diretti e di gruppo | Airport Split Transfer",
+"Services: Airport, Direct and Group Transfers": "Servizi: transfer aeroportuali, diretti e di gruppo",
 "Private airport transfers, point-to-point rides, return trips, group and wedding transfers, and hourly hire across the Dalmatian coast.": "Transfer privati dall'aeroporto, tragitti diretti tra località, andata e ritorno, transfer per gruppi e matrimoni e noleggio con autista a ore lungo la costa dalmata.",
 "What transfer services do you offer besides airport pickups?": "Quali servizi offrite oltre al ritiro in aeroporto?",
 "Airport arrivals and departures, point-to-point transfers between towns, return transfers, group and wedding transfers, and hourly or full-day vehicle hire.": "Arrivi e partenze in aeroporto, transfer diretti tra località, andata e ritorno, transfer per gruppi e matrimoni e noleggio con autista a ore o per l'intera giornata.",

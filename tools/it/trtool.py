@@ -152,6 +152,17 @@ def build(en_path, out_path, T, exists_hr, prefix_depth=True):
     s = re.sub(r'(<meta property="og:url" content=")([^"]+)(")', lambda m: m.group(1) + hr_url(m.group(2), exists_hr) + m.group(3), s)
     if prefix_depth: s = prefix_paths(s, en_dir=os.path.dirname(en_path), exists_hr=exists_hr)
     os.makedirs(os.path.dirname(out_path) or '.', exist_ok=True)
+    # Titles longer than 60 characters lose the brand suffix (the brand is
+    # already shown next to the result), so they are not cut mid-word.
+    import html as _h
+    _SUF = ' | Airport Split Transfer'
+    def _short(m):
+        v = m.group(2)
+        return m.group(1) + (v[:-len(_SUF)] if v.endswith(_SUF) and len(_h.unescape(v)) > 60 else v) + m.group(3)
+    if out_path.replace('\\', '/') != 'it/index.html':
+        s = re.sub(r'(<title>)(.*?)(</title>)', _short, s, flags=re.S)
+        s = re.sub(r'(<meta property="og:title" content=")([^"]*)(")', _short, s)
+        s = re.sub(r'(<meta name="twitter:title" content=")([^"]*)(")', _short, s)
     open(out_path, 'w', encoding='utf-8').write(s)
     return sorted(set(missing))
 

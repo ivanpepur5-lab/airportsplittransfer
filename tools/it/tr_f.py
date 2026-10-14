@@ -1,6 +1,6 @@
 T = {
 # services/ audience pages (phase 2)
-"Business Transfers from Split Airport | Airport Split Transfer": "Transfer business dall'aeroporto di Spalato | Airport Split Transfer",
+"Business Transfers from Split Airport": "Transfer business dall'aeroporto di Spalato",
 "Private business transfers from Split Airport: company invoice on request, flight tracking, Škoda Superb or Mercedes V-Class, fixed price agreed in advance.": "Transfer business privati dall'aeroporto di Spalato: fattura intestata all'azienda su richiesta, monitoraggio del volo, Škoda Superb o Mercedes Classe V, prezzo fisso concordato in anticipo.",
 "Can I get an invoice for my company?": "Posso avere la fattura intestata alla mia azienda?",
 "Yes. Give us the company name, address and tax number when you book, and we issue the invoice in the company's name after the ride. Croatian companies receive an R1 invoice.": "Sì. Indicaci ragione sociale, indirizzo e partita IVA quando prenoti: emettiamo la fattura intestata all'azienda dopo il viaggio. Le aziende croate ricevono la fattura R1.",
@@ -40,7 +40,7 @@ T = {
 "hotel transfers": "transfer per hotel",
 "Questions": "Domande",
 
-"Split Airport Transfer with Kids | Airport Split Transfer": "Transfer dall'aeroporto di Spalato con bambini | Airport Split Transfer",
+"Split Airport Transfer with Kids | Airport Split Transfer": "Transfer dall'aeroporto di Spalato con bambini",
 "Private transfer from Split Airport for families: free child seats on request, no shared stops, room for pushchairs, fixed price per vehicle.": "Transfer privato dall'aeroporto di Spalato per famiglie: seggiolini gratuiti su richiesta, nessuna fermata condivisa, spazio per i passeggini, prezzo fisso per veicolo.",
 "Are child seats really free?": "I seggiolini sono davvero gratuiti?",
 "Yes. Baby and child seats are free on request in all three vehicles. Tell us how many children are travelling and how old they are when you book.": "Sì. Ovetti e seggiolini sono gratuiti su richiesta in tutti e tre i veicoli. Quando prenoti, indicaci quanti bambini viaggiano e quanti anni hanno.",
@@ -74,7 +74,7 @@ T = {
 "to Krka and Plitvice, or": "a Krka e Plitvice, oppure",
 "compare the vehicles": "confronta i veicoli",
 
-"Group Transfers from Split Airport | Airport Split Transfer": "Transfer di gruppo dall'aeroporto di Spalato | Airport Split Transfer",
+"Group Transfers from Split Airport | Airport Split Transfer": "Transfer di gruppo dall'aeroporto di Spalato",
 "Private group transfers from Split Airport: one van for up to 8 people and their bags, several vehicles for bigger groups, fixed price per vehicle.": "Transfer privati di gruppo dall'aeroporto di Spalato: un van per un massimo di 8 persone con i bagagli, più veicoli per i gruppi più grandi, prezzo fisso per veicolo.",
 "How many people fit in one vehicle?": "Quante persone entrano in un veicolo?",
 "Up to 8 in the Renault Trafic and up to 7 in the Mercedes V-Class, each with room for one suitcase per person. The Škoda Superb takes up to 4.": "Fino a 8 nel Renault Trafic e fino a 7 nella Mercedes Classe V, entrambi con spazio per una valigia a persona. La Škoda Superb porta fino a 4 persone.",
@@ -108,7 +108,7 @@ T = {
 ", or read": ", oppure leggi",
 "which van suits your group": "quale van è adatto al tuo gruppo",
 
-"Split Cruise and Ferry Port Transfers | Airport Split Transfer": "Transfer dal porto crociere e traghetti di Spalato | Airport Split Transfer",
+"Split Cruise and Ferry Port Transfers": "Transfer dal porto crociere e traghetti di Spalato",
 "Private transfer from Split cruise and ferry port to Split Airport or your hotel: about 25 to 30 minutes to the airport, fixed price per vehicle.": "Transfer privato dal porto crociere e traghetti di Spalato all'aeroporto o al tuo hotel: circa 25–30 minuti fino all'aeroporto, prezzo fisso per veicolo.",
 "How long is the drive from Split port to the airport?": "Quanto dura il tragitto dal porto di Spalato all'aeroporto?",
 "About 25 to 30 minutes for roughly 20 km. Allow more time on summer Saturdays.": "Circa 25–30 minuti per una ventina di chilometri. Il sabato d'estate calcola più tempo.",

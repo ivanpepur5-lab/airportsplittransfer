@@ -14,18 +14,15 @@ after it is applied.
 Queue: no patches right now. Everything queued so far (patches 001 to 005)
 went live on 2026-10-12 in one deploy.
 
-## Built 2026-10-13, committed, waiting for Ivan's go-ahead to publish
+## Published 2026-10-14 (one deploy)
 
-One deploy (15 credits) covers all of this. It is in the branch commit, not yet
-pushed. Contents:
+Airport pages with a single booking button, footer and Routes-page links,
+hashed css/js URLs, homepage title (EN "Private Split Airport Transfers |
+Fixed Price, Door to Door"), titles shortened to 60 characters or less on
+all languages, "passengers" instead of "pax", "Frequently Asked Questions"
+instead of "Common Questions", "Drop-off" label, hotel card alt texts, review
+count 39 in the homepage and contact structured data, stray .whl files
+removed. Not done on purpose: redirect /index.html to / (cannot be tested
+without production), long cache for css/js (partials are not versioned).
 
-1. Airport pages (Dubrovnik, Zadar; 6 languages): per-route buttons removed,
-   one "Get Your Fixed Price" button to `index.html?pickup=dbvairport|zadairport#booking`
-   (js/booking-widget.js fills only the pickup when ?pickup= is used alone).
-2. Footer links to both airport pages on every page, and an "Other airports"
-   section on the Routes page (destinations.html, 6 languages).
-3. Content-hash `?v=` on css/js URLs (tools/stamp_assets.py), also run as the
-   Netlify build command as a safety net.
-4. Ivan to do himself after publishing: Cloudflare Purge Everything and Browser
-   Cache TTL "Respect Existing Headers"; request indexing of the two English
-   airport URLs in Search Console and resubmit sitemap.xml (498 URLs).
+Queue: no patches right now.

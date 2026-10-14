@@ -1,6 +1,6 @@
 # Blog posts, batch 5 (phase 2): Makarska options; Omiš; Podstrana
 T = {
-"Split Airport to Makarska: Transport Options | Airport Split Transfer": "Dall'aeroporto di Spalato a Makarska: i mezzi | Airport Split Transfer",
+"Split Airport to Makarska: Transport Options": "Dall'aeroporto di Spalato a Makarska: i mezzi",
 "Is there a direct bus from Split Airport to Makarska?": "C'è un autobus diretto dall'aeroporto di Spalato a Makarska?",
 "Not usually. Most travellers take the airport shuttle to Split bus station and change to a coastal bus to Makarska.": "Di solito no. La maggior parte dei viaggiatori prende la navetta fino alla stazione degli autobus di Spalato e cambia con un autobus costiero per Makarska.",
 "How long does it take to get from Split Airport to Makarska?": "Quanto ci vuole dall'aeroporto di Spalato a Makarska?",
@@ -35,7 +35,7 @@ T = {
 "Fixed, door to door": "Fisso, porta a porta",
 "Summer Saturdays": "I sabati d'estate",
 "Saturday is changeover day for holiday rentals along the whole Riviera, and the coast road through Omiš slows down in both directions. If you book with your flight number, your driver plans for that. On the way back, we'll suggest a pickup time with enough buffer for Saturday traffic.": "Il sabato è il giorno di cambio degli affitti su tutta la Riviera, e la strada costiera che passa per Omiš rallenta in entrambe le direzioni. Se prenoti indicando il numero di volo, l'autista ne tiene conto. Per il ritorno ti proporremo un orario di ritiro con un margine sufficiente per il traffico del sabato.",
-"Split Airport to Omiš: Transfer Guide | Airport Split Transfer": "Dall'aeroporto di Spalato a Omiš: guida al transfer | Airport Split Transfer",
+"Split Airport to Omiš: Transfer Guide": "Dall'aeroporto di Spalato a Omiš: guida al transfer",
 "How far is Omiš from Split Airport?": "Quanto dista Omiš dall'aeroporto di Spalato?",
 "About 45 km, which is around 45 minutes by car in normal traffic.": "Circa 45 km, cioè circa 45 minuti in auto con traffico normale.",
 "How much is a transfer from Split Airport to Omiš?": "Quanto costa un transfer dall'aeroporto di Spalato a Omiš?",
@@ -61,7 +61,7 @@ T = {
 "The beaches": "Le spiagge",
 "the long sandy beach right in town is rare on this coast and great for children.": ": la lunga spiaggia di sabbia in paese è una rarità su questa costa ed è perfetta per i bambini.",
 "Many activity companies meet in town, so it's easy to go without a car once you've arrived.": "Molti operatori danno appuntamento in paese, quindi una volta arrivati è facile fare a meno dell'auto.",
-"Split Airport to Podstrana Taxi Price (2026) | Airport Split Transfer": "Prezzo del taxi dall'aeroporto di Spalato a Podstrana (2026) | Airport Split Transfer",
+"Split Airport to Podstrana Taxi Price (2026)": "Prezzo del taxi dall'aeroporto di Spalato a Podstrana (2026)",
 "How much is a taxi from Split Airport to Podstrana?": "Quanto costa un taxi dall'aeroporto di Spalato a Podstrana?",
 "A private transfer costs around €55 for a car with up to 4 passengers and around €75 for a van with up to 8. Rank taxis are metered, so the price depends on traffic.": "Un transfer privato costa circa 55 € per un'auto fino a 4 passeggeri e circa 75 € per un van fino a 8. I taxi al posteggio hanno il tassametro, quindi il prezzo dipende dal traffico.",
 "About 30 minutes. The road bypasses Split city centre.": "Circa 30 minuti. La strada aggira il centro di Spalato.",

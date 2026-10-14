@@ -1,6 +1,6 @@
 # Blog posts, batch 5 (phase 2): Makarska options; Omiš; Podstrana
 T = {
-"Split Airport to Makarska: Transport Options | Airport Split Transfer": "Od Zračne luke Split do Makarske: opcije prijevoza | Airport Split Transfer",
+"Split Airport to Makarska: Transport Options": "Od Zračne luke Split do Makarske: opcije prijevoza",
 "Is there a direct bus from Split Airport to Makarska?": "Postoji li izravni autobus od Zračne luke Split do Makarske?",
 "Not usually. Most travellers take the airport shuttle to Split bus station and change to a coastal bus to Makarska.": "Uglavnom ne. Većina putnika aerodromskim shuttleom ode do autobusnog kolodvora u Splitu i ondje presjedne na autobus za Makarsku.",
 "How long does it take to get from Split Airport to Makarska?": "Koliko traje put od Zračne luke Split do Makarske?",
@@ -35,7 +35,7 @@ T = {
 "Fixed, door to door": "Fiksno, od vrata do vrata",
 "Summer Saturdays": "Ljetne subote",
 "Saturday is changeover day for holiday rentals along the whole Riviera, and the coast road through Omiš slows down in both directions. If you book with your flight number, your driver plans for that. On the way back, we'll suggest a pickup time with enough buffer for Saturday traffic.": "Subota je dan smjene gostiju u apartmanima duž cijele rivijere, pa obalna cesta kroz Omiš usporava u oba smjera. Ako rezervirate s brojem leta, vozač to uzima u obzir. Za povratak ćemo predložiti vrijeme preuzimanja s dovoljno rezerve za subotnji promet.",
-"Split Airport to Omiš: Transfer Guide | Airport Split Transfer": "Od Zračne luke Split do Omiša: vodič za transfer | Airport Split Transfer",
+"Split Airport to Omiš: Transfer Guide": "Od Zračne luke Split do Omiša: vodič za transfer",
 "How far is Omiš from Split Airport?": "Koliko je Omiš udaljen od Zračne luke Split?",
 "About 45 km, which is around 45 minutes by car in normal traffic.": "Oko 45 km, što je oko 45 minuta autom u normalnom prometu.",
 "How much is a transfer from Split Airport to Omiš?": "Koliko košta transfer od Zračne luke Split do Omiša?",
@@ -61,7 +61,7 @@ T = {
 "The beaches": "Plaže",
 "the long sandy beach right in town is rare on this coast and great for children.": ": duga pješčana plaža u samom gradu rijetkost je na ovoj obali i odlična je za djecu.",
 "Many activity companies meet in town, so it's easy to go without a car once you've arrived.": "Mnoge agencije za aktivnosti skupljaju goste u gradu, pa nakon dolaska lako možete bez auta.",
-"Split Airport to Podstrana Taxi Price (2026) | Airport Split Transfer": "Cijena taksija od Zračne luke Split do Podstrane (2026.) | Airport Split Transfer",
+"Split Airport to Podstrana Taxi Price (2026)": "Cijena taksija od Zračne luke Split do Podstrane (2026.)",
 "How much is a taxi from Split Airport to Podstrana?": "Koliko košta taxi od Zračne luke Split do Podstrane?",
 "A private transfer costs around €55 for a car with up to 4 passengers and around €75 for a van with up to 8. Rank taxis are metered, so the price depends on traffic.": "Privatni transfer košta oko 55 € za auto s do 4 putnika i oko 75 € za kombi s do 8 putnika. Taksiji sa stajališta voze s taksimetrom, pa cijena ovisi o prometu.",
 "About 30 minutes. The road bypasses Split city centre.": "Oko 30 minuta. Cesta zaobilazi centar Splita.",

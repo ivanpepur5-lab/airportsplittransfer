@@ -2,7 +2,7 @@
 T = {
 "Split Airport to Podstrana Taxi Price →": "Cijena taksija od Zračne luke Split do Podstrane →",
 # split-airport-transfer-guide
-"Split Airport Transfer Guide | Airport Split Transfer": "Vodič za transfer sa Zračne luke Split | Airport Split Transfer",
+"Split Airport Transfer Guide | Airport Split Transfer": "Vodič za transfer sa Zračne luke Split",
 "Split Airport (SPU) sits on the coast around twenty minutes from the old town, at the base of the Kaštela bay. Despite the short distance, how you make that first leg of the trip sets the tone for the whole holiday: arrive tired and disoriented after a long queue, or step straight into a private car with your name on a board at arrivals.": "Zračna luka Split (SPU) nalazi se uz more, dvadesetak minuta od stare jezgre, na kraju Kaštelanskog zaljeva. Iako je udaljenost mala, način na koji odradite taj prvi dio puta određuje ton cijelog odmora: stići umoran i dezorijentiran nakon dugog reda ili sjesti ravno u privatni auto uz tablu sa svojim imenom u dolaznom terminalu.",
 "Your options from the terminal": "Vaše opcije od terminala",
 "There are three practical ways to reach the city: the shuttle bus timed to flight arrivals, a rank taxi outside the terminal, or a": "Do grada se praktično može na tri načina: shuttle autobusom usklađenim s dolascima letova, taksijem sa stajališta ispred terminala ili",
@@ -15,7 +15,7 @@ T = {
 "Getting back to the airport": "Povratak na aerodrom",
 "The same logic applies in reverse for departures. Build in extra time for Split's summer traffic around the old town and the airport road, particularly between June and September. A private transfer booked for departure removes the guesswork of finding a taxi during a busy morning departure bank.": "Ista logika vrijedi i za odlazak. Računajte na dodatno vrijeme zbog ljetnog prometa oko stare jezgre i na cesti prema aerodromu, osobito od lipnja do rujna. Privatni transfer rezerviran za odlazak uklanja nagađanje hoćete li naći taksi u jutarnjoj gužvi polazaka.",
 # taxi-vs-private-transfer
-"Split Airport Taxi vs Private Transfer | Airport Split Transfer": "Taxi ili privatni transfer sa Zračne luke Split | Airport Split Transfer",
+"Split Airport Taxi vs Private Transfer": "Taxi ili privatni transfer sa Zračne luke Split",
 "Both a rank taxi and a private transfer will get you from Split Airport to your hotel. The difference is in what you're paying for beyond the drive itself.": "I taxi sa stajališta i privatni transfer odvest će vas od Zračne luke Split do hotela. Razlika je u tome što plaćate osim same vožnje.",
 "Price certainty": "Sigurnost cijene",
 "A rank taxi runs on a taximeter, so the final fare depends on traffic and route: usually close to the standard rate, but not fixed in advance. A private transfer is quoted and agreed before you travel, so there's no surprise on arrival, and no need to have local currency ready at the curb.": "Taksi sa stajališta vozi s taksimetrom, pa konačna cijena ovisi o prometu i ruti: obično blizu uobičajene tarife, ali nije unaprijed fiksna. Privatni transfer dogovara se i potvrđuje prije putovanja, pa po dolasku nema iznenađenja niti trebate imati spremnu gotovinu.",
@@ -30,7 +30,7 @@ T = {
 "fixed-price Split Airport taxi": "taxi sa Zračne luke Split po fiksnoj cijeni",
 "works exactly this way.": "radi upravo tako.",
 # vclass-vs-trafic
-"V-Class vs Trafic: Which Group Vehicle? | Airport Split Transfer": "V-Class ili Trafic: koje vozilo za grupu? | Airport Split Transfer",
+"V-Class vs Trafic: Which Group Vehicle?": "V-Class ili Trafic: koje vozilo za grupu?",
 "For groups too large for a standard sedan, the choice usually comes down to two vehicles: the Mercedes-Benz V-Class and the Renault Trafic. Both are capable, well-maintained options, the difference is in scale and finish rather than reliability.": "Za grupe prevelike za običnu limuzinu izbor se obično svodi na dva vozila: Mercedes-Benz V-Class i Renault Trafic. Oba su sposobna i dobro održavana, a razlika je u veličini i opremi, ne u pouzdanosti.",
 "Capacity": "Kapacitet",
 "The V-Class comfortably seats up to seven passengers with full luggage, making it the natural choice for larger families or small groups of friends. The Trafic extends that to eight, with more cargo space behind the last row, the better option once a group exceeds what the V-Class can carry without stacking bags on laps.": "V-Class udobno prima do sedam putnika s punom prtljagom, pa je prirodan izbor za veće obitelji ili manje grupe prijatelja. Trafic prima osam, s više prostora za prtljagu iza zadnjeg reda, i bolji je izbor kad grupa prijeđe ono što V-Class može prevesti bez torbi u krilu.",

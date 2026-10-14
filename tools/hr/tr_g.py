@@ -1,6 +1,6 @@
 T = {
 # day-trips.html
-"Private Day Trips from Split: Plitvice, Krka | Airport Split Transfer": "Privatni izleti iz Splita: Plitvice i Krka | Airport Split Transfer",
+"Private Day Trips from Split: Plitvice, Krka": "Privatni izleti iz Splita: Plitvice i Krka",
 "Private day trips from Split with an English-speaking driver: Plitvice Lakes, Krka National Park and fully custom excursions.": "Privatni jednodnevni izleti iz Splita s vozačem: Plitvička jezera, Nacionalni park Krka i izleti po vašoj želji.",
 "Plitvice Lakes Day Trip": "Izlet na Plitvička jezera",
 "Krka National Park Day Trip": "Izlet u Nacionalni park Krka",
@@ -42,7 +42,7 @@ T = {
 "Custom Tour Request": "Upit za izlet po želji",
 
 # krka
-"Krka Day Trip from Split, Private Tour | Airport Split Transfer": "Izlet na Krku iz Splita, privatni prijevoz | Airport Split Transfer",
+"Krka Day Trip from Split, Private Tour": "Izlet na Krku iz Splita, privatni prijevoz",
 "Private day trip from Split to Krka National Park with an English-speaking driver. See Skradinski Buk waterfalls, fixed price, flexible 8-10 hour itinerary.": "Privatni izlet iz Splita u Nacionalni park Krka s vozačem. Skradinski buk, fiksna cijena i fleksibilan plan od 8 do 10 sati.",
 "Krka National Park Day Trip from Split": "Izlet iz Splita u Nacionalni park Krka",
 "A private, flexible day excursion from Split to Krka National Park with an English-speaking driver, round-trip transfer and time to explore the Skradinski Buk waterfalls.": "Privatni i fleksibilni jednodnevni izlet iz Splita u Nacionalni park Krka s vozačem, prijevozom u oba smjera i vremenom za obilazak Skradinskog buka.",
@@ -107,7 +107,7 @@ T = {
 "This is a suggested schedule: departure time, lunch stop and time spent in the park are all flexible and arranged directly with your driver.": "Ovo je prijedlog rasporeda: vrijeme polaska, stajanje za ručak i vrijeme u parku fleksibilni su i dogovarate ih izravno s vozačem.",
 
 # plitvice
-"Plitvice Day Trip from Split, Private Tour | Airport Split Transfer": "Izlet na Plitvice iz Splita, privatni prijevoz | Airport Split Transfer",
+"Plitvice Day Trip from Split, Private Tour": "Izlet na Plitvice iz Splita, privatni prijevoz",
 "Private day trip from Split to Plitvice Lakes National Park with an English-speaking driver. Fixed price, flexible pickup, 10-12 hours round trip. Book online.": "Privatni izlet iz Splita u Nacionalni park Plitvička jezera s vozačem. Fiksna cijena, fleksibilno vrijeme polaska, 10 do 12 sati u oba smjera. Rezervirajte online.",
 "Plitvice Lakes Day Trip from Split": "Izlet iz Splita na Plitvička jezera",
 "A private, full-day excursion from Split to Plitvice Lakes National Park with an English-speaking driver, round-trip transfer and flexible pickup time.": "Privatni cjelodnevni izlet iz Splita u Nacionalni park Plitvička jezera s vozačem, prijevozom u oba smjera i fleksibilnim vremenom polaska.",

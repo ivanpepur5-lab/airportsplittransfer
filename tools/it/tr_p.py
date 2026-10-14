@@ -2,7 +2,7 @@
 T = {
 "Split Airport to Podstrana Taxi Price →": "Prezzo del taxi dall'aeroporto di Spalato a Podstrana →",
 # split-airport-transfer-guide
-"Split Airport Transfer Guide | Airport Split Transfer": "Guida ai transfer dall'aeroporto di Spalato | Airport Split Transfer",
+"Split Airport Transfer Guide | Airport Split Transfer": "Guida ai transfer dall'aeroporto di Spalato",
 "Split Airport (SPU) sits on the coast around twenty minutes from the old town, at the base of the Kaštela bay. Despite the short distance, how you make that first leg of the trip sets the tone for the whole holiday: arrive tired and disoriented after a long queue, or step straight into a private car with your name on a board at arrivals.": "L'aeroporto di Spalato (SPU) si trova sulla costa, a una ventina di minuti dal centro storico, in fondo alla baia di Kaštela. Nonostante la breve distanza, il modo in cui affronti questo primo tratto dà il tono a tutta la vacanza: arrivare stanco e disorientato dopo una lunga coda, oppure salire subito in un'auto privata con il tuo nome su un cartello agli arrivi.",
 "Your options from the terminal": "Le opzioni dal terminal",
 "There are three practical ways to reach the city: the shuttle bus timed to flight arrivals, a rank taxi outside the terminal, or a": "Ci sono tre modi pratici per raggiungere la città: la navetta coordinata con gli arrivi dei voli, un taxi al posteggio davanti al terminal o un",
@@ -15,7 +15,7 @@ T = {
 "Getting back to the airport": "Tornare in aeroporto",
 "The same logic applies in reverse for departures. Build in extra time for Split's summer traffic around the old town and the airport road, particularly between June and September. A private transfer booked for departure removes the guesswork of finding a taxi during a busy morning departure bank.": "Lo stesso vale al contrario per le partenze. Calcola tempo in più per il traffico estivo attorno al centro storico e sulla strada per l'aeroporto, soprattutto tra giugno e settembre. Un transfer privato prenotato per la partenza evita l'incognita di trovare un taxi in una mattinata piena di partenze.",
 # taxi-vs-private-transfer
-"Split Airport Taxi vs Private Transfer | Airport Split Transfer": "Taxi o transfer privato dall'aeroporto di Spalato | Airport Split Transfer",
+"Split Airport Taxi vs Private Transfer": "Taxi o transfer privato dall'aeroporto di Spalato",
 "Both a rank taxi and a private transfer will get you from Split Airport to your hotel. The difference is in what you're paying for beyond the drive itself.": "Sia un taxi al posteggio sia un transfer privato ti portano dall'aeroporto di Spalato al tuo hotel. La differenza sta in quello che paghi oltre al viaggio in sé.",
 "Price certainty": "Certezza del prezzo",
 "A rank taxi runs on a taximeter, so the final fare depends on traffic and route: usually close to the standard rate, but not fixed in advance. A private transfer is quoted and agreed before you travel, so there's no surprise on arrival, and no need to have local currency ready at the curb.": "Un taxi al posteggio funziona con il tassametro, quindi la tariffa finale dipende da traffico e percorso: di solito vicina a quella standard, ma non fissata in anticipo. Un transfer privato viene quotato e concordato prima del viaggio, quindi all'arrivo non ci sono sorprese e non serve avere contanti in valuta locale.",
@@ -30,7 +30,7 @@ T = {
 "fixed-price Split Airport taxi": "taxi a prezzo fisso dall'aeroporto di Spalato",
 "works exactly this way.": "funziona esattamente così.",
 # vclass-vs-trafic
-"V-Class vs Trafic: Which Group Vehicle? | Airport Split Transfer": "Classe V o Trafic: quale veicolo per il gruppo? | Airport Split Transfer",
+"V-Class vs Trafic: Which Group Vehicle?": "Classe V o Trafic: quale veicolo per il gruppo?",
 "For groups too large for a standard sedan, the choice usually comes down to two vehicles: the Mercedes-Benz V-Class and the Renault Trafic. Both are capable, well-maintained options, the difference is in scale and finish rather than reliability.": "Per gruppi troppo numerosi per una berlina, la scelta si riduce di solito a due veicoli: la Mercedes-Benz Classe V e il Renault Trafic. Entrambi sono validi e ben tenuti: la differenza sta nelle dimensioni e nelle finiture, non nell'affidabilità.",
 "Capacity": "Capienza",
 "The V-Class comfortably seats up to seven passengers with full luggage, making it the natural choice for larger families or small groups of friends. The Trafic extends that to eight, with more cargo space behind the last row, the better option once a group exceeds what the V-Class can carry without stacking bags on laps.": "La Classe V porta comodamente fino a sette passeggeri con tutti i bagagli, ed è la scelta naturale per famiglie numerose o piccoli gruppi di amici. Il Trafic arriva a otto, con più spazio di carico dietro l'ultima fila: l'opzione migliore quando il gruppo supera quello che la Classe V può portare senza borse sulle ginocchia.",

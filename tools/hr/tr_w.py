@@ -1,7 +1,7 @@
 # Blog post, batch 8 (phase 2): Bol and Zlatni Rat
 T = {
 "A@@split-airport-to-bol-brac.html": "",
-"Split Airport to Bol and Zlatni Rat | Airport Split Transfer": "Od Zračne luke Split do Bola i Zlatnog rata | Airport Split Transfer",
+"Split Airport to Bol and Zlatni Rat | Airport Split Transfer": "Od Zračne luke Split do Bola i Zlatnog rata",
 "How to get from Split Airport to Bol and Zlatni Rat on Brač: the transfer to Split ferry port, catamaran or car ferry, and timing your connection.": "Kako od Zračne luke Split do Bola i Zlatnog rata na Braču: transfer do trajektne luke, katamaran ili trajekt i usklađivanje presjedanja.",
 "How do I get from Split Airport to Bol?": "Kako od Zračne luke Split do Bola?",
 "Travel from the airport to Split ferry port, about 25 minutes by car, then take the summer catamaran to Bol or the car ferry to Supetar and drive across the island.": "Od aerodroma do trajektne luke u Splitu, oko 25 minuta autom, a zatim ljetnim katamaranom do Bola ili trajektom do Supetra i dalje cestom preko otoka.",

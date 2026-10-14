@@ -1,6 +1,6 @@
 # Blog posts, batch 4 (phase 2): early morning; how to book; Dubrovnik worth it
 T = {
-"Early Morning Transfer to Split Airport | Airport Split Transfer": "Transfer all'alba per l'aeroporto di Spalato | Airport Split Transfer",
+"Early Morning Transfer to Split Airport": "Transfer all'alba per l'aeroporto di Spalato",
 "Is there a bus to Split Airport early in the morning?": "C'è un autobus per l'aeroporto di Spalato la mattina presto?",
 "Service at very early hours is limited. Check the first airport shuttle departure against your flight time before you rely on it.": "Nelle primissime ore il servizio è limitato. Prima di contarci, confronta la prima partenza della navetta con l'orario del tuo volo.",
 "How early should I get to Split Airport?": "Con quanto anticipo devo arrivare all'aeroporto di Spalato?",
@@ -33,7 +33,7 @@ T = {
 "Tell us if your accommodation has a hard-to-find entrance or gate.": "Avvisaci se il tuo alloggio ha un ingresso o un cancello difficile da trovare.",
 "Check your flight status in case of a time change.": "Controlla lo stato del volo in caso di cambio d'orario.",
 "Have your passport and boarding pass ready. You'll be sleepy.": "Tieni pronti passaporto e carta d'imbarco. Avrai sonno.",
-"How to Book a Reliable Split Airport Transfer | Airport Split Transfer": "Come prenotare un transfer affidabile dall'aeroporto di Spalato | Airport Split Transfer",
+"How to Book a Reliable Split Airport Transfer": "Come prenotare un transfer affidabile dall'aeroporto di Spalato",
 "What happens if my flight to Split is delayed?": "Cosa succede se il mio volo per Spalato è in ritardo?",
 "We track your flight number and your driver adjusts the pickup time automatically. There is no extra charge for reasonable delays.": "Seguiamo il tuo volo e l'autista adegua automaticamente l'orario di ritiro. Per i ritardi ragionevoli non c'è alcun costo aggiuntivo.",
 "Can I cancel my Split Airport transfer?": "Posso cancellare il mio transfer dall'aeroporto di Spalato?",
@@ -65,7 +65,7 @@ T = {
 "Your driver tracks your flight and waits in arrivals with your name.": "L'autista segue il tuo volo e ti aspetta agli arrivi con il tuo nome.",
 "Questions before you book? Message us on": "Domande prima di prenotare? Scrivici su",
 "we usually reply within minutes.": ", di solito rispondiamo in pochi minuti.",
-"Split Airport to Dubrovnik: Is It Worth It? | Airport Split Transfer": "Dall'aeroporto di Spalato a Dubrovnik: conviene? | Airport Split Transfer",
+"Split Airport to Dubrovnik: Is It Worth It?": "Dall'aeroporto di Spalato a Dubrovnik: conviene?",
 "About 3 to 3.5 hours, depending on traffic and the route.": "Circa 3–3,5 ore, a seconda del traffico e del percorso.",
 "Do I need a passport to drive from Split to Dubrovnik?": "Serve il passaporto per andare in auto da Spalato a Dubrovnik?",
 "The route over the Pelješac Bridge stays in Croatia, but keep passports with you in case the driver uses the road through Neum in Bosnia and Herzegovina.": "Il percorso sul ponte di Pelješac resta in Croazia, ma tieni con te i documenti nel caso l'autista passi per Neum, in Bosnia ed Erzegovina.",

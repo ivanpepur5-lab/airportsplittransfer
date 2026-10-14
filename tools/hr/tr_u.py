@@ -1,6 +1,6 @@
 # Blog posts, batch 6 (phase 2): Trogir; Baška Voda; Amadria Park
 T = {
-"Split Airport to Trogir Transfer Guide (2026) | Airport Split Transfer": "Vodič za transfer od Zračne luke Split do Trogira (2026.) | Airport Split Transfer",
+"Split Airport to Trogir Transfer Guide (2026)": "Vodič za transfer od Zračne luke Split do Trogira (2026.)",
 "About 7 km. The drive takes 10–15 minutes, longer on summer Saturdays.": "Oko 7 km. Vožnja traje 10–15 minuta, ljeti subotom i dulje.",
 "How much is a transfer from Split Airport to Trogir?": "Koliko košta transfer od Zračne luke Split do Trogira?",
 "Around €35 for a car with up to 4 passengers and around €45 for a van with up to 8, per vehicle. The booking form shows the exact price for your address.": "Oko 35 € za auto s do 4 putnika i oko 45 € za kombi s do 8 putnika, po vozilu. Obrazac za rezervaciju pokazuje točnu cijenu za vašu adresu.",
@@ -21,7 +21,7 @@ T = {
 "Trogir is one of the busiest sailing bases in Croatia, and Saturday is charter changeover day. Traffic on the bridges gets slow in the afternoon. If you're joining a boat, write the marina name and the charter company in the booking notes and we'll drop you at the reception, not at the town car park.": "Trogir je jedna od najprometnijih nautičkih baza u Hrvatskoj, a subota je dan smjene charter posada. Promet na mostovima poslijepodne postaje spor. Ako idete na brod, u napomenu rezervacije upišite ime marine i charter tvrtke i ostavit ćemo vas na recepciji, a ne na gradskom parkiralištu.",
 "Going back to the airport": "Povratak na aerodrom",
 "Because the airport is so close, it's tempting to leave late. On summer Saturdays the bridge between Trogir and Čiovo can back up badly, so allow more time than the distance suggests. We plan pickup times around your flight time, tell us when you fly and we'll tell you when to be ready.": "Budući da je aerodrom tako blizu, primamljivo je krenuti kasno. Ljeti subotom most između Trogira i Čiova zna se jako zagušiti, pa računajte na više vremena nego što udaljenost govori. Vrijeme preuzimanja planiramo prema letu: recite nam kad letite i reći ćemo vam kada biti spremni.",
-"Split Airport to Baška Voda Transfer (2026) | Airport Split Transfer": "Transfer od Zračne luke Split do Baške Vode (2026.) | Airport Split Transfer",
+"Split Airport to Baška Voda Transfer (2026)": "Transfer od Zračne luke Split do Baške Vode (2026.)",
 "How far is Baška Voda from Split Airport?": "Koliko je Baška Voda udaljena od Zračne luke Split?",
 "About 65 km, around 1 hour 10 minutes by car.": "Oko 65 km, oko 1 sat i 10 minuta autom.",
 "How much is a transfer from Split Airport to Baška Voda?": "Koliko košta transfer od Zračne luke Split do Baške Vode?",
@@ -44,7 +44,7 @@ T = {
 "Biokovo Nature Park": "Park prirode Biokovo",
 "rises right behind the village, with the Skywalk and a road to the summit.": "diže se odmah iza mjesta, sa Skywalkom i cestom do vrha.",
 "If you're travelling with friends staying elsewhere on the Riviera, we can combine drop-offs in one booking, mention the extra stop and we'll confirm the price first.": "Ako putujete s prijateljima koji odsjedaju negdje drugdje na rivijeri, možemo spojiti iskrcaje u jednoj rezervaciji: navedite dodatno stajanje i prvo ćemo potvrditi cijenu.",
-"Split Airport to Amadria Park Solaris Šibenik | Airport Split Transfer": "Od Zračne luke Split do Amadria Parka Solaris Šibenik | Airport Split Transfer",
+"Split Airport to Amadria Park Solaris Šibenik": "Od Zračne luke Split do Amadria Parka Solaris Šibenik",
 "Traveling from Split Airport to Amadria Park Hotel Solaris in Šibenik? Fixed-price private transfer, meet & greet at arrivals, and door-to-door service.": "Putujete od Zračne luke Split do Amadria Park Hotela Solaris u Šibeniku? Privatni transfer po fiksnoj cijeni, doček u dolaznom terminalu i usluga od vrata do vrata.",
 "How long does the transfer take?": "Koliko traje transfer?",
 "Typically 50 to 70 minutes from Split Airport to Amadria Park Solaris.": "Obično 50 do 70 minuta od Zračne luke Split do Amadria Parka Solaris.",

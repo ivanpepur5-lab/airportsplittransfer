@@ -1,6 +1,6 @@
 # Blog posts, batch 3 (phase 2): taxi prices; Split taxi/bus/transfer
 T = {
-"Split Airport Taxi Prices (2026 Guide) | Airport Split Transfer": "Cijene taksija sa Zračne luke Split (2026.) | Airport Split Transfer",
+"Split Airport Taxi Prices (2026 Guide)": "Cijene taksija sa Zračne luke Split (2026.)",
 "How much is a taxi from Split Airport to Split?": "Koliko košta taxi od Zračne luke Split do Splita?",
 "A metered rank taxi usually costs €35–50 to Split city centre. A fixed-price private transfer costs around €50 for a car or €65–70 for a van.": "Taksi sa stajališta s taksimetrom do centra Splita obično košta 35–50 €. Privatni transfer po fiksnoj cijeni stoji oko 50 € za auto ili 65–70 € za kombi.",
 "Do Split Airport taxis take cards?": "Primaju li taksiji na Zračnoj luci Split kartice?",
@@ -38,7 +38,7 @@ T = {
 "Private transfers:": "Privatni transferi:",
 "extra stops or route changes asked for on the day. With us these are always agreed before the ride, never added at the end.": "dodatna stajanja ili promjene rute zatražene na dan vožnje. Kod nas se to uvijek dogovara prije vožnje, nikad se ne dodaje na kraju.",
 "Frequently Asked Questions": "Česta pitanja",
-"Split Airport to Split: Taxi, Bus or Transfer | Airport Split Transfer": "Od Zračne luke do Splita: taxi, autobus ili transfer | Airport Split Transfer",
+"Split Airport to Split: Taxi, Bus or Transfer": "Od Zračne luke do Splita: taxi, autobus ili transfer",
 "How far is Split Airport from Split city centre?": "Koliko je Zračna luka Split udaljena od centra Splita?",
 "About 20 km. The drive takes 25–30 minutes in normal traffic and longer on summer afternoons.": "Oko 20 km. Vožnja traje 25–30 minuta u normalnom prometu, a ljeti poslijepodne i dulje.",
 "What is the cheapest way from Split Airport to Split?": "Koji je najjeftiniji način od Zračne luke Split do Splita?",

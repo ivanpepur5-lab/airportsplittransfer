@@ -43,15 +43,15 @@
                   <input type="hidden" id="b-pickup-lat" name="pickup_lat">
                   <input type="hidden" id="b-pickup-lng" name="pickup_lng">
                 </div>
-                <button type="button" class="swap-btn" id="swap-btn" onclick="swapAddresses()" aria-label="Swap pickup and dropoff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg></button>
+                <button type="button" class="swap-btn" id="swap-btn" onclick="swapAddresses()" aria-label="Swap pickup and drop-off"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg></button>
                 <div class="field">
-                  <label for="b-dropoff">Dropoff</label>
+                  <label for="b-dropoff">Drop-off</label>
                   <input type="text" id="b-dropoff" name="dropoff" placeholder="Hotel, address, marina, city..." autocomplete="off" required>
                   <input type="hidden" id="b-dropoff-lat" name="dropoff_lat">
                   <input type="hidden" id="b-dropoff-lng" name="dropoff_lng">
                 </div>
               </div>
-              <p class="field-error" id="address-error" style="display:none;">Pickup and dropoff can't be the same address.</p>
+              <p class="field-error" id="address-error" style="display:none;">Pickup and drop-off can't be the same address.</p>
             </fieldset>
             <fieldset>
               <legend id="trip-details-legend">Trip Details</legend>
@@ -76,26 +76,26 @@
               <div class="vehicle-opt active" id="vopt-skoda" onclick="selectVehicle('skoda')">
           <b>Sedan</b>
           <span>Škoda Superb or similar</span>
-          <span class="vopt-pax">Up to 4 pax</span>
+          <span class="vopt-pax">Up to 4 passengers</span>
           <span class="vopt-price" id="vprice-skoda"></span>
         </div>
         <div class="vehicle-opt" id="vopt-vclass" onclick="selectVehicle('vclass')">
           <b>Business Van</b>
           <span>Mercedes-Benz V-Class</span>
-          <span class="vopt-pax">Up to 7 pax</span>
+          <span class="vopt-pax">Up to 7 passengers</span>
           <span class="vopt-price" id="vprice-vclass"></span>
         </div>
         <div class="vehicle-opt" id="vopt-trafic" onclick="selectVehicle('trafic')">
           <b>Van</b>
           <span>Renault Trafic or similar</span>
-          <span class="vopt-pax">Up to 8 pax</span>
+          <span class="vopt-pax">Up to 8 passengers</span>
           <span class="vopt-price" id="vprice-trafic"></span>
         </div>
         
             </div>
           <div class="live-price-bar" id="live-price-bar">
             <div id="live-price-empty">
-              <span class="live-price-hint">Enter your pickup and dropoff to see your fixed price.</span>
+              <span class="live-price-hint">Enter your pickup and drop-off to see your fixed price.</span>
             </div>
             <div id="live-price-loading" style="display:none;">
               <span class="live-price-hint"><span class="mini-spinner" aria-hidden="true"></span> Calculating your price&hellip;</span>
@@ -170,7 +170,7 @@
       <div class="summary-box is-empty" id="summary-box">
         <h3>Price Summary</h3>
         <div id="summary-empty">
-          <p class="custom-quote-msg" style="padding:0;">Enter a pickup and dropoff address to see your fixed price and trip details here.</p>
+          <p class="custom-quote-msg" style="padding:0;">Enter a pickup and drop-off address to see your fixed price and trip details here.</p>
         </div>
         <div id="summary-priced" style="display:none;">
           <div class="summary-line"><span>Route</span><span id="sum-route">Split Airport &rarr; Split</span></div>
