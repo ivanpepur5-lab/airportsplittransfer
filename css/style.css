@@ -1233,7 +1233,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 /* Column headings use a light tint rather than --gold: the brand blue only
    reaches a 2.25 contrast ratio against the navy footer, which is what made
    them read as "blue text on a blue background". */
-.footer-col h4{font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:18px; font-weight:600;}
+.footer-col h3, .footer-col h4{font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:18px; font-weight:600;}
 .footer-col a{display:block; font-size:0.88rem; margin-bottom:11px; color:rgba(255,255,255,0.9); transition:color .2s ease;}
 .footer-col a:hover{color:#fff;}
 .footer-social{display:flex; gap:10px; margin-top:20px;}
@@ -1812,3 +1812,10 @@ html[lang="no"] body.page-home .hero h1{--h1-fit:11.55;}
   .dt-strip{grid-template-columns:1fr; gap:12px;}
   .dt-card picture{flex-basis:34%;}
 }
+
+/* "From €…" price lines on route cards and tiles (values stamped by tools/stamp_prices.py). */
+a.dest-card{flex-direction:column;}
+.dest-card .dest-from{display:block; margin:8px 0 0; font-size:0.9rem; color:var(--gray); text-transform:none; letter-spacing:0;}
+.dest-card .dest-from span{font-weight:700; color:var(--navy, #16202a); font-size:inherit; text-transform:none; letter-spacing:0;}
+.dest-card-pair .dest-from{margin:-6px 0 12px;}
+.trust-item b span[data-price]{display:inline; font:inherit; color:inherit; text-transform:none; letter-spacing:inherit; margin:0;}

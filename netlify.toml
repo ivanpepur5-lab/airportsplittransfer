@@ -1,9 +1,10 @@
 [build]
   publish = "."
-  # Safety net: css/js URLs carry a content hash (?v=) so Cloudflare and
+  # Safety net: prices on the pages come from js/pricing.js (stamp_prices.py),
+  # and css/js URLs carry a content hash (?v=) so Cloudflare and
   # browsers never serve stale files after a deploy. Already stamped in the
   # repo; this keeps it right if a file was edited without re-stamping.
-  command = "python3 tools/stamp_assets.py || true"
+  command = "python3 tools/stamp_prices.py || true; python3 tools/stamp_assets.py || true"
   functions = "netlify/functions"
   # Skip the production build when a push only touches files that are not
   # part of the published site (GBP post log, content-pipeline notes,

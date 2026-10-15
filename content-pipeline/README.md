@@ -333,3 +333,15 @@ brand already shows next to the result). The homepages keep the suffix.
 titles automatically (see `trtool.py`); for EN, DE, SV and NO it is applied
 by hand when a page is written. Use "Frequently Asked Questions" (not
 "Common Questions") and "passengers" (not "pax") in customer-facing text.
+
+## Prices on the pages (2026-10-15)
+
+Every "From €…" price on the site (route page tile, homepage and Routes cards,
+fleet page table) is a `<span data-price="route:vehicle">` that
+`tools/stamp_prices.py` fills in from `js/pricing.js` and the driving km in
+`tools/route_km.json` (the Distance figure on the route page). Never type a
+price by hand: change the tariff or the km, run `python3 tools/stamp_prices.py`
+(it also runs in the Netlify build), and `--check` fails if a page is stale.
+Distances are our figures; the booking form uses the real Google driving
+distance, so a guest's exact address can differ by a step of €5. That is why
+the pages say "From".

@@ -732,6 +732,23 @@ function initBookingWidget(){
       // the space it was holding open.
       mount.classList.add('is-loaded');
       initBookingWidget();
+      // Enter in an address box (the phone keyboard's "Go" key) used to submit
+      // the form while the required name/email/phone fields were still hidden,
+      // so the browser blocked it with no message. Until step 2 is open Enter
+      // just moves on: from pickup to drop-off, otherwise nothing happens.
+      const bookingForm = document.getElementById('booking-form');
+      if(bookingForm){
+        bookingForm.addEventListener('keydown', function(e){
+          if(e.key !== 'Enter' || !e.target || e.target.tagName !== 'INPUT') return;
+          const step2 = document.getElementById('bw-step2');
+          if(!step2 || step2.classList.contains('is-open')) return;
+          e.preventDefault();
+          if(e.target.id === 'b-pickup'){
+            const dropoff = document.getElementById('b-dropoff');
+            if(dropoff && !dropoff.value) setTimeout(function(){ dropoff.focus(); }, 0);
+          }
+        });
+      }
     })
     .catch(function(err){
       console.error('Failed to load booking widget:', err);

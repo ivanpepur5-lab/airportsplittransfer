@@ -64,7 +64,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preload" href="/assets/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/style.css?v=7120a86bbf">
+<link rel="stylesheet" href="../css/style.css?v=a7e29cb2b9">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hem", "item": "https://airportsplittransfer.com/sv/"}, {"@type": "ListItem", "position": 2, "name": "Fordonsflotta", "item": "https://airportsplittransfer.com/sv/fleet"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Vad är skillnaden mellan Limousin, Business-Van och Van?","acceptedAnswer":{"@type":"Answer","text":"Limousinen (Škoda Superb) passar 1–4 passagerare, Business-Van (Mercedes-Benz V-Class) passar 1–7 med en mer exklusiv inredning, och Van (Renault Trafic) passar 1–8 för större grupper. Alla tre har klimatanläggning och en professionell förare."}},{"@type":"Question","name":"Hur mycket bagage får plats i varje fordon?","acceptedAnswer":{"@type":"Answer","text":"Limousinen rymmer bekvämt 3 stora resväskor, Business-Van 7 och Van 8, dessutom gott om plats för handbagage och strandutrustning."}},{"@type":"Question","name":"Kan jag välja ett specifikt fordon vid bokning?","acceptedAnswer":{"@type":"Answer","text":"Ja, välj ditt föredragna fordon direkt på den här sidan eller i bokningsformuläret, och priset uppdateras direkt."}},{"@type":"Question","name":"Finns barnstolar i alla fordon?","acceptedAnswer":{"@type":"Answer","text":"Ja, barnstolar finns kostnadsfritt på begäran i alla tre fordonen."}},{"@type":"Question","name":"Är priserna som visas på den här sidan slutgiltiga?","acceptedAnswer":{"@type":"Answer","text":"Det är exempelpriser \"från\" för vanliga sträckor. Det exakta priset beror på din exakta upphämtnings- och destinationsadress: ange dina uppgifter i bokningsformuläret för en direkt, fast offert."}},{"@type":"Question","name":"Är Van lämplig för en grupp med mycket bagage?","acceptedAnswer":{"@type":"Answer","text":"Ja, Renault Trafic är byggd för större grupper som bröllopssällskap och familjer, med gott om plats för bagage utöver 8 passagerare."}}]}</script>
 </head>
@@ -146,7 +146,7 @@
         <div class="price-table-wrap" style="margin-bottom:20px;">
           <table class="price-table">
             <tr><th>Exempelsträcka</th><th>Från</th></tr>
-            <tr><td>Split centrum / Färjeterminal</td><td class="num">&euro;55</td></tr><tr><td>Omiš</td><td class="num">&euro;65</td></tr><tr><td>Makarska</td><td class="num">&euro;185</td></tr>
+            <tr><td>Split centrum / Färjeterminal</td><td class="num"><span data-price="split:skoda">€55</span></td></tr><tr><td>Omiš</td><td class="num"><span data-price="omis:skoda">€100</span></td></tr><tr><td>Makarska</td><td class="num"><span data-price="makarska:skoda">€170</span></td></tr>
           </table>
         </div>
         <a href="index.html?vehicle=skoda#booking" class="btn btn-gold btn-block">Välj Limousin</a>
@@ -167,7 +167,7 @@
         <div class="price-table-wrap" style="margin-bottom:20px;">
           <table class="price-table">
             <tr><th>Exempelsträcka</th><th>Från</th></tr>
-            <tr><td>Split centrum / Färjeterminal</td><td class="num">&euro;75</td></tr><tr><td>Omiš</td><td class="num">&euro;95</td></tr><tr><td>Makarska</td><td class="num">&euro;265</td></tr>
+            <tr><td>Split centrum / Färjeterminal</td><td class="num"><span data-price="split:vclass">€75</span></td></tr><tr><td>Omiš</td><td class="num"><span data-price="omis:vclass">€140</span></td></tr><tr><td>Makarska</td><td class="num"><span data-price="makarska:vclass">€205</span></td></tr>
           </table>
         </div>
         <a href="index.html?vehicle=vclass#booking" class="btn btn-gold btn-block">Välj Business-Van</a>
@@ -188,7 +188,7 @@
         <div class="price-table-wrap" style="margin-bottom:20px;">
           <table class="price-table">
             <tr><th>Exempelsträcka</th><th>Från</th></tr>
-            <tr><td>Split centrum / Färjeterminal</td><td class="num">&euro;75</td></tr><tr><td>Omiš</td><td class="num">&euro;95</td></tr><tr><td>Makarska</td><td class="num">&euro;265</td></tr>
+            <tr><td>Split centrum / Färjeterminal</td><td class="num"><span data-price="split:trafic">€75</span></td></tr><tr><td>Omiš</td><td class="num"><span data-price="omis:trafic">€140</span></td></tr><tr><td>Makarska</td><td class="num"><span data-price="makarska:trafic">€205</span></td></tr>
           </table>
         </div>
         <a href="index.html?vehicle=trafic#booking" class="btn btn-gold btn-block">Välj Van</a>
@@ -257,7 +257,7 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>Snabblänkar</h4>
+      <h3>Snabblänkar</h3>
       <a href="index.html">Hem</a>
       <a href="destinations.html">Resmål</a>
       <a href="airports/dubrovnik-airport.html">Dubrovniks flygplats</a>
@@ -268,7 +268,7 @@
       <a href="contact.html">Kontakt</a>
     </div>
     <div class="footer-col">
-      <h4>Populära Resmål</h4>
+      <h3>Populära Resmål</h3>
       <a href="destinations/split.html">Split flygplats &rarr; Split centrum / Färjeterminal</a>
       <a href="destinations/podstrana.html">Split flygplats &rarr; Podstrana</a>
       <a href="destinations/omis.html">Split flygplats &rarr; Omiš</a>
@@ -277,7 +277,7 @@
       <a href="destinations.html">Alla Resmål</a>
     </div>
     <div class="footer-col">
-      <h4>Kontakt</h4>
+      <h3>Kontakt</h3>
       <a href="tel:+385917856056">+385 91 785 6056</a>
       <a href="mailto:info@airportsplittransfer.com">info@airportsplittransfer.com</a>
       <a href="https://maps.app.goo.gl/Uxt5aKhvFQ8sofAFA" target="_blank" rel="noopener">Split, Kroatien</a>
