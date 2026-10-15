@@ -1798,3 +1798,17 @@ html[lang="sv"] body.page-home .hero h1{--h1-fit:11.7;}
 html[lang="no"] body.page-home .hero h1{--h1-fit:11.55;}
 @media (max-width:1023px){ body.page-home .hero h1{font-size:min(2.05rem, calc((100vw - 40px) / var(--h1-fit, 1)));} }
 /* heading-font:end */
+
+/* Homepage strip: two compact day-trip cards (Krka, Plitvice) under the routes. */
+.dt-strip{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;}
+.dt-card{display:flex; align-items:center; gap:16px; background:#fff; border:1px solid var(--line); border-radius:var(--radius, 14px); overflow:hidden; color:inherit; text-decoration:none; transition:box-shadow .3s ease, transform .3s ease;}
+.dt-card:hover{box-shadow:0 10px 26px rgba(22,32,42,0.10); transform:translateY(-3px);}
+.dt-card picture{flex:0 0 38%; max-width:210px; align-self:stretch; display:block;}
+.dt-card img{width:100%; height:100%; min-height:96px; object-fit:cover; display:block;}
+.dt-card-body{display:flex; flex-direction:column; gap:4px; padding:14px 16px 14px 0;}
+.dt-card-body b{font-size:1.05rem; line-height:1.25; color:var(--navy, #16202a);}
+.dt-card-body span{font-size:0.86rem; color:var(--gray);}
+@media (max-width:640px){
+  .dt-strip{grid-template-columns:1fr; gap:12px;}
+  .dt-card picture{flex-basis:34%;}
+}
