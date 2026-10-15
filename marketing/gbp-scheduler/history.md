@@ -69,4 +69,10 @@ Land in Split and your driver is already waiting in the arrivals hall with a nam
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-15 16:14 UTC — Day trip post — Plitvice Lakes
+
+Turquoise water, rushing waterfalls and wooden walkways that wind between the lakes: Plitvice is worth a full day, and a private one makes it easy. Your English-speaking driver collects you in Split, does all the driving and waits at the park while you explore at your own pace. One fixed price for the whole 10-12 hour trip: €475 by car, €545 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
