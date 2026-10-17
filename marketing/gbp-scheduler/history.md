@@ -75,4 +75,10 @@ Turquoise water, rushing waterfalls and wooden walkways that wind between the la
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-17 08:03 UTC — Customer review post — Natasha Dumais (4 of 9)
+
+Good communication is half of a good transfer. Natasha described hers like this in her Google review: "The best service, they saved our trip! Super easy communication, photos sent once bags were picked up, and when put on the ferry." Clear updates from pickup to the ferry are the standard we hold every journey to. 5.0 stars from 35+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
