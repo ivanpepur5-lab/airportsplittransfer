@@ -237,5 +237,5 @@ T = {
 "Direct Contact": "Contatto diretto",
 "Base": "Sede",
 "Google Rating": "Valutazione Google",
-"★ 5.0 (35+ reviews)": "★ 5.0 (35+ recensioni)",
+"★ 5.0 (40+ reviews)": "★ 5.0 (40+ recensioni)",
 }

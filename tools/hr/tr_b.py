@@ -237,5 +237,5 @@ T = {
 "Direct Contact": "Izravni kontakt",
 "Base": "Sjedište",
 "Google Rating": "Google ocjena",
-"★ 5.0 (35+ reviews)": "★ 5.0 (35+ recenzija)",
+"★ 5.0 (40+ reviews)": "★ 5.0 (40+ recenzija)",
 }
