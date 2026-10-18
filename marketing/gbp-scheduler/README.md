@@ -59,7 +59,7 @@ Always private (not a shared shuttle), English-speaking driver, fixed
 price for the whole day, driver waits at the park.
 
 ### 3. Customer review post (Saturdays 10:00)
-Feature ONE real review from the pool below — rotate through all nine
+Feature ONE real review from the pool below — rotate through all ten
 before repeating any (track which was used last in `history.md`). Quote
 it (or a genuine excerpt of it) rather than paraphrasing into something
 the customer didn't say. Do not fabricate new reviews.
@@ -107,6 +107,18 @@ reviews):
    from start to finish. He was very friendly, professional, and easy to
    talk to, which made the long drive much more enjoyable. [...] Thanks
    again, Ivan"
+
+10. **Vivian Wan** (added 2026-10-18, 5-star Google review from the
+   business owner's screenshot) — "We had a 04:45 pickup and Josip was not
+   only early but also kind, helpful with our bags, friendly, and
+   personable. [...]" (quote only the pickup / driver part. Leave out the
+   price comparison with Uber, and write "our driver Josip", never imply
+   that Ivan drove her.)
+
+**The pool now has TEN reviews** (Vivian Wan was added after Natasha
+Dumais, 4 of 9, had been used). Any wording elsewhere that says "nine"
+(including the Saturday routine prompt) is out of date: rotate through all
+ten, so Vivian comes after Alec Miskulin and before the rotation restarts.
 
 Note the range of trips these cover — airport transfers, the ferry port,
 and longer runs to Dubrovnik and even Montenegro — useful for varying the
