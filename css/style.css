@@ -294,10 +294,10 @@ header{
 .hero::before{
   content:'';
   position:absolute; inset:0; z-index:0; pointer-events:none;
-  background:radial-gradient(1100px 520px at 50% 14%, #F3F5F8 0%, rgba(243,245,248,0) 72%);
+  background:radial-gradient(1100px 520px at 50% 14%, #F6F4EF 0%, rgba(246,244,239,0) 72%);
 }
-/* An off-white wash that cools to the faintest coastal blue. */
-.hero{background:linear-gradient(180deg, #F8FAFC 0%, #F2F7FC 40%, #EAF3FA 72%, #FFFFFF 100%);}
+/* A warm off-white wash that fades to white. */
+.hero{background:linear-gradient(180deg, #FAF8F4 0%, #F6F4EF 40%, #F1EDE4 72%, #FFFFFF 100%);}
 .hero-content{position:relative; z-index:10; max-width:1180px; margin:0 auto; width:100%;}
 
 /* The text column stays narrower than the hero so the cars can sit in the
@@ -1674,7 +1674,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .price-cta{
   display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
   padding:22px 26px; border-radius:16px;
-  background:linear-gradient(180deg, #F3F8FE 0%, #EAF3FC 100%);
+  background:linear-gradient(180deg, #F8F6F1 0%, #F1EDE4 100%);
   border:1px solid rgba(11,60,122,0.14);
 }
 .price-cta p{margin:0; flex:1 1 320px; color:var(--cream); font-size:0.95rem; line-height:1.55;}
