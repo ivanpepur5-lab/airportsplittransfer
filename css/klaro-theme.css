@@ -6,8 +6,8 @@
    ========================================================================== */
 
 .klaro {
-  --font-family: 'Instrument Sans', sans-serif;
-  --title-font-family: 'Schibsted Grotesk', sans-serif;
+  --font-family: 'Inter', sans-serif;
+  --title-font-family: 'Manrope', sans-serif;
   --font-size: 0.92rem;
   --border-radius: 14px;
   --border-style: solid;
@@ -25,11 +25,11 @@
   --dark3: var(--gray, #616872);
 
   /* accept / manage / toggle accent */
-  --green1: var(--gold, #0057C1);
-  --green2: var(--gold, #0057C1);
-  --green3: var(--gold, #0057C1);
+  --green1: var(--gold, #0B3C7A);
+  --green2: var(--gold, #0B3C7A);
+  --green3: var(--gold, #0B3C7A);
   --blue1: transparent;              /* "manage preferences" button — outline style below */
-  --blue2: var(--gold, #0057C1);
+  --blue2: var(--gold, #0B3C7A);
 
   --notice-max-width: 460px;
   --notice-bottom: 20px;
@@ -48,7 +48,7 @@
 .klaro .cookie-notice .cn-body h2,
 .klaro .cookie-modal .cm-modal h1,
 .klaro .cookie-modal .cm-modal h2 {
-  font-family: 'Schibsted Grotesk', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   color: var(--navy, #14171C);
 }
@@ -95,7 +95,7 @@
 }
 .klaro .cookie-notice .cn-learn-more {
   font-size: 0.8rem !important;
-  color: var(--gold-text, #0057C1) !important;
+  color: var(--gold-text, #0B3C7A) !important;
 }
 .klaro .cm-btn:hover {
   opacity: 0.9;
@@ -120,8 +120,8 @@
 .klaro .cm-btn.cm-btn-info,
 .klaro .cm-btn.cm-btn-lern-more {
   background-color: transparent !important;
-  color: var(--gold, #0057C1) !important;
-  border: 1px solid var(--gold, #0057C1);
+  color: var(--gold, #0B3C7A) !important;
+  border: 1px solid var(--gold, #0B3C7A);
 }
 
 /* Save/close in the detailed modal footer */
@@ -130,7 +130,7 @@
 }
 
 .klaro .cm-list-title {
-  font-family: 'Schibsted Grotesk', sans-serif;
+  font-family: 'Manrope', sans-serif;
   color: var(--cream, #16191F);
 }
 

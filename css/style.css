@@ -2,12 +2,11 @@
    Self-hosted variable fonts (SIL OFL, see assets/fonts/OFL-*.txt) instead of
    Google Fonts: no extra DNS/TLS round trips and no render-blocking third-
    party stylesheet. Latin covers EN/DE/SV/NO; latin-ext covers č ć š ž đ.
-   h1/h2 use Montserrat ExtraBold (the logo typeface), inlined at the end of
-   this file by tools/heading_font.py. */
-@font-face{font-family:'Schibsted Grotesk'; font-style:normal; font-weight:400 900; font-display:swap; src:url(../assets/fonts/schibsted-grotesk-latin-wght-normal.woff2) format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Schibsted Grotesk'; font-style:normal; font-weight:400 900; font-display:swap; src:url(../assets/fonts/schibsted-grotesk-latin-ext-wght-normal.woff2) format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
-@font-face{font-family:'Instrument Sans'; font-style:normal; font-weight:400 700; font-display:swap; src:url(../assets/fonts/instrument-sans-latin-wght-normal.woff2) format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-@font-face{font-family:'Instrument Sans'; font-style:normal; font-weight:400 700; font-display:swap; src:url(../assets/fonts/instrument-sans-latin-ext-wght-normal.woff2) format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+   Manrope for headings, Inter for body text. */
+@font-face{font-family:'Manrope'; font-style:normal; font-weight:200 800; font-display:swap; src:url(../assets/fonts/manrope-latin-wght-normal.woff2) format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Manrope'; font-style:normal; font-weight:200 800; font-display:swap; src:url(../assets/fonts/manrope-latin-ext-wght-normal.woff2) format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'Inter'; font-style:normal; font-weight:100 900; font-display:swap; src:url(../assets/fonts/inter-latin-wght-normal.woff2) format('woff2'); unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Inter'; font-style:normal; font-weight:100 900; font-display:swap; src:url(../assets/fonts/inter-latin-ext-wght-normal.woff2) format('woff2'); unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
 
 /* ==========================================================================
    PREMIUM TRANSFER — Design System
@@ -16,18 +15,18 @@
 
 :root{
   --bg: #FFFFFF;
-  --bg-2: #F7F8F9;
-  --bg-3: #EFF1F3;
-  --cream: #16191F;
+  --bg-2: #F6F4EF;
+  --bg-3: #ECE8DF;
+  --cream: #1B2230;
   --gray: #616872;
-  --gold: #0057C1;
-  --gold-text: #0057C1;
-  --line: #E4E6EA;
+  --gold: #0B3C7A;
+  --gold-text: #0B3C7A;
+  --line: #E3DED3;
   --star: #F4B400;
   --line-strong: rgba(16,19,24,0.18);
   --radius: 12px;
   --space-section: 104px;
-  --navy: #07264C;
+  --navy: #0B2545;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -40,14 +39,14 @@ html{scroll-behavior:smooth;}
 body{
   background:var(--bg);
   color:var(--cream);
-  font-family:'Instrument Sans',sans-serif;
+  font-family:'Inter',sans-serif;
   font-weight:400;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 
 h1,h2,h3,h4,.display{
-  font-family:'Schibsted Grotesk',sans-serif;
+  font-family:'Manrope',sans-serif;
   font-weight:600;
   letter-spacing:-0.01em;
   /* German/Swedish compound words (e.g. "Geschäftsbedingungen") can be a
@@ -215,7 +214,7 @@ header{
   display:inline-flex; align-items:center; justify-content:center;
   min-width:52px; height:38px; padding:0 14px;
   border:1px solid rgba(255,255,255,0.22); border-radius:999px;
-  font-family:'Instrument Sans',sans-serif;
+  font-family:'Inter',sans-serif;
   font-size:0.78rem; font-weight:600; letter-spacing:0.08em;
   color:rgba(255,255,255,0.7); transition:color .2s ease, border-color .2s ease, background-color .2s ease;
 }
@@ -235,7 +234,7 @@ header{
   overscroll-behavior:contain;
 }
 .mobile-nav.open{display:flex;}
-.mobile-nav a{font-family:'Schibsted Grotesk',sans-serif; font-weight:500; font-size:1.6rem; letter-spacing:-0.01em; color:#fff;}
+.mobile-nav a{font-family:'Manrope',sans-serif; font-weight:500; font-size:1.6rem; letter-spacing:-0.01em; color:#fff;}
 .mobile-close{position:absolute; top:26px; right:32px; background:none; border:none; color:#fff; font-size:1.6rem; cursor:pointer;}
 
 @media (max-width:1023px){
@@ -560,7 +559,7 @@ header{
   padding:13px 12px;
   font-size:0.88rem;
   border-radius:var(--radius);
-  font-family:'Instrument Sans',sans-serif;
+  font-family:'Inter',sans-serif;
 }
 .qb-field input:focus, .qb-field select:focus{outline:none; border-color:var(--gold);}
 .qb-submit{white-space:nowrap;}
@@ -587,8 +586,8 @@ header{
   gap:16px;
 }
 .qb-result.show{display:flex;}
-.qb-result-price{font-family:'Schibsted Grotesk',sans-serif; font-size:1.9rem; color:var(--gold-text);}
-.qb-result-price span{font-family:'Instrument Sans',sans-serif; font-size:0.78rem; color:var(--gray); display:block; text-transform:uppercase; letter-spacing:0.08em;}
+.qb-result-price{font-family:'Manrope',sans-serif; font-size:1.9rem; color:var(--gold-text);}
+.qb-result-price span{font-family:'Inter',sans-serif; font-size:0.78rem; color:var(--gray); display:block; text-transform:uppercase; letter-spacing:0.08em;}
 
 @media (max-width:1100px){
   .quick-booking{grid-template-columns:1fr 1fr; }
@@ -630,7 +629,7 @@ section{padding:var(--space-section) 40px;}
 @media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
 @media (min-width:901px){.why-grid.why-grid-3col{grid-template-columns:repeat(3,1fr);}}
 @media (min-width:561px){.why-grid.why-grid-2col{grid-template-columns:repeat(2,1fr);}}
-.why-card .service-price{display:block; font-family:'Schibsted Grotesk',sans-serif; font-size:1.4rem; font-weight:700; color:var(--gold-text); margin:4px 0 12px;}
+.why-card .service-price{display:block; font-family:'Manrope',sans-serif; font-size:1.4rem; font-weight:700; color:var(--gold-text); margin:4px 0 12px;}
 .why-grid-2col .why-card{display:flex; flex-direction:column;}
 .why-grid-2col .why-card p{margin-bottom:22px;}
 .why-grid-2col .why-card .btn{margin-top:auto;}
@@ -663,7 +662,7 @@ section{padding:var(--space-section) 40px;}
 .fleet-card .fleet-sub{font-size:0.82rem; color:var(--gray); margin-bottom:20px;}
 .fleet-specs{display:flex; gap:22px; padding-top:20px; border-top:1px solid var(--line); margin-bottom:22px;}
 .fleet-specs div{flex:1;}
-.fleet-specs b{font-family:'Schibsted Grotesk',sans-serif; font-size:1.3rem; display:block;}
+.fleet-specs b{font-family:'Manrope',sans-serif; font-size:1.3rem; display:block;}
 .fleet-specs span{font-size:0.7rem; color:var(--gray); text-transform:uppercase; letter-spacing:0.06em;}
 
 .fleet-spec-icons{display:flex; gap:16px; margin-bottom:18px; flex-wrap:wrap; justify-content:flex-start;}
@@ -687,8 +686,8 @@ section{padding:var(--space-section) 40px;}
   font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);
   font-weight:600; border-bottom:1px solid var(--line-strong);
 }
-.price-table td.num{font-family:'Schibsted Grotesk',sans-serif; font-size:1.15rem;}
-.price-table tr:hover td{background:rgba(0,87,193,0.04);}
+.price-table td.num{font-family:'Manrope',sans-serif; font-size:1.15rem;}
+.price-table tr:hover td{background:rgba(11,60,122,0.04);}
 .price-table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px;}
 
 /* ============ DESTINATIONS GRID ============ */
@@ -768,7 +767,7 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
 
 /* ============ PROCESS ============ */
 .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:36px;}
-.process-num{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; font-size:2.4rem; color:rgba(0,87,193,0.3); margin-bottom:12px; display:block;}
+.process-num{font-family:'Manrope',sans-serif; font-weight:700; font-size:2.4rem; color:rgba(11,60,122,0.3); margin-bottom:12px; display:block;}
 .process-step h3{font-size:1.05rem; margin-bottom:10px;}
 .process-step p{font-size:0.88rem; color:var(--gray);}
 @media (max-width:900px){.process-grid{grid-template-columns:1fr 1fr; gap:32px;}}
@@ -864,7 +863,7 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
   border-radius:50%; background:var(--gold); border:3px solid var(--bg);
   box-shadow:0 0 0 2px var(--gold);
 }
-.itinerary-time{font-family:'Schibsted Grotesk',sans-serif; font-size:0.78rem; font-weight:700; color:var(--gold-text); letter-spacing:0.04em; margin-bottom:4px; display:block;}
+.itinerary-time{font-family:'Manrope',sans-serif; font-size:0.78rem; font-weight:700; color:var(--gold-text); letter-spacing:0.04em; margin-bottom:4px; display:block;}
 .itinerary-step h3{font-size:1.05rem; margin-bottom:6px;}
 .itinerary-step p{font-size:0.88rem; color:var(--gray); margin:0;}
 
@@ -907,7 +906,7 @@ body.page-daytrip .summary-box select{max-width:100%;}
 /* ============ FAQ ============ */
 .faq-list{max-width:760px;}
 .faq-item{border-bottom:1px solid var(--line); padding:24px 0;}
-.faq-item h3{font-size:1.1rem; text-transform:none; margin-bottom:10px; color:var(--cream); font-weight:600; font-family:'Instrument Sans',sans-serif;}
+.faq-item h3{font-size:1.1rem; text-transform:none; margin-bottom:10px; color:var(--cream); font-weight:600; font-family:'Inter',sans-serif;}
 .faq-item p{font-size:0.92rem; color:var(--gray);}
 
 /* ============ HOTEL TRANSFERS (compact list, not another card grid) ====== */
@@ -945,8 +944,8 @@ body.page-daytrip .summary-box select{max-width:100%;}
   border-radius:14px; background:var(--bg); max-width:fit-content; margin-left:auto; margin-right:auto;
 }
 .review-stars{color:var(--star); font-size:1.1rem; letter-spacing:2px;}
-.review-score{font-family:'Schibsted Grotesk',sans-serif; font-weight:700; font-size:1.3rem; color:var(--cream);}
-.review-score .review-count{font-family:'Instrument Sans',sans-serif; font-weight:400; font-size:0.82rem; color:var(--gray); margin-left:6px;}
+.review-score{font-family:'Manrope',sans-serif; font-weight:700; font-size:1.3rem; color:var(--cream);}
+.review-score .review-count{font-family:'Inter',sans-serif; font-weight:400; font-size:0.82rem; color:var(--gray); margin-left:6px;}
 .review-link{font-size:0.82rem; font-weight:600; color:var(--gold-text); border-bottom:1px solid var(--gold); padding-bottom:1px; white-space:nowrap;}
 @media (max-width:600px){.review-stat{flex-direction:column; gap:8px; text-align:center; margin-bottom:32px;}}
 
@@ -973,7 +972,7 @@ body.page-daytrip .summary-box select{max-width:100%;}
 }
 .trust-item{padding:36px 30px; border-left:1px solid var(--line); text-align:center;}
 .trust-item:first-child{border-left:none;}
-.trust-item b{font-family:'Schibsted Grotesk',sans-serif; font-size:1.8rem; color:var(--gold); display:block; margin-bottom:6px;}
+.trust-item b{font-family:'Manrope',sans-serif; font-size:1.8rem; color:var(--gold); display:block; margin-bottom:6px;}
 .trust-item span{font-size:0.76rem; color:var(--gray); text-transform:uppercase; letter-spacing:0.06em;}
 @media (max-width:640px){.trust-item{padding:18px 6px;} .trust-item b{font-size:1.15rem; margin-bottom:3px;} .trust-item span{font-size:0.62rem;}}
 
@@ -1012,13 +1011,13 @@ legend + *{clear:both;}
 .field label{font-size:0.78rem; font-weight:500; letter-spacing:0; text-transform:none; color:var(--gray);}
 .field input, .field select, .field textarea{
   background:var(--bg); border:1px solid var(--line); color:var(--cream);
-  padding:15px 16px; font-size:0.95rem; border-radius:12px; font-family:'Instrument Sans',sans-serif;
+  padding:15px 16px; font-size:0.95rem; border-radius:12px; font-family:'Inter',sans-serif;
   transition:border-color .18s ease, box-shadow .18s ease;
 }
 .field input::placeholder, .field textarea::placeholder{color:#9AA1AC;}
 .field input:hover, .field select:hover, .field textarea:hover{border-color:#CDD3DC;}
 .field input:focus, .field select:focus, .field textarea:focus{
-  outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(0,87,193,0.12);
+  outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(11,60,122,0.12);
 }
 .field textarea{resize:vertical; min-height:90px;}
 .field-error{font-size:0.74rem; color:#D98E7A; display:none; margin:8px 0 0;}
@@ -1030,12 +1029,12 @@ legend + *{clear:both;}
   width:42px; height:42px; border-radius:50%; border:1px solid var(--line-strong);
   background:#fff; color:var(--gold); cursor:pointer; padding:0;
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  box-shadow:0 2px 8px rgba(7,38,76,0.10);
+  box-shadow:0 2px 8px rgba(11,37,69,0.10);
   transition:background .2s ease, color .2s ease, box-shadow .2s ease; margin-bottom:1px;
 }
 /* Arrows point sideways while the two fields sit side by side. */
 .swap-btn svg{width:19px; height:19px; transform:rotate(90deg); transition:transform .3s var(--ease-out, ease);}
-.swap-btn:hover{background:var(--gold); color:#fff; box-shadow:0 4px 12px rgba(0,87,193,0.25);}
+.swap-btn:hover{background:var(--gold); color:#fff; box-shadow:0 4px 12px rgba(11,60,122,0.25);}
 .swap-btn:hover svg, .swap-btn:active svg{transform:rotate(270deg);}
 @media (max-width:640px){
   .route-fields{grid-template-columns:1fr; gap:8px;}
@@ -1060,7 +1059,7 @@ legend + *{clear:both;}
 .live-price-bar #live-price-priced{display:flex; align-items:center; justify-content:space-between; gap:12px;}
 .live-price-label{font-size:0.88rem; letter-spacing:0; text-transform:none; color:var(--gray); font-weight:500;}
 .live-price-label span{text-transform:none; letter-spacing:normal; font-weight:400;}
-.live-price-value{font-family:'Schibsted Grotesk',sans-serif; font-size:1.45rem; font-weight:700; color:var(--cream);}
+.live-price-value{font-family:'Manrope',sans-serif; font-size:1.45rem; font-weight:700; color:var(--cream);}
 .live-price-bar .custom-quote-msg{padding:0; font-size:0.86rem;}
 .custom-quote-msg a{color:var(--gold-text); font-weight:600; border-bottom:1px solid var(--gold);}
 
@@ -1069,12 +1068,12 @@ legend + *{clear:both;}
 
 .vehicle-picker{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
 .vehicle-opt{border:1px solid var(--line); padding:18px 14px; border-radius:12px; cursor:pointer; transition:border-color .2s ease, background-color .2s ease; text-align:center;}
-.vehicle-opt.active{border-color:var(--gold); background:rgba(0,87,193,0.05); box-shadow:inset 0 0 0 1px var(--gold);}
+.vehicle-opt.active{border-color:var(--gold); background:rgba(11,60,122,0.05); box-shadow:inset 0 0 0 1px var(--gold);}
 .vehicle-opt.disabled{opacity:0.35; pointer-events:none;}
-.vehicle-opt b{display:block; font-family:'Schibsted Grotesk',sans-serif; font-size:1.05rem; margin-bottom:4px;}
+.vehicle-opt b{display:block; font-family:'Manrope',sans-serif; font-size:1.05rem; margin-bottom:4px;}
 .vehicle-opt span{font-size:0.76rem; color:var(--gray); display:block; margin-bottom:2px;}
 .vehicle-opt span.vopt-pax{font-size:0.66rem; color:var(--gold-text); text-transform:uppercase; letter-spacing:0.04em; font-weight:600; margin-top:4px;}
-.vehicle-opt span.vopt-price{font-family:'Schibsted Grotesk',sans-serif; font-size:1.2rem; font-weight:700; color:var(--cream); margin:10px 0 0;}
+.vehicle-opt span.vopt-price{font-family:'Manrope',sans-serif; font-size:1.2rem; font-weight:700; color:var(--cream); margin:10px 0 0;}
 .vehicle-opt span.vopt-price:empty{display:none;}
 .vehicle-opt.disabled span.vopt-price{display:none;}
 /* The homepage form shows prices on the vehicle cards and the submit button;
@@ -1115,7 +1114,7 @@ legend + *{clear:both;}
 .summary-line{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line); font-size:0.88rem; color:var(--gray);}
 .summary-line span:last-child{color:var(--cream);}
 .summary-total{display:flex; justify-content:space-between; align-items:baseline; padding-top:20px; margin-top:6px;}
-.summary-total b{font-family:'Schibsted Grotesk',sans-serif; font-size:2.2rem; color:var(--gold-text);}
+.summary-total b{font-family:'Manrope',sans-serif; font-size:2.2rem; color:var(--gold-text);}
 .summary-note{font-size:0.76rem; color:var(--gray); margin-top:16px;}
 
 .booking-layout{grid-template-columns:1fr; max-width:860px; margin:0 auto;}
@@ -1133,7 +1132,7 @@ legend + *{clear:both;}
 }
 
 .confirm-panel{
-  display:none; border:1px solid var(--gold); background:rgba(0,87,193,0.06); padding:30px; margin-top:24px; text-align:center;
+  display:none; border:1px solid var(--gold); background:rgba(11,60,122,0.06); padding:30px; margin-top:24px; text-align:center;
 }
 .confirm-panel.show{display:block;}
 .confirm-panel h3{color:var(--gold-text); margin-bottom:10px;}
@@ -1164,7 +1163,7 @@ legend + *{clear:both;}
   display:flex; justify-content:space-between; align-items:center;
   background:var(--bg-2); border-radius:12px; padding:12px 16px; font-size:0.82rem; color:var(--gray);
 }
-.success-ref b{font-family:'Schibsted Grotesk',sans-serif; color:var(--navy); letter-spacing:0.03em;}
+.success-ref b{font-family:'Manrope',sans-serif; color:var(--navy); letter-spacing:0.03em;}
 .success-divider{height:1px; background:var(--line);}
 .success-summary{text-align:left;}
 .success-summary .summary-line{flex-direction:column; align-items:flex-start; gap:3px;}
@@ -1294,7 +1293,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home .hero p.lead{margin-bottom:22px;}
   body.page-home .hero .btn-gold.btn-hero{
     background:var(--gold); border-color:var(--gold);
-    box-shadow:0 10px 24px rgba(0,87,193,0.22);
+    box-shadow:0 10px 24px rgba(11,60,122,0.22);
   }
   body.page-home .hero .btn-gold.btn-hero:hover{filter:brightness(0.92);}
   body.page-home .btn-whatsapp-hero{border-color:var(--line-strong);}
@@ -1412,7 +1411,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 /* --- Sticky navbar: gains depth once the page is scrolled --- */
 header{transition:box-shadow .35s ease, background-color .35s ease;}
 header .brand-logo{transition:transform .35s var(--ease-out); transform-origin:left center;}
-header.is-scrolled{box-shadow:0 8px 28px rgba(7,38,76,0.10);}
+header.is-scrolled{box-shadow:0 8px 28px rgba(11,37,69,0.10);}
 /* The frosted glass lives on a pseudo-element, not on the header itself:
    a backdrop-filter on the header would become the containing block for
    the fixed full-screen .mobile-nav inside it, shrinking the open menu to
@@ -1428,7 +1427,7 @@ header.is-scrolled{box-shadow:0 8px 28px rgba(7,38,76,0.10);}
 }
 header.is-scrolled .brand-logo{transform:scale(.92);}
 @media (max-width:640px){
-  body.page-home header.is-scrolled{box-shadow:0 6px 20px rgba(7,38,76,0.09);}
+  body.page-home header.is-scrolled{box-shadow:0 6px 20px rgba(11,37,69,0.09);}
 }
 
 /* --- CTAs: tactile press, gentle lift, light sweep on primary buttons --- */
@@ -1442,7 +1441,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   transform:skewX(-18deg) translateX(0); opacity:0; pointer-events:none; z-index:-1;
 }
 @media (hover:hover) and (pointer:fine){
-  .btn-gold:hover{box-shadow:0 10px 24px rgba(0,87,193,0.22);}
+  .btn-gold:hover{box-shadow:0 10px 24px rgba(11,60,122,0.22);}
   .btn-gold:hover::after{animation:btn-sheen .8s var(--ease-out);}
   .btn-outline:hover, .btn-whatsapp-hero:hover{transform:translateY(-1px);}
 }
@@ -1458,7 +1457,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .fleet-card{transition:opacity .8s var(--ease-out), transform .45s var(--ease-out), box-shadow .45s ease;}
 .fleet-media img{transition:transform .9s var(--ease-out);}
 @media (hover:hover) and (pointer:fine){
-  .fleet-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(7,38,76,0.14);}
+  .fleet-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(11,37,69,0.14);}
   .fleet-card:hover .fleet-media img{transform:scale(1.045);}
 }
 
@@ -1479,7 +1478,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .dest-card, a.dest-card{transition:opacity .8s var(--ease-out), box-shadow .35s ease, transform .35s var(--ease-out), border-color .35s ease;}
 @media (hover:hover) and (pointer:fine){
   .trip-card:hover .trip-media img{transform:scale(1.05);}
-  .dest-card:hover{border-color:rgba(0,87,193,0.28);}
+  .dest-card:hover{border-color:rgba(11,60,122,0.28);}
 }
 
 /* --- Booking forms (airport widget + day-trip form) --- */
@@ -1487,7 +1486,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .vehicle-opt:active{transform:scale(.98); transition-duration:.08s;}
 .vehicle-opt.active{animation:vopt-select .45s var(--ease-spring);}
 @media (hover:hover) and (pointer:fine){
-  .vehicle-opt:not(.active):not(.disabled):hover{border-color:rgba(0,87,193,0.45); transform:translateY(-2px); box-shadow:0 8px 18px rgba(7,38,76,0.08);}
+  .vehicle-opt:not(.active):not(.disabled):hover{border-color:rgba(11,60,122,0.45); transform:translateY(-2px); box-shadow:0 8px 18px rgba(11,37,69,0.08);}
 }
 @keyframes vopt-select{0%{transform:scale(.97);} 100%{transform:scale(1);}}
 .vehicle-opt.disabled{transition:opacity .3s ease;}
@@ -1623,7 +1622,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .route-faq{padding-top:72px;}
 .route-steps{list-style:none; counter-reset:step; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:18px; margin:0 0 64px; padding:0;}
 .route-steps li{counter-increment:step; border-top:2px solid var(--line); padding-top:14px; font-size:0.9rem; line-height:1.55; color:var(--gray);}
-.route-steps li::before{content:counter(step); display:block; font-family:'Schibsted Grotesk',sans-serif; font-weight:700; font-size:1.1rem; color:var(--gold); margin-bottom:6px;}
+.route-steps li::before{content:counter(step); display:block; font-family:'Manrope',sans-serif; font-weight:700; font-size:1.1rem; color:var(--gold); margin-bottom:6px;}
 .route-steps li b{display:block; color:var(--cream); font-weight:600; margin-bottom:4px;}
 @media (max-width:820px){ .route-steps{grid-template-columns:repeat(2, minmax(0,1fr));} }
 @media (max-width:640px){
@@ -1676,7 +1675,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
   padding:22px 26px; border-radius:16px;
   background:linear-gradient(180deg, #F3F8FE 0%, #EAF3FC 100%);
-  border:1px solid rgba(0,87,193,0.14);
+  border:1px solid rgba(11,60,122,0.14);
 }
 .price-cta p{margin:0; flex:1 1 320px; color:var(--cream); font-size:0.95rem; line-height:1.55;}
 .price-cta .btn{flex:0 0 auto; white-space:nowrap;}
@@ -1757,7 +1756,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 /* ============ HOTEL PHOTOS ============ */
 .hotel-photo{max-width:1280px; margin:0 auto 36px; padding:0 40px;}
 .hotel-photo picture{display:block;}
-.hotel-photo img{display:block; width:100%; height:auto; aspect-ratio:21/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(7,38,76,0.12);}
+.hotel-photo img{display:block; width:100%; height:auto; aspect-ratio:21/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(11,37,69,0.12);}
 @media (max-width:640px){
   .hotel-photo{padding:0 20px; margin-bottom:24px;}
   .hotel-photo img{aspect-ratio:4/3; border-radius:14px;}
@@ -1771,7 +1770,7 @@ a.dest-card.hotel-card h3{padding:18px 18px 22px;}
 /* Single photo under a page hero (V-Class above Dubrovnik on the Dubrovnik route and fleet pages) */
 .page-photo{max-width:1280px; margin:0 auto 36px; padding:0 40px;}
 .page-photo picture{display:block;}
-.page-photo img{display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(7,38,76,0.12);}
+.page-photo img{display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(11,37,69,0.12);}
 @media (max-width:640px){
   .page-photo{padding:0 20px; margin-bottom:24px;}
   .page-photo img{aspect-ratio:4/5; border-radius:14px;}
@@ -1782,14 +1781,11 @@ a.dest-card.hotel-card h3{padding:18px 18px 22px;}
 @media (max-width:640px){ .page-photo.is-4x3{margin-top:24px;} .page-photo.is-4x3 img{aspect-ratio:4/5;} }
 
 /* heading-font:start */
-/* ============ HEADINGS: LOGO TYPEFACE ============
-   h1 and h2 in Montserrat ExtraBold (SIL OFL, assets/fonts/OFL-montserrat.txt),
-   the typeface of the logo, in the logo's navy. Subset and inlined by
-   tools/heading_font.py: edit there, not here. */
-@font-face{font-family:'Montserrat Heading'; font-style:normal; font-weight:800; font-display:swap; src:url(data:font/woff2;base64,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) format('woff2');}
-@font-face{font-family:'Montserrat Heading'; font-style:normal; font-weight:800; font-display:swap; src:url(data:font/woff2;base64,d09GMgABAAAAAAU4AA8AAAAACawAAATeAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGjQbgjgcMAZgP1NUQVREAGgRCAqIWIcvATYCJANWCzAABCAFgQQHIBvSB1GUMM57ID4O44avDTGUJaaIEpYCnLQ32vAVQbVG9uzeIwQYFIICAsUOJdlYEhLBAbBKRcVFpu6H371/uhjYndBkVQMb0Uh97YH6hfj/36v6bsYYOCdgLIhz24+OuS2gESvQj3Wt49VlBSxYrYI9BYHqVBFDnlatFJUYM205+u3bCNQDQtIiBLaPOL/WaFMUs+b44iCzpZTOvGU76KQM2V6qIHtEAS+XhT3b6GzgAXKFmlhENpHemhwDFs7CMeBWbR5R/roD1IG/5NeV7/8/+f8GoPxS/hTuBn/pSPmPPzPUSLIKVWrUqdes1ZbwswygEhK/QgUgFltSCKiCCsskISUqt0413EiZKBbDNo2Kbczri3QuK6ognUxhwML0LLGecbiBa+ETLFvkpAgPEK44ki/8Z1Msi7MAAlLPdAToLQuhWkK7hP7S4R2pBQjwv6FfHpEXCs0CoktWRBZS9AQBEjLaZYF2haVAvWpJEVXREC1BRVX5HyAqoz6aIy4qf2w91GvcdsN2JHWvXK9CoyrNarQKUZYgDDqBkWgiMnEQOAFgKQBRehoYBxsQP+nE9F/36FvHP7Iea0a5detZ1UWx6eS94CG1H8/nb38fhB+7x9f27sYdqLl78y6HfXQglhg/u6HYfRdq7tzhI1nsPlLbk+Hja836hx7I0g/XufAt0vdBvsH3wi+lH60Mt8I9/c0n+ZEdywSQJluXC4IF1XIC37qGdtK7F4G9NCDOTYHPV8j2y/tRe+mS0pBAQpcz+YuY9TcI3x60a+fY107xrfBD6Rsw0Fn21ZNoDGpAY6c3rODHN5D8RG0aXkNHPfAuCkaHdJgmU1YNgYHmdvfyPiHUiItBZZ5koJaxjoesqpyXnp6HVa+0jjEZliydqz/iCu5HfAq2ifjxzIz4iRS/oGGy0jZM14i0tTMi7NVsK8FGkJzS5jj2vi1Tt9PCUjlSh904OAeXddPV8bR0cE1qtUtxa8DsbPtkKBl9LTRSRHLNHdUgmSdoe1rYuSa32IFKxfgLSbf1yUi8wOlJQTwRHR4BVcHBAZUd7hFRjX6y7n3earSSUvQLLe2X0Zam1Sg37S7hgCaPd4mrR0Uo+cArcfF2j7MxKo+lDOwcG8UhRb1HWloP9BSV9B6k/8YjveHOaNir2VM59gyi2q1OodiylkySMTJ04aD6zS68rmidrL6pbWChPmFVIFFkWVMUgKoaJqEo2uLC48qpk9E3tg0oMgClXIPoP16dj3MMY/5Giu+CizGNw8cOD8PDmNrhqo7y7I7yqtphCD+WsJAA3gPLTpUBDBSo0mafIYLQjhjTRQuVOl6yTFQWid0S1U4cA7XtSm1dwIntsQahooN7cCXeFIRf8Rbc8pfZ6hmAvuWndIPZmZ4o/4I8JB0hTiG6iwrpLGxly+8pMH0HTHEkPQORsBC6KJE64OMQ1HDm078vscK2/6p58x8Avn2zAcDv16cj/v8tP2Wt3AlUSiB4d1XywvLPf0FMs3FrrrYnH5rpESgfuWxtTkM+NROHcJmKNJKs8BBMqKJVoKvPT+AJhIngA0EnI2UTFULEEuVYYQamKGqg0be0COo1arpo1VXTQ73hf7Keak22WJIUhTJRaKGSpEmRqoCbEgVoFGc5MiXyUoCSKU2CYDmyULIxgXKCMQcAAA==) format('woff2'); unicode-range:U+0106,U+0107,U+010C,U+010D,U+0110,U+0111,U+0160,U+0161,U+017D,U+017E;}
-:root{--heading:#07264C;}
-h1, h2{font-family:'Montserrat Heading','Schibsted Grotesk',sans-serif; font-weight:800; letter-spacing:-0.025em; line-height:1.18; color:var(--heading); text-wrap:balance;}
+/* ============ HEADINGS ============
+   h1 and h2 in Manrope, in the brand navy. The homepage headline is sized to
+   the screen on phones (--h1-fit = its width in em) so it stays on one line. */
+:root{--heading:#0B2545;}
+h1, h2{font-family:'Manrope',sans-serif; font-weight:800; letter-spacing:-0.025em; line-height:1.18; color:var(--heading); text-wrap:balance;}
 .hero h1{color:var(--heading);}
 body.page-home .hero h1{max-width:880px;}
 html[lang="en"] body.page-home .hero h1{--h1-fit:11.4;}
@@ -1797,7 +1793,6 @@ html[lang="de"] body.page-home .hero h1{--h1-fit:12.0;}
 html[lang="sv"] body.page-home .hero h1{--h1-fit:11.7;}
 html[lang="no"] body.page-home .hero h1{--h1-fit:11.55;}
 @media (max-width:1023px){ body.page-home .hero h1{font-size:min(2.05rem, calc((100vw - 40px) / var(--h1-fit, 1)));} }
-/* heading-font:end */
 
 /* Homepage strip: two compact day-trip cards (Krka, Plitvice) under the routes. */
 .dt-strip{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;}
