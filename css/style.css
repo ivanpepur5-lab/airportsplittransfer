@@ -1845,3 +1845,27 @@ body.page-home header:not(.is-scrolled){box-shadow:none;}
 @media (max-width:640px){
   body.page-home .hero-wa{margin-bottom:8px;}
 }
+
+/* ============ HOMEPAGE POPULAR ROUTES: PHOTO CARDS ============
+   Each card is a photo with the destination name and "from" price on a
+   dark gradient. The photo is decorative (the heading names the card), so
+   it has an empty alt. */
+.dest-grid .dest-card--photo{
+  display:block; padding:0; min-height:0; aspect-ratio:4/3; text-align:left; border:0; color:#fff; background:var(--navy);
+}
+.dest-card--photo .dest-photo, .dest-card--photo .dest-photo img{position:absolute; inset:0; width:100%; height:100%; display:block;}
+.dest-card--photo .dest-photo img{object-fit:cover; transition:transform .5s var(--ease-out);}
+.dest-card--photo:hover .dest-photo img{transform:scale(1.04);}
+.dest-card--photo::after{
+  content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, rgba(8,24,48,0) 40%, rgba(8,24,48,0.78) 100%);
+}
+.dest-card--photo .dest-card-text{position:absolute; left:14px; right:14px; bottom:12px; z-index:2; display:block;}
+.dest-card--photo h3{margin:0; color:#fff; font-size:1.12rem; line-height:1.2; text-shadow:0 1px 8px rgba(8,24,48,0.35);}
+.dest-card--photo .dest-from, .dest-card--photo .dest-from span{color:rgba(255,255,255,0.94);}
+.dest-card--photo .dest-from{margin:4px 0 0; font-size:0.86rem;}
+@media (max-width:640px){
+  .dest-card--photo .dest-card-text{left:11px; right:8px; bottom:9px;}
+  .dest-card--photo h3{font-size:0.98rem;}
+  .dest-card--photo .dest-from{font-size:0.8rem;}
+}
