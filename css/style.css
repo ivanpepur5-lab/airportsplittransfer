@@ -1837,3 +1837,11 @@ a.dest-card{flex-direction:column;}
 @media (max-width:380px){
   .bw-compact .field input::placeholder{font-size:0.86rem;}
 }
+
+/* Homepage: no shadow under the header at the top of the page, so the white
+   header and the white top of the hero read as one (the shadow returns once
+   the page scrolls). Less empty space under the WhatsApp line on phones. */
+body.page-home header:not(.is-scrolled){box-shadow:none;}
+@media (max-width:640px){
+  body.page-home .hero-wa{margin-bottom:8px;}
+}
