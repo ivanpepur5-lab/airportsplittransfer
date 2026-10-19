@@ -81,4 +81,10 @@ Good communication is half of a good transfer. Natasha described hers like this 
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-19 07:07 UTC — Airport transfer post — The fleet
+
+Three vehicles, one standard. Choose a Škoda Superb sedan for up to four passengers, a Mercedes V-Class for up to seven or a Renault Trafic van for up to eight, all air-conditioned with room for your luggage. Pick the one that fits your group and the price is agreed before you travel.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
