@@ -1816,15 +1816,9 @@ a.dest-card{flex-direction:column;}
 .trust-item b span[data-price]{display:inline; font:inherit; color:inherit; text-transform:none; letter-spacing:inherit; margin:0;}
 
 /* ============ HOMEPAGE POLISH (PHONES) ============
-   The two car cut-outs at the card edges read as clipped slivers on a
-   narrow screen, so phones get a clean card; the vehicles have their own
-   section further down. The booking card is also tightened so more of the
-   page is visible above the fold, and the date field no longer clips its
-   value. Logic and fields are untouched. */
-@media (max-width:1010px){
-  body.page-home .hero--booking .hero-skoda,
-  body.page-home .hero--booking .hero-vclass{display:none;}
-}
+   The booking card is tightened so more of the page is visible above the
+   fold, and the date field no longer clips its value. The hero cars stay.
+   Logic and fields are untouched. */
 @media (max-width:640px){
   .bw-compact{padding:16px 16px 16px;}
   .bw-compact .toggle-group{margin-bottom:12px;}
