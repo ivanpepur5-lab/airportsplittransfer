@@ -1863,3 +1863,26 @@ body.page-home header:not(.is-scrolled){box-shadow:none;}
   .dest-card--photo h3{font-size:0.98rem;}
   .dest-card--photo .dest-from{font-size:0.8rem;}
 }
+
+/* ============ BOOKING CONFIRMATION: COMPACT ON PHONES ============
+   The day-trip offer must be on screen right after sending, so the
+   confirmation is tighter and the offer comes before the WhatsApp button. */
+@media (max-width:900px){
+  .booking-success{padding:16px 16px 14px; margin-top:16px;}
+  .booking-success.show{gap:8px;}
+  .success-icon{width:40px; height:40px;}
+  .success-icon svg{width:20px; height:20px;}
+  .booking-success h3{font-size:1.12rem; margin:0;}
+  .success-text{font-size:0.8rem; line-height:1.4; margin:0;}
+  .success-ref{padding:8px 12px;}
+  .success-summary .summary-line{flex-direction:row; justify-content:space-between; align-items:baseline; gap:14px; padding:5px 0; font-size:0.8rem;}
+  .success-summary .summary-line span:last-child{text-align:right;}
+  .success-summary .summary-line:first-child{flex-direction:column; align-items:flex-start; gap:2px;}
+  .success-summary .summary-line:first-child span:last-child{text-align:left;}
+  .success-summary .summary-total{padding-top:6px; margin-top:0;}
+  .success-summary .summary-total b{font-size:1.5rem;}
+  .success-daytrips-promo{order:1; padding:10px 14px;}
+  .success-daytrips-promo p{margin:0 0 6px; font-size:0.82rem; line-height:1.4;}
+  .booking-success > .btn{order:2; height:auto; min-height:44px; padding:10px 12px; letter-spacing:0.05em; font-size:0.78rem;}
+  .success-footnote{order:3; margin:0;}
+}
