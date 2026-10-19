@@ -1814,3 +1814,26 @@ a.dest-card{flex-direction:column;}
 .dest-card .dest-from span{font-weight:700; color:var(--navy, #16202a); font-size:inherit; text-transform:none; letter-spacing:0;}
 .dest-card-pair .dest-from{margin:-6px 0 12px;}
 .trust-item b span[data-price]{display:inline; font:inherit; color:inherit; text-transform:none; letter-spacing:inherit; margin:0;}
+
+/* ============ HOMEPAGE POLISH (PHONES) ============
+   The two car cut-outs at the card edges read as clipped slivers on a
+   narrow screen, so phones get a clean card; the vehicles have their own
+   section further down. The booking card is also tightened so more of the
+   page is visible above the fold, and the date field no longer clips its
+   value. Logic and fields are untouched. */
+@media (max-width:1010px){
+  body.page-home .hero--booking .hero-skoda,
+  body.page-home .hero--booking .hero-vclass{display:none;}
+}
+@media (max-width:640px){
+  .bw-compact{padding:16px 16px 16px;}
+  .bw-compact .toggle-group{margin-bottom:12px;}
+  .bw-compact .field{gap:4px;}
+  .bw-compact .field input, .bw-compact .field select{padding:10px 12px; font-size:0.95rem;}
+  .bw-compact .form-row{gap:10px; margin-bottom:10px;}
+  .bw-compact input[type="date"]{font-size:0.9rem; letter-spacing:-0.01em; padding-right:6px;}
+  .bw-compact fieldset{margin-bottom:10px;}
+}
+@media (max-width:380px){
+  .bw-compact .field input::placeholder{font-size:0.86rem;}
+}
