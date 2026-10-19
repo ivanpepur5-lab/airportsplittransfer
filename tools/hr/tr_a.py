@@ -70,7 +70,7 @@ T = {
 "Fixed price, all-inclusive. No hidden fees, no taximeter.": "Fiksna cijena, sve uključeno. Bez skrivenih troškova, bez taksimetra.",
 
 # homepage
-"Private Split Airport Transfers | Fixed Price, Door to Door": "Taxi Split aerodrom po fiksnoj cijeni | Airport Split Transfer",
+"Private Split Airport Transfers | Airport Split Transfer": "Taxi Split aerodrom po fiksnoj cijeni | Airport Split Transfer",
 "Fixed-price Split Airport transfers. Book a private transfer from Split Airport instead of a Split Airport taxi: meet & greet, flight tracking, 5% off returns.": "Privatni transfer i taxi sa Zračne luke Split po fiksnoj cijeni: doček s imenom na tabli, praćenje leta i 5% popusta na povratnu vožnju.",
 "Airport Split Transfer": "Airport Split Transfer",
 "Split-Dalmatia County, Croatia": "Splitsko-dalmatinska županija, Hrvatska",

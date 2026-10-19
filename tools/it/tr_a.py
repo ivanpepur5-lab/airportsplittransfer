@@ -70,7 +70,7 @@ T = {
 "Fixed price, all-inclusive. No hidden fees, no taximeter.": "Prezzo fisso, tutto incluso. Nessun costo nascosto, nessun tassametro.",
 
 # homepage
-"Private Split Airport Transfers | Fixed Price, Door to Door": "Transfer aeroporto Spalato a prezzo fisso | Airport Split Transfer",
+"Private Split Airport Transfers | Airport Split Transfer": "Transfer aeroporto Spalato a prezzo fisso | Airport Split Transfer",
 "Fixed-price Split Airport transfers. Book a private transfer from Split Airport instead of a Split Airport taxi: meet & greet, flight tracking, 5% off returns.": "Transfer privati dall'aeroporto di Spalato (Split) a prezzo fisso, un'alternativa al taxi: accoglienza con cartello, monitoraggio del volo e 5% di sconto su andata e ritorno.",
 "Airport Split Transfer": "Airport Split Transfer",
 "Split-Dalmatia County, Croatia": "Regione spalatino-dalmata, Croazia",
