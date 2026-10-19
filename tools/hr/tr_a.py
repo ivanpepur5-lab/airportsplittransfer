@@ -55,7 +55,7 @@ T = {
 "Privacy Policy": "Pravila privatnosti",
 "Book Now": "Rezerviraj",
 "Booking request sent": "Zahtjev za rezervaciju je poslan",
-"Thank you! We've received your transfer request. Your driver's confirmation will be sent to your email shortly before pickup.": "Hvala! Primili smo vaš zahtjev za transfer. Potvrdu s podacima vozača poslat ćemo vam e-mailom prije preuzimanja.",
+"Your driver's confirmation will be sent to your email shortly before pickup.": "Potvrdu s podacima vozača poslat ćemo vam e-mailom prije preuzimanja.",
 "Booking reference": "Broj rezervacije",
 "Vehicle": "Vozilo",
 "Total": "Ukupno",

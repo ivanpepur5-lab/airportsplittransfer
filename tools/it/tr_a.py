@@ -55,7 +55,7 @@ T = {
 "Privacy Policy": "Informativa sulla privacy",
 "Book Now": "Prenota ora",
 "Booking request sent": "Richiesta di prenotazione inviata",
-"Thank you! We've received your transfer request. Your driver's confirmation will be sent to your email shortly before pickup.": "Grazie! Abbiamo ricevuto la tua richiesta di transfer. La conferma con i dati dell'autista ti arriverà via e-mail prima del ritiro.",
+"Your driver's confirmation will be sent to your email shortly before pickup.": "La conferma con i dati dell'autista ti arriverà via e-mail prima del ritiro.",
 "Booking reference": "Codice prenotazione",
 "Vehicle": "Veicolo",
 "Total": "Totale",
