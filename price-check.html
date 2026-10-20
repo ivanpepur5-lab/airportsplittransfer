@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Provjera cijena</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Arial,sans-serif; margin:0; padding:14px; background:#fff; color:#1B2230; font-size:14px;}
+  h1{font-size:1.1rem; margin:0 0 6px;}
+  p{margin:4px 0 10px; color:#566;}
+  table{border-collapse:collapse; width:100%; font-size:12.5px;}
+  th,td{padding:6px 5px; border-bottom:1px solid #e3e3e3; text-align:right; white-space:nowrap;}
+  th:first-child,td:first-child{text-align:left;}
+  th{background:#f6f4ef; position:sticky; top:0;}
+  tr.bad td{background:#fff1ee; font-weight:600;}
+  tr.ok td{color:#2b6b3a;}
+  #summary{margin:8px 0; font-weight:600;}
+  textarea{width:100%; height:130px; font-family:monospace; font-size:12px; margin-top:8px;}
+  button{padding:8px 14px; border:0; border-radius:8px; background:#0B3C7A; color:#fff; font-weight:600;}
+</style>
+</head>
+<body>
+<h1>Provjera cijena: stranica nasuprot formi</h1>
+<p>Za svako odredište traži pravu Google udaljenost od Split Airporta (isti poziv kao forma za rezervaciju) i uspoređuje cijenu automobila (Škoda). "Stranica" je cijena koju trenutno piše na stranicama, "Forma" je cijena koju bi forma izračunala. Redovi u crvenom se ne podudaraju.</p>
+<div id="summary">Učitavam...</div>
+<div style="overflow-x:auto"><table id="t"><thead><tr><th>Odredište</th><th>km stranica</th><th>km Google</th><th>€ stranica</th><th>€ forma</th><th>razlika</th></tr></thead><tbody></tbody></table></div>
+<p><button id="copy">Kopiraj JSON</button> (Google km po odredištu: zalijepi mi ga u chat)</p>
+<textarea id="json" readonly></textarea>
+
+<script src="js/pricing.js?v=75078bfad1"></script>
+<script>
+(function(){
+  var PICKUP = 'Split Airport (SPU), Croatia';
+  var SKIP = {dbvairport:1, zadairport:1};
+  var keys = Object.keys(DESTINATION_NAMES).filter(function(k){ return !SKIP[k]; });
+  var pageKm = {};
+  var rows = {};
+  var google_km = {};
+
+  function render(){
+    var tb = document.querySelector('#t tbody'); tb.innerHTML='';
+    var bad = 0, ok = 0, noPage = 0;
+    keys.forEach(function(k){
+      var gk = google_km[k];
+      var pk = pageKm[k];
+      var formPrice = (gk!=null) ? priceForDistance(gk,'skoda') : null;
+      var pagePrice = (pk!=null) ? priceForDistance(pk,'skoda') : null;
+      var tr = document.createElement('tr');
+      var diff = (formPrice!=null && pagePrice!=null) ? (formPrice - pagePrice) : null;
+      if(diff===null){ if(pk==null) noPage++; }
+      else if(diff!==0){ tr.className='bad'; bad++; } else { tr.className='ok'; ok++; }
+      function td(t){ var c=document.createElement('td'); c.textContent=t; tr.appendChild(c); }
+      td(DESTINATION_NAMES[k].replace(', Croatia',''));
+      td(pk!=null? pk : '-');
+      td(gk!=null? gk.toFixed(1) : (rows[k]||'...'));
+      td(pagePrice!=null? '€'+pagePrice : '-');
+      td(formPrice!=null? '€'+formPrice : '-');
+      td(diff===null? '-' : (diff>0?'+':'')+diff);
+      tb.appendChild(tr);
+    });
+    document.getElementById('summary').textContent = 'Podudara se: '+ok+' | Ne podudara se: '+bad+' | Bez cijene na stranici (nema usporedbe): '+noPage;
+    var out = {}; keys.forEach(function(k){ if(google_km[k]!=null) out[k] = Math.round(google_km[k]*10)/10; });
+    document.getElementById('json').value = JSON.stringify(out);
+  }
+
+  document.getElementById('copy').onclick = function(){
+    var ta = document.getElementById('json'); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+  };
+
+  function lookup(){
+    var svc = new google.maps.DistanceMatrixService();
+    var chunks = []; for(var i=0;i<keys.length;i+=20) chunks.push(keys.slice(i,i+20));
+    var idx = 0;
+    (function next(){
+      if(idx>=chunks.length){ render(); return; }
+      var chunk = chunks[idx++];
+      svc.getDistanceMatrix({
+        origins:[PICKUP],
+        destinations: chunk.map(function(k){ return DESTINATION_NAMES[k]; }),
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC
+      }, function(resp, status){
+        if(status!=='OK'){ chunk.forEach(function(k){ rows[k]='greska '+status; }); }
+        else{
+          var els = resp.rows[0].elements;
+          chunk.forEach(function(k,j){
+            if(els[j] && els[j].status==='OK') google_km[k] = els[j].distance.value/1000;
+            else rows[k] = 'nema rute';
+          });
+        }
+        render();
+        setTimeout(next, 1200);
+      });
+    })();
+  }
+
+  window.initCheck = lookup;
+  fetch('tools/route_km.json').then(function(r){ return r.json(); }).then(function(j){ pageKm = j; render(); }).catch(function(){ render(); });
+  render();
+  var s = document.createElement('script');
+  s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQJm5_D91Uds885A759nlnbZZbNzZ7jo&loading=async&callback=initCheck';
+  s.async = true; s.onerror = function(){ document.getElementById('summary').textContent='Google Maps se nije ucitao (ova stranica radi samo na airportsplittransfer.com).'; };
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>
