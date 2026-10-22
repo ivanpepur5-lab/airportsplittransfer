@@ -56,6 +56,6 @@ T.update({
 "Tell us your flight time when you book and we'll schedule your pickup accordingly. We recommend allowing at least 2.5-3 hours before departure. If your plans change, just message us on WhatsApp and we'll adjust the pickup time.": "Pri rezervaciji nam napišite vrijeme leta i prema njemu ćemo dogovoriti preuzimanje. Preporučujemo da na aerodromu budete barem 2,5 do 3 sata prije polijetanja. Ako se planovi promijene, javite nam se na WhatsApp i pomaknut ćemo vrijeme preuzimanja.",
 "Private Transfer to Split Airport": "Privatni transfer do Zračne luke Split",
 "Travelling the other way? See our": "Putujete u suprotnom smjeru? Pogledajte",
-"20 km": "20 km", "27 km": "27 km", "45 km": "45 km", "89 km": "89 km", "230 km": "230 km", "60 km": "60 km", "65 km": "65 km",
+"20 km": "20 km", "27 km": "27 km", "45 km": "45 km", "41 km": "41 km", "89 km": "89 km", "230 km": "230 km", "60 km": "60 km", "65 km": "65 km",
 "25 min": "25 min", "30 min": "30 min", "45 min": "45 min", "1 h 20 min": "1 h 20 min", "3 h 30 min": "3 h 30 min", "1 h 5 min": "1 h 5 min", "1 h 10 min": "1 h 10 min",
 })

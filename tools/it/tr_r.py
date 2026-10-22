@@ -19,7 +19,7 @@ T = {
 "Drive time": "Durata",
 "Car (1–4)": "Auto (1–4)",
 "Van (up to 8)": "Van (fino a 8)",
-"~7 km": "~7 km", "~20 km": "~20 km", "~27 km": "~27 km", "~45 km": "~45 km", "~65 km": "~65 km", "~89 km": "~89 km", "~230 km": "~230 km",
+"~7 km": "~7 km", "~20 km": "~20 km", "~27 km": "~27 km", "~45 km": "~45 km", "~41 km": "~41 km", "~65 km": "~65 km", "~89 km": "~89 km", "~230 km": "~230 km",
 "Split centre / ferry port": "Centro di Spalato / porto",
 "25–30 min": "25–30 min",
 "3–3.5 h": "3–3,5 h",

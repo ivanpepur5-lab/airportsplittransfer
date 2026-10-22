@@ -49,6 +49,6 @@ T.update({
 "Tell us your flight time when you book and we'll schedule your pickup accordingly. We recommend allowing at least 2.5-3 hours before departure. If your plans change, just message us on WhatsApp and we'll adjust the pickup time.": "Indicaci l'orario del volo quando prenoti e programmeremo il ritiro di conseguenza. Consigliamo di arrivare in aeroporto almeno 2,5–3 ore prima della partenza. Se i tuoi piani cambiano, scrivici su WhatsApp e sposteremo l'orario di ritiro.",
 "Private Transfer to Split Airport": "Transfer privato per l'aeroporto di Spalato",
 "Travelling the other way? See our": "Viaggi nella direzione opposta? Vedi il nostro",
-"20 km": "20 km", "27 km": "27 km", "45 km": "45 km", "89 km": "89 km", "230 km": "230 km", "60 km": "60 km", "65 km": "65 km",
+"20 km": "20 km", "27 km": "27 km", "45 km": "45 km", "41 km": "41 km", "89 km": "89 km", "230 km": "230 km", "60 km": "60 km", "65 km": "65 km",
 "25 min": "25 min", "30 min": "30 min", "45 min": "45 min", "1 h 20 min": "1 h 20 min", "3 h 30 min": "3 h 30 min", "1 h 5 min": "1 h 5 min", "1 h 10 min": "1 h 10 min",
 })

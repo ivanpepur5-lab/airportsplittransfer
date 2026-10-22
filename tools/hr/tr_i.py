@@ -50,7 +50,7 @@ T.update({
 "1 h 45 min": "1 h 45 min",
 "Both a private one-way transfer from Split Airport to Plitvice Lakes and a private full-day trip with return to Split start from €430. For a one-way transfer, the exact price depends on your pickup and drop-off address. Enter both in our booking form to see an instant, fixed price for the Sedan or for the Business Van/Van: tolls, fuel and meet-and-greet at arrivals are always included.": "I privatni transfer u jednom smjeru od Zračne luke Split do Plitvičkih jezera i privatni cjelodnevni izlet s povratkom u Split počinju od 430 €. Za transfer u jednom smjeru točna cijena ovisi o adresi polazišta i odredišta. Upišite obje u obrazac za rezervaciju i odmah ćete vidjeti fiksnu cijenu za limuzinu ili kombi: cestarina, gorivo i doček u dolaznom terminalu uvijek su uključeni.",
 "Plitvice Lakes National Park, a UNESCO World Heritage Site, is a chain of sixteen terraced turquoise lakes connected by waterfalls, best visited as a full day trip.": "Nacionalni park Plitvička jezera, na UNESCO-ovu popisu svjetske baštine, niz je od šesnaest kaskadnih tirkiznih jezera povezanih slapovima, a najbolje ga je posjetiti kao cjelodnevni izlet.",
-"260 km": "260 km",
+"260 km": "260 km", "213 km": "213 km",
 "3 h": "3 h",
 "View the Day Trip": "Pogledaj izlet",
 })
