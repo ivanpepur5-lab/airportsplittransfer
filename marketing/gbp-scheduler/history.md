@@ -87,4 +87,10 @@ Three vehicles, one standard. Choose a Škoda Superb sedan for up to four passen
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-22 16:14 UTC — Day trip post — Krka National Park
+
+Krka is the easier big day out from Split: a shorter drive than Plitvice and more time among the cascades of Skradinski Buk. Your private, English-speaking driver handles the road and waits at the park while you walk the trails at your own pace. One fixed price for the whole 8-10 hour trip: €280 by car, €325 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
