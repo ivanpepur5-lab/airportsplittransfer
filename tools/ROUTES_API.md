@@ -35,7 +35,31 @@ Only run it from `https://airportsplittransfer.com/` (the key is restricted to t
 
 `git revert` the commit that added this file. Nothing else depends on it.
 
+## Address suggestions (Places API (New))
+
+The legacy `google.maps.places.Autocomplete` widget is closed to new Google customers (existing keys still work).
+The replacement element, `PlaceAutocompleteElement`, would replace the text input itself, which the form's
+code, styling and Netlify submission all depend on. So `js/booking-widget.js` keeps the input and draws its own
+suggestion list under it from `AutocompleteSuggestion.fetchAutocompleteSuggestions` (Places API (New) data):
+
+- 2+ characters, 180 ms debounce, Croatia only (`includedRegionCodes: ['hr']`, as before), 5 suggestions, one
+  session token per typing session; a selection fetches `displayName`, `formattedAddress`, `location`, fills the input
+  (same display rule as before: place name is added when the address lacks it), sets the hidden lat/lng fields and
+  triggers the price lookup.
+- Keyboard: arrows, Enter, Escape; mouse and touch; ARIA combobox/listbox roles. The list ends with the text
+  "Google Maps", the attribution Google requires for predictions shown outside a Google map (Roboto/sans-serif,
+  400, #5E5E5E, 12 px).
+- If the first request fails (Places API (New) not enabled for the key, network error), the page switches to the
+  legacy widget, so visitors still get suggestions.
+- CSS: `.addr-suggest` at the end of `css/style.css`; `.hero--booking` clips only sideways (`overflow-x: clip`)
+  so the list can drop below the hero's bottom edge.
+
+Tested on the live key from the site's own origin (desktop 1280 px and mobile 390 px): list shows 5 suggestions plus
+attribution; arrow keys + Enter, mouse click, Escape and blur behave; selecting fills the field and prices the
+route (Omiš 80 from a Kaštel Stari pickup); with the new API forced to fail the legacy widget takes over.
+Also checked on `split-airport-transfers.html` and the Croatian homepage: no clipping, no horizontal scroll.
+
 ## Still on deprecated APIs
 
-`google.maps.places.Autocomplete` (address suggestions) is not available to new Google customers since 1 March 2025;
-existing keys still work. The replacement is `PlaceAutocompleteElement`. Not part of this change.
+Nothing the form needs. (Both lookups, distance and address suggestions, use the current APIs; the legacy
+fallbacks only run when a current one fails.)

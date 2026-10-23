@@ -344,8 +344,166 @@ function placeDisplayValue(place){
   return address || name || '';
 }
 
+/**
+ * Address suggestions.
+ *
+ * Preferred: Places API (New) autocomplete data (AutocompleteSuggestion), shown
+ * in our own list under the existing text input. The legacy
+ * google.maps.places.Autocomplete widget is closed to new Google customers, and
+ * the new PlaceAutocompleteElement would replace the input itself; keeping the
+ * input means its name, its styling and every piece of code reading its value
+ * stay exactly as they are.
+ *
+ * Fallback: if the new API cannot be used (not enabled for the key, network
+ * error) the first failing request switches the page to the legacy widget, so
+ * visitors keep getting suggestions.
+ *
+ * Google requires its attribution next to predictions shown outside a Google
+ * map; the list ends with the text "Google Maps" in the permitted style.
+ */
+let suggestInstances = [];
+let suggestNewBroken = false;
+
+function placeDisplayValueNew(place){
+  return placeDisplayValue({ name: place && place.displayName, formatted_address: place && place.formattedAddress });
+}
+
+function attachAddressSuggestions(placesLib, inputId, latId, lngId){
+  const input = document.getElementById(inputId);
+  if(!input) return;
+  const host = input.closest('.field') || input.parentNode;
+  const list = document.createElement('ul');
+  list.className = 'addr-suggest';
+  list.id = inputId + '-suggest';
+  list.setAttribute('role', 'listbox');
+  list.hidden = true;
+  host.appendChild(list);
+  input.setAttribute('role', 'combobox');
+  input.setAttribute('aria-autocomplete', 'list');
+  input.setAttribute('aria-expanded', 'false');
+  input.setAttribute('aria-controls', list.id);
+
+  let items = [], active = -1, token = null, timer = null, seq = 0, disabled = false;
+
+  function close(){
+    list.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
+    input.removeAttribute('aria-activedescendant');
+    active = -1;
+  }
+  function highlight(i){
+    active = i;
+    Array.from(list.querySelectorAll('li[role="option"]')).forEach((li, n) => li.setAttribute('aria-selected', n === i ? 'true' : 'false'));
+    if(i >= 0){
+      input.setAttribute('aria-activedescendant', inputId + '-opt-' + i);
+      const li = document.getElementById(inputId + '-opt-' + i);
+      if(li && li.scrollIntoView) li.scrollIntoView({ block: 'nearest' });
+    } else input.removeAttribute('aria-activedescendant');
+  }
+  function render(){
+    list.textContent = '';
+    items.forEach((s, i) => {
+      const li = document.createElement('li');
+      li.id = inputId + '-opt-' + i;
+      li.setAttribute('role', 'option');
+      li.setAttribute('aria-selected', 'false');
+      li.dataset.i = i;
+      const main = document.createElement('span');
+      main.textContent = s.placePrediction.mainText ? s.placePrediction.mainText.toString() : s.placePrediction.text.toString();
+      li.appendChild(main);
+      const sec = s.placePrediction.secondaryText ? s.placePrediction.secondaryText.toString() : '';
+      if(sec){ const small = document.createElement('small'); small.textContent = sec; li.appendChild(small); }
+      list.appendChild(li);
+    });
+    const attr = document.createElement('li');
+    attr.className = 'addr-attr';
+    attr.setAttribute('role', 'presentation');
+    attr.textContent = 'Google Maps';
+    list.appendChild(attr);
+    list.hidden = items.length === 0;
+    input.setAttribute('aria-expanded', items.length ? 'true' : 'false');
+    active = -1;
+  }
+  function fetchSuggestions(){
+    const text = input.value.trim();
+    if(disabled || text.length < 2){ items = []; close(); return; }
+    if(!token) token = new placesLib.AutocompleteSessionToken();
+    const mine = ++seq;
+    placesLib.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+      input: text, includedRegionCodes: ['hr'], sessionToken: token
+    }).then(res => {
+      if(mine !== seq || disabled) return; // a newer keystroke owns the list
+      items = (res.suggestions || []).filter(s => s.placePrediction).slice(0, 5);
+      render();
+    }, err => {
+      if(mine !== seq || disabled) return;
+      console.warn('Places API (New) failed, switching to the legacy autocomplete:', err);
+      suggestNewBroken = true;
+      suggestInstances.forEach(x => x.disable());
+      initPlacesAutocompleteLegacy();
+    });
+  }
+  function choose(i){
+    const s = items[i];
+    if(!s) return;
+    const prediction = s.placePrediction;
+    clearTimeout(timer); seq++; items = []; close();
+    token = null; // the session ends with a selection
+    const fallbackText = prediction.text.toString();
+    const place = prediction.toPlace();
+    place.fetchFields({ fields: ['displayName', 'formattedAddress', 'location'] }).then(() => {
+      input.value = placeDisplayValueNew(place) || fallbackText;
+      if(place.location){
+        document.getElementById(latId).value = place.location.lat();
+        document.getElementById(lngId).value = place.location.lng();
+      }
+    }, () => { input.value = fallbackText; }).then(() => { updateSummary(); maybeFetchDistance(); });
+  }
+
+  input.addEventListener('input', () => {
+    if(disabled) return;
+    clearTimeout(timer);
+    timer = setTimeout(fetchSuggestions, 180);
+  });
+  input.addEventListener('keydown', e => {
+    if(disabled || list.hidden || !items.length) return;
+    if(e.key === 'ArrowDown'){ e.preventDefault(); highlight((active + 1) % items.length); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); highlight(active <= 0 ? items.length - 1 : active - 1); }
+    else if(e.key === 'Enter' && active >= 0){ e.preventDefault(); choose(active); }
+    else if(e.key === 'Escape'){ close(); }
+  });
+  input.addEventListener('blur', () => setTimeout(close, 150));
+  list.addEventListener('mousedown', e => {
+    e.preventDefault(); // keep focus in the input so blur does not close the list first
+    const li = e.target.closest('li[role="option"]');
+    if(li) choose(parseInt(li.dataset.i, 10));
+  });
+  suggestInstances.push({ disable(){ disabled = true; clearTimeout(timer); items = []; close(); list.remove(); } });
+}
+
 function initPlacesAutocomplete(){
   if(typeof google === 'undefined' || !google.maps || !google.maps.places) return;
+  if(!suggestNewBroken && typeof google.maps.importLibrary === 'function'){
+    google.maps.importLibrary('places').then(lib => {
+      if(!lib.AutocompleteSuggestion || !lib.AutocompleteSessionToken) throw new Error('Places API (New) classes missing');
+      attachAddressSuggestions(lib, 'b-pickup', 'b-pickup-lat', 'b-pickup-lng');
+      attachAddressSuggestions(lib, 'b-dropoff', 'b-dropoff-lat', 'b-dropoff-lng');
+      maybeFetchDistance();
+    }).catch(err => {
+      console.warn('Places library unavailable, using the legacy autocomplete:', err);
+      suggestNewBroken = true;
+      initPlacesAutocompleteLegacy();
+    });
+    return;
+  }
+  initPlacesAutocompleteLegacy();
+}
+
+let legacyAutocompleteStarted = false;
+function initPlacesAutocompleteLegacy(){
+  if(legacyAutocompleteStarted) return;
+  legacyAutocompleteStarted = true;
+  if(typeof google === 'undefined' || !google.maps || !google.maps.places || !google.maps.places.Autocomplete) return;
 
   const pickupInput = document.getElementById('b-pickup');
   const dropoffInput = document.getElementById('b-dropoff');
