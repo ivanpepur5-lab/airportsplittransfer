@@ -76,7 +76,7 @@ let currentTrip = 'oneway';
 let currentVehicle = 'skoda';
 let currentDistanceKm = null;   // real driving distance once resolved — the only thing pricing depends on now
 let currentDistanceKey = '';    // routeKey() the distance above was resolved for; a price is only valid while it still matches
-let distanceService = null;     // lazy-created google.maps.DistanceMatrixService instance
+let distanceService = null;     // lazy-created google.maps.DistanceMatrixService instance (legacy fallback only)
 
 /** Normalised pickup|dropoff pair — identifies which route a distance belongs to. */
 function routeKey(){
@@ -416,13 +416,63 @@ function maybeFetchDistance(){
 }
 
 /**
- * Real driving distance via google.maps.DistanceMatrixService — the
- * browser-safe client library. (The raw REST distancematrix/routes
- * endpoints do not support CORS from the browser and fail silently there,
- * which is why this uses the JS library instead.) It geocodes the typed
- * address text itself, so this works whether or not a Places suggestion
- * was explicitly clicked.
+ * Real driving distance, in km, for two typed addresses.
+ *
+ * Preferred: the Routes library (google.maps.routes.RouteMatrix), the
+ * replacement for the deprecated DistanceMatrixService. It is the
+ * browser-safe client library (the raw REST endpoints do not support CORS
+ * from the browser), and it geocodes the typed address text itself, so this
+ * works whether or not a Places suggestion was explicitly clicked.
+ * TRAFFIC_UNAWARE keeps the distance independent of the time of day, as the
+ * old service was, so a route always prices the same.
+ *
+ * Fallback: if the Routes library cannot be used (not loaded, the Routes API
+ * not enabled for the key, network error), the legacy DistanceMatrixService
+ * answers instead for the rest of the page view, so pricing never goes dark.
+ *
+ * Both lookups resolve to a number of km, or null when no driving route exists.
  */
+let routeMatrixClass = null;       // google.maps.routes.RouteMatrix, once the library is imported
+let routesLibraryBroken = false;   // true after a Routes failure: use the legacy service from then on
+
+function lookupDistanceKmRoutes(pickupText, dropoffText){
+  const load = routeMatrixClass
+    ? Promise.resolve(routeMatrixClass)
+    : google.maps.importLibrary('routes').then(lib => (routeMatrixClass = lib.RouteMatrix));
+  return load.then(RouteMatrix => RouteMatrix.computeRouteMatrix({
+    origins: [pickupText],
+    destinations: [dropoffText],
+    travelMode: 'DRIVING',
+    routingPreference: 'TRAFFIC_UNAWARE',
+    fields: ['distanceMeters', 'condition']
+  })).then(response => {
+    const rows = response && response.matrix && response.matrix.rows;
+    const item = rows && rows[0] && rows[0].items && rows[0].items[0];
+    if(item && item.condition === 'ROUTE_EXISTS' && item.distanceMeters != null) return item.distanceMeters / 1000;
+    return null;
+  });
+}
+
+function lookupDistanceKmLegacy(pickupText, dropoffText){
+  return new Promise(resolve => {
+    if(!distanceService) distanceService = new google.maps.DistanceMatrixService();
+    distanceService.getDistanceMatrix({
+      origins: [pickupText],
+      destinations: [dropoffText],
+      travelMode: google.maps.TravelMode.DRIVING,
+      unitSystem: google.maps.UnitSystem.METRIC
+    }, (response, status) => {
+      if(status !== 'OK'){
+        console.warn('DistanceMatrixService failed:', status);
+        resolve(null);
+        return;
+      }
+      const element = response && response.rows && response.rows[0] && response.rows[0].elements && response.rows[0].elements[0];
+      resolve(element && element.status === 'OK' ? element.distance.value / 1000 : null);
+    });
+  });
+}
+
 function fetchDistance(pickupText, dropoffText){
   if(typeof google === 'undefined' || !google.maps){
     console.warn('Google Maps not loaded — cannot calculate distance.');
@@ -433,33 +483,25 @@ function fetchDistance(pickupText, dropoffText){
   document.getElementById('live-price-unpriced').style.display = 'none';
   document.getElementById('live-price-loading').style.display = 'block';
 
-  if(!distanceService) distanceService = new google.maps.DistanceMatrixService();
   const requestKey = pickupText.toLowerCase() + '|' + dropoffText.toLowerCase();
-
-  distanceService.getDistanceMatrix({
-    origins: [pickupText],
-    destinations: [dropoffText],
-    travelMode: google.maps.TravelMode.DRIVING,
-    unitSystem: google.maps.UnitSystem.METRIC
-  }, (response, status) => {
+  const done = km => {
     if(requestKey !== routeKey()) return; // the addresses changed while this was in flight — a newer lookup owns the price
     currentDistanceKey = requestKey;
-    if(status !== 'OK'){
-      console.warn('DistanceMatrixService failed:', status);
-      currentDistanceKm = null;
-      updateSummary();
-      return;
-    }
-    const element = response && response.rows && response.rows[0] && response.rows[0].elements && response.rows[0].elements[0];
-    if(!element || element.status !== 'OK'){
-      console.warn('No driving route found between these addresses.');
-      currentDistanceKm = null;
-      updateSummary();
-      return;
-    }
-    currentDistanceKm = element.distance.value / 1000;
+    if(km == null) console.warn('No driving route found between these addresses.');
+    currentDistanceKm = km;
     updateSummary();
-  });
+  };
+  const legacy = () => lookupDistanceKmLegacy(pickupText, dropoffText).then(done);
+
+  if(routesLibraryBroken || typeof google.maps.importLibrary !== 'function') return legacy();
+  lookupDistanceKmRoutes(pickupText, dropoffText)
+    .then(km => ({ ok: true, km }), err => ({ ok: false, err }))
+    .then(r => {
+      if(r.ok) return done(r.km);
+      console.warn('Routes library failed, using DistanceMatrixService:', r.err);
+      routesLibraryBroken = true;
+      return legacy();
+    });
 }
 
 // GA4 key event, fired once the booking form has actually been accepted by
@@ -593,7 +635,7 @@ function submitBooking(e){
 // Prefill from query params (?to=&pax=&date=&time=&vehicle=&trip=&return_date=&return_time=)
 // so links from Fleet/Destinations pages land here with details already filled in.
 // The destination name is filled in as plain text — the real price still comes
-// from an actual DistanceMatrixService lookup, same as manually typed addresses.
+// from an actual Routes library lookup, same as manually typed addresses.
 // Runs once the widget markup has actually been injected into the page (see
 // initBookingWidget below) rather than on DOMContentLoaded, since the fields
 // it reads don't exist until then.
