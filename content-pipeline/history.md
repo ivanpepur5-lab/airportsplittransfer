@@ -297,6 +297,16 @@ language. Also done: `<meta charset>` moved to the top of `<head>` on every page
 inline consent script), and the homepage and fleet child-seat answers link to the family transfer page
 in all six languages.
 
+## 2026-10-23 (evening): first-hand local text from Ivan
+
+Ivan answered the town questions for Split, Trogir and Makarska (what he recommends to first-time guests;
+what is different for the driver). His words were turned into a short "What to Know About ..." block on
+destinations/split, trogir, makarska in all six languages (nothing added beyond what he said). His general answer
+about drop-off ("wherever the guest wants: apartment or hotel address, town centre, any address; summer delays are
+always possible") went once into the FAQ of the homepage and the Split Airport taxi page rather than onto the
+12 town pages, which would have made them more alike. Still thin, waiting for his input: Omiš, Dubrovnik, Brela,
+Podstrana, Baška Voda, Šibenik, Vodice, Zadar, Murter, Podgora.
+
 <!-- New entries are appended above this line by each scheduled firing. -->
 
 ## 2026-10-08 — Structure: one page per destination (Google doorway / scaled-content rules)
