@@ -9,7 +9,7 @@ for the mechanism itself.
 
 It only acts on submissions from the `booking` form (`index.html` /
 `de/index.html` / `sv/index.html`) and the `daytrip` form
-(`day-trips/krka-national-park.html` / `day-trips/plitvice-lakes.html`);
+(every page in `day-trips/` with a `daytrip` form: Krka, Plitvice, Mostar, Klis, Dubrovnik, Skywalk; trip keys and prices live in `lib/booking.js`);
 anything else is ignored so a future form elsewhere on the site can't
 accidentally trigger booking emails.
 

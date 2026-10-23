@@ -52,17 +52,17 @@ function vehicleLabel(vehicleKey, lang = "en") {
   return VEHICLE_LABELS_I18N[normalizeLang(lang)][vehicleKey] || vehicleKey;
 }
 
-// Day trips (Krka, Plitvice) are a separate flat-rate product from the
+// Day trips (Krka, Plitvice, Mostar, Klis, Dubrovnik, Skywalk) are a separate flat-rate product from the
 // point-to-point transfer form above — fixed price per trip/vehicle, not a
 // per-km calculation. Keep in sync with the hidden `trip`/`vehicle` fields
-// on day-trips/krka-national-park.html and day-trips/plitvice-lakes.html.
+// on the pages in day-trips/ (tools/check_prices.py checks that they agree).
 const DAYTRIP_NAMES = {
-  en: { krka: "Krka National Park", plitvice: "Plitvice Lakes" },
-  de: { krka: "Nationalpark Krka", plitvice: "Plitvicer Seen" },
-  sv: { krka: "Nationalparken Krka", plitvice: "Plitvicesjöarna" },
-  no: { krka: "Krka nasjonalpark", plitvice: "Plitvicesjøene" },
-  hr: { krka: "Nacionalni park Krka", plitvice: "Plitvička jezera" },
-  it: { krka: "Parco nazionale di Krka", plitvice: "Laghi di Plitvice" },
+  en: { krka: "Krka National Park", plitvice: "Plitvice Lakes", mostar: "Mostar and Kravice Waterfalls", klis: "Klis Fortress and Trogir", dubrovnik: "Dubrovnik and Ston", skywalk: "Biokovo Skywalk" },
+  de: { krka: "Nationalpark Krka", plitvice: "Plitvicer Seen", mostar: "Mostar und Kravice-Wasserfälle", klis: "Festung Klis und Trogir", dubrovnik: "Dubrovnik und Ston", skywalk: "Biokovo Skywalk" },
+  sv: { krka: "Nationalparken Krka", plitvice: "Plitvicesjöarna", mostar: "Mostar och Kravice-vattenfallen", klis: "Klis fästning och Trogir", dubrovnik: "Dubrovnik och Ston", skywalk: "Biokovo Skywalk" },
+  no: { krka: "Krka nasjonalpark", plitvice: "Plitvicesjøene", mostar: "Mostar og Kravice-fossene", klis: "Klis festning og Trogir", dubrovnik: "Dubrovnik og Ston", skywalk: "Biokovo Skywalk" },
+  hr: { krka: "Nacionalni park Krka", plitvice: "Plitvička jezera", mostar: "Mostar i slapovi Kravice", klis: "Tvrđava Klis i Trogir", dubrovnik: "Dubrovnik i Ston", skywalk: "Biokovo Skywalk" },
+  it: { krka: "Parco nazionale di Krka", plitvice: "Laghi di Plitvice", mostar: "Mostar e cascate di Kravice", klis: "Fortezza di Klis e Trogir", dubrovnik: "Dubrovnik e Ston", skywalk: "Biokovo Skywalk" },
 };
 
 const DAYTRIP_VEHICLE_LABELS = {
@@ -90,6 +90,10 @@ function daytripText(lang) {
 const DAYTRIP_PRICES = {
   krka: { car: 280, van: 325 },
   plitvice: { car: 475, van: 545 },
+  mostar: { car: 495, van: 570 },
+  klis: { car: 170, van: 210 },
+  dubrovnik: { car: 600, van: 680 },
+  skywalk: { car: 250, van: 340 },
 };
 
 function daytripName(tripKey, lang = "en") {

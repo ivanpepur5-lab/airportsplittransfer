@@ -274,6 +274,29 @@ where data-cat stays English); Croatian case of "Nacionalni park Krka" on
 the Kaštela page. New EN content from the scheduled pipeline is not
 translated automatically; hr/it links to it fall back to English.
 
+## 2026-10-23: Dubrovnik Airport to Split (article, EN only) and keyword inserts
+
+Ivan asked for the most important SEO keywords to be added naturally and for a new blog post.
+Keyword research is in `seo-keywords-2026-10-23.md`. New article
+`blog/dubrovnik-airport-to-split-transfer.html` (private transfer vs shuttle plus bus vs taxi,
+the Neum corridor and the Pelješac Bridge). Prices in it are what the booking form calculates for
+Google's km (DBV to Split 241.8 km, car 365, van 435; Makarska 174.3 km, car 260, van 315),
+tested in `tools/check_prices.py`. Ivan confirmed: his drivers take the Pelješac Bridge; no guest has asked for stops so far, but
+there have been few Dubrovnik runs (so the article makes no claim about stops). He approved Zadar
+as the next article: `blog/zadar-airport-to-split-transfer.html` (EN only, prices tested the same way:
+ZAD to Split 142.8 km car 215 van 255; Šibenik 74.9 km 120/140; Plitvice 116.9 km 175/210). External facts (bus about 4 h, fares from about 19 to 20 euro, airport
+shuttle about 10 euro and 30 to 40 min, border on the Neum road) come from public travel guides
+and are worded with "around" and "check before you fly".
+
+## 2026-10-23 (later): translations, charset, family links
+
+Both airport articles are now in all six languages (DE, SV, NO hand-built from the same slots as EN;
+HR and IT generated from EN through `tools/hr|it/tr_zz_articles.py`, which was aligned with shadow pages
+built from the same slots). Sitemap has all 12 URLs; `tools/check_prices.py` tests the prices in every
+language. Also done: `<meta charset>` moved to the top of `<head>` on every page (it was after the
+inline consent script), and the homepage and fleet child-seat answers link to the family transfer page
+in all six languages.
+
 <!-- New entries are appended above this line by each scheduled firing. -->
 
 ## 2026-10-08 — Structure: one page per destination (Google doorway / scaled-content rules)

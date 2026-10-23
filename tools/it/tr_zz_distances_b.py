@@ -1,0 +1,2 @@
+# Two distance sentences whose translations phrase the number differently.
+T = {'A metered taxi works, but on a 101 km route through summer traffic the final price is hard to predict. Always agree an estimate before you set off.': 'Un taxi con tassametro funziona, ma su 101 km nel traffico estivo il prezzo finale è difficile da prevedere. Concorda sempre una stima prima di partire.', 'About 25 to 30 minutes for roughly 25 km. Allow more time on summer Saturdays.': "Circa 25–30 minuti per circa 25 chilometri. Il sabato d'estate calcola più tempo."}

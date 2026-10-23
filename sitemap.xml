@@ -74,7 +74,7 @@
   </url>
   <url>
     <loc>https://airportsplittransfer.com/day-trips</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -87,6 +87,30 @@
   <url>
     <loc>https://airportsplittransfer.com/day-trips/krka-national-park</loc>
     <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/day-trips/mostar-kravice</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/day-trips/klis-fortress-trogir</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/day-trips/dubrovnik-ston</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/day-trips/biokovo-skywalk</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -932,7 +956,7 @@
   </url>
   <url>
     <loc>https://airportsplittransfer.com/de/day-trips</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -945,6 +969,30 @@
   <url>
     <loc>https://airportsplittransfer.com/de/day-trips/krka-national-park</loc>
     <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/day-trips/mostar-kravice</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/day-trips/klis-fortress-trogir</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/day-trips/dubrovnik-ston</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/day-trips/biokovo-skywalk</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -992,7 +1040,7 @@
   </url>
   <url>
     <loc>https://airportsplittransfer.com/sv/day-trips</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1005,6 +1053,30 @@
   <url>
     <loc>https://airportsplittransfer.com/sv/day-trips/krka-national-park</loc>
     <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/day-trips/mostar-kravice</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/day-trips/klis-fortress-trogir</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/day-trips/dubrovnik-ston</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/day-trips/biokovo-skywalk</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1189,6 +1261,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/blog/zadar-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/blog/dubrovnik-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/blog/split-airport-to-hvar</loc>
     <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -1268,7 +1352,7 @@
   </url>
   <url>
     <loc>https://airportsplittransfer.com/no/day-trips</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -1563,6 +1647,30 @@
   <url>
     <loc>https://airportsplittransfer.com/no/day-trips/krka-national-park</loc>
     <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/no/day-trips/mostar-kravice</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/no/day-trips/klis-fortress-trogir</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/no/day-trips/dubrovnik-ston</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/no/day-trips/biokovo-skywalk</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2186,7 +2294,7 @@
   </url>
   <url>
     <loc>https://airportsplittransfer.com/hr/day-trips</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2270,7 +2378,7 @@
   </url>
   <url>
     <loc>https://airportsplittransfer.com/it/day-trips</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -2987,5 +3095,113 @@
     <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/hr/day-trips/mostar-kravice</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/hr/day-trips/klis-fortress-trogir</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/hr/day-trips/dubrovnik-ston</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/hr/day-trips/biokovo-skywalk</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/it/day-trips/mostar-kravice</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/it/day-trips/klis-fortress-trogir</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/it/day-trips/dubrovnik-ston</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/it/day-trips/biokovo-skywalk</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/hr/blog/dubrovnik-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/hr/blog/zadar-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/it/blog/dubrovnik-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/it/blog/zadar-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/blog/dubrovnik-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/blog/dubrovnik-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/no/blog/dubrovnik-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/blog/zadar-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/sv/blog/zadar-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/no/blog/zadar-airport-to-split-transfer</loc>
+    <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
