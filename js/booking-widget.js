@@ -76,7 +76,7 @@ let currentTrip = 'oneway';
 let currentVehicle = 'skoda';
 let currentDistanceKm = null;   // real driving distance once resolved — the only thing pricing depends on now
 let currentDistanceKey = '';    // routeKey() the distance above was resolved for; a price is only valid while it still matches
-let distanceService = null;     // lazy-created google.maps.DistanceMatrixService instance
+let distanceService = null;     // lazy-created google.maps.DistanceMatrixService instance (legacy fallback only)
 
 /** Normalised pickup|dropoff pair — identifies which route a distance belongs to. */
 function routeKey(){
@@ -344,8 +344,166 @@ function placeDisplayValue(place){
   return address || name || '';
 }
 
+/**
+ * Address suggestions.
+ *
+ * Preferred: Places API (New) autocomplete data (AutocompleteSuggestion), shown
+ * in our own list under the existing text input. The legacy
+ * google.maps.places.Autocomplete widget is closed to new Google customers, and
+ * the new PlaceAutocompleteElement would replace the input itself; keeping the
+ * input means its name, its styling and every piece of code reading its value
+ * stay exactly as they are.
+ *
+ * Fallback: if the new API cannot be used (not enabled for the key, network
+ * error) the first failing request switches the page to the legacy widget, so
+ * visitors keep getting suggestions.
+ *
+ * Google requires its attribution next to predictions shown outside a Google
+ * map; the list ends with the text "Google Maps" in the permitted style.
+ */
+let suggestInstances = [];
+let suggestNewBroken = false;
+
+function placeDisplayValueNew(place){
+  return placeDisplayValue({ name: place && place.displayName, formatted_address: place && place.formattedAddress });
+}
+
+function attachAddressSuggestions(placesLib, inputId, latId, lngId){
+  const input = document.getElementById(inputId);
+  if(!input) return;
+  const host = input.closest('.field') || input.parentNode;
+  const list = document.createElement('ul');
+  list.className = 'addr-suggest';
+  list.id = inputId + '-suggest';
+  list.setAttribute('role', 'listbox');
+  list.hidden = true;
+  host.appendChild(list);
+  input.setAttribute('role', 'combobox');
+  input.setAttribute('aria-autocomplete', 'list');
+  input.setAttribute('aria-expanded', 'false');
+  input.setAttribute('aria-controls', list.id);
+
+  let items = [], active = -1, token = null, timer = null, seq = 0, disabled = false;
+
+  function close(){
+    list.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
+    input.removeAttribute('aria-activedescendant');
+    active = -1;
+  }
+  function highlight(i){
+    active = i;
+    Array.from(list.querySelectorAll('li[role="option"]')).forEach((li, n) => li.setAttribute('aria-selected', n === i ? 'true' : 'false'));
+    if(i >= 0){
+      input.setAttribute('aria-activedescendant', inputId + '-opt-' + i);
+      const li = document.getElementById(inputId + '-opt-' + i);
+      if(li && li.scrollIntoView) li.scrollIntoView({ block: 'nearest' });
+    } else input.removeAttribute('aria-activedescendant');
+  }
+  function render(){
+    list.textContent = '';
+    items.forEach((s, i) => {
+      const li = document.createElement('li');
+      li.id = inputId + '-opt-' + i;
+      li.setAttribute('role', 'option');
+      li.setAttribute('aria-selected', 'false');
+      li.dataset.i = i;
+      const main = document.createElement('span');
+      main.textContent = s.placePrediction.mainText ? s.placePrediction.mainText.toString() : s.placePrediction.text.toString();
+      li.appendChild(main);
+      const sec = s.placePrediction.secondaryText ? s.placePrediction.secondaryText.toString() : '';
+      if(sec){ const small = document.createElement('small'); small.textContent = sec; li.appendChild(small); }
+      list.appendChild(li);
+    });
+    const attr = document.createElement('li');
+    attr.className = 'addr-attr';
+    attr.setAttribute('role', 'presentation');
+    attr.textContent = 'Google Maps';
+    list.appendChild(attr);
+    list.hidden = items.length === 0;
+    input.setAttribute('aria-expanded', items.length ? 'true' : 'false');
+    active = -1;
+  }
+  function fetchSuggestions(){
+    const text = input.value.trim();
+    if(disabled || text.length < 2){ items = []; close(); return; }
+    if(!token) token = new placesLib.AutocompleteSessionToken();
+    const mine = ++seq;
+    placesLib.AutocompleteSuggestion.fetchAutocompleteSuggestions({
+      input: text, includedRegionCodes: ['hr'], sessionToken: token
+    }).then(res => {
+      if(mine !== seq || disabled) return; // a newer keystroke owns the list
+      items = (res.suggestions || []).filter(s => s.placePrediction).slice(0, 5);
+      render();
+    }, err => {
+      if(mine !== seq || disabled) return;
+      console.warn('Places API (New) failed, switching to the legacy autocomplete:', err);
+      suggestNewBroken = true;
+      suggestInstances.forEach(x => x.disable());
+      initPlacesAutocompleteLegacy();
+    });
+  }
+  function choose(i){
+    const s = items[i];
+    if(!s) return;
+    const prediction = s.placePrediction;
+    clearTimeout(timer); seq++; items = []; close();
+    token = null; // the session ends with a selection
+    const fallbackText = prediction.text.toString();
+    const place = prediction.toPlace();
+    place.fetchFields({ fields: ['displayName', 'formattedAddress', 'location'] }).then(() => {
+      input.value = placeDisplayValueNew(place) || fallbackText;
+      if(place.location){
+        document.getElementById(latId).value = place.location.lat();
+        document.getElementById(lngId).value = place.location.lng();
+      }
+    }, () => { input.value = fallbackText; }).then(() => { updateSummary(); maybeFetchDistance(); });
+  }
+
+  input.addEventListener('input', () => {
+    if(disabled) return;
+    clearTimeout(timer);
+    timer = setTimeout(fetchSuggestions, 180);
+  });
+  input.addEventListener('keydown', e => {
+    if(disabled || list.hidden || !items.length) return;
+    if(e.key === 'ArrowDown'){ e.preventDefault(); highlight((active + 1) % items.length); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); highlight(active <= 0 ? items.length - 1 : active - 1); }
+    else if(e.key === 'Enter' && active >= 0){ e.preventDefault(); choose(active); }
+    else if(e.key === 'Escape'){ close(); }
+  });
+  input.addEventListener('blur', () => setTimeout(close, 150));
+  list.addEventListener('mousedown', e => {
+    e.preventDefault(); // keep focus in the input so blur does not close the list first
+    const li = e.target.closest('li[role="option"]');
+    if(li) choose(parseInt(li.dataset.i, 10));
+  });
+  suggestInstances.push({ disable(){ disabled = true; clearTimeout(timer); items = []; close(); list.remove(); } });
+}
+
 function initPlacesAutocomplete(){
   if(typeof google === 'undefined' || !google.maps || !google.maps.places) return;
+  if(!suggestNewBroken && typeof google.maps.importLibrary === 'function'){
+    google.maps.importLibrary('places').then(lib => {
+      if(!lib.AutocompleteSuggestion || !lib.AutocompleteSessionToken) throw new Error('Places API (New) classes missing');
+      attachAddressSuggestions(lib, 'b-pickup', 'b-pickup-lat', 'b-pickup-lng');
+      attachAddressSuggestions(lib, 'b-dropoff', 'b-dropoff-lat', 'b-dropoff-lng');
+      maybeFetchDistance();
+    }).catch(err => {
+      console.warn('Places library unavailable, using the legacy autocomplete:', err);
+      suggestNewBroken = true;
+      initPlacesAutocompleteLegacy();
+    });
+    return;
+  }
+  initPlacesAutocompleteLegacy();
+}
+
+let legacyAutocompleteStarted = false;
+function initPlacesAutocompleteLegacy(){
+  if(legacyAutocompleteStarted) return;
+  legacyAutocompleteStarted = true;
+  if(typeof google === 'undefined' || !google.maps || !google.maps.places || !google.maps.places.Autocomplete) return;
 
   const pickupInput = document.getElementById('b-pickup');
   const dropoffInput = document.getElementById('b-dropoff');
@@ -416,13 +574,63 @@ function maybeFetchDistance(){
 }
 
 /**
- * Real driving distance via google.maps.DistanceMatrixService — the
- * browser-safe client library. (The raw REST distancematrix/routes
- * endpoints do not support CORS from the browser and fail silently there,
- * which is why this uses the JS library instead.) It geocodes the typed
- * address text itself, so this works whether or not a Places suggestion
- * was explicitly clicked.
+ * Real driving distance, in km, for two typed addresses.
+ *
+ * Preferred: the Routes library (google.maps.routes.RouteMatrix), the
+ * replacement for the deprecated DistanceMatrixService. It is the
+ * browser-safe client library (the raw REST endpoints do not support CORS
+ * from the browser), and it geocodes the typed address text itself, so this
+ * works whether or not a Places suggestion was explicitly clicked.
+ * TRAFFIC_UNAWARE keeps the distance independent of the time of day, as the
+ * old service was, so a route always prices the same.
+ *
+ * Fallback: if the Routes library cannot be used (not loaded, the Routes API
+ * not enabled for the key, network error), the legacy DistanceMatrixService
+ * answers instead for the rest of the page view, so pricing never goes dark.
+ *
+ * Both lookups resolve to a number of km, or null when no driving route exists.
  */
+let routeMatrixClass = null;       // google.maps.routes.RouteMatrix, once the library is imported
+let routesLibraryBroken = false;   // true after a Routes failure: use the legacy service from then on
+
+function lookupDistanceKmRoutes(pickupText, dropoffText){
+  const load = routeMatrixClass
+    ? Promise.resolve(routeMatrixClass)
+    : google.maps.importLibrary('routes').then(lib => (routeMatrixClass = lib.RouteMatrix));
+  return load.then(RouteMatrix => RouteMatrix.computeRouteMatrix({
+    origins: [pickupText],
+    destinations: [dropoffText],
+    travelMode: 'DRIVING',
+    routingPreference: 'TRAFFIC_UNAWARE',
+    fields: ['distanceMeters', 'condition']
+  })).then(response => {
+    const rows = response && response.matrix && response.matrix.rows;
+    const item = rows && rows[0] && rows[0].items && rows[0].items[0];
+    if(item && item.condition === 'ROUTE_EXISTS' && item.distanceMeters != null) return item.distanceMeters / 1000;
+    return null;
+  });
+}
+
+function lookupDistanceKmLegacy(pickupText, dropoffText){
+  return new Promise(resolve => {
+    if(!distanceService) distanceService = new google.maps.DistanceMatrixService();
+    distanceService.getDistanceMatrix({
+      origins: [pickupText],
+      destinations: [dropoffText],
+      travelMode: google.maps.TravelMode.DRIVING,
+      unitSystem: google.maps.UnitSystem.METRIC
+    }, (response, status) => {
+      if(status !== 'OK'){
+        console.warn('DistanceMatrixService failed:', status);
+        resolve(null);
+        return;
+      }
+      const element = response && response.rows && response.rows[0] && response.rows[0].elements && response.rows[0].elements[0];
+      resolve(element && element.status === 'OK' ? element.distance.value / 1000 : null);
+    });
+  });
+}
+
 function fetchDistance(pickupText, dropoffText){
   if(typeof google === 'undefined' || !google.maps){
     console.warn('Google Maps not loaded — cannot calculate distance.');
@@ -433,33 +641,25 @@ function fetchDistance(pickupText, dropoffText){
   document.getElementById('live-price-unpriced').style.display = 'none';
   document.getElementById('live-price-loading').style.display = 'block';
 
-  if(!distanceService) distanceService = new google.maps.DistanceMatrixService();
   const requestKey = pickupText.toLowerCase() + '|' + dropoffText.toLowerCase();
-
-  distanceService.getDistanceMatrix({
-    origins: [pickupText],
-    destinations: [dropoffText],
-    travelMode: google.maps.TravelMode.DRIVING,
-    unitSystem: google.maps.UnitSystem.METRIC
-  }, (response, status) => {
+  const done = km => {
     if(requestKey !== routeKey()) return; // the addresses changed while this was in flight — a newer lookup owns the price
     currentDistanceKey = requestKey;
-    if(status !== 'OK'){
-      console.warn('DistanceMatrixService failed:', status);
-      currentDistanceKm = null;
-      updateSummary();
-      return;
-    }
-    const element = response && response.rows && response.rows[0] && response.rows[0].elements && response.rows[0].elements[0];
-    if(!element || element.status !== 'OK'){
-      console.warn('No driving route found between these addresses.');
-      currentDistanceKm = null;
-      updateSummary();
-      return;
-    }
-    currentDistanceKm = element.distance.value / 1000;
+    if(km == null) console.warn('No driving route found between these addresses.');
+    currentDistanceKm = km;
     updateSummary();
-  });
+  };
+  const legacy = () => lookupDistanceKmLegacy(pickupText, dropoffText).then(done);
+
+  if(routesLibraryBroken || typeof google.maps.importLibrary !== 'function') return legacy();
+  lookupDistanceKmRoutes(pickupText, dropoffText)
+    .then(km => ({ ok: true, km }), err => ({ ok: false, err }))
+    .then(r => {
+      if(r.ok) return done(r.km);
+      console.warn('Routes library failed, using DistanceMatrixService:', r.err);
+      routesLibraryBroken = true;
+      return legacy();
+    });
 }
 
 // GA4 key event, fired once the booking form has actually been accepted by
@@ -593,7 +793,7 @@ function submitBooking(e){
 // Prefill from query params (?to=&pax=&date=&time=&vehicle=&trip=&return_date=&return_time=)
 // so links from Fleet/Destinations pages land here with details already filled in.
 // The destination name is filled in as plain text — the real price still comes
-// from an actual DistanceMatrixService lookup, same as manually typed addresses.
+// from an actual Routes library lookup, same as manually typed addresses.
 // Runs once the widget markup has actually been injected into the page (see
 // initBookingWidget below) rather than on DOMContentLoaded, since the fields
 // it reads don't exist until then.

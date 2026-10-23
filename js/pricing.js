@@ -68,7 +68,7 @@ const RETURN_DISCOUNT = 0.05; // discount applied to the combined return-trip to
  * Human-readable, geocodable place names for the `?to=` query-param links
  * used by destination pages and the fleet page (e.g. index.html?to=omis#booking).
  * These get typed into the dropoff field and resolved to a real driving
- * distance via DistanceMatrixService, same as anything a visitor types by hand.
+ * distance via the Routes library (DistanceMatrixService as fallback), same as anything a visitor types by hand.
  */
 const DESTINATION_NAMES = {
   split: "Split, Croatia",

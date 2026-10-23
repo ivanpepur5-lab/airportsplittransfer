@@ -1897,3 +1897,14 @@ body.page-home header:not(.is-scrolled){box-shadow:none;}
   .scenic{padding:0 10px; margin-bottom:28px;}
   .scenic img{aspect-ratio:4/3; border-radius:14px;}
 }
+
+/* Address suggestions under the pickup and drop-off inputs (Places API (New) data, own list). */
+.route-fields .field{position:relative;}
+.addr-suggest{position:absolute; top:100%; left:0; right:0; z-index:60; margin:4px 0 0; padding:6px 0; list-style:none; background:#fff; border:1px solid var(--line); border-radius:12px; box-shadow:0 12px 28px rgba(15,23,42,0.14); max-height:340px; overflow-y:auto; font-family:'Inter',sans-serif;}
+.addr-suggest[hidden]{display:none;}
+.addr-suggest li[role="option"]{padding:10px 16px; cursor:pointer; font-size:0.9rem; line-height:1.35; color:var(--cream);}
+.addr-suggest li[role="option"] small{display:block; margin-top:2px; font-size:0.78rem; color:var(--gray);}
+.addr-suggest li[role="option"][aria-selected="true"], .addr-suggest li[role="option"]:hover{background:var(--bg-3);}
+.addr-suggest .addr-attr{padding:6px 16px 2px; text-align:right; font:400 12px/1.3 Roboto, Arial, sans-serif; letter-spacing:normal; color:#5E5E5E;}
+/* The booking hero clips the cars at its edges; clip only sideways so the suggestion list can drop below its bottom edge. */
+.hero--booking{overflow-x:clip; overflow-y:visible;}
