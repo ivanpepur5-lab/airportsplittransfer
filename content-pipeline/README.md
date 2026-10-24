@@ -345,3 +345,15 @@ price by hand: change the tariff or the km, run `python3 tools/stamp_prices.py`
 Distances are our figures; the booking form uses the real Google driving
 distance, so a guest's exact address can differ by a step of €5. That is why
 the pages say "From".
+
+## FAQ markup (since 2026-10-23)
+
+FAQ answers are collapsed behind an arrow. Every question is a `<details>`, never a plain heading plus paragraph:
+
+    <details class="faq-item reveal">
+      <summary><h3>Question?</h3></summary>
+      <p>Answer.</p>
+    </details>
+
+Blog articles use `<details class="faq-item faq-item--blog">` with the same inner structure. The JSON-LD FAQPage block stays
+as before. No JavaScript is involved; styles are at the end of `css/style.css`.

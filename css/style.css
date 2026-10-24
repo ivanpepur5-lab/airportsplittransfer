@@ -1804,6 +1804,7 @@ html[lang="no"] body.page-home .hero h1{--h1-fit:11.55;}
 .dt-card-body{display:flex; flex-direction:column; gap:4px; padding:14px 16px 14px 0;}
 .dt-card-body b{font-size:1.05rem; line-height:1.25; color:var(--navy, #16202a);}
 .dt-card-body span{font-size:0.86rem; color:var(--gray);}
+.dt-card-body .dt-price strong{font-size:1rem; font-weight:700; color:var(--navy, #16202a); margin-left:2px;}
 @media (max-width:640px){
   .dt-strip{grid-template-columns:1fr; gap:12px;}
   .dt-card picture{flex-basis:34%;}
@@ -1908,3 +1909,29 @@ body.page-home header:not(.is-scrolled){box-shadow:none;}
 .addr-suggest .addr-attr{padding:6px 16px 2px; text-align:right; font:400 12px/1.3 Roboto, Arial, sans-serif; letter-spacing:normal; color:#5E5E5E;}
 /* The booking hero clips the cars at its edges; clip only sideways so the suggestion list can drop below its bottom edge. */
 .hero--booking{overflow-x:clip; overflow-y:visible;}
+
+/* FAQ as accordions: each question is a <details>, the answer opens on click (arrow on the right). */
+details.faq-item > summary{display:flex; align-items:center; justify-content:space-between; gap:16px; cursor:pointer; list-style:none; -webkit-tap-highlight-color:transparent;}
+details.faq-item > summary::-webkit-details-marker{display:none;}
+details.faq-item > summary::marker{content:'';}
+details.faq-item > summary h3{margin:0; flex:1 1 auto; font-size:1.05rem; line-height:1.4; text-transform:none; color:var(--cream); font-weight:600; font-family:'Inter',sans-serif;}
+details.faq-item > summary::after{content:''; flex:0 0 auto; width:9px; height:9px; margin:-4px 6px 0 0; border-right:2px solid var(--gold); border-bottom:2px solid var(--gold); transform:rotate(45deg); transition:transform .2s ease, margin .2s ease;}
+details.faq-item[open] > summary::after{transform:rotate(-135deg); margin-top:4px;}
+details.faq-item > summary:hover h3{color:var(--gold);}
+details.faq-item > summary:focus-visible{outline:2px solid var(--gold); outline-offset:6px; border-radius:6px;}
+details.faq-item > p{margin:12px 0 0; padding-right:28px;}
+.to-airport details.faq-item > summary h3{font-size:1rem;}
+details.faq-item--blog{border-bottom:1px solid var(--line); padding:18px 0;}
+details.faq-item--blog:first-of-type{border-top:1px solid var(--line);}
+details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
+@media (prefers-reduced-motion:reduce){ details.faq-item > summary::after{transition:none;} }
+
+/* Day-trip cards: the whole card is the link (stretched link on the "Book This Trip" button). */
+.trip-card{position:relative; cursor:pointer;}
+.trip-card .btn{position:static; overflow:visible; isolation:auto;}
+.trip-card .btn::before{content:''; position:absolute; inset:0; z-index:2;}
+.trip-card .btn::after{display:none;}
+.trip-card .btn, .trip-card .btn:hover, .trip-card .btn:active{transform:none;}
+.trip-card:hover .btn-gold{background:var(--cta-hover); border-color:var(--cta-hover); box-shadow:0 10px 24px rgba(194,65,12,0.28);}
+.trip-card:has(.btn:focus-visible){outline:3px solid var(--gold); outline-offset:3px;}
+.trip-card .btn:focus-visible{outline:none;}
