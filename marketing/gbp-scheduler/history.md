@@ -93,4 +93,10 @@ Krka is the easier big day out from Split: a shorter drive than Plitvice and mor
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-24 08:16 UTC — Customer review post — Nikola Stosic (5 of 10)
+
+A transfer to the ferry port leaves no room for delays, and a group with young children needs even less stress. Nikola Stosic travelled from Split Airport to the ferry port and back, and wrote in his Google review: "First class service, reliable, friendly, quick and affordable." He added that he would recommend it especially to people with young children. 5.0 stars from 40+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
