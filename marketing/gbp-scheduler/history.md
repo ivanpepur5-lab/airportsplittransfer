@@ -99,4 +99,10 @@ A transfer to the ferry port leaves no room for delays, and a group with young c
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-26 07:20 UTC — Airport transfer post — Popular routes
+
+From Split Airport the coast opens up in every direction: Trogir and Šibenik to the north, Omiš, Makarska and Brela along the Riviera to the south. Each route has a fixed price you can check on our site before you book, with a private driver who knows the road. Choose your destination and the quote is ready in seconds.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
