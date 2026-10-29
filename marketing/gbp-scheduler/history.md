@@ -105,4 +105,10 @@ From Split Airport the coast opens up in every direction: Trogir and Šibenik to
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-29 16:10 UTC — Day trip post — Plitvice Lakes
+
+Autumn is a quiet time at Plitvice, with fewer crowds on the boardwalks and the lakes at their clearest. Your private driver collects you in Split, speaks English and waits at the park while you walk the trails in your own time. One fixed price for the whole 10-12 hour day: €475 by car, €545 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
