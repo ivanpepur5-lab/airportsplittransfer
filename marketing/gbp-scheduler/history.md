@@ -111,4 +111,10 @@ Autumn is a quiet time at Plitvice, with fewer crowds on the boardwalks and the 
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-10-31 08:16 UTC — Customer review post — Jack Waghorn (6 of 10)
+
+Some reviews are short because there is nothing to add. Jack Waghorn wrote in his Google review: "Very professional and friendly, will use again for sure!" A guest who plans to come back is the best measure of a transfer. 5.0 stars from 40+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
