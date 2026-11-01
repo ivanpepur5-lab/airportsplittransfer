@@ -57,15 +57,19 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://airportsplittransfer.com/assets/og-image.jpg?v=2">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-<link rel="icon" href="../assets/favicon.ico" sizes="32x32">
+<link rel="icon" href="../assets/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" type="image/png" href="../assets/favicon-16.png" sizes="16x16">
 <link rel="icon" type="image/png" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../assets/favicon-48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="../assets/favicon-96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="../assets/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preload" href="/assets/hero-vclass.avif" as="image" type="image/avif" media="(min-width:1011px)" fetchpriority="high">
 <link rel="preload" href="/assets/fonts/lexend-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../css/style.css?v=0f37a71b28">
+<link rel="preload" href="/partials/booking-widget.sv.html" as="fetch" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/style.css?v=b8987063e9">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Airport Split Transfer", "image": "https://airportsplittransfer.com/assets/og-image.jpg?v=2", "url": "https://airportsplittransfer.com/sv/", "telephone": "+385 91 785 6056", "priceRange": "€€€", "address": {"@type": "PostalAddress", "addressLocality": "Split", "addressCountry": "HR"}, "areaServed": "Split-Dalmatia County, Croatia", "openingHours": "Mo-Su 00:00-23:59", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "40", "bestRating": "5"}, "sameAs": ["https://www.instagram.com/airport.taxi.split", "https://www.tiktok.com/@airport.split.transfer", "https://maps.app.goo.gl/Uxt5aKhvFQ8sofAFA"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hur mycket kostar en privat transfer från Split flygplats?", "acceptedAnswer": {"@type": "Answer", "text": "Det exakta priset beror på din upphämtnings- och destinationsadress samt vilket fordon du väljer. Ange dina uppgifter ovan i bokningsformuläret för ett direkt, fast pris: vägavgifter, bränsle och mottagande vid ankomsten ingår alltid, utan dolda avgifter."}}, {"@type": "Question", "name": "Var lämnar chauffören av mig?", "acceptedAnswer": {"@type": "Answer", "text": "Där du vill: på adressen till ditt boende eller hotell, i centrum av den ort du väljer eller på en annan adress du anger. På sommaren kan det alltid bli förseningar i trafiken, så räkna med lite extra tid."}}, {"@type": "Question", "name": "Vilka resmål täcker ni från Split flygplats?", "acceptedAnswer": {"@type": "Answer", "text": "Vi erbjuder privata transfers till fast pris från Split flygplats till Split, Trogir, Omiš, Makarska, Šibenik, Zadar, Dubrovnik, Plitvicesjöarna och alla andra större städer och byar längs den dalmatiska kusten."}}, {"@type": "Question", "name": "Vad händer om mitt flyg blir försenat?", "acceptedAnswer": {"@type": "Answer", "text": "Vi följer ditt flygnummer i realtid, så din förare anpassar upphämtningen automatiskt. Det tillkommer ingen extra kostnad vid flygförseningar: på flygplatsen är de första 60 minuterna efter landning gratis, och vid upphämtning från en adress väntar föraren upp till 15 minuter efter den bokade tiden."}}, {"@type": "Question", "name": "Kan jag boka en returtransfer?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, välj \"Retur\" vid bokning för att planera båda delarna av resan tillsammans, med 5% rabatt på totalpriset."}}, {"@type": "Question", "name": "Vilka fordon kan jag välja mellan?", "acceptedAnswer": {"@type": "Answer", "text": "En Škoda Superb (1–4 passagerare), en Mercedes-Benz V-Class (1–7 passagerare) eller en Renault Trafic (1–8 passagerare), alla till fast pris per fordon."}}, {"@type": "Question", "name": "Finns barnstolar tillgängliga?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, barnstolar tillhandahålls kostnadsfritt på begäran, nämn det bara vid bokningen."}}, {"@type": "Question", "name": "Hur betalar jag för min transfer?", "acceptedAnswer": {"@type": "Answer", "text": "Vi accepterar både kort och kontant. Priset avtalas och bekräftas innan resan, så det blir inga överraskningar på resdagen."}}]}</script>
 </head>
@@ -162,45 +166,50 @@
       <div><div class="eyebrow">Populära Resmål</div><h2 style="font-size:1.8rem;">Vart Vi Tar Dig</h2></div>
       <a href="destinations.html" class="link" style="font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); border-bottom:1px solid var(--gold); padding-bottom:2px;">Visa Alla Resmål &rarr;</a>
     </div>
-    <div class="dest-grid">
+    <div class="dest-grid dest-grid--home">
       <a href="destinations/split.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-split-card.avif" type="image/avif"><img src="../assets/dest-split-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-split-card-sm.avif 420w, ../assets/dest-split-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-split-card.webp" srcset="../assets/dest-split-card-sm.webp 420w, ../assets/dest-split-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Split centrum / Färjeterminal</h3>
       <span class="dest-from">Från <span data-price="split:skoda">€50</span></span></span>
     </a>
     <a href="destinations/podstrana.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-podstrana-card.avif" type="image/avif"><img src="../assets/dest-podstrana-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-podstrana-card-sm.avif 420w, ../assets/dest-podstrana-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-podstrana-card.webp" srcset="../assets/dest-podstrana-card-sm.webp 420w, ../assets/dest-podstrana-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Podstrana</h3>
       <span class="dest-from">Från <span data-price="podstrana:skoda">€60</span></span></span>
     </a>
     <a href="destinations/omis.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-omis-card.avif" type="image/avif"><img src="../assets/dest-omis-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-omis-card-sm.avif 420w, ../assets/dest-omis-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-omis-card.webp" srcset="../assets/dest-omis-card-sm.webp 420w, ../assets/dest-omis-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Omiš</h3>
       <span class="dest-from">Från <span data-price="omis:skoda">€90</span></span></span>
     </a>
     <a href="destinations/makarska.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-makarska-card.avif" type="image/avif"><img src="../assets/dest-makarska-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-makarska-card-sm.avif 420w, ../assets/dest-makarska-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-makarska-card.webp" srcset="../assets/dest-makarska-card-sm.webp 420w, ../assets/dest-makarska-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Makarska</h3>
       <span class="dest-from">Från <span data-price="makarska:skoda">€150</span></span></span>
     </a>
     <a href="destinations/dubrovnik.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-dubrovnik-card.avif" type="image/avif"><img src="../assets/dest-dubrovnik-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-dubrovnik-card-sm.avif 420w, ../assets/dest-dubrovnik-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-dubrovnik-card.webp" srcset="../assets/dest-dubrovnik-card-sm.webp 420w, ../assets/dest-dubrovnik-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Dubrovnik</h3>
       <span class="dest-from">Från <span data-price="dubrovnik:skoda">€370</span></span></span>
     </a>
     <a href="destinations/plitvice.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/daytrips-plitvice-hero-card.avif" type="image/avif"><img src="../assets/daytrips-plitvice-hero-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/daytrips-plitvice-hero-card-sm.avif 420w, ../assets/daytrips-plitvice-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif"><img src="../assets/daytrips-plitvice-hero-card.webp" srcset="../assets/daytrips-plitvice-hero-card-sm.webp 420w, ../assets/daytrips-plitvice-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Plitvice Lakes</h3></span>
     </a>
     <a href="destinations/zadar.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-zadar-card.avif" type="image/avif"><img src="../assets/dest-zadar-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-zadar-card-sm.avif 420w, ../assets/dest-zadar-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-zadar-card.webp" srcset="../assets/dest-zadar-card-sm.webp 420w, ../assets/dest-zadar-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Zadar</h3>
       <span class="dest-from">Från <span data-price="zadar:skoda">€195</span></span></span>
     </a>
     <a href="destinations/brela.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-brela-card.avif" type="image/avif"><img src="../assets/dest-brela-card.webp" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-brela-card-sm.avif 420w, ../assets/dest-brela-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-brela-card.webp" srcset="../assets/dest-brela-card-sm.webp 420w, ../assets/dest-brela-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
       <span class="dest-card-text"><h3>Brela</h3>
       <span class="dest-from">Från <span data-price="brela:skoda">€140</span></span></span>
+    </a>
+    <a href="destinations/trogir.html" class="dest-card dest-card--photo reveal">
+      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-trogir-card-sm.avif 420w, ../assets/dest-trogir-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-trogir-card.webp" srcset="../assets/dest-trogir-card-sm.webp 420w, ../assets/dest-trogir-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
+      <span class="dest-card-text"><h3>Trogir</h3>
+      <span class="dest-from">Från <span data-price="trogir:skoda">€35</span></span></span>
     </a>
     
     </div>
@@ -214,49 +223,49 @@
     <div class="dt-strip">
       <a href="day-trips/krka-national-park.html" class="dt-card reveal">
         <picture>
-          <source srcset="../assets/daytrips-krka-hero-card.avif" type="image/avif">
-          <source srcset="../assets/daytrips-krka-hero-card.webp" type="image/webp">
-          <img src="../assets/daytrips-krka-hero-card.webp" alt="Vattenfallen vid Skradinski Buk forsar ner i floden i Nationalparken Krka" loading="lazy" width="900" height="675">
+          <source srcset="../assets/daytrips-krka-hero-card-sm.avif 420w, ../assets/daytrips-krka-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif">
+          <source srcset="../assets/daytrips-krka-hero-card-sm.webp 420w, ../assets/daytrips-krka-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" type="image/webp">
+          <img src="../assets/daytrips-krka-hero-card.webp" srcset="../assets/daytrips-krka-hero-card-sm.webp 420w, ../assets/daytrips-krka-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="Vattenfallen vid Skradinski Buk forsar ner i floden i Nationalparken Krka" loading="lazy" width="900" height="675">
         </picture>
         <span class="dt-card-body"><b>Nationalparken Krka</b><span class="dt-price"><span>Från</span> <strong>&euro;280</strong></span></span>
       </a>
       <a href="day-trips/plitvice-lakes.html" class="dt-card reveal">
         <picture>
-          <source srcset="../assets/daytrips-plitvice-hero-card.avif" type="image/avif">
-          <source srcset="../assets/daytrips-plitvice-hero-card.webp" type="image/webp">
-          <img src="../assets/daytrips-plitvice-hero-card.webp" alt="Turkosa sjöar och vattenfall i Nationalparken Plitvicesjöarna" loading="lazy" width="900" height="675">
+          <source srcset="../assets/daytrips-plitvice-hero-card-sm.avif 420w, ../assets/daytrips-plitvice-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif">
+          <source srcset="../assets/daytrips-plitvice-hero-card-sm.webp 420w, ../assets/daytrips-plitvice-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" type="image/webp">
+          <img src="../assets/daytrips-plitvice-hero-card.webp" srcset="../assets/daytrips-plitvice-hero-card-sm.webp 420w, ../assets/daytrips-plitvice-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="Turkosa sjöar och vattenfall i Nationalparken Plitvicesjöarna" loading="lazy" width="900" height="675">
         </picture>
         <span class="dt-card-body"><b>Plitvicesjöarna</b><span class="dt-price"><span>Från</span> <strong>&euro;475</strong></span></span>
       </a>
       <a href="day-trips/mostar-kravice.html" class="dt-card reveal">
         <picture>
-          <source srcset="../assets/daytrips-mostar-hero-card.avif" type="image/avif">
-          <source srcset="../assets/daytrips-mostar-hero-card.webp" type="image/webp">
-          <img src="../assets/daytrips-mostar-hero-card.webp" alt="Flygbild över gamla bron och gamla stan i Mostar vid floden Neretva" loading="lazy" width="900" height="675">
+          <source srcset="../assets/daytrips-mostar-hero-card-sm.avif 420w, ../assets/daytrips-mostar-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif">
+          <source srcset="../assets/daytrips-mostar-hero-card-sm.webp 420w, ../assets/daytrips-mostar-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" type="image/webp">
+          <img src="../assets/daytrips-mostar-hero-card.webp" srcset="../assets/daytrips-mostar-hero-card-sm.webp 420w, ../assets/daytrips-mostar-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="Flygbild över gamla bron och gamla stan i Mostar vid floden Neretva" loading="lazy" width="900" height="675">
         </picture>
         <span class="dt-card-body"><b>Mostar och Kravice-vattenfallen</b><span class="dt-price"><span>Från</span> <strong>&euro;495</strong></span></span>
       </a>
       <a href="day-trips/klis-fortress-trogir.html" class="dt-card reveal">
         <picture>
-          <source srcset="../assets/daytrips-klis-hero-card.avif" type="image/avif">
-          <source srcset="../assets/daytrips-klis-hero-card.webp" type="image/webp">
-          <img src="../assets/daytrips-klis-hero-card.webp" alt="Klis fästning på sin klippiga ås ovanför Split under en molnig blå himmel" loading="lazy" width="900" height="675">
+          <source srcset="../assets/daytrips-klis-hero-card-sm.avif 420w, ../assets/daytrips-klis-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif">
+          <source srcset="../assets/daytrips-klis-hero-card-sm.webp 420w, ../assets/daytrips-klis-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" type="image/webp">
+          <img src="../assets/daytrips-klis-hero-card.webp" srcset="../assets/daytrips-klis-hero-card-sm.webp 420w, ../assets/daytrips-klis-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="Klis fästning på sin klippiga ås ovanför Split under en molnig blå himmel" loading="lazy" width="900" height="675">
         </picture>
         <span class="dt-card-body"><b>Klis fästning och Trogir</b><span class="dt-price"><span>Från</span> <strong>&euro;170</strong></span></span>
       </a>
       <a href="day-trips/dubrovnik-ston.html" class="dt-card reveal">
         <picture>
-          <source srcset="../assets/daytrips-dubrovnik-hero-card.avif" type="image/avif">
-          <source srcset="../assets/daytrips-dubrovnik-hero-card.webp" type="image/webp">
-          <img src="../assets/daytrips-dubrovnik-hero-card.webp" alt="Dubrovniks muromgärdade gamla stad vid Adriatiska havet" loading="lazy" width="900" height="675">
+          <source srcset="../assets/daytrips-dubrovnik-hero-card-sm.avif 420w, ../assets/daytrips-dubrovnik-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif">
+          <source srcset="../assets/daytrips-dubrovnik-hero-card-sm.webp 420w, ../assets/daytrips-dubrovnik-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" type="image/webp">
+          <img src="../assets/daytrips-dubrovnik-hero-card.webp" srcset="../assets/daytrips-dubrovnik-hero-card-sm.webp 420w, ../assets/daytrips-dubrovnik-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="Dubrovniks muromgärdade gamla stad vid Adriatiska havet" loading="lazy" width="900" height="675">
         </picture>
         <span class="dt-card-body"><b>Dubrovnik och Ston</b><span class="dt-price"><span>Från</span> <strong>&euro;600</strong></span></span>
       </a>
       <a href="day-trips/biokovo-skywalk.html" class="dt-card reveal">
         <picture>
-          <source srcset="../assets/daytrips-biokovo-hero-card.avif" type="image/avif">
-          <source srcset="../assets/daytrips-biokovo-hero-card.webp" type="image/webp">
-          <img src="../assets/daytrips-biokovo-hero-card.webp" alt="Taggiga kalkstenstoppar i Biokovobergen under blå himmel" loading="lazy" width="900" height="675">
+          <source srcset="../assets/daytrips-biokovo-hero-card-sm.avif 420w, ../assets/daytrips-biokovo-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif">
+          <source srcset="../assets/daytrips-biokovo-hero-card-sm.webp 420w, ../assets/daytrips-biokovo-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" type="image/webp">
+          <img src="../assets/daytrips-biokovo-hero-card.webp" srcset="../assets/daytrips-biokovo-hero-card-sm.webp 420w, ../assets/daytrips-biokovo-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="Taggiga kalkstenstoppar i Biokovobergen under blå himmel" loading="lazy" width="900" height="675">
         </picture>
         <span class="dt-card-body"><b>Biokovo Skywalk</b><span class="dt-price"><span>Från</span> <strong>&euro;250</strong></span></span>
       </a>

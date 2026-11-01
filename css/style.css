@@ -1935,3 +1935,19 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .trip-card:hover .btn-gold{background:var(--cta-hover); border-color:var(--cta-hover); box-shadow:0 10px 24px rgba(194,65,12,0.28);}
 .trip-card:has(.btn:focus-visible){outline:3px solid var(--gold); outline-offset:3px;}
 .trip-card .btn:focus-visible{outline:none;}
+
+/* Homepage route grid: nine cards fill three columns (821 to 1100 px); at four
+   or two columns eight cards fill the rows, so the ninth is hidden there. */
+.dest-grid--home > .dest-card:nth-child(9){display:none;}
+@media (min-width:821px) and (max-width:1100px){.dest-grid--home > .dest-card:nth-child(9){display:block;}}
+
+/* Route pages: what is included and one real review, under the hero (added 2026-11-01). */
+.route-proof{max-width:760px; margin:6px auto 34px; padding:0 20px; text-align:center; font-size:0.95rem; color:var(--gray); line-height:1.6;}
+.route-proof .route-stars{color:#f4b400; letter-spacing:2px; font-size:1rem;}
+.route-proof b{color:var(--navy, #16202a);}
+.route-proof .route-quote{font-style:italic;}
+.route-proof .route-proof-by{font-weight:600; color:var(--navy, #16202a);}
+.route-included{list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:8px 26px; margin:-46px 0 54px; padding:0;}
+.route-included li{font-size:0.92rem; color:var(--cream); display:flex; align-items:center; gap:8px;}
+.route-included li::before{content:'\2713'; color:var(--gold-text, #0b3c7a); font-weight:700;}
+@media (max-width:640px){.route-included{flex-direction:column; align-items:flex-start; gap:6px; margin:-40px 0 44px;}}

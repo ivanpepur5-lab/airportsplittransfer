@@ -331,3 +331,23 @@ Ivan asked for the site to follow Google's rules on AI content and spam
   pages (Split, Makarska, Omiš, Dubrovnik, Brela, Podstrana, Baška Voda,
   Šibenik, Vodice, Zadar, Murter, Podgora, ~290 words, 63–67% shared text)
   should get real local detail, one town at a time.
+
+## 2026-11-01: internal links to the main page per query (keyword cannibalization)
+
+Search Console (1 to 28 Oct) showed route queries answered by blog articles (position 14 to 35) while the route page sat at 37 to 51
+("split airport to makarska", "omis", "baska voda"), and "split airport transfers" split between the transfer guide, the homepage and
+/split-airport-transfers. A one-sentence link with the query as anchor text now sits right after the first paragraph of the Makarska
+(2 articles), Omiš, Baška Voda, Podstrana and Trogir articles (to the route page) and the two airport guides (to the homepage), in all
+six languages (de/sv/no by hand, hr/it through `tr_zz_ilinks.py`). Nothing was merged or deleted. Check again in 2 to 4 weeks.
+
+## 2026-11-01: ideas from the design-gallery videos (OG images, route trust lines)
+
+- `tools/make_og.py` makes a 1200x630 Open Graph image per page (page photo, gradient, white logo, title): one language-neutral image per
+  route (36), one per language for articles, day trips, airports, hotel pages and services (246), stored in `assets/og/` and set as
+  `og:image` and `twitter:image`. hr/it get theirs through `tools/hr|it/tr_zz_og.py` (literal URL swaps). Homepage and other core pages keep `og-image.jpg`.
+  Re-run `python3 tools/make_og.py` (add `--force` to redraw) after changing a page title or photo.
+- Route pages: a one-line "included" list under the facts strip (tolls and fuel, meet and greet, flight tracking, 60 min free waiting,
+  free cancellation, all already stated on the site) and a review line under the hero button (5.0, 40+ Google reviews, one real
+  review by Jack Waghorn). Marina pages (no facts strip) only get the review line.
+- Booking confirmation email reviewed against Really Good Emails: already has a trip summary, what is included, and contact details;
+  no change made (a WhatsApp button for changes is the one possible addition).
