@@ -117,4 +117,10 @@ Some reviews are short because there is nothing to add. Jack Waghorn wrote in hi
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-02 07:18 UTC — Airport transfer post — Child seats free on request
+
+Travelling with little ones is easier when the car seat is already waiting. Tell us the age of your child when you book and we fit the right seat for the ride, at no extra charge. Your driver also helps with the stroller and the luggage, so the first stretch of the holiday starts calmly.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
