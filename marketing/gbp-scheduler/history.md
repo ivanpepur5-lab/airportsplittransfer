@@ -123,4 +123,10 @@ Travelling with little ones is easier when the car seat is already waiting. Tell
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-05 16:12 UTC — Day trip post — Krka National Park
+
+Quiet paths, clear water and the roar of Skradinski Buk: Krka rewards a slow day. We collect you in Split with an English-speaking private driver, and the car waits at the park for as long as your trip lasts. One fixed price covers the whole 8-10 hour day: €280 by car, €325 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
