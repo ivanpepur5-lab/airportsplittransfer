@@ -129,4 +129,10 @@ Quiet paths, clear water and the roar of Skradinski Buk: Krka rewards a slow day
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-07 08:16 UTC — Customer review post — Karen Holland (7 of 10)
+
+A flight home leaves no room for surprises. Karen Holland, a Google Local Guide, wrote after her ride to the airport: "Arrived ahead of time and charged a fair price... Plenty of space in the car for our luggage and got to the airport in time." Early pickup, a fixed price and room for the bags are what we plan every transfer around. 5.0 stars from 40+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
