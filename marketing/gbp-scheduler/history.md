@@ -135,4 +135,10 @@ A flight home leaves no room for surprises. Karen Holland, a Google Local Guide,
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-09 07:25 UTC — Airport transfer post — Fixed price, quoted upfront
+
+The price you are quoted is the price you pay. Enter your pickup and drop-off address and the fixed total appears at once, with tolls, fuel and the meet-and-greet at arrivals already included. No taximeter, no surcharge at the end of the ride, and the same rate however many of you travel in the car.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
