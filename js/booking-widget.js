@@ -17,6 +17,7 @@ const BW_LANG = (function(){
 const BW_SCRIPT_SRC = document.currentScript ? document.currentScript.src : '';
 const BW_TEXT = {
   en: {
+    datePlaceholder: 'Select date',
     legend: 'Trip Details', legendReturn: 'Outbound & Return',
     date: 'Date', dateReturn: 'Outbound Date', time: 'Time', timeReturn: 'Outbound Time',
     oneway: 'One way', ret: 'Return', priceOneway: '(one way)', priceReturn: '(return)',
@@ -26,6 +27,7 @@ const BW_TEXT = {
     error: 'Something went wrong sending your booking. Please try again or contact us on WhatsApp.'
   },
   de: {
+    datePlaceholder: 'Datum wählen',
     legend: 'Fahrtdetails', legendReturn: 'Hin- & Rückfahrt',
     date: 'Datum', dateReturn: 'Hinfahrtdatum', time: 'Uhrzeit', timeReturn: 'Hinfahrtzeit',
     oneway: 'Einfache Fahrt', ret: 'Rückfahrt', priceOneway: '(einfache Fahrt)', priceReturn: '(Hin- & Rückfahrt)',
@@ -35,6 +37,7 @@ const BW_TEXT = {
     error: 'Beim Senden Ihrer Buchung ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns per WhatsApp.'
   },
   sv: {
+    datePlaceholder: 'Välj datum',
     legend: 'Resedetaljer', legendReturn: 'Utresa & Retur',
     date: 'Datum', dateReturn: 'Utresedatum', time: 'Tid', timeReturn: 'Utresetid',
     oneway: 'Enkel Resa', ret: 'Returresa', priceOneway: '(enkel resa)', priceReturn: '(retur)',
@@ -44,6 +47,7 @@ const BW_TEXT = {
     error: 'Något gick fel när din bokning skickades. Försök igen eller kontakta oss via WhatsApp.'
   },
   no: {
+    datePlaceholder: 'Velg dato',
     legend: 'Reisedetaljer', legendReturn: 'Utreise & Retur',
     date: 'Dato', dateReturn: 'Utreisedato', time: 'Klokkeslett', timeReturn: 'Utreisetid',
     oneway: 'Enveis', ret: 'Tur-retur', priceOneway: '(enveis)', priceReturn: '(tur-retur)',
@@ -53,6 +57,7 @@ const BW_TEXT = {
     error: 'Noe gikk galt da bestillingen skulle sendes. Prøv igjen eller kontakt oss på WhatsApp.'
   },
   hr: {
+    datePlaceholder: 'Odaberi datum',
     legend: 'Detalji vožnje', legendReturn: 'Polazak i povratak',
     date: 'Datum', dateReturn: 'Datum polaska', time: 'Vrijeme', timeReturn: 'Vrijeme polaska',
     oneway: 'U jednom smjeru', ret: 'Povratna', priceOneway: '(u jednom smjeru)', priceReturn: '(povratna)',
@@ -62,6 +67,7 @@ const BW_TEXT = {
     error: 'Nešto je pošlo po krivu pri slanju rezervacije. Pokušajte ponovno ili nam se javite na WhatsApp.'
   },
   it: {
+    datePlaceholder: 'Scegli la data',
     legend: 'Dettagli del viaggio', legendReturn: 'Andata e ritorno',
     date: 'Data', dateReturn: 'Data di andata', time: 'Ora', timeReturn: 'Ora di andata',
     oneway: 'Solo andata', ret: 'Andata e ritorno', priceOneway: '(solo andata)', priceReturn: '(andata e ritorno)',
@@ -257,6 +263,36 @@ function updateSummary(){
 function openStep2(){
   const step2 = document.getElementById('bw-step2');
   if(step2) step2.classList.add('is-open');
+  const seePrice = document.getElementById('bw-see-price');
+  if(seePrice) seePrice.hidden = true;
+}
+// "See fixed price" under the short form: shows the next step before the
+// route is filled in. With an address missing it takes the guest to that
+// field; with both filled it opens the vehicles and prices straight away.
+function onSeePriceClick(){
+  const pickup = document.getElementById('b-pickup');
+  const dropoff = document.getElementById('b-dropoff');
+  const missing = !pickup.value.trim() ? pickup : (!dropoff.value.trim() ? dropoff : null);
+  if(missing){
+    missing.focus();
+    const field = missing.closest('.field') || missing;
+    field.classList.remove('bw-nudge');
+    void field.offsetWidth;
+    field.classList.add('bw-nudge');
+    return;
+  }
+  openStep2();
+  updateSummary();
+}
+// Phones show an empty date input as a blank box; give it a placeholder
+// until a date is picked (CSS draws it from data-placeholder).
+function syncDatePlaceholders(){
+  ['b-date', 'b-return-date'].forEach(id => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.setAttribute('data-placeholder', BW_TEXT.datePlaceholder);
+    el.classList.toggle('has-value', !!el.value);
+  });
 }
 // GA4 "view_price": the guest has reached the vehicles and prices. Sent
 // once per page view, the first time the rest of the form opens, so that
@@ -915,6 +951,17 @@ function attachLazyMapsTriggers(){
 function initBookingWidget(){
   runBookingPrefill();
   attachLazyMapsTriggers();
+  const seePrice = document.getElementById('bw-see-price');
+  const step2 = document.getElementById('bw-step2');
+  if(seePrice){
+    if(!step2 || step2.classList.contains('is-open')) seePrice.hidden = true;
+    seePrice.addEventListener('click', onSeePriceClick);
+  }
+  syncDatePlaceholders();
+  ['b-date', 'b-return-date'].forEach(id => {
+    const el = document.getElementById(id);
+    if(el) ['input', 'change', 'blur'].forEach(ev => el.addEventListener(ev, syncDatePlaceholders));
+  });
 }
 
 // --- Load the shared widget markup into whichever page has a mount point ---

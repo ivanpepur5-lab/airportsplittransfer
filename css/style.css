@@ -1997,3 +1997,59 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
   .dt-card img{transition:none;}
   .dt-card:hover img{transform:none;}
 }
+
+/* ============ HOMEPAGE DESIGN PASS (2026-11-12) ============ */
+/* --- Booking form: "See fixed price" closes the short form so the next step
+   is visible; it disappears once the vehicles and prices open. --- */
+.bw-see-price{margin-top:16px;}
+.bw-see-price[hidden]{display:none;}
+@keyframes bw-nudge{0%,100%{transform:none;} 25%{transform:translateX(-5px);} 75%{transform:translateX(5px);}}
+.bw-nudge{animation:bw-nudge .3s ease 1;}
+@media (prefers-reduced-motion:reduce){ .bw-nudge{animation:none;} }
+/* Touch devices draw an empty date input as a blank box: show a placeholder
+   in its place until a date is picked. Desktop keeps its typed dd/mm/yyyy. */
+@media (pointer:coarse){
+  input[type="date"][data-placeholder]:not(.has-value){position:relative;}
+  input[type="date"][data-placeholder]:not(.has-value)::before{
+    content:attr(data-placeholder); position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    color:var(--gray); white-space:nowrap; pointer-events:none;
+  }
+  input[type="date"][data-placeholder]:not(.has-value)::-webkit-datetime-edit{opacity:0;}
+}
+
+/* --- Hotel rows: a small photo and the town next to each name. --- */
+.hotel-row--photo{justify-content:flex-start; gap:16px; padding:14px 4px;}
+.hotel-row-thumb{flex:0 0 76px; width:76px; height:56px; border-radius:10px; overflow:hidden; display:block; background:var(--bg-2);}
+.hotel-row-thumb img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s var(--ease-out);}
+.hotel-row-text{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:2px;}
+.hotel-row-text b{font-weight:600; line-height:1.3;}
+.hotel-row-text small{font-size:0.82rem; font-weight:400; color:var(--gray);}
+@media (hover:hover){ .hotel-row--photo:hover .hotel-row-thumb img{transform:scale(1.06);} }
+@media (max-width:900px){ .hotel-row--photo{padding:12px 2px; gap:14px;} }
+
+/* --- Trust strip on the homepage: dark navy band, so the page is not one
+   run of white and pale grey sections. --- */
+.page-home .trust-strip{background:var(--navy); border-top:none; border-bottom:none;}
+.page-home .trust-strip .trust-item{border-left-color:rgba(255,255,255,0.16);}
+.page-home .trust-strip .trust-item b{color:#fff;}
+.page-home .trust-strip .trust-item span{color:rgba(255,255,255,0.78);}
+
+/* --- Phones: the three vehicles become a swipeable row of full-size cards
+   instead of three very small ones side by side. --- */
+@media (max-width:640px){
+  .page-home .fleet-layout .fleet-grid{
+    display:flex; flex-wrap:nowrap; gap:12px; overflow-x:auto;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+    margin:0 -10px; padding:6px 10px 14px; scroll-padding:0 10px; scrollbar-width:none;
+  }
+  .page-home .fleet-layout .fleet-grid::-webkit-scrollbar{display:none;}
+  .page-home .fleet-layout .fleet-card{flex:0 0 74%; scroll-snap-align:start; opacity:1; transform:none;}
+  .page-home .fleet-layout .fleet-body{padding:14px 16px 18px; text-align:left;}
+  .page-home .fleet-layout .fleet-class{display:block; font-size:0.64rem; margin-bottom:8px;}
+  .page-home .fleet-layout .fleet-card h3{font-size:1.25rem; margin-bottom:4px;}
+  .page-home .fleet-layout .fleet-card .fleet-model{font-size:0.86rem; line-height:1.4; margin-bottom:12px;}
+  .page-home .fleet-layout .fleet-spec-icons{justify-content:flex-start; gap:14px; margin-bottom:0;}
+  .page-home .fleet-layout .fleet-spec-icon{font-size:0.84rem; gap:5px;}
+  .page-home .fleet-layout .fleet-spec-icon:nth-child(3){display:flex;}
+  .page-home .fleet-layout .fleet-spec-icon svg{width:16px; height:16px;}
+}
