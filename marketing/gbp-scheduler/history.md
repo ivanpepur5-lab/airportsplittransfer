@@ -141,4 +141,10 @@ The price you are quoted is the price you pay. Enter your pickup and drop-off ad
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-12 16:10 UTC — Day trip post — Plitvice Lakes
+
+Plitvice is a long day, so it helps to spend it walking rather than driving. Your English-speaking driver handles the whole road from Split and waits at the park until you return. The group is only yours, never a shared shuttle, and one fixed price covers the 10-12 hour trip: €475 by car, €545 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
