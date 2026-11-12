@@ -1361,12 +1361,11 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 
 /* ============ MOBILE SWIPE CAROUSELS — REVIEWS & JOURNAL ============ */
 @media (max-width:640px){
-  .testi-grid, .blog-grid-carousel{
+  .blog-grid-carousel{
     display:flex; flex-wrap:nowrap; overflow-x:auto; scroll-snap-type:x mandatory;
     gap:14px; padding-bottom:4px; margin:0 -2px; scrollbar-width:none;
   }
-  .testi-grid::-webkit-scrollbar, .blog-grid-carousel::-webkit-scrollbar{display:none;}
-  .testi-grid .testi-card{scroll-snap-align:center; flex:0 0 88%;}
+  .blog-grid-carousel::-webkit-scrollbar{display:none;}
   .blog-grid-carousel .blog-card{scroll-snap-align:center; flex:0 0 88%;}
 }
 .carousel-dots{display:none;}
@@ -1972,26 +1971,6 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .dt-card img{transition:transform .5s var(--ease-out);}
 @media (hover:hover){ .dt-card:hover img{transform:scale(1.05);} }
 
-/* --- Phones: the six day trips become one swipeable row of photo cards
-   instead of six stacked rows. The next card peeks in to show it scrolls. --- */
-@media (max-width:640px){
-  .page-home .dt-strip{
-    display:flex; flex-wrap:nowrap; gap:12px; overflow-x:auto;
-    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-    margin:0 -10px; padding:4px 10px 10px; scroll-padding:0 10px; scrollbar-width:none;
-  }
-  .page-home .dt-strip::-webkit-scrollbar{display:none;}
-  .page-home .dt-strip .dt-card{
-    flex:0 0 64%; flex-direction:column; align-items:stretch; gap:0; scroll-snap-align:start;
-    /* cards beyond the right edge must not wait for the scroll reveal */
-    opacity:1; transform:none;
-  }
-  .page-home .dt-strip .dt-card picture{flex:0 0 auto; max-width:none; width:100%;}
-  .page-home .dt-strip .dt-card img{height:auto; min-height:0; aspect-ratio:4/3;}
-  .page-home .dt-strip .dt-card-body{padding:12px 14px 14px;}
-  .page-home .dt-strip .dt-card-body b{font-size:0.98rem;}
-}
-
 @media (prefers-reduced-motion:reduce){
   .process-step::before{transform:scaleX(1); transition:none;}
   .dt-card img{transition:none;}
@@ -2034,22 +2013,33 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .page-home .trust-strip .trust-item b{color:#fff;}
 .page-home .trust-strip .trust-item span{color:rgba(255,255,255,0.78);}
 
-/* --- Phones: the three vehicles become a swipeable row of full-size cards
-   instead of three very small ones side by side. --- */
+.dt-more{display:none;}
+/* --- Phones: nothing on the homepage scrolls sideways. The three vehicles
+   are stacked rows (photo left, details right), the same pattern as the day
+   trips and hotel rows, instead of three very small cards side by side. --- */
 @media (max-width:640px){
-  .page-home .fleet-layout .fleet-grid{
-    display:flex; flex-wrap:nowrap; gap:12px; overflow-x:auto;
-    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-    margin:0 -10px; padding:6px 10px 14px; scroll-padding:0 10px; scrollbar-width:none;
-  }
-  .page-home .fleet-layout .fleet-grid::-webkit-scrollbar{display:none;}
-  .page-home .fleet-layout .fleet-card{flex:0 0 74%; scroll-snap-align:start; opacity:1; transform:none;}
-  .page-home .fleet-layout .fleet-body{padding:14px 16px 18px; text-align:left;}
-  .page-home .fleet-layout .fleet-class{display:block; font-size:0.64rem; margin-bottom:8px;}
-  .page-home .fleet-layout .fleet-card h3{font-size:1.25rem; margin-bottom:4px;}
-  .page-home .fleet-layout .fleet-card .fleet-model{font-size:0.86rem; line-height:1.4; margin-bottom:12px;}
-  .page-home .fleet-layout .fleet-spec-icons{justify-content:flex-start; gap:14px; margin-bottom:0;}
-  .page-home .fleet-layout .fleet-spec-icon{font-size:0.84rem; gap:5px;}
+  .page-home .fleet-layout .fleet-grid{grid-template-columns:1fr; gap:12px;}
+  .page-home .fleet-layout .fleet-card{flex-direction:row; align-items:center;}
+  .page-home .fleet-layout .fleet-media{flex:0 0 40%; aspect-ratio:4/3;}
+  .page-home .fleet-layout .fleet-media img{object-fit:contain;}
+  .page-home .fleet-layout .fleet-body{flex:1 1 auto; min-width:0; padding:12px 14px 12px 6px; text-align:left;}
+  .page-home .fleet-layout .fleet-class{display:none;}
+  .page-home .fleet-layout .fleet-card h3{font-size:1.1rem; margin-bottom:2px;}
+  .page-home .fleet-layout .fleet-card .fleet-model{font-size:0.84rem; line-height:1.35; margin-bottom:8px;}
+  .page-home .fleet-layout .fleet-spec-icons{justify-content:flex-start; gap:12px; margin-bottom:0;}
+  .page-home .fleet-layout .fleet-spec-icon{font-size:0.82rem; gap:4px;}
   .page-home .fleet-layout .fleet-spec-icon:nth-child(3){display:flex;}
-  .page-home .fleet-layout .fleet-spec-icon svg{width:16px; height:16px;}
+  .page-home .fleet-layout .fleet-spec-icon svg{width:15px; height:15px;}
+
+  /* Day trips: first three only, with a link to the full list below. */
+  .page-home .dt-strip .dt-card:nth-child(n+4){display:none;}
+  .page-home .dt-more{display:inline-block; margin-top:18px;}
+  .page-home .dt-strip-section .section-head .link{display:none;}
+
+  /* Reviews: stacked, first three only (the Google link above has the rest).
+     The old swipe row trapped vertical scrolling under the finger. */
+  .testi-grid{display:grid; grid-template-columns:1fr; gap:12px; overflow:visible;}
+  .testi-grid .testi-card:nth-child(n+4){display:none;}
+  .testi-grid .testi-card{padding:22px 20px;}
+  #testi-dots{display:none;}
 }

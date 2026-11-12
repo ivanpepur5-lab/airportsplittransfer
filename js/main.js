@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mq.addEventListener("change", (e) => { if (e.matches) startAutoplay(); else stopAutoplay(); });
   }
 
-  initCarousel(".testi-grid", ".testi-card", "testi-dots", 5000);
+  // Reviews are a plain stacked list on phones now (no swipe carousel).
   initCarousel(".blog-grid-carousel", ".blog-card", "blog-dots", 6000);
 
   // Count up numeric stats (ratings, review counts, distances) the first
