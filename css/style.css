@@ -1951,3 +1951,49 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .route-included li{font-size:0.92rem; color:var(--cream); display:flex; align-items:center; gap:8px;}
 .route-included li::before{content:'\2713'; color:var(--gold-text, #0b3c7a); font-weight:700;}
 @media (max-width:640px){.route-included{flex-direction:column; align-items:flex-start; gap:6px; margin:-40px 0 44px;}}
+
+/* ============ HOMEPAGE POLISH (2026-11-12) ============ */
+/* --- "How it works": a progress line draws in above each step as it is
+   revealed. The delay is inherited from the step, so the four lines follow
+   the same stagger main.js gives the cards. --- */
+.process-step{position:relative; padding-top:20px;}
+.process-step::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:2px; border-radius:2px;
+  background:linear-gradient(90deg, var(--gold), rgba(11,60,122,0.18));
+  transform:scaleX(0); transform-origin:left center;
+  transition:transform 1s var(--ease-out); transition-delay:inherit;
+}
+.process-step.in::before{transform:scaleX(1);}
+@media (max-width:640px){ .process-step{padding-top:14px;} }
+
+/* --- Day-trip cards: the photo eases in slightly on hover (mouse only),
+   matching the route cards above them. --- */
+.dt-card picture{overflow:hidden;}
+.dt-card img{transition:transform .5s var(--ease-out);}
+@media (hover:hover){ .dt-card:hover img{transform:scale(1.05);} }
+
+/* --- Phones: the six day trips become one swipeable row of photo cards
+   instead of six stacked rows. The next card peeks in to show it scrolls. --- */
+@media (max-width:640px){
+  .page-home .dt-strip{
+    display:flex; flex-wrap:nowrap; gap:12px; overflow-x:auto;
+    scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+    margin:0 -10px; padding:4px 10px 10px; scroll-padding:0 10px; scrollbar-width:none;
+  }
+  .page-home .dt-strip::-webkit-scrollbar{display:none;}
+  .page-home .dt-strip .dt-card{
+    flex:0 0 64%; flex-direction:column; align-items:stretch; gap:0; scroll-snap-align:start;
+    /* cards beyond the right edge must not wait for the scroll reveal */
+    opacity:1; transform:none;
+  }
+  .page-home .dt-strip .dt-card picture{flex:0 0 auto; max-width:none; width:100%;}
+  .page-home .dt-strip .dt-card img{height:auto; min-height:0; aspect-ratio:4/3;}
+  .page-home .dt-strip .dt-card-body{padding:12px 14px 14px;}
+  .page-home .dt-strip .dt-card-body b{font-size:0.98rem;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .process-step::before{transform:scaleX(1); transition:none;}
+  .dt-card img{transition:none;}
+  .dt-card:hover img{transform:none;}
+}
