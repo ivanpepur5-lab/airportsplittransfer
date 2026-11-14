@@ -147,4 +147,10 @@ Plitvice is a long day, so it helps to spend it walking rather than driving. You
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-14 08:15 UTC — Customer review post — Zacker Zap (8 of 10)
+
+A long run across a border is easier to book when you know it went smoothly. Zacker Zap travelled with us from Split to Montenegro and wrote in a Google review: "The driver was professional, friendly and punctual, and the journey was smooth and comfortable. Communication was great throughout, and everything went exactly as planned." Long trips are planned like short ones, with the price fixed before the day. 5.0 stars from 40+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
