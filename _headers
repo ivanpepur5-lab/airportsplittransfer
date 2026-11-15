@@ -20,6 +20,12 @@
   X-Robots-Tag: noindex, nofollow
 /tools/*
   X-Robots-Tag: noindex, nofollow
+/.agents/*
+  X-Robots-Tag: noindex, nofollow
+/.claude/*
+  X-Robots-Tag: noindex, nofollow
+/skills-lock.json
+  X-Robots-Tag: noindex, nofollow
 
 # Security headers on every page.
 # - nosniff: browsers must not guess a different content type.

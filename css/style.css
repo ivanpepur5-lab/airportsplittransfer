@@ -109,16 +109,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   text-align:center;
 }
 .btn-gold{background:var(--cta); color:#FFFFFF; border-color:var(--cta);}
-.btn-gold:hover{background:var(--cta-hover); border-color:var(--cta-hover); transform:translateY(-1px);}
+@media (hover:hover) and (pointer:fine){.btn-gold:hover{background:var(--cta-hover); border-color:var(--cta-hover); transform:translateY(-1px);}}
+
 .btn-navy{background:var(--navy); color:#FFFFFF; border-color:var(--navy);}
-.btn-navy:hover{filter:brightness(0.8); transform:translateY(-1px);}
+@media (hover:hover) and (pointer:fine){.btn-navy:hover{filter:brightness(0.8); transform:translateY(-1px);}}
+
 .btn-outline{background:transparent; color:var(--cream); border-color:var(--line-strong);}
 .btn-whatsapp-hero{border-width:1.5px; border-color:var(--line-strong); color:var(--cream);}
-.btn-outline:hover{border-color:var(--gold); color:var(--gold);}
+@media (hover:hover) and (pointer:fine){.btn-outline:hover{border-color:var(--gold); color:var(--gold);}}
+
 .btn-block{width:100%;}
 /* Primary booking action: comfortable target, restrained hover. */
 .btn-submit{height:56px; font-size:0.84rem; letter-spacing:0.08em; border-radius:12px;}
-.btn-submit:hover{filter:brightness(0.93);}
+@media (hover:hover) and (pointer:fine){.btn-submit:hover{filter:brightness(0.93);}}
+
 
 
 /* ============ HEADER ============ */
@@ -148,9 +152,13 @@ header{
 
 .nav-links{grid-area:links; justify-self:center; display:flex; flex-wrap:nowrap; gap:24px; font-size:0.74rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;}
 .nav-links a{color:var(--gray); transition:color .2s ease; position:relative; padding-bottom:3px; white-space:nowrap; flex-shrink:0;}
-.nav-links a:hover, .nav-links a.active{color:var(--cream);}
+.nav-links a.active{color:var(--cream);}
+@media (hover:hover) and (pointer:fine){.nav-links a:hover{color:var(--cream);}}
+
 .nav-links a::after{content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:var(--gold); transform:scaleX(0); transition:transform .25s ease; transform-origin:center;}
-.nav-links a:hover::after, .nav-links a.active::after{transform:scaleX(1);}
+.nav-links a.active::after{transform:scaleX(1);}
+@media (hover:hover) and (pointer:fine){.nav-links a:hover::after{transform:scaleX(1);}}
+
 
 .nav-toggle{grid-area:toggle; justify-self:end; display:none; background:none; border:none; margin:0 -8px 0 0; padding:0; min-width:44px; min-height:44px; line-height:1; color:var(--navy); font-size:1.8rem; cursor:pointer;}
 
@@ -160,7 +168,8 @@ header{
   background:var(--gold); color:#FFFFFF;
   transition:filter .2s ease, transform .2s ease;
 }
-.nav-whatsapp:hover{filter:brightness(0.85); transform:translateY(-1px);}
+@media (hover:hover) and (pointer:fine){.nav-whatsapp:hover{filter:brightness(0.85); transform:translateY(-1px);}}
+
 .nav-whatsapp svg{width:18px; height:18px;}
 
 /* Language switcher: a compact dropdown, same markup/size at every width
@@ -182,7 +191,8 @@ header{
   cursor:pointer;
   transition:border-color .2s ease;
 }
-.lang-dropdown-btn:hover{border-color:var(--navy);}
+@media (hover:hover) and (pointer:fine){.lang-dropdown-btn:hover{border-color:var(--navy);}}
+
 .lang-chevron{width:10px; height:10px; flex-shrink:0; transition:transform .15s ease;}
 .lang-dropdown.open .lang-chevron{transform:rotate(180deg);}
 .lang-dropdown-menu{
@@ -205,7 +215,8 @@ header{
   color:var(--navy);
   text-decoration:none;
 }
-.lang-option:hover{background:var(--bg-2);}
+@media (hover:hover) and (pointer:fine){.lang-option:hover{background:var(--bg-2);}}
+
 .lang-option.active{font-weight:700; color:var(--gold-text);}
 
 /* Language row inside the mobile menu: plain codes, no flags — a flag is a
@@ -219,7 +230,8 @@ header{
   font-size:0.78rem; font-weight:600; letter-spacing:0.08em;
   color:rgba(255,255,255,0.7); transition:color .2s ease, border-color .2s ease, background-color .2s ease;
 }
-.mobile-lang-opt:hover{color:#fff; border-color:rgba(255,255,255,0.5);}
+@media (hover:hover) and (pointer:fine){.mobile-lang-opt:hover{color:#fff; border-color:rgba(255,255,255,0.5);}}
+
 .mobile-lang-opt.active{color:var(--navy); background:#fff; border-color:#fff;}
 
 .mobile-nav{
@@ -572,7 +584,8 @@ header{
   cursor:pointer; flex-shrink:0; margin-bottom:2px;
   transition:background .2s ease;
 }
-.qb-swap:hover{background:var(--gold);}
+@media (hover:hover) and (pointer:fine){.qb-swap:hover{background:var(--gold);}}
+
 .qb-swap svg{width:16px; height:16px;}
 
 .qb-result{
@@ -622,7 +635,8 @@ section{padding:var(--space-section) 40px;}
 /* ============ WHY CHOOSE US ============ */
 .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
 .why-card{background:var(--bg); padding:36px 28px; border-radius:16px; box-shadow:0 2px 16px rgba(22,32,42,0.06); transition:transform .25s ease, box-shadow .25s ease;}
-.why-card:hover{transform:translateY(-3px); box-shadow:0 8px 24px rgba(22,32,42,0.09);}
+@media (hover:hover) and (pointer:fine){.why-card:hover{transform:translateY(-3px); box-shadow:0 8px 24px rgba(22,32,42,0.09);}}
+
 .why-icon{width:34px; height:34px; margin-bottom:22px; color:var(--gold);}
 .why-card h3{font-size:1.25rem; margin-bottom:10px;}
 .why-card p{font-size:0.9rem; color:var(--gray);}
@@ -648,7 +662,8 @@ section{padding:var(--space-section) 40px;}
 /* ============ FLEET ============ */
 .fleet-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
 .fleet-card{background:var(--bg); padding:0; display:flex; flex-direction:column; border-radius:16px; overflow:hidden; box-shadow:0 2px 16px rgba(22,32,42,0.07); transition:transform .3s ease, box-shadow .3s ease;}
-.fleet-card:hover{transform:translateY(-4px); box-shadow:0 10px 28px rgba(22,32,42,0.12);}
+@media (hover:hover) and (pointer:fine){.fleet-card:hover{transform:translateY(-4px); box-shadow:0 10px 28px rgba(22,32,42,0.12);}}
+
 /* Photographs now, not line drawings: they fill the frame edge to edge,
    so the inset padding and the grey plate behind them are gone. */
 /* Cut-outs on white now, so the frame carries no tint of its own — the
@@ -688,7 +703,8 @@ section{padding:var(--space-section) 40px;}
   font-weight:600; border-bottom:1px solid var(--line-strong);
 }
 .price-table td.num{font-family:'Lexend',sans-serif; font-size:1.15rem;}
-.price-table tr:hover td{background:rgba(11,60,122,0.04);}
+@media (hover:hover) and (pointer:fine){.price-table tr:hover td{background:rgba(11,60,122,0.04);}}
+
 .price-table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px;}
 
 /* ============ DESTINATIONS GRID ============ */
@@ -702,7 +718,8 @@ section{padding:var(--space-section) 40px;}
   transition:box-shadow .25s ease, transform .25s ease;
   position:relative;
 }
-.dest-card:hover{box-shadow:0 10px 26px rgba(22,32,42,0.10); transform:translateY(-3px);}
+@media (hover:hover) and (pointer:fine){.dest-card:hover{box-shadow:0 10px 26px rgba(22,32,42,0.10); transform:translateY(-3px);}}
+
 .dest-body{padding:30px 26px;}
 .dest-card h3{font-size:1.3rem; margin-bottom:20px;}
 @media (max-width:1100px){.dest-grid{grid-template-columns:repeat(3,1fr);}}
@@ -749,7 +766,8 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
   text-decoration:none; white-space:nowrap;
   transition:background-color .2s ease, color .2s ease, border-color .2s ease;
 }
-.dest-card-dirs a:hover{background:var(--gold); border-color:var(--gold); color:#fff;}
+@media (hover:hover) and (pointer:fine){.dest-card-dirs a:hover{background:var(--gold); border-color:var(--gold); color:#fff;}}
+
 @media (max-width:640px){
   .dest-card-pair{min-height:110px; padding:18px 14px;}
   .dest-card-dirs a{font-size:0.7rem; padding:9px 12px;}
@@ -787,7 +805,8 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
   transition:transform .3s ease, box-shadow .3s ease;
   display:flex; flex-direction:column;
 }
-.trip-card:hover{transform:translateY(-5px); box-shadow:0 14px 34px rgba(22,32,42,0.14);}
+@media (hover:hover) and (pointer:fine){.trip-card:hover{transform:translateY(-5px); box-shadow:0 14px 34px rgba(22,32,42,0.14);}}
+
 .trip-media{position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--bg-3);}
 .trip-media img{width:100%; height:100%; object-fit:cover; display:block;}
 .trip-badge{
@@ -883,7 +902,8 @@ body.page-daytrip .summary-box select{max-width:100%;}
 /* ============ BLOG ============ */
 .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
 .blog-card{background:var(--bg); padding:32px 28px; border-radius:16px; box-shadow:0 2px 14px rgba(22,32,42,0.06); transition:transform .25s ease, box-shadow .25s ease;}
-.blog-card:hover{transform:translateY(-3px); box-shadow:0 8px 22px rgba(22,32,42,0.10);}
+@media (hover:hover) and (pointer:fine){.blog-card:hover{transform:translateY(-3px); box-shadow:0 8px 22px rgba(22,32,42,0.10);}}
+
 .blog-cat{font-size:0.66rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-text); font-weight:600; margin-bottom:16px; display:block;}
 .blog-card h3{font-size:1.3rem; line-height:1.25; margin-bottom:14px; text-transform:none;}
 .blog-card p{font-size:0.86rem; color:var(--gray); margin-bottom:18px;}
@@ -892,7 +912,9 @@ body.page-daytrip .summary-box select{max-width:100%;}
 
 .blog-categories{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:50px;}
 .cat-pill{border:1px solid var(--line-strong); padding:9px 18px; font-size:0.74rem; letter-spacing:0.06em; text-transform:uppercase; border-radius:20px; color:var(--gray); transition:all .2s ease;}
-.cat-pill:hover, .cat-pill.active{border-color:var(--gold); color:var(--gold);}
+.cat-pill.active{border-color:var(--gold); color:var(--gold);}
+@media (hover:hover) and (pointer:fine){.cat-pill:hover{border-color:var(--gold); color:var(--gold);}}
+
 
 /* Article page */
 /* Top padding sized for the sticky header (it used to clear a fixed one). */
@@ -918,16 +940,19 @@ body.page-daytrip .summary-box select{max-width:100%;}
   color:var(--cream); font-size:1rem; font-weight:500;
   transition:color .2s ease, padding-left .2s ease;
 }
-.hotel-row:hover{color:var(--gold-text); padding-left:8px;}
+@media (hover:hover) and (pointer:fine){.hotel-row:hover{color:var(--gold-text); padding-left:8px;}}
+
 .hotel-row-chev{display:flex; width:18px; height:18px; flex-shrink:0; color:var(--gray); transition:color .2s ease;}
 .hotel-row-chev svg{width:100%; height:100%;}
-.hotel-row:hover .hotel-row-chev{color:var(--gold);}
+@media (hover:hover) and (pointer:fine){.hotel-row:hover .hotel-row-chev{color:var(--gold);}}
+
 .link-more{
   display:inline-block; margin-top:28px;
   font-size:0.74rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase;
   color:var(--gold-text);
 }
-.link-more:hover{text-decoration:underline;}
+@media (hover:hover) and (pointer:fine){.link-more:hover{text-decoration:underline;}}
+
 @media (max-width:760px){
   .hotel-rows{grid-template-columns:1fr; gap:0;}
   .hotel-row{font-size:0.95rem; padding:17px 2px;}
@@ -998,7 +1023,9 @@ body.page-daytrip .summary-box select{max-width:100%;}
 .toggle-opt.active .toggle-badge{background:#fff; color:var(--navy);}
 .toggle-tooltip{position:absolute; top:calc(100% + 9px); left:50%; transform:translateX(-50%); background:var(--cream); color:#fff; font-size:0.68rem; font-weight:500; letter-spacing:normal; text-transform:none; padding:7px 11px; border-radius:8px; white-space:nowrap; opacity:0; visibility:hidden; transition:opacity .15s ease; pointer-events:none; z-index:20;}
 .toggle-tooltip::after{content:""; position:absolute; bottom:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-bottom-color:var(--cream);}
-.toggle-badge:hover .toggle-tooltip, .toggle-badge:focus .toggle-tooltip{opacity:1; visibility:visible;}
+.toggle-badge:focus .toggle-tooltip{opacity:1; visibility:visible;}
+@media (hover:hover) and (pointer:fine){.toggle-badge:hover .toggle-tooltip{opacity:1; visibility:visible;}}
+
 
 fieldset{border:none; margin-bottom:26px; padding-top:26px; border-top:1px solid var(--line);}
 fieldset:first-of-type{padding-top:0; border-top:none;}
@@ -1016,7 +1043,8 @@ legend + *{clear:both;}
   transition:border-color .18s ease, box-shadow .18s ease;
 }
 .field input::placeholder, .field textarea::placeholder{color:#9AA1AC;}
-.field input:hover, .field select:hover, .field textarea:hover{border-color:#CDD3DC;}
+@media (hover:hover) and (pointer:fine){.field input:hover,.field select:hover,.field textarea:hover{border-color:#CDD3DC;}}
+
 .field input:focus, .field select:focus, .field textarea:focus{
   outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(11,60,122,0.12);
 }
@@ -1035,15 +1063,20 @@ legend + *{clear:both;}
 }
 /* Arrows point sideways while the two fields sit side by side. */
 .swap-btn svg{width:19px; height:19px; transform:rotate(90deg); transition:transform .3s var(--ease-out, ease);}
-.swap-btn:hover{background:var(--gold); color:#fff; box-shadow:0 4px 12px rgba(11,60,122,0.25);}
-.swap-btn:hover svg, .swap-btn:active svg{transform:rotate(270deg);}
+@media (hover:hover) and (pointer:fine){.swap-btn:hover{background:var(--gold); color:#fff; box-shadow:0 4px 12px rgba(11,60,122,0.25);}}
+
+.swap-btn:active svg{transform:rotate(270deg);}
+@media (hover:hover) and (pointer:fine){.swap-btn:hover svg{transform:rotate(270deg);}}
+
 @media (max-width:640px){
   .route-fields{grid-template-columns:1fr; gap:8px;}
   /* Fields are stacked: the button sits in the middle between them, half
      over each, with the arrows pointing up and down. */
   .swap-btn{justify-self:center; align-self:center; margin:-20px 0; position:relative; z-index:2; width:40px; height:40px;}
   .swap-btn svg{transform:none;}
-  .swap-btn:hover svg, .swap-btn:active svg{transform:rotate(180deg);}
+  .swap-btn:active svg{transform:rotate(180deg);}
+@media (hover:hover) and (pointer:fine){.swap-btn:hover svg{transform:rotate(180deg);}}
+
 }
 
 .custom-quote-msg{font-size:0.9rem; color:var(--gray); line-height:1.6; padding:8px 0;}
@@ -1102,7 +1135,8 @@ legend + *{clear:both;}
 .trip-summary-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
 .trip-summary-head h3{font-size:1.05rem; margin:0;}
 .trip-edit-link{background:none; border:none; color:var(--gold-text); font-size:0.78rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; cursor:pointer; padding:4px 8px;}
-.trip-edit-link:hover{text-decoration:underline;}
+@media (hover:hover) and (pointer:fine){.trip-edit-link:hover{text-decoration:underline;}}
+
 .trip-summary-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px 24px;}
 .trip-summary-grid > div{display:flex; flex-direction:column; gap:3px;}
 .trip-summary-grid span{font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--gray);}
@@ -1235,13 +1269,15 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
    them read as "blue text on a blue background". */
 .footer-col h3, .footer-col h4{font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:18px; font-weight:600;}
 .footer-col a{display:block; font-size:0.88rem; padding:4px 0; margin-bottom:3px; color:rgba(255,255,255,0.9); transition:color .2s ease;}
-.footer-col a:hover{color:#fff;}
+@media (hover:hover) and (pointer:fine){.footer-col a:hover{color:#fff;}}
+
 .footer-social{display:flex; gap:10px; margin-top:20px;}
 .footer-social a{
   width:34px; height:34px; border-radius:50%; border:1px solid rgba(255,255,255,0.18);
   display:flex; align-items:center; justify-content:center; margin-bottom:0;
 }
-.footer-social a:hover{border-color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.10);}
+@media (hover:hover) and (pointer:fine){.footer-social a:hover{border-color:rgba(255,255,255,0.45); background:rgba(255,255,255,0.10);}}
+
 .footer-social svg{width:15px; height:15px; color:rgba(255,255,255,0.8);}
 .footer-bottom{max-width:1280px; margin:0 auto; padding-top:26px; font-size:0.76rem; color:rgba(255,255,255,0.6); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
 .footer-bottom a{color:rgba(255,255,255,0.6); display:inline-block; padding:6px 0; margin:-6px 0;}
@@ -1251,7 +1287,8 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 /* ============ BREADCRUMB ============ */
 .breadcrumb{padding:36px 40px 0; max-width:1280px; margin:0 auto; font-size:0.78rem; color:var(--gray);}
 .breadcrumb a{color:var(--gray); transition:color .2s ease; display:inline-block; padding:6px 0; margin:-6px 0;}
-.breadcrumb a:hover{color:var(--gold);}
+@media (hover:hover) and (pointer:fine){.breadcrumb a:hover{color:var(--gold);}}
+
 .breadcrumb span{margin:0 8px; color:var(--line-strong);}
 
 /* ============ PAGE HERO (inner pages) ============ */
@@ -1296,7 +1333,8 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
     background:var(--cta); border-color:var(--cta);
     box-shadow:0 10px 24px rgba(194,65,12,0.25);
   }
-  body.page-home .hero .btn-gold.btn-hero:hover{background:var(--cta-hover); border-color:var(--cta-hover); filter:none;}
+  @media (hover:hover) and (pointer:fine){body.page-home .hero .btn-gold.btn-hero:hover{background:var(--cta-hover); border-color:var(--cta-hover); filter:none;}}
+
   body.page-home .btn-whatsapp-hero{border-color:var(--line-strong);}
   body.page-home .hero-trust-bar{gap:16px; margin-top:32px; padding-top:24px;}
   body.page-home .hero-trust-stars{color:var(--star); margin-left:6px;}
@@ -1525,8 +1563,8 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   header .brand-logo, header.is-scrolled .brand-logo{transform:none;}
   .btn-gold::after{display:none;}
   .btn:active, .vehicle-opt:active, .nav-whatsapp:active{transform:none;}
-  .fleet-card:hover, .fleet-card:hover .fleet-media img, .trip-card:hover .trip-media img,
-  .vehicle-opt:not(.active):not(.disabled):hover{transform:none;}
+  @media (hover:hover) and (pointer:fine){.fleet-card:hover,.fleet-card:hover .fleet-media img,.trip-card:hover .trip-media img,.vehicle-opt:not(.active):not(.disabled):hover{transform:none;}}
+
   .vehicle-opt.active, .vehicle-opt span.vopt-price:not(:empty), .vehicle-opt span.vopt-price.is-bumped:not(:empty), .btn-submit-price.is-bumped,
   #return-fields-row, .live-price-bar > div, #address-error, .booking-success.show{animation:none;}
 }
@@ -1692,7 +1730,8 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 /* Footer "Cookie Preferences" trigger: styled here as well, because the
    consent theme stylesheet is only loaded while the banner is open. */
 .footer-bottom .cookie-settings-link{background:none; border:none; padding:0; font:inherit; color:rgba(255,255,255,0.6); cursor:pointer; text-decoration:none;}
-.footer-bottom .cookie-settings-link:hover{color:#fff;}
+@media (hover:hover) and (pointer:fine){.footer-bottom .cookie-settings-link:hover{color:#fff;}}
+
 
 /* Longer translations: keep the hero rating on one line on phones, the
    four hero badges on one row on desktop, the One way / Return toggle
@@ -1797,7 +1836,8 @@ html[lang="no"] body.page-home .hero h1{--h1-fit:11.55;}
 /* Homepage strip: compact day-trip cards (two columns) under the routes. */
 .dt-strip{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;}
 .dt-card{display:flex; align-items:center; gap:16px; background:#fff; border:1px solid var(--line); border-radius:var(--radius, 14px); overflow:hidden; color:inherit; text-decoration:none; transition:box-shadow .3s ease, transform .3s ease;}
-.dt-card:hover{box-shadow:0 10px 26px rgba(22,32,42,0.10); transform:translateY(-3px);}
+@media (hover:hover) and (pointer:fine){.dt-card:hover{box-shadow:0 10px 26px rgba(22,32,42,0.10); transform:translateY(-3px);}}
+
 .dt-card picture{flex:0 0 38%; max-width:210px; align-self:stretch; display:block;}
 .dt-card img{width:100%; height:100%; min-height:96px; object-fit:cover; display:block;}
 .dt-card-body{display:flex; flex-direction:column; gap:4px; padding:14px 16px 14px 0;}
@@ -1850,7 +1890,8 @@ body.page-home header:not(.is-scrolled){box-shadow:none;}
 }
 .dest-card--photo .dest-photo, .dest-card--photo .dest-photo img{position:absolute; inset:0; width:100%; height:100%; display:block;}
 .dest-card--photo .dest-photo img{object-fit:cover; transition:transform .5s var(--ease-out);}
-.dest-card--photo:hover .dest-photo img{transform:scale(1.04);}
+@media (hover:hover) and (pointer:fine){.dest-card--photo:hover .dest-photo img{transform:scale(1.04);}}
+
 .dest-card--photo::after{
   content:''; position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(180deg, rgba(8,24,48,0) 40%, rgba(8,24,48,0.78) 100%);
@@ -1904,7 +1945,9 @@ body.page-home header:not(.is-scrolled){box-shadow:none;}
 .addr-suggest[hidden]{display:none;}
 .addr-suggest li[role="option"]{padding:10px 16px; cursor:pointer; font-size:0.9rem; line-height:1.35; color:var(--cream);}
 .addr-suggest li[role="option"] small{display:block; margin-top:2px; font-size:0.78rem; color:var(--gray);}
-.addr-suggest li[role="option"][aria-selected="true"], .addr-suggest li[role="option"]:hover{background:var(--bg-3);}
+.addr-suggest li[role="option"][aria-selected="true"]{background:var(--bg-3);}
+@media (hover:hover) and (pointer:fine){.addr-suggest li[role="option"]:hover{background:var(--bg-3);}}
+
 .addr-suggest .addr-attr{padding:6px 16px 2px; text-align:right; font:400 12px/1.3 Roboto, Arial, sans-serif; letter-spacing:normal; color:#5E5E5E;}
 /* The booking hero clips the cars at its edges; clip only sideways so the suggestion list can drop below its bottom edge. */
 .hero--booking{overflow-x:clip; overflow-y:visible;}
@@ -1916,7 +1959,8 @@ details.faq-item > summary::marker{content:'';}
 details.faq-item > summary h3{margin:0; flex:1 1 auto; font-size:1.05rem; line-height:1.4; text-transform:none; color:var(--cream); font-weight:600; font-family:'Inter',sans-serif;}
 details.faq-item > summary::after{content:''; flex:0 0 auto; width:9px; height:9px; margin:-4px 6px 0 0; border-right:2px solid var(--gold); border-bottom:2px solid var(--gold); transform:rotate(45deg); transition:transform .2s ease, margin .2s ease;}
 details.faq-item[open] > summary::after{transform:rotate(-135deg); margin-top:4px;}
-details.faq-item > summary:hover h3{color:var(--gold);}
+@media (hover:hover) and (pointer:fine){details.faq-item > summary:hover h3{color:var(--gold);}}
+
 details.faq-item > summary:focus-visible{outline:2px solid var(--gold); outline-offset:6px; border-radius:6px;}
 details.faq-item > p{margin:12px 0 0; padding-right:28px;}
 .to-airport details.faq-item > summary h3{font-size:1rem;}
@@ -1930,8 +1974,11 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .trip-card .btn{position:static; overflow:visible; isolation:auto;}
 .trip-card .btn::before{content:''; position:absolute; inset:0; z-index:2;}
 .trip-card .btn::after{display:none;}
-.trip-card .btn, .trip-card .btn:hover, .trip-card .btn:active{transform:none;}
-.trip-card:hover .btn-gold{background:var(--cta-hover); border-color:var(--cta-hover); box-shadow:0 10px 24px rgba(194,65,12,0.28);}
+.trip-card .btn,.trip-card .btn:active{transform:none;}
+@media (hover:hover) and (pointer:fine){.trip-card .btn:hover{transform:none;}}
+
+@media (hover:hover) and (pointer:fine){.trip-card:hover .btn-gold{background:var(--cta-hover); border-color:var(--cta-hover); box-shadow:0 10px 24px rgba(194,65,12,0.28);}}
+
 .trip-card:has(.btn:focus-visible){outline:3px solid var(--gold); outline-offset:3px;}
 .trip-card .btn:focus-visible{outline:none;}
 
@@ -2043,3 +2090,15 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
   .testi-grid .testi-card{padding:22px 20px;}
   #testi-dots{display:none;}
 }
+
+/* Mobile baseline (added 2026-11-08, from the mobile-native checklist) */
+html{-webkit-tap-highlight-color:transparent; -webkit-text-size-adjust:100%; text-size-adjust:100%;}
+a, button, [role="button"], summary, label, select, input[type="submit"]{touch-action:manipulation;}
+button, [role="button"], .btn, .nav-toggle, .lang-btn, summary{user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;}
+/* iOS zooms the page when an input under 16px gets focus and does not zoom back out. */
+@media (pointer:coarse){
+  input, select, textarea, .bw-compact .field input, .bw-compact .field select, .bw-compact input[type="date"]{font-size:16px !important;}
+  .bw-compact .field input::placeholder{font-size:16px;}
+}
+.booking-layout > *{min-width:0;}
+.booking-form-box input, .booking-form-box select, .booking-form-box textarea{max-width:100%;}
