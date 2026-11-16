@@ -153,4 +153,10 @@ A long run across a border is easier to book when you know it went smoothly. Zac
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-16 07:18 UTC — Airport transfer post — Flight monitoring, free waiting time
+
+Delays happen, and a transfer should not depend on the timetable. We watch your flight number, so if you land late your driver is still waiting at arrivals with your name on a board. The first 60 minutes of waiting are free, enough for passport control and a slow baggage belt, and the price you were quoted stays the same.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
