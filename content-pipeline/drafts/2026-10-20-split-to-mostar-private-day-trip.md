@@ -49,20 +49,20 @@ Guests tend to fall into two groups. Some are staying in Split or on the Makarsk
 
 ### The route and the border
 
-The drive leaves the Dalmatian coast and climbs inland. The scenery changes from sea and olive groves to dry hills and river valleys. Expect roughly two and a half hours each way, depending on traffic and on the queue at the border. The distance is a little under 200 kilometres.
+The drive leaves the Dalmatian coast and climbs inland. The scenery changes from sea and olive groves to dry hills and river valleys. Expect about two and a half hours each way, depending on traffic and on the wait at the border. The most common route goes through Metković and the Doljani border crossing, and other routes are possible.
 
-Croatia and Bosnia and Herzegovina have a land border, and it is an external border of the European Union. That means a passport check on the way in and again on the way back. Carry the identity document that your nationality requires and keep it within reach of your seat. Waiting times depend on the day. Summer weekends and the mornings after public holidays are slower. Your driver knows the usual pattern and plans the day around it.
+Croatia and Bosnia and Herzegovina have a land border, so there is a border check on the way in and again on the way back. You need a valid travel document that is accepted for entry into Bosnia and Herzegovina, so keep it within reach. In summer the wait at the border can be longer, and outside the season it is usually faster. We always advise guests to count on extra time for the border control.
 
 ### What to see in Mostar
 
-Give the town three to four hours. That is enough for the bridge, the old bazaar and a long lunch.
+Give the town at least two to three hours. That is enough for the old town, the bridge, the bazaar and a meal in a local restaurant. If you have more time, enjoy it without hurrying.
 
 - **Stari Most.** Walk across the bridge and look at it from both banks. In summer, local divers jump from the top in front of a crowd.
 - **Kujundžiluk.** The old bazaar street sells copperware, ceramics and sweets.
 - **A mosque and a minaret.** A few of the old mosques welcome visitors and some have a minaret you can climb for a view over the river and the bridge.
 - **The river terraces.** Many restaurants sit directly above the Neretva. Lunch here is part of the visit.
 
-Bring a card and some cash. Bosnia and Herzegovina uses its own currency, and cards are accepted in most places in the centre, though small shops often prefer cash.
+Bring some cash in euros or in convertible marks. Bosnia and Herzegovina uses its own currency, the convertible mark.
 
 ### Why a private transfer works well
 
@@ -77,7 +77,11 @@ If you land in the morning and want to go straight to Mostar, tell us your fligh
 
 ### Planning the day
 
-Leave Split early, ideally by eight in the morning, so that you reach Mostar before the busiest hours. Spend the middle of the day in the old town, eat lunch above the river, and start back by late afternoon. In July and August, plan for heat: wear light clothes and comfortable shoes, because the old paving is uneven and slippery.
+Leave Split early, ideally by eight in the morning, so that you reach Mostar before the busiest hours. Spend the middle of the day in the old town, eat lunch above the river, and start back by late afternoon.
+
+The driver leaves you as close to the old town and the Old Bridge as traffic and stopping rules allow. There are public car parks nearby where the driver can park and wait for you. Agree the meeting place and the time in advance, because the old part of the town gets crowded, especially in the tourist season.
+
+Guests often ask whether they can visit one more attraction on the same day. If you have more time, the trip can be extended to the Kravice waterfalls or to Međugorje. Our advice is not to try to see too much in a single day, but to enjoy Mostar without rushing. In July and August, plan for heat: wear light clothes and comfortable shoes, because the old paving is uneven and slippery.
 
 Mostar also fits as a stop on a longer journey. Guests continuing to Dubrovnik can pass through Mostar and spend a few hours there on the way. Our Split to Dubrovnik guide explains the road along the coast, and the same driver can plan either version.
 
@@ -99,15 +103,15 @@ Guests who stay in Makarska, Brela or Tučepi often ask whether Mostar is closer
 
 ### How to book
 
-Mostar is not a fixed-price route in the booking form, so we plan it with you. Send us your dates, the number of passengers and your hotel or arrival time through the custom tour request, and we confirm the details and the price in writing before you travel. For routes along the coast you can use the booking form directly.
+Mostar is not an address you can quote in the airport booking form, but there is a bookable day trip. Our private day trip to Mostar and the Kravice waterfalls has its own page with a fixed price. If you only want Mostar, or a different plan, send us your dates, the number of passengers and your hotel or arrival time through the custom tour request, and we confirm the details and the price before you travel. For routes along the coast you can use the booking form directly.
 
 ## FAQ (5)
 
 **1. How long does it take to drive from Split to Mostar?**
-Allow roughly two and a half hours each way, depending on traffic and on the wait at the border. Most guests plan about nine to ten hours for the whole day, including three to four hours in Mostar.
+Allow about two and a half hours each way, depending on traffic and on the wait at the border. In summer the wait can be longer. We recommend at least two to three hours in Mostar itself.
 
 **2. Do I need a passport to go to Mostar from Split?**
-Yes, you cross an external border of the European Union into Bosnia and Herzegovina, so carry the identity document your nationality requires. Check the entry rules for your passport before you travel.
+Yes. You cross the border into Bosnia and Herzegovina, so you need a valid travel document that is accepted for entry. Check the entry rules for your document before you travel.
 
 **3. Can I visit Mostar on the way from Split to Dubrovnik?**
 Yes. Many guests combine the two. You can leave Split, spend a few hours in Mostar and continue to Dubrovnik the same day, or do it in the other direction. Contact us with your plan and we arrange it.
@@ -122,7 +126,7 @@ Spring and autumn are the most comfortable, with milder temperatures. Summer is 
 
 - `blog/split-to-dubrovnik-guide` (the coast road and the Neum corridor, body paragraph "Planning the day")
 - `blog/split-airport-to-dubrovnik-worth-it` (Related Reading)
-- `day-trips.html` ("custom private tours", body paragraph "How to book")
+- `day-trips/mostar-kravice` (the bookable Mostar and Kravice day trip, body paragraph "How to book") and `day-trips.html` ("custom private tours")
 - `day-trips/krka-national-park` and `day-trips/plitvice-lakes` (Related Reading, other day trips)
 - `contact.html` (the custom tour request, button "Request a Custom Tour")
 - `blog/vclass-vs-trafic` (vehicle choice for a group)
@@ -133,22 +137,32 @@ Spring and autumn are the most comfortable, with milder temperatures. Summer is 
 
 | Fact in the draft | Source / status |
 |---|---|
-| About two and a half hours each way, a little under 200 km | My estimate from the region's road network. **Please confirm** the real time and distance you use. |
+| About two and a half hours each way; usual route via Metković and the Doljani crossing, other routes possible | **Confirmed by Ivan, 17 Nov.** The distance ("a little under 200 km") is no longer stated. **Conflict:** the live page `day-trips/mostar-kravice` says "roughly 3 hours each way" (that trip includes Kravice). Ivan to say which figure the site should use |
 | Mostar on the Neretva, Herzegovina, Bosnia and Herzegovina | General knowledge. |
 | Stari Most rebuilt and reopened in 2004; UNESCO World Heritage listing | General knowledge. I did not verify a source in this firing. |
 | Local divers jump from the bridge in summer | General knowledge. Check wording. |
 | Kujundžiluk bazaar, mosques with a climbable minaret | General knowledge. Check which mosques welcome visitors and the usual opening times. |
-| Border: a passport check in both directions; "an external border of the EU" | Croatia is in the EU and Schengen. **Please confirm** what you tell guests: documents, vehicle papers (green card / insurance) and whether any nationality has special rules. |
-| Waiting times are longer on summer weekends and after public holidays | My assumption. **Please confirm** from your own experience. |
-| Bosnia and Herzegovina currency (convertible mark), cards accepted in the centre | General knowledge. **Please confirm** the advice you give guests (cash or card). |
-| Sample day times (08:00 start, about 10:30 to 11:00 arrival, 15:00 return, 18:00 back) | Derived from my 2.5 hour estimate. **Please confirm** or correct to your usual day. |
+| Border check in both directions; valid travel document accepted for entry into Bosnia and Herzegovina; always allow extra time | **Confirmed by Ivan, 17 Nov.** Still open: vehicle papers (green card, insurance) and special rules for some nationalities, not stated in the draft |
+| Longer border wait in summer, faster out of season | **Confirmed by Ivan, 17 Nov.** (Weekends and holidays are no longer mentioned.) |
+| Bring some cash in euros or convertible marks | **Confirmed by Ivan, 17 Nov.** (The claim about cards in the centre is removed.) |
+| Sample day times (08:00 start, about 10:30 to 11:00 arrival, 15:00 return, 18:00 back) | Derived from 2.5 h. **Not yet confirmed by Ivan.** Time in Mostar is now "at least 2 to 3 hours" (Ivan), which may shift the sample day |
 | Mostar is also reachable on a day trip from Makarska, Brela and Tučepi | My assumption. **Please confirm** the route and time from the Makarska coast. |
 | Sedan up to 4, V-Class up to 7, Trafic up to 8 | From the site's fleet page. |
-| "Custom tour" wording and a written price before travel | From `day-trips.html`. **Please confirm** you really quote Mostar this way. |
+| Bookable day trip "Mostar and Kravice" exists with a fixed price; custom tour for other plans | From `day-trips/mostar-kravice.html` and `day-trips.html` (no price stated in the article). Ivan to confirm the custom option for Mostar alone |
+| Guests are dropped as close to the old town and the Old Bridge as traffic allows; public car parks nearby; agree meeting place and time in advance | **Confirmed by Ivan, 17 Nov** |
+| Add-ons: Kravice waterfalls or Međugorje; do not try to see too much in one day | **Ivan's advice, 17 Nov** |
 | No fixed € price anywhere | Rule of the pipeline: none stated. |
 
-## Questions for Ivan
+## Questions for Ivan (answered 17 Nov, his answers are worked into the text above)
 
 1. Do you take guests to Mostar, and how often? Which route and which border crossing do you use, and how long does the wait usually take in summer and in winter?
 2. Where in Mostar do you meet guests or drop them off, and where is it easy to park or wait?
 3. What do guests ask you most about this trip (documents, money, how long to stay, Medjugorje or Kravice waterfalls as add-ons)? Is there a tip that you give every guest?
+
+### Ivan's answers, 17 Nov (verbatim, Croatian)
+
+1. Da, nudim privatne transfere i izlete iz Splita do Mostara, uglavnom na zahtjev gostiju. Putovanje traje oko 2,5 sata u jednom smjeru, ovisno o prometu i čekanju na granici. Najčešće se ide preko Metkovića i graničnog prijelaza Doljani, a moguće su i alternativne rute. Ljeti se na granici može čekati duže, dok je izvan sezone uglavnom brže. Uvijek gostima savjetujem da računaju na dodatno vrijeme zbog granične kontrole.
+2. Goste ostavljam što bliže staroj gradskoj jezgri i Starom mostu, ovisno o prometu i mogućnostima zaustavljanja. U blizini postoje javna parkirališta na kojima se može parkirati i pričekati goste. Najbolje je unaprijed dogovoriti mjesto i vrijeme sastanka jer u starom dijelu grada zna biti gužva, posebno tijekom turističke sezone.
+3. Gosti najčešće pitaju trebaju li putovnicu, koliko vremena imaju za razgledavanje i mogu li usput posjetiti još neku atrakciju. Za prelazak granice potrebno je imati važeći putni dokument koji se priznaje za ulazak u BiH. Savjetujem im da ponesu nešto gotovine u eurima ili konvertibilnim markama. Za Mostar preporučujem najmanje 2 do 3 sata za razgledavanje starog grada, Starog mosta, bazara i lokalnih restorana. Ako imaju više vremena, izlet se može proširiti na slapove Kravice ili Međugorje. Moj savjet je da ne pokušavaju obići previše mjesta u jednom danu, nego da uživaju u Mostaru bez žurbe.
+
+Status: ready for Ivan's final read. Open: the 2.5 h (Ivan) vs 3 h (live day-trip page) conflict, vehicle papers, the sample day times.
