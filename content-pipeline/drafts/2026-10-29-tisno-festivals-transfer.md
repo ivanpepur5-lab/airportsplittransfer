@@ -53,8 +53,8 @@ Dimensions 26 to 31 August. Treat these as provisional until the festival confir
 
 ### How far is Tisno from Split Airport?
 
-Split Airport and Tisno are roughly 90 to 95 kilometres apart. Our Murter page, for the town right next to Tisno, gives one hour and twenty minutes from the airport,
-and Tisno is about the same. In July and August expect more, because the whole coast road is busy and a summer Friday can be slow.
+Split Airport and Tisno are roughly 90 to 95 kilometres apart. The drive from the airport takes about one hour and fifteen minutes to one hour and thirty minutes, depending on traffic.
+In July and August and at weekends expect a little longer, because the whole coast road is busy and a summer Friday can be slow.
 
 Zadar Airport is the other airport used for the festivals. If your flight options are cheaper into Zadar, compare both airports and see our Zadar airport guide for the road.
 
@@ -63,7 +63,7 @@ Zadar Airport is the other airport used for the festivals. If your flight option
 Festivals usually begin on a Wednesday or Thursday and finish on Monday or Tuesday, so most flights land in a few concentrated waves. That has three practical effects.
 
 - **Late arrivals.** A flight that lands at night still has a drive of more than an hour ahead of it. A private transfer waits in the arrivals hall,
-  and we follow your flight number, so a delayed landing does not cost you the pickup.
+  and we follow your flight number, so a delayed landing does not cost you the pickup. We take transfers at any hour of the day or night, including late-night and early-morning arrivals and departures.
 - **Early departures.** The last night often runs until morning, and morning flights from Split leave early. Work back from your check-in time, add the drive,
   and leave a buffer. On busy summer days allow up to half an hour extra.
 - **Groups and gear.** Friends travelling together can share one vehicle: a Mercedes V-Class takes up to 7 passengers and a Renault Trafic up to 8, with space for festival luggage.
@@ -71,7 +71,7 @@ Festivals usually begin on a Wednesday or Thursday and finish on Monday or Tuesd
 ### Why a private transfer works here
 
 Public transport to Tisno is limited. Buses run mainly from the cities, so from the airport you would first go to Split or Zadar and then change.
-A private transfer goes from the arrivals hall to your accommodation or to the gate of the venue, at a fixed price shown before you book.
+A private transfer is door to door, from the arrivals hall straight to The Garden Resort, to private accommodation or to an apartment in Tisno or on Murter, at a fixed price shown before you book. We agree the drop-off point with you in advance, depending on access to the property and any traffic restrictions.
 Enter Tisno or the name of your accommodation as the drop-off in the booking form and the form calculates the price from the road distance.
 
 ### Staying outside the venue
@@ -83,12 +83,12 @@ If your accommodation is a house or an apartment, send us the address and we pic
 
 - Check the festival's own website for entry times and any official shuttle.
 - Keep your flight number and arrival time ready when you book.
-- Book early for the first and last weekends of the season, when flights and rooms fill up first.
+- Book early for the first and last weekends of the season, when flights and rooms fill up first. We recommend booking in advance for festival weekends so that your transfer is secured.
 
 ## FAQ (5)
 
 **How far is Tisno from Split Airport?**
-Roughly 90 to 95 kilometres, about an hour and twenty minutes without traffic. In July and August it is often longer.
+Roughly 90 to 95 kilometres, about 1 hour 15 minutes to 1 hour 30 minutes depending on traffic. In July and August and at weekends it is often longer.
 
 **Which festivals take place in Tisno?**
 Several festivals at The Garden Resort between July and early September, among them Love International, Terminal V Croatia, Balance Croatia and Dimensions. Check each festival's site for the current dates.
@@ -124,13 +124,25 @@ No € price, no em dashes, no emojis, no claim that the owner drives every ride
 | Genres of each festival | INSITE article |
 | Venue: The Garden Resort, Petrica Glava, Tisno | Ticket listings |
 | Tisno lies on the channel between Murter island and the mainland | Common knowledge; confirm |
-| Split Airport to Tisno roughly 90 to 95 km, about 1 h 20 | Shuttle and transfer listings (about 93 km, about 1 h 20); Murter figure from `destinations/murter.html` (1 h 20). Not computed for Tisno itself |
+| Drive from Split Airport to Tisno 1 h 15 min to 1 h 30 min depending on traffic; longer in summer and at weekends | **Confirmed by Ivan, 17 Nov** |
+| Distance roughly 90 to 95 km | Shuttle and transfer listings (about 93 km); **not confirmed by Ivan**, not computed for Tisno itself |
+| Ivan drives guests from Split Airport to Tisno and Murter, including The Garden Resort festival guests | **Confirmed by Ivan, 17 Nov** |
+| Door to door to The Garden Resort, private accommodation, apartments in Tisno and Murter; drop-off point agreed in advance depending on access and traffic restrictions | **Confirmed by Ivan, 17 Nov** |
+| Transfers accepted at any hour, including late-night and early-morning; book ahead for festival weekends | **Confirmed by Ivan, 17 Nov** |
 | Zadar Airport also serves the festivals | General; no distance is stated in the draft |
 | Buses run mostly from Split and Zadar, change in the city | A festival transport guide (Defected Croatia notion page); confirm |
 | Festivals usually start Wednesday or Thursday and end Monday or Tuesday | 2026 and 2027 dates above; confirm |
 
-## Questions for Ivan
+## Questions for Ivan (answered 17 Nov, his answers are worked into the text above)
 
 1. Have you driven festival guests to Tisno? Which festivals, from which airport and how long did the drive actually take (night, summer traffic)?
 2. Where do you drop guests: at the gate of The Garden Resort, at an apartment in Tisno or Murter, or somewhere else? Is there a place where a car cannot go in?
 3. Would you take late-night or early-morning transfers for festival groups? If not, we should not suggest them in the guide.
+
+### Ivan's answers, 17 Nov (verbatim, Croatian)
+
+1. Da, vozio sam goste iz Zračne luke Split prema Tisnom i Murteru, uključujući goste koji dolaze na festivalska događanja u The Garden Resortu. Vožnja od Zračne luke Split do Tisnog traje otprilike 1 sat i 15 minuta do 1 sat i 30 minuta, ovisno o prometu. Tijekom ljetnih mjeseci i vikendom treba računati na nešto duže putovanje.
+2. Nudim privatne transfere od vrata do vrata. Goste vozim izravno do The Garden Resorta, privatnog smještaja, apartmana i drugih lokacija u Tisnom i na Murteru. Lokaciju iskrcaja dogovaramo unaprijed, ovisno o pristupu pojedinom objektu i eventualnim prometnim ograničenjima.
+3. Da, prihvaćam transfere tijekom cijelog dana i noći, uključujući kasne noćne i ranojutarnje dolaske i odlaske. Preporučujem rezervaciju unaprijed, posebno tijekom festivalskih vikenda, kako bi gosti osigurali svoje mjesto i bezbrižan prijevoz.
+
+Status: ready for Ivan's final read. Still to confirm: the 2026 festival calendar and the provisional 2027 dates (check each festival's own site before publishing), bus connections, the festival start and end weekdays.
