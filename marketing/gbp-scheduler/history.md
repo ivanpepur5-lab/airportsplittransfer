@@ -159,4 +159,10 @@ Delays happen, and a transfer should not depend on the timetable. We watch your 
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-19 16:11 UTC — Day trip post — Krka National Park
+
+A day at Krka starts and ends at your door. We collect you in Split, drive you to the park and wait while you walk the wooden paths, with an English-speaking driver who stays for the return leg. The group is only yours, never a shared shuttle, and the whole 8-10 hour day has one fixed price: €280 by car, €325 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
