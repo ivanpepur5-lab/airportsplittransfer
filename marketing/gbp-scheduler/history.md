@@ -165,4 +165,10 @@ A day at Krka starts and ends at your door. We collect you in Split, drive you t
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-21 08:15 UTC — Customer review post — Alec Miskulin (9 of 10)
+
+A long drive is easier with the right person behind the wheel. Alec Miskulin travelled with us from Split all the way to Dubrovnik Airport and wrote in his Google review that "the entire experience was excellent from start to finish. He was very friendly, professional, and easy to talk to, which made the long drive much more enjoyable." Distance is no reason to leave the price open, so a long coast run is quoted before you travel. 5.0 stars from 40+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
