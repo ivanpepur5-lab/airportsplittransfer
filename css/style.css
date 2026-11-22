@@ -2102,3 +2102,23 @@ button, [role="button"], .btn, .nav-toggle, .lang-btn, summary{user-select:none;
 }
 .booking-layout > *{min-width:0;}
 .booking-form-box input, .booking-form-box select, .booking-form-box textarea{max-width:100%;}
+
+/* ============ UNSLOP POLISH (2026-11-15) ============ */
+/* Section headings: one size and a lighter weight everywhere on the page. */
+h1, h2{font-weight:600;}
+.hero h1{font-weight:600;}
+.section-head h2{font-size:clamp(1.75rem, 3vw, 2.4rem); line-height:1.2;}
+/* Small labels in normal sentence case instead of tracked capitals. */
+.nav-links{font-size:0.84rem; letter-spacing:0; text-transform:none;}
+@media (max-width:1200px){ .nav-links{gap:18px;} }
+@media (max-width:1100px){ .nav-links{gap:14px; font-size:0.8rem;} }
+.eyebrow, .hero-badge, .fleet-class, .fleet-specs span, .trust-item span, .trip-badge, .link-more, .blog-cat,
+.cat-pill, .price-table th, .dest-card-dirs a, .footer-col h3, .footer-col h4, .vehicle-opt span.vopt-pax,
+.trip-price-label, .qb-field label{text-transform:none; letter-spacing:0.01em; font-size:0.82rem;}
+/* "-5%" next to Return: quiet accent text instead of a dark pill. */
+.toggle-badge{padding:0; border-radius:0; background:none; color:var(--gold-text); font-size:0.78rem; font-weight:600;}
+.toggle-opt.active .toggle-badge{background:none; color:#fff;}
+/* No image zoom on the day-trip and hotel cards. */
+@media (hover:hover){ .dt-card:hover img, .hotel-row--photo:hover .hotel-row-thumb img{transform:none;} }
+/* Phones: the two cars peeked out behind the form edges as cut-off fragments. */
+@media (max-width:560px){ .hero--booking .hero-skoda, .hero--booking .hero-vclass{display:none;} }
