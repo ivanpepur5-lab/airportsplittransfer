@@ -43,17 +43,16 @@ and a half hours, and in summer a second service calls at Brač and Hvar on the 
 change with the season, so check the operator before you plan your day around a departure.
 
 This is the easiest option if you have little luggage and arrive early. The boat docks just below the old town of Korčula, so
-you step off in the middle of things. The weak point is the transfer in Split: the ferry port is about twenty-five minutes from
+you step off in the middle of things. If the catamaran timetable suits you, it is often the simpler option, because you arrive directly in Korčula Town. The weak point is the transfer in Split: the ferry port is about twenty-five minutes from
 the airport by car, and a catamaran will not wait for a late flight.
 
 ### Option 2: Drive to Orebić and take the car ferry
 
 The other route goes by road to the Pelješac peninsula. You drive to Orebić, and from there a car ferry crosses to Dominče on Korčula in about
-twenty minutes, according to the operator's timetable. Aggregators put the whole journey from Split Airport at roughly three and a half to
-four hours including the crossing. Since the Pelješac Bridge opened, the road stays in Croatia and avoids the border crossing at Neum. Our drivers use the bridge.
+twenty minutes, according to the operator's timetable. From the airport, count on roughly three and a half to four hours via Orebić, including the ferry and the wait. Since the Pelješac Bridge opened, the road stays in Croatia and avoids the border crossing at Neum. Our drivers use the bridge.
 
 The car ferry lands at Dominče, a few kilometres from Korčula Town, not in the old town itself. If you are staying in the town, the last leg is a short drive from the ferry.
-There is also a foot passenger boat between Orebić and Korčula Town, but a car cannot use it.
+There is also a foot passenger boat between Orebić and Korčula Town, but a car cannot use it. If you travel in your own car and do not need it on the island, you can leave it in the car park in Orebić and cross as a passenger. Always check the timetable in advance and arrive early in the summer season. Ferry tickets and the passage of a car are planned separately, and the price depends on the vehicle and the number of passengers.
 
 This is the better choice for larger groups, families and anyone with heavy bags, because the luggage stays in one vehicle
 from the airport to the door. It is also the option that does not depend on a single daily sailing.
@@ -74,10 +73,14 @@ port is the simple way to meet it. If your flight is delayed we follow the fligh
 
 ### Where a private transfer fits
 
-We drive the leg from the airport to the ferry port in Split, and the road leg to the ferry at Orebić. [IVAN: what happens after the ferry? See question 2.]
+We offer both: a private transfer from the airport to Orebić and then the ferry to Korčula, or a transfer to the ferry port in Split and then the catamaran, depending on your accommodation, your schedule and your budget. [IVAN: does a driver meet guests on Korčula after the ferry, or do they arrange a local taxi? Not answered yet.]
 For the Orebić route, tell us the ferry departure you are aiming for when you book, and we plan the pickup to match.
 Use the booking form with the Split Airport pickup, enter your port or ferry terminal as the drop-off and the form
 quotes the fixed price for that stretch.
+
+### Once you are on Korčula
+
+Guests most often ask how to get from the ferry to their accommodation, where to park and how to move around the town. The old town is mostly pedestrian and not practical for cars, so arrange the transport to your accommodation in advance. Set aside time to walk the old town, see the sights and eat in the local restaurants. If you arrive at the peak of the season, organise the transport early and do not leave it to the last moment.
 
 ### Getting back to the airport
 
@@ -119,7 +122,10 @@ No € price, no em dashes, no emojis, no claim that the owner drives every ride
 |---|---|
 | Orebić to Dominče car ferry, about 20 minutes, line 634, lands at Dominče about 3 to 4 km from Korčula Town | Jadrolinija timetable (2024/25 PDF) and travel guides; confirm the current schedule |
 | Foot passenger boat Orebić to Korčula Town docks below the old town, no cars | Time Out Orebić guide |
-| Whole trip Split Airport to Dominče by road and ferry about 3 h 40 min | Rome2Rio estimate (aggregator, not official) |
+| Whole trip airport to Korčula via Orebić about 3.5 to 4 h including ferry and wait | **Confirmed by Ivan, 17 Nov** (before: Rome2Rio estimate about 3 h 40 min) |
+| Options offered: transfer to Orebić then ferry, or transfer to Split port then catamaran (often simpler if the timetable fits, arrives in Korčula Town) | **Confirmed by Ivan, 17 Nov** |
+| Guests with their own car can leave it in the Orebić car park and cross as passengers; tickets and car passage planned separately, price depends on vehicle and passengers | **Confirmed by Ivan, 17 Nov** |
+| On Korčula: old town mostly pedestrian, arrange transport to accommodation in advance, book early in peak season | **Confirmed by Ivan, 17 Nov** |
 | Direct Split to Korčula catamaran about 2 h 30 min, daily; Jadrolinija summer service via Brač and Hvar about 3 h 15 min, early June to mid-September | Travel sites (visit-croatia, croatiaferries); 2026 timetables not confirmed |
 | Split to Vela Luka car ferry about 3 h and catamaran about 2 h (one source says 1 h 45) | Jadrolinija and TP Line listings via travel sites; conflicting, so the draft says "about" |
 | Split ferry port about 25 minutes from the airport | Already used on `destinations/split` |
@@ -127,9 +133,17 @@ No € price, no em dashes, no emojis, no claim that the owner drives every ride
 | Pelješac Bridge avoids the border crossing at Neum | Common knowledge; confirm |
 | Car ferry spaces and catamaran seats can sell out in July and August (FAQ 5) | General, not sourced; ask Ivan or soften |
 
-## Questions for Ivan
+## Questions for Ivan (partly answered 17 Nov, his answers are worked into the text above)
 
 1. Have you driven guests to Orebić for the Korčula ferry (or to the Split ferry port for the catamaran)? Which did they choose, and how long did it
    really take from the airport?
 2. At Orebić, does the car wait in a queue for the ferry in summer, and do you take the car across to Dominče or drop guests at the ferry? What do you tell guests about the ferry ticket (who pays, when)?
 3. What do guests staying in Korčula Town ask you most, and is there anything you always tell them (for example about parking in the town, or where the taxi stand is)?
+
+### Ivan's answers, 17 Nov (verbatim, Croatian)
+
+1. Gostima nudim nekoliko mogućnosti dolaska na Korčulu, ovisno o njihovom smještaju, rasporedu i budžetu. Jedna opcija je privatni transfer od zračne luke do Orebića, a zatim trajektom na Korčulu. Druga je transfer do splitske luke i nastavak putovanja katamaranom. Ako im raspored katamarana odgovara, to je često jednostavnija opcija jer dolaze izravno u grad Korčulu. Od zračne luke do Korčule treba računati otprilike 3,5 do 4 sata preko Orebića, uključujući trajekt i čekanje.
+2. Ako gosti putuju automobilom, mogu ići trajektom na relaciji Orebić – Dominče, a zatim nastaviti do grada Korčule. Ako im automobil nije potreban na otoku, mogu ostaviti vozilo na parkiralištu u Orebiću i prijeći trajektom kao putnici. Gostima uvijek savjetujem da unaprijed provjere vozni red i dođu ranije tijekom ljetne sezone. Karte i prijevoz automobila potrebno je planirati posebno, a cijena ovisi o vozilu i broju putnika.
+3. Gosti najčešće pitaju kako doći od trajektne luke do smještaja, gdje parkirati i kako se kretati po gradu. Savjetujem im da unaprijed dogovore prijevoz do smještaja jer je stara gradska jezgra većinom pješačka i nije praktična za automobile. Također im preporučujem da odvoje vrijeme za šetnju starim gradom, obilazak znamenitosti i uživanje u lokalnim restoranima. Ako dolaze u špici sezone, preporučujem da unaprijed organiziraju prijevoz i ne ostavljaju sve za zadnji trenutak.
+
+Status: ready for Ivan's final read. Still open: whether the car waits in the ferry queue at Orebić in summer, whether a driver takes the car across to Dominče or leaves guests at the ferry, and what happens on the island after the ferry.

@@ -153,4 +153,22 @@ A long run across a border is easier to book when you know it went smoothly. Zac
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-16 07:18 UTC — Airport transfer post — Flight monitoring, free waiting time
+
+Delays happen, and a transfer should not depend on the timetable. We watch your flight number, so if you land late your driver is still waiting at arrivals with your name on a board. The first 60 minutes of waiting are free, enough for passport control and a slow baggage belt, and the price you were quoted stays the same.
+
+Book your transfer → airportsplittransfer.com
+
+## 2026-11-19 16:11 UTC — Day trip post — Krka National Park
+
+A day at Krka starts and ends at your door. We collect you in Split, drive you to the park and wait while you walk the wooden paths, with an English-speaking driver who stays for the return leg. The group is only yours, never a shared shuttle, and the whole 8-10 hour day has one fixed price: €280 by car, €325 by van.
+
+Book your transfer → airportsplittransfer.com
+
+## 2026-11-21 08:15 UTC — Customer review post — Alec Miskulin (9 of 10)
+
+A long drive is easier with the right person behind the wheel. Alec Miskulin travelled with us from Split all the way to Dubrovnik Airport and wrote in his Google review that "the entire experience was excellent from start to finish. He was very friendly, professional, and easy to talk to, which made the long drive much more enjoyable." Distance is no reason to leave the price open, so a long coast run is quoted before you travel. 5.0 stars from 40+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
