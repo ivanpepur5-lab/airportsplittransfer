@@ -2120,5 +2120,3 @@ h1, h2{font-weight:600;}
 .toggle-opt.active .toggle-badge{background:none; color:#fff;}
 /* No image zoom on the day-trip and hotel cards. */
 @media (hover:hover){ .dt-card:hover img, .hotel-row--photo:hover .hotel-row-thumb img{transform:none;} }
-/* Phones: the two cars peeked out behind the form edges as cut-off fragments. */
-@media (max-width:560px){ .hero--booking .hero-skoda, .hero--booking .hero-vclass{display:none;} }
