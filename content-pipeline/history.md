@@ -307,6 +307,17 @@ always possible") went once into the FAQ of the homepage and the Split Airport t
 12 town pages, which would have made them more alike. Still thin, waiting for his input: Omiš, Dubrovnik, Brela,
 Podstrana, Baška Voda, Šibenik, Vodice, Zadar, Murter, Podgora.
 
+## 2026-11-25: Blog, `blog/klis-fortress-and-salona-from-split-airport` (EN/DE/SV/NO/HR/IT), "Klis Fortress and Salona: A Half Day Between Split Airport and the City"
+
+Draft of 13 Oct, approved by Ivan on 25 Nov ("objavi"). His answers of 17 Nov are in the text in his words: guests often ask for a stop (30 min to an hour,
+sometimes longer), the driver waits in the car park near the fortress entrance or returns later for a longer visit, the price is agreed in advance depending
+on the stay; the climb is not very demanding but tiring in summer heat (water, trainers, avoid the strongest sun); Klis one to one and a half hours, Salona 45 min
+to an hour, both together at least 2 to 3 hours without driving; Klis more exciting for the fortress and view, Salona for history and archaeology.
+Left generic (no confirmation from Ivan): drive times from the airport (about 20 min to Klis, about 15 min to Solin), the history paragraph, public buses.
+EN title 59, description 150; six language versions generated and hand-translated (DE/SV/NO by hand, HR/IT through `tr_z_klis_fortress_and_salona.py`, 0 missing).
+Linked from `blog/index.html` (all six), sitemap (all six), Open Graph images made, related reading to the taxi/bus guide, flight delay guide, best time to visit
+and the Klis and Trogir day trip. Published in one push after Ivan objected to the two-deploy mistake of 25 Nov.
+
 <!-- New entries are appended above this line by each scheduled firing. -->
 
 ## 2026-10-08 — Structure: one page per destination (Google doorway / scaled-content rules)

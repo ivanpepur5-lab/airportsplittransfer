@@ -2137,8 +2137,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/blog/klis-fortress-and-salona-from-split-airport</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/blog/split-airport-to-bol-brac</loc>
     <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/de/blog/klis-fortress-and-salona-from-split-airport</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2149,8 +2161,20 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://airportsplittransfer.com/sv/blog/klis-fortress-and-salona-from-split-airport</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://airportsplittransfer.com/sv/blog/split-airport-to-bol-brac</loc>
     <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/no/blog/klis-fortress-and-salona-from-split-airport</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3201,6 +3225,18 @@
   <url>
     <loc>https://airportsplittransfer.com/no/blog/zadar-airport-to-split-transfer</loc>
     <lastmod>2026-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/hr/blog/klis-fortress-and-salona-from-split-airport</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://airportsplittransfer.com/it/blog/klis-fortress-and-salona-from-split-airport</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

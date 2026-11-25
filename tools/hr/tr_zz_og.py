@@ -8,6 +8,7 @@ JSR = {
  'https://airportsplittransfer.com/assets/og/blog-early-morning-transfer-to-split-airport.jpg?v=1': 'https://airportsplittransfer.com/assets/og/blog-early-morning-transfer-to-split-airport-hr.jpg?v=1',
  'https://airportsplittransfer.com/assets/og/blog-flight-delay-guide.jpg?v=1': 'https://airportsplittransfer.com/assets/og/blog-flight-delay-guide-hr.jpg?v=1',
  'https://airportsplittransfer.com/assets/og/blog-how-to-book-split-airport-transfer.jpg?v=1': 'https://airportsplittransfer.com/assets/og/blog-how-to-book-split-airport-transfer-hr.jpg?v=1',
+ 'https://airportsplittransfer.com/assets/og/blog-klis-fortress-and-salona-from-split-airport.jpg?v=1': 'https://airportsplittransfer.com/assets/og/blog-klis-fortress-and-salona-from-split-airport-hr.jpg?v=1',
  'https://airportsplittransfer.com/assets/og/blog-split-airport-taxi-prices.jpg?v=1': 'https://airportsplittransfer.com/assets/og/blog-split-airport-taxi-prices-hr.jpg?v=1',
  'https://airportsplittransfer.com/assets/og/blog-split-airport-to-baska-voda-transfer.jpg?v=1': 'https://airportsplittransfer.com/assets/og/blog-split-airport-to-baska-voda-transfer-hr.jpg?v=1',
  'https://airportsplittransfer.com/assets/og/blog-split-airport-to-bol-brac.jpg?v=1': 'https://airportsplittransfer.com/assets/og/blog-split-airport-to-bol-brac-hr.jpg?v=1',
