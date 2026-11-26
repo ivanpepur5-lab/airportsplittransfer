@@ -13,9 +13,11 @@
    rounded to the nearest 5 EUR. The price therefore grows steadily with the
    distance: there are no jumps at the tier boundaries.
 
-   Škoda Superb:                 1.50 EUR/km to 100 km, 1.30 beyond, minimum 30
-   V-Class and Trafic (same):    1.90 EUR/km to 100 km, 1.70 beyond, minimum 45
-   Beyond 200 km the second rate simply continues.
+   Škoda Superb:                 1.70 EUR/km for km 0-50, 1.50 for km 50-100,
+                                 1.40 for every km beyond 100, minimum 45
+   V-Class and Trafic (same):    2.10 EUR/km for km 0-50, 1.90 for km 50-100,
+                                 1.70 for every km beyond 100, minimum 60
+   The third rate continues for any distance (150, 200, 300, 600 km ...).
    Return = 2 x one way x 0.95, rounded to the nearest 5 EUR.
 
    Works for ANY address Google Maps can resolve a driving distance for, not
@@ -32,12 +34,12 @@ const VEHICLES = {
     minPax: 1,
     maxPax: 4,
     suitcases: 3,
-    minPrice: 30,
-    // 1.50 EUR/km for the first 100 km, 1.30 EUR/km for every km after that
-    // (also beyond 200 km, until a different rate is decided).
+    minPrice: 45,
+    // 1.70 EUR/km for km 0-50, 1.50 for km 50-100, 1.40 for every km beyond 100.
     tiers: [
+      { upToKm: 50, ratePerKm: 1.7 },
       { upToKm: 100, ratePerKm: 1.5 },
-      { upToKm: Infinity, ratePerKm: 1.3 }
+      { upToKm: Infinity, ratePerKm: 1.4 }
     ]
   },
   vclass: {
@@ -49,10 +51,10 @@ const VEHICLES = {
     minPax: 1,
     maxPax: 7,
     suitcases: 7,
-    minPrice: 45,
-    // 1.90 EUR/km for the first 100 km, 1.70 EUR/km for every km after that
-    // (also beyond 200 km).
+    minPrice: 60,
+    // 2.10 EUR/km for km 0-50, 1.90 for km 50-100, 1.70 for every km beyond 100.
     tiers: [
+      { upToKm: 50, ratePerKm: 2.1 },
       { upToKm: 100, ratePerKm: 1.9 },
       { upToKm: Infinity, ratePerKm: 1.7 }
     ]
@@ -66,9 +68,10 @@ const VEHICLES = {
     minPax: 1,
     maxPax: 8,
     suitcases: 8,
-    minPrice: 45,
+    minPrice: 60,
     // Same tariff as the V-Class, as specified.
     tiers: [
+      { upToKm: 50, ratePerKm: 2.1 },
       { upToKm: 100, ratePerKm: 1.9 },
       { upToKm: Infinity, ratePerKm: 1.7 }
     ]
@@ -135,8 +138,8 @@ const DESTINATION_NAMES = {
 /**
  * Raw (unrounded, no minimum) price for a distance: each km at the rate of its tier.
  *
- * Škoda, 150 km: 100 x 1.50 + 50 x 1.30 = 215.
- * V-Class, 150 km: 100 x 1.90 + 50 x 1.70 = 275.
+ * Škoda, 150 km: 50 x 1.70 + 50 x 1.50 + 50 x 1.40 = 230.
+ * V-Class, 150 km: 50 x 2.10 + 50 x 1.90 + 50 x 1.70 = 285.
  *
  * The last tier's upToKm is Infinity, so any distance is always covered.
  */

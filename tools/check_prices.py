@@ -183,19 +183,16 @@ for lang in LANGS:
 
 # 3c. the tariff itself must not have been touched by accident (pins today's rules)
 # Progressive for every vehicle: each km at the rate of its tier, then the minimum fare, then nearest 5.
-#   Škoda:                       1.50 EUR/km to 100 km, 1.30 beyond (also beyond 200 km), minimum 30
-#   V-Class and Trafic (same):   1.90 EUR/km to 100 km, 1.70 beyond (also beyond 200 km), minimum 45
+#   Škoda:                       1.70 EUR/km for km 0-50, 1.50 for km 50-100, 1.40 beyond 100, minimum 45
+#   V-Class and Trafic (same):   2.10 EUR/km for km 0-50, 1.90 for km 50-100, 1.70 beyond 100, minimum 60
+# (expected values calculated independently of pricing.js; the full set is in tools/test_pricing.js)
 TARIFF = [  # (km, vehicle, trip, expected total)
-    (3, "skoda", "oneway", 30), (7, "skoda", "oneway", 30), (20, "skoda", "oneway", 30), (22.8, "skoda", "oneway", 35),
-    (41.2, "skoda", "oneway", 60), (45, "skoda", "oneway", 70), (50, "skoda", "oneway", 75), (89, "skoda", "oneway", 135),
-    (100, "skoda", "oneway", 150), (101.3, "skoda", "oneway", 150), (150, "skoda", "oneway", 215),
-    (200, "skoda", "oneway", 280), (230, "skoda", "oneway", 320), (250, "skoda", "oneway", 345), (300, "skoda", "oneway", 410),
-    (41.2, "skoda", "return", 115), (100, "skoda", "return", 285), (250, "skoda", "return", 655),
-    (3, "vclass", "oneway", 45), (22.8, "vclass", "oneway", 45), (41.2, "vclass", "oneway", 80), (50, "vclass", "oneway", 95),
-    (100, "vclass", "oneway", 190), (101.3, "vclass", "oneway", 190), (150, "vclass", "oneway", 275),
-    (200, "vclass", "oneway", 360), (230, "vclass", "oneway", 410), (250, "vclass", "oneway", 445), (300, "vclass", "oneway", 530),
-    (41.2, "vclass", "return", 150), (100, "vclass", "return", 360), (250, "vclass", "return", 845),
-    (41.2, "trafic", "oneway", 80), (100, "trafic", "oneway", 190), (250, "trafic", "oneway", 445), (250, "trafic", "return", 845),
+    (0, "skoda", "oneway", 45), (10, "skoda", "oneway", 45), (20, "skoda", "oneway", 45), (22.8, "skoda", "oneway", 45), (41.5, "skoda", "oneway", 70), (50, "skoda", "oneway", 85), (50.1, "skoda", "oneway", 85), (75, "skoda", "oneway", 125), (100, "skoda", "oneway", 160), (100.1, "skoda", "oneway", 160), (150, "skoda", "oneway", 230), (200, "skoda", "oneway", 300), (250, "skoda", "oneway", 370), (300, "skoda", "oneway", 440), (600, "skoda", "oneway", 860),
+    (0, "skoda", "return", 85), (10, "skoda", "return", 85), (20, "skoda", "return", 85), (22.8, "skoda", "return", 85), (41.5, "skoda", "return", 135), (50, "skoda", "return", 160), (50.1, "skoda", "return", 160), (75, "skoda", "return", 240), (100, "skoda", "return", 305), (100.1, "skoda", "return", 305), (150, "skoda", "return", 435), (200, "skoda", "return", 570), (250, "skoda", "return", 705), (300, "skoda", "return", 835), (600, "skoda", "return", 1635),
+    (0, "vclass", "oneway", 60), (10, "vclass", "oneway", 60), (20, "vclass", "oneway", 60), (22.8, "vclass", "oneway", 60), (41.5, "vclass", "oneway", 85), (50, "vclass", "oneway", 105), (50.1, "vclass", "oneway", 105), (75, "vclass", "oneway", 155), (100, "vclass", "oneway", 200), (100.1, "vclass", "oneway", 200), (150, "vclass", "oneway", 285), (200, "vclass", "oneway", 370), (250, "vclass", "oneway", 455), (300, "vclass", "oneway", 540), (600, "vclass", "oneway", 1050),
+    (0, "vclass", "return", 115), (10, "vclass", "return", 115), (20, "vclass", "return", 115), (22.8, "vclass", "return", 115), (41.5, "vclass", "return", 160), (50, "vclass", "return", 200), (50.1, "vclass", "return", 200), (75, "vclass", "return", 295), (100, "vclass", "return", 380), (100.1, "vclass", "return", 380), (150, "vclass", "return", 540), (200, "vclass", "return", 705), (250, "vclass", "return", 865), (300, "vclass", "return", 1025), (600, "vclass", "return", 1995),
+    (0, "trafic", "oneway", 60), (10, "trafic", "oneway", 60), (20, "trafic", "oneway", 60), (22.8, "trafic", "oneway", 60), (41.5, "trafic", "oneway", 85), (50, "trafic", "oneway", 105), (50.1, "trafic", "oneway", 105), (75, "trafic", "oneway", 155), (100, "trafic", "oneway", 200), (100.1, "trafic", "oneway", 200), (150, "trafic", "oneway", 285), (200, "trafic", "oneway", 370), (250, "trafic", "oneway", 455), (300, "trafic", "oneway", 540), (600, "trafic", "oneway", 1050),
+    (0, "trafic", "return", 115), (10, "trafic", "return", 115), (20, "trafic", "return", 115), (22.8, "trafic", "return", 115), (41.5, "trafic", "return", 160), (50, "trafic", "return", 200), (50.1, "trafic", "return", 200), (75, "trafic", "return", 295), (100, "trafic", "return", 380), (100.1, "trafic", "return", 380), (150, "trafic", "return", 540), (200, "trafic", "return", 705), (250, "trafic", "return", 865), (300, "trafic", "return", 1025), (600, "trafic", "return", 1995),
 ]
 calls = ";".join(f"out.push(calculateTotal({k}, '{v}', '{t}'))" for k, v, t, _ in TARIFF)
 js = ("const fs=require('fs'),vm=require('vm');const c={};vm.createContext(c);"

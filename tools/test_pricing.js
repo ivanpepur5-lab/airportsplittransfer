@@ -24,19 +24,65 @@ function test(name, fn) {
 const r1 = (x) => Math.round(x * 10) / 10;
 
 // --- the tariff: progressive, nearest 5, return = 2 x one way x 0.95 ---
-// Škoda Superb:               1.50 EUR/km to 100 km, 1.30 beyond (also beyond 200 km), minimum 30
-// V-Class and Trafic (same):  1.90 EUR/km to 100 km, 1.70 beyond (also beyond 200 km), minimum 45
+// Škoda Superb:               1.70 EUR/km for km 0-50, 1.50 for km 50-100, 1.40 beyond 100, minimum 45
+// V-Class and Trafic (same):  2.10 EUR/km for km 0-50, 1.90 for km 50-100, 1.70 beyond 100, minimum 60
+// (expected values below were calculated independently of pricing.js)
 const PINS = {  // [km, one way, return]
   skoda: [
-    [0, 30, 55], [3, 30, 55], [7, 30, 55], [20, 30, 55], [20.1, 30, 55], [22.8, 35, 65],
-    [41.2, 60, 115], [41.5, 60, 115], [45, 70, 135], [50, 75, 145], [89, 135, 255],
-    [100, 150, 285], [100.1, 150, 285], [101.3, 150, 285], [129.5, 190, 360],
-    [150, 215, 410], [200, 280, 530], [213.4, 295, 560], [230, 320, 610], [246.2, 340, 645], [250, 345, 655], [300, 410, 780],
+    [0, 45, 85],
+    [3, 45, 85],
+    [5.4, 45, 85],
+    [10, 45, 85],
+    [20, 45, 85],
+    [22.8, 45, 85],
+    [26.8, 45, 85],
+    [28.5, 50, 95],
+    [41.5, 70, 135],
+    [50, 85, 160],
+    [50.1, 85, 160],
+    [54.6, 90, 170],
+    [75, 125, 240],
+    [87.5, 140, 265],
+    [89, 145, 275],
+    [100, 160, 305],
+    [100.1, 160, 305],
+    [101.3, 160, 305],
+    [129.5, 200, 380],
+    [150, 230, 435],
+    [200, 300, 570],
+    [213.4, 320, 610],
+    [246.2, 365, 695],
+    [250, 370, 705],
+    [300, 440, 835],
+    [600, 860, 1635],
   ],
   vclass: [
-    [0, 45, 85], [3, 45, 85], [5.4, 45, 85], [20, 45, 85], [22.8, 45, 85], [23.7, 45, 85], [26.8, 50, 95], [41.2, 80, 150], [41.5, 80, 150],
-    [50, 95, 180], [54.6, 105, 200], [87.5, 165, 315], [89, 170, 325], [100, 190, 360], [100.1, 190, 360], [101.3, 190, 360],
-    [129.5, 240, 455], [150, 275, 525], [200, 360, 685], [213.4, 385, 730], [230, 410, 780], [246.2, 440, 835], [250, 445, 845], [300, 530, 1005],
+    [0, 60, 115],
+    [3, 60, 115],
+    [5.4, 60, 115],
+    [10, 60, 115],
+    [20, 60, 115],
+    [22.8, 60, 115],
+    [26.8, 60, 115],
+    [28.5, 60, 115],
+    [41.5, 85, 160],
+    [50, 105, 200],
+    [50.1, 105, 200],
+    [54.6, 115, 220],
+    [75, 155, 295],
+    [87.5, 175, 335],
+    [89, 180, 340],
+    [100, 200, 380],
+    [100.1, 200, 380],
+    [101.3, 200, 380],
+    [129.5, 250, 475],
+    [150, 285, 540],
+    [200, 370, 705],
+    [213.4, 395, 750],
+    [246.2, 450, 855],
+    [250, 455, 865],
+    [300, 540, 1025],
+    [600, 1050, 1995],
   ],
 };
 PINS.trafic = PINS.vclass;  // identical tariff
@@ -50,26 +96,34 @@ for (const [veh, rows] of Object.entries(PINS)) {
 }
 test("tariff definition: rates, tiers and minimum fares", () => {
   const rates = (v) => VEHICLES[v].tiers.map((t) => [t.upToKm, t.ratePerKm]);
-  assert.deepStrictEqual(rates("skoda"), [[100, 1.5], [Infinity, 1.3]]);
-  assert.deepStrictEqual(rates("vclass"), [[100, 1.9], [Infinity, 1.7]]);
-  assert.deepStrictEqual(rates("trafic"), [[100, 1.9], [Infinity, 1.7]]);
-  assert.strictEqual(VEHICLES.skoda.minPrice, 30);
-  assert.strictEqual(VEHICLES.vclass.minPrice, 45);
-  assert.strictEqual(VEHICLES.trafic.minPrice, 45);
+  assert.deepStrictEqual(rates("skoda"), [[50, 1.7], [100, 1.5], [Infinity, 1.4]]);
+  assert.deepStrictEqual(rates("vclass"), [[50, 2.1], [100, 1.9], [Infinity, 1.7]]);
+  assert.deepStrictEqual(rates("trafic"), [[50, 2.1], [100, 1.9], [Infinity, 1.7]]);
+  assert.strictEqual(VEHICLES.skoda.minPrice, 45);
+  assert.strictEqual(VEHICLES.vclass.minPrice, 60);
+  assert.strictEqual(VEHICLES.trafic.minPrice, 60);
   assert.deepStrictEqual(VEHICLES.vclass.tiers, VEHICLES.trafic.tiers, "V-Class and Trafic have identical tariffs");
   assert.deepStrictEqual([VEHICLES.skoda.maxPax, VEHICLES.vclass.maxPax, VEHICLES.trafic.maxPax], [4, 7, 8]);
 });
 test("progressive: each km at the rate of its tier, also beyond 200 km", () => {
   const raw = (km, v) => pricing.calculateTieredPrice(km, VEHICLES[v].tiers);
   const near = (a, b) => Math.abs(a - b) < 1e-9;
-  assert.ok(near(raw(100, "skoda"), 150) && near(raw(150, "skoda"), 215) && near(raw(200, "skoda"), 280) && near(raw(250, "skoda"), 345));
-  assert.ok(near(raw(100, "vclass"), 190) && near(raw(150, "vclass"), 275) && near(raw(200, "vclass"), 360) && near(raw(250, "vclass"), 445) && near(raw(300, "vclass"), 530));
+  // Škoda: 50 x 1.70 = 85, + 50 x 1.50 = 160, then 1.40 per km for every km beyond 100
+  assert.ok(near(raw(50, "skoda"), 85) && near(raw(100, "skoda"), 160) && near(raw(150, "skoda"), 230) && near(raw(200, "skoda"), 300));
+  assert.ok(near(raw(300, "skoda"), 440) && near(raw(600, "skoda"), 860), "the third rate continues beyond 200 km");
+  // vans: 50 x 2.10 = 105, + 50 x 1.90 = 200, then 1.70 per km
+  assert.ok(near(raw(50, "vclass"), 105) && near(raw(100, "vclass"), 200) && near(raw(150, "vclass"), 285) && near(raw(200, "vclass"), 370));
+  assert.ok(near(raw(300, "vclass"), 540) && near(raw(600, "vclass"), 1050), "the third rate continues beyond 200 km");
+  // a km is charged at its own tier: 50.1 km costs 0.1 km at the second rate more than 50 km, not everything at the second rate
+  assert.ok(near(raw(50.1, "skoda") - raw(50, "skoda"), 0.15) && near(raw(100.1, "skoda") - raw(100, "skoda"), 0.14));
 });
-test("minimum fare: 30 for the Škoda, 45 for the vans, applied up to the point where the tariff reaches it", () => {
-  for (let km = 0; km <= 20; km = r1(km + 0.1)) assert.strictEqual(calculateTotal(km, "skoda", "oneway"), 30, `skoda ${km} km`);
-  for (const v of ["vclass", "trafic"]) for (let km = 0; km <= 23.7; km = r1(km + 0.1)) assert.strictEqual(calculateTotal(km, v, "oneway"), 45, `${v} ${km} km`);
-  assert.strictEqual(calculateTotal(0.5, "skoda", "oneway"), 30);
-  assert.strictEqual(calculateTotal(0.5, "vclass", "oneway"), 45);
+test("minimum fare: 45 for the Škoda, 60 for the vans, applied up to the point where the tariff reaches it", () => {
+  for (let km = 0; km <= 26.4; km = r1(km + 0.1)) assert.strictEqual(calculateTotal(km, "skoda", "oneway"), 45, `skoda ${km} km`);   // 26.5 km x 1.70 = 45.05
+  for (const v of ["vclass", "trafic"]) for (let km = 0; km <= 28.5; km = r1(km + 0.1)) assert.strictEqual(calculateTotal(km, v, "oneway"), 60, `${v} ${km} km`);  // 28.6 km x 2.10 = 60.06
+  assert.strictEqual(calculateTotal(0.5, "skoda", "oneway"), 45);
+  assert.strictEqual(calculateTotal(0.5, "vclass", "oneway"), 60);
+  assert.strictEqual(calculateTotal(0.5, "trafic", "return"), 115, "return of the minimum: 2 x 60 x 0.95 = 114 -> 115");
+  assert.strictEqual(calculateTotal(0.5, "skoda", "return"), 85, "return of the minimum: 2 x 45 x 0.95 = 85.5 -> 85");
 });
 test("boundaries 20, 50, 100 and 200 km: no jump on either side, for all three vehicles", () => {
   for (const v of Object.keys(VEHICLES)) for (const edge of [20, 50, 100, 200]) {
@@ -99,7 +153,7 @@ test("a van is never cheaper than the Škoda, and the ratio stays in a sensible 
   for (let i = 0; i <= 6000; i++) {
     const km = i / 10, s = calculateTotal(km, "skoda", "oneway"), v = calculateTotal(km, "vclass", "oneway");
     assert.ok(v >= s, `${km} km: van ${v} < Škoda ${s}`);
-    if (km >= 50) assert.ok(v / s <= 1.35, `${km} km: van/Škoda ${(v / s).toFixed(2)}`);
+    if (km >= 50) assert.ok(v / s <= 1.35, `${km} km: van/Škoda ${(v / s).toFixed(2)}`);   // today 1.22-1.26
   }
 });
 
@@ -120,9 +174,9 @@ test("the server does not trust a price sent by the browser", () => {
   for (const claimed of ["1", "0", "999", "-5", "abc", "", undefined]) {
     const d = { distance_km: "41.5", vehicle: "skoda", trip_type: "oneway", calculated_price: claimed };
     booking.applyServerPrice(d);
-    assert.strictEqual(d.calculated_price, "60", `claimed ${claimed}`);
+    assert.strictEqual(d.calculated_price, "70", `claimed ${claimed}`);
   }
-  const ok = { distance_km: "41.5", vehicle: "vclass", trip_type: "return", calculated_price: "150" };
+  const ok = { distance_km: "41.5", vehicle: "vclass", trip_type: "return", calculated_price: "160" };
   assert.strictEqual(booking.applyServerPrice(ok), "", "an honest price produces no warning");
   const bad = { distance_km: "41.5", vehicle: "skoda", trip_type: "oneway", calculated_price: "1" };
   assert.ok(booking.applyServerPrice(bad).includes("differs"), "a different price is reported");
@@ -141,7 +195,7 @@ test("without a usable distance or vehicle the price stays 'to be confirmed', wh
   }
 });
 test("an unknown trip type is treated as one way (never as a return discount)", () => {
-  assert.strictEqual(booking.transferPrice({ distance_km: "41.5", vehicle: "skoda", trip_type: "return; drop" }), 60);
+  assert.strictEqual(booking.transferPrice({ distance_km: "41.5", vehicle: "skoda", trip_type: "return; drop" }), 70);
 });
 
 // --- the same file works as a browser script and as a module ---
