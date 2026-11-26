@@ -1,10 +1,27 @@
 /* ==========================================================================
    AirportSplitTransfer.com — Pricing Engine
-   Distance-bracket flat-rate pricing: the total trip distance picks ONE
-   per-km rate (from the bracket it falls into) and that single rate is
-   charged for the whole distance — not a progressive/tiered sum across
-   brackets. Works for ANY address Google Maps can resolve a driving
-   distance for, not just a hardcoded destination list.
+
+   The ONLY place the tariff lives. The browser loads it as a plain script;
+   the Netlify function (netlify/functions/lib/booking.js) require()s the same
+   file to recompute the price of every booking, and the tools (check_prices.py,
+   stamp_prices.py, tools/test_pricing.js) run it with node. Do not copy the
+   rates anywhere else.
+
+   Two calculation modes, set per vehicle by `pricing`:
+
+   "progressive"  Each kilometre is charged at the rate of the tier it falls
+                  in: the first 100 km at one rate, every km beyond at the
+                  next. The price grows steadily with distance, there are no
+                  jumps at the tier boundaries. Used for the Škoda Superb.
+
+   "flat"         The tier the TOTAL distance falls into sets one per-km rate
+                  that is charged for the whole distance (the older scheme).
+                  Used for the V-Class and the Trafic until their new tariff
+                  is defined. Note this scheme drops in price when a trip
+                  crosses a tier boundary (e.g. 50 km vs 50.1 km).
+
+   Works for ANY address Google Maps can resolve a driving distance for, not
+   just a hardcoded destination list.
    ========================================================================== */
 
 const VEHICLES = {
@@ -17,12 +34,13 @@ const VEHICLES = {
     minPax: 1,
     maxPax: 4,
     suitcases: 3,
-    minPrice: 33,
+    minPrice: 30,
+    pricing: "progressive",
+    // 1.50 EUR/km for the first 100 km, 1.30 EUR/km for every km after that
+    // (also beyond 200 km, until a different rate is decided).
     tiers: [
-      { upToKm: 20, ratePerKm: 2.662 },
-      { upToKm: 50, ratePerKm: 2.178 },
-      { upToKm: 100, ratePerKm: 1.6 },
-      { upToKm: Infinity, ratePerKm: 1.5 }
+      { upToKm: 100, ratePerKm: 1.5 },
+      { upToKm: Infinity, ratePerKm: 1.3 }
     ]
   },
   vclass: {
@@ -35,6 +53,7 @@ const VEHICLES = {
     maxPax: 7,
     suitcases: 7,
     minPrice: 44,
+    pricing: "flat",
     tiers: [
       { upToKm: 20, ratePerKm: 3.872 },
       { upToKm: 50, ratePerKm: 3.146 },
@@ -53,6 +72,7 @@ const VEHICLES = {
     suitcases: 8,
     minPrice: 44,
     // Same per-km tariff as the V-Class, as specified.
+    pricing: "flat",
     tiers: [
       { upToKm: 20, ratePerKm: 3.872 },
       { upToKm: 50, ratePerKm: 3.146 },
@@ -120,19 +140,26 @@ const DESTINATION_NAMES = {
 };
 
 /**
- * Distance-bracket flat-rate price calculation — the bracket the TOTAL
- * distance falls into sets a single per-km rate, charged for the entire
- * distance from km 0. Not progressive: the trip is never split across
- * brackets.
+ * Raw (unrounded, no minimum) price for a distance, per the vehicle's mode.
  *
- * Example (Škoda, 105 km — falls in the 100+ bracket):
- *   105 km @ 1.5/km = 157.5 → rounded to nearest €5 = 160
+ * Progressive, Škoda, 150 km: 100 x 1.50 + 50 x 1.30 = 215.
+ * Flat, V-Class, 105 km: the 100+ tier applies to everything, 105 x 1.80 = 189.
  *
- * The last tier's upToKm is Infinity, so any distance is always matched by
- * some bracket — there's no unhandled distance.
+ * The last tier's upToKm is Infinity, so any distance is always covered.
  */
-function calculateTieredPrice(distanceKm, tiers) {
+function calculateTieredPrice(distanceKm, tiers, mode) {
   if (!distanceKm || distanceKm <= 0) return 0;
+
+  if (mode === "progressive") {
+    let total = 0;
+    let from = 0;
+    for (const tier of tiers) {
+      if (distanceKm <= from) break;
+      total += (Math.min(distanceKm, tier.upToKm) - from) * tier.ratePerKm;
+      from = tier.upToKm;
+    }
+    return total;
+  }
 
   const bracket = tiers.find(tier => distanceKm <= tier.upToKm) || tiers[tiers.length - 1];
   return distanceKm * bracket.ratePerKm;
@@ -144,13 +171,15 @@ function roundToNearest5(amount) {
 
 /**
  * Full price for one vehicle given a driving distance in km.
- * Applies the tiered rate, the vehicle's minimum fare, and rounds to the
- * nearest €5.
+ * Applies the tariff, the vehicle's minimum fare, and rounds to the
+ * nearest €5. The distance is expected to have one decimal (the booking form
+ * rounds the Google distance to 0.1 km, and submits exactly that value, so
+ * the server recomputes the identical price).
  */
 function priceForDistance(distanceKm, vehicleKey) {
   const vehicle = VEHICLES[vehicleKey];
   if (!vehicle || distanceKm == null) return null;
-  const raw = calculateTieredPrice(distanceKm, vehicle.tiers);
+  const raw = calculateTieredPrice(distanceKm, vehicle.tiers, vehicle.pricing);
   const withMinimum = Math.max(raw, vehicle.minPrice);
   return roundToNearest5(withMinimum);
 }
@@ -175,4 +204,14 @@ function vehiclesForPassengers(paxCount) {
 
 function formatEUR(amount) {
   return "€" + amount;
+}
+
+// The Netlify function loads this same file (CommonJS). In the browser and in
+// the tools' vm context `module` is undefined, so this does nothing there.
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    VEHICLES, RETURN_DISCOUNT, DESTINATION_NAMES,
+    calculateTieredPrice, roundToNearest5, priceForDistance, calculateTotal,
+    vehiclesForPassengers, formatEUR
+  };
 }

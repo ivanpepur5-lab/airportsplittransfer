@@ -8,6 +8,10 @@ has to agree with it. Run before every deploy:
 It checks, with prices calculated by pricing.js itself (run with node) from the
 distances in tools/route_km.json:
 
+  0. tools/test_pricing.js: the tariff, the Škoda price never falling with
+     distance, the return discount applied once, and the server-side
+     recomputation in netlify/functions/lib/booking.js;
+
   1. every <span data-price="route:vehicle"> shows the calculated price
      (same check as tools/stamp_prices.py --check);
   2. the "NN km" figure on route, marina and hotel pages and in the price table
@@ -45,6 +49,11 @@ warnings = []  # distances shown as text: informational, the price is what must 
 
 def read(p):
     return open(p, encoding="utf-8").read()
+
+def read_text(p):
+    """The page without its stamped <span data-price> prices: a hand-written sentence (FAQ answer, guide text)
+    must carry the right amount itself, a stamped span elsewhere on the page must not hide a stale one."""
+    return re.sub(r'<span data-price="[^"]*">[^<]*</span>', '', read(p))
 
 def has_amount(text, n):
     """True if the page contains the amount n as €n or n € (any spacing)."""
@@ -113,7 +122,7 @@ for lang in LANGS:
         if not os.path.exists(p):
             continue
         n_guides += 1
-        t = read(p)
+        t = read_text(p)
         car, van = PRICES[route]["skoda"], PRICES[route]["vclass"]
         if not has_amount(t, car):
             problems.append(f"{p}: car price {car} ({route}) not found")
@@ -126,7 +135,7 @@ for p, code, routes in [(f"{lang}blog/dubrovnik-airport-to-split-transfer.html",
                        [(f"{lang}blog/zadar-airport-to-split-transfer.html", "zad", ("split", "sibenik", "plitvice")) for lang in LANGS]:
     if not (AIR and os.path.exists(p)):
         continue
-    t = read(p)
+    t = read_text(p)
     n_guides += 1
     for route in routes:
         km_ = AIR[code][route][0]
@@ -140,7 +149,7 @@ for p, code, routes in [(f"{lang}blog/dubrovnik-airport-to-split-transfer.html",
 for lang in LANGS:
     p = f"{lang}destinations/plitvice.html"
     if os.path.exists(p):
-        t = read(p)
+        t = read_text(p)
         n_guides += 1
         if not has_amount(t, PRICES["plitvice"]["skoda"]):
             problems.append(f"{p}: one-way price {PRICES['plitvice']['skoda']} (plitvice) not found")
@@ -173,12 +182,16 @@ for lang in LANGS:
             problems.append(f"{p}: {route} van {van} != {PRICES[route]['vclass']}")
 
 # 3c. the tariff itself must not have been touched by accident (pins today's rules)
+# Škoda: progressive, 1.50 EUR/km for the first 100 km and 1.30 EUR/km beyond, minimum 30, nearest 5.
+# V-Class / Trafic: unchanged older scheme until their new tariff is defined.
 TARIFF = [  # (km, vehicle, trip, expected total)
-    (7, "skoda", "oneway", 35), (20, "skoda", "oneway", 55), (41.2, "skoda", "oneway", 90),
-    (45, "skoda", "oneway", 100), (89, "skoda", "oneway", 140), (230, "skoda", "oneway", 345),
+    (3, "skoda", "oneway", 30), (7, "skoda", "oneway", 30), (20, "skoda", "oneway", 30), (22.8, "skoda", "oneway", 35),
+    (41.2, "skoda", "oneway", 60), (45, "skoda", "oneway", 70), (50, "skoda", "oneway", 75), (89, "skoda", "oneway", 135),
+    (100, "skoda", "oneway", 150), (101.3, "skoda", "oneway", 150), (150, "skoda", "oneway", 215),
+    (200, "skoda", "oneway", 280), (230, "skoda", "oneway", 320), (250, "skoda", "oneway", 345),
+    (41.2, "skoda", "return", 115), (100, "skoda", "return", 285), (250, "skoda", "return", 655),
     (41.2, "vclass", "oneway", 130), (41.2, "trafic", "oneway", 130), (230, "vclass", "oneway", 415),
-    (101.3, "skoda", "oneway", 150), (101.3, "vclass", "oneway", 180),
-    (41.2, "skoda", "return", 170), (3, "skoda", "oneway", 35), (3, "vclass", "oneway", 45),
+    (101.3, "vclass", "oneway", 180), (3, "vclass", "oneway", 45),
 ]
 calls = ";".join(f"out.push(calculateTotal({k}, '{v}', '{t}'))" for k, v, t, _ in TARIFF)
 js = ("const fs=require('fs'),vm=require('vm');const c={};vm.createContext(c);"
@@ -188,6 +201,13 @@ got = json.loads(subprocess.check_output(["node", "-e", js], text=True))
 for (k, v, t, want), have in zip(TARIFF, got):
     if have != want:
         problems.append(f"tariff changed: {k} km, {v}, {t}: form calculates {have}, expected {want}")
+
+# 3d. node tests: tariff pins, the Škoda price never falls with distance, return discount once, and the Netlify
+# function recomputes the same price from distance_km / vehicle / trip type (it does not trust the browser's price)
+r = subprocess.run(["node", "tools/test_pricing.js"], capture_output=True, text=True)
+if r.returncode != 0:
+    problems.append("tools/test_pricing.js failed:\n" + (r.stderr or r.stdout).strip())
+pricing_tests = (r.stdout.strip().splitlines() or [""])[-1]
 
 # 5. day trips: fixed prices must agree between the trip page, the listing card and the server
 # (netlify/functions/lib/booking.js recomputes the price from the trip key).
@@ -244,6 +264,7 @@ if os.path.exists(G):
 else:
     print("note: tools/google_km.json not present; route_km.json is not yet verified against Google distances")
 
+print(f"{pricing_tests}")
 print(f"{n_spans}; {n_km} route pages checked for distance, {n_time} for driving time; {n_guides} guides and {n_rows} price-table rows checked; {n_trips} day-trip pages checked against booking.js")
 if warnings:
     print(f"\n{len(warnings)} distance text(s) differ from the km the form bills (informational, not a failure):")

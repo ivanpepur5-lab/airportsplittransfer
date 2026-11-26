@@ -20,6 +20,27 @@ For each submission it sends two emails through the
 1. A confirmation to the customer.
 2. An internal notification to the booking inbox.
 
+## Prices in the emails are recomputed on the server
+
+The browser shows the price from `js/pricing.js` and submits `distance_km`
+(one decimal), `vehicle`, `trip_type` and `calculated_price`. For the `booking`
+form this function does not use the submitted `calculated_price`: it
+`require()`s the same `js/pricing.js` (esbuild bundles it into the function)
+and recomputes the price from `distance_km`, `vehicle` and `trip_type`
+(`transferPrice()` / `applyServerPrice()` in `lib/booking.js`). The recomputed
+price goes into the customer confirmation and the admin notification. If the
+browser's figure differs it is logged (`[booking-email] Price check for
+submission …`) and the server's price is used. If there is no usable distance,
+vehicle or an implausible distance (above 1500 km) the emails say "Price to be
+confirmed", whatever the browser claimed. No new environment variable and no
+extra Google API call is involved. Day trips are recomputed from
+`DAYTRIP_PRICES` as before.
+
+The tariff lives only in `js/pricing.js`. `tools/test_pricing.js` (run by
+`tools/check_prices.py`) pins it, checks that the Škoda price never falls as
+the distance grows, and that the server recomputes exactly the price the
+booking form shows.
+
 ## Required setup after deploy
 
 ### 1. Resend account + verified sending domain

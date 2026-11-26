@@ -177,9 +177,9 @@ function buildBookingReference(payload) {
   return "";
 }
 
-// calculated_price is set client-side (js pricing engine) and rounded to
-// the nearest €5 — see js/pricing.js roundToNearest5(). It can be blank if
-// the distance/price never resolved (e.g. an address Google's Distance
+// calculated_price reaching this point is the SERVER's price (see
+// applyServerPrice below), rounded to the nearest €5 by js/pricing.js. It is
+// blank if the distance never resolved (e.g. an address Google's Distance
 // Matrix couldn't geocode), so this always returns a safe display string
 // rather than emitting a bare "€" or "€NaN".
 const PRICE_TBC = { en: "Price to be confirmed", de: "Preis wird bestätigt", sv: "Pris bekräftas", no: "Pris bekreftes", hr: "Cijena će biti potvrđena", it: "Prezzo da confermare" };
@@ -193,6 +193,48 @@ function formatPrice(rawPrice, lang = "en") {
   return { price: String(rounded), priceDisplay: `€${rounded}` };
 }
 
+// ---------------------------------------------------------------------------
+// Point-to-point transfers: the price is recomputed here, never taken from the
+// browser. The form submits the driving distance (distance_km, one decimal),
+// the vehicle and the trip type; the tariff is the one in js/pricing.js, the
+// same file the booking form runs, so the two cannot drift apart. The
+// browser's calculated_price is only compared against this result (and logged
+// when it differs), it never reaches the emails.
+// ---------------------------------------------------------------------------
+const pricing = require("../../../js/pricing.js");
+
+// No real transfer from Split is longer than this; anything above is a typo or
+// tampering and gets "price to be confirmed" instead of a number.
+const MAX_TRANSFER_KM = 1500;
+
+function transferPrice(data) {
+  const raw = data && data.distance_km;
+  if (raw === undefined || raw === null || String(raw).trim() === "") return null;
+  const km = Number(raw);
+  if (!Number.isFinite(km) || km < 0 || km > MAX_TRANSFER_KM) return null;
+  const vehicle = String((data && data.vehicle) || "");
+  if (!Object.prototype.hasOwnProperty.call(pricing.VEHICLES, vehicle)) return null;
+  const trip = data.trip_type === "return" ? "return" : "oneway";
+  return pricing.calculateTotal(km, vehicle, trip);
+}
+
+// Sets data.calculated_price to the server's price (or "" when it cannot be
+// computed) and reports what the browser claimed. Returns a log line when the
+// browser's figure was missing or different, otherwise "".
+function applyServerPrice(data) {
+  const claimed = data.calculated_price;
+  const server = transferPrice(data);
+  data.calculated_price = server === null ? "" : String(server);
+  const claimedNum = Number(claimed);
+  const hasClaim = !(claimed === undefined || claimed === null || claimed === "" || Number.isNaN(claimedNum));
+  if (server === null) {
+    return hasClaim ? `browser sent price ${claimed} but distance/vehicle are not usable; price left to be confirmed` : "";
+  }
+  if (!hasClaim) return `browser sent no price; server price ${server} used`;
+  if (claimedNum !== server) return `browser price ${claimed} differs from server price ${server}; server price used`;
+  return "";
+}
+
 function digitsAndPlus(value) {
   return String(value || "").replace(/[^\d+]/g, "");
 }
@@ -204,6 +246,9 @@ module.exports = {
   formatDate,
   buildBookingReference,
   formatPrice,
+  transferPrice,
+  applyServerPrice,
+  MAX_TRANSFER_KM,
   digitsAndPlus,
   daytripName,
   daytripVehicleLabel,

@@ -682,7 +682,9 @@ function fetchDistance(pickupText, dropoffText){
     if(requestKey !== routeKey()) return; // the addresses changed while this was in flight — a newer lookup owns the price
     currentDistanceKey = requestKey;
     if(km == null) console.warn('No driving route found between these addresses.');
-    currentDistanceKm = km;
+    // One decimal, exactly what is submitted as distance_km: the price shown and
+    // the price the server recomputes from the submitted value are then identical.
+    currentDistanceKm = km == null ? null : Math.round(km * 10) / 10;
     updateSummary();
   };
   const legacy = () => lookupDistanceKmLegacy(pickupText, dropoffText).then(done);

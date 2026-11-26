@@ -29,6 +29,7 @@ const {
   formatDate,
   buildBookingReference,
   formatPrice,
+  applyServerPrice,
   digitsAndPlus,
   daytripName,
   daytripVehicleLabel,
@@ -128,6 +129,13 @@ exports.handler = async (event) => {
 
   if (payload.form_name === "contact") {
     return handleContactSubmission(payload, data, lang);
+  }
+
+  if (payload.form_name === "booking") {
+    // The price in the emails is recomputed from the submitted distance,
+    // vehicle and trip type; the browser's own figure is never trusted.
+    const priceNote = applyServerPrice(data);
+    if (priceNote) console.warn("[booking-email] Price check for submission", payload.id + ":", priceNote);
   }
 
   const build = payload.form_name === "daytrip" ? buildDaytripTemplateData : buildBookingTemplateData;
