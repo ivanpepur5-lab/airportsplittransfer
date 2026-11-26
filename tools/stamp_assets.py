@@ -23,9 +23,11 @@ def digest(path):
 def main():
     os.chdir(ROOT)
     hashes = {"css/style.css": digest("css/style.css")}
+    if os.path.exists("css/home.css"):
+        hashes["css/home.css"] = digest("css/home.css")
     for p in glob.glob("js/*.js"):
         hashes[p.replace(os.sep, "/")] = digest(p)
-    pat = re.compile(r'((?:href|src)=")((?:\.\./)*)((?:css/style\.css|js/[A-Za-z0-9_.-]+\.js))(\?v=[^"]*)?(")')
+    pat = re.compile(r'((?:href|src)=")((?:\.\./)*)((?:css/style\.css|css/home\.css|js/[A-Za-z0-9_.-]+\.js))(\?v=[^"]*)?(")')
 
     def sub(m):
         h = hashes.get(m.group(3))

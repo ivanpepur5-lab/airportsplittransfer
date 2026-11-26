@@ -638,3 +638,41 @@ function submitContactForm(e) {
     sendGaEvent("sticky_bar_click", { link_location: "sticky_bar" });
   });
 })();
+
+// Homepage reviews carousel: arrow buttons, native swipe, and a slow
+// automatic advance that pauses on hover/focus/touch, while the tab is
+// hidden or the carousel is off screen, and never runs for visitors who
+// asked for reduced motion.
+(function () {
+  const root = document.querySelector(".testi-carousel");
+  if (!root) return;
+  const track = root.querySelector(".testi-grid");
+  const prev = root.querySelector('[data-dir="-1"]');
+  const next = root.querySelector('[data-dir="1"]');
+  if (!track || !prev || !next || !track.children.length) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const gap = () => parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+  const step = () => track.children[0].getBoundingClientRect().width + gap();
+  const atStart = () => track.scrollLeft <= 2;
+  const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  function update() { prev.disabled = atStart(); next.disabled = atEnd(); }
+  function go(dir) { track.scrollBy({ left: dir * step(), behavior: reduce ? "auto" : "smooth" }); }
+  prev.addEventListener("click", () => { pause(); go(-1); });
+  next.addEventListener("click", () => { pause(); go(1); });
+  track.addEventListener("scroll", () => window.requestAnimationFrame(update), { passive: true });
+  window.addEventListener("resize", update);
+  update();
+  if (reduce) return;
+  let timer = null, paused = false, visible = false;
+  function tick() {
+    if (paused || !visible || document.hidden) return;
+    if (atEnd()) track.scrollTo({ left: 0, behavior: "smooth" }); else go(1);
+  }
+  function start() { if (!timer) timer = window.setInterval(tick, 7000); }
+  function pause() { paused = true; }
+  ["mouseenter", "focusin", "touchstart", "pointerdown"].forEach((ev) => root.addEventListener(ev, pause, { passive: true }));
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; }, { threshold: 0.4 }).observe(root);
+    start();
+  }
+})();

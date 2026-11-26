@@ -66,11 +66,12 @@
 <link rel="icon" type="image/png" href="../assets/favicon-192.png" sizes="192x192">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
-<link rel="preload" href="/assets/hero-vclass.avif" as="image" type="image/avif" media="(min-width:1011px)" fetchpriority="high">
 <link rel="preload" href="/assets/fonts/lexend-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/partials/booking-widget.sv.html" as="fetch" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/style.css?v=ce7b42dd12">
+<link rel="preload" as="image" type="image/avif" href="../assets/hero-fleet-1200.avif" imagesrcset="../assets/hero-fleet-800.avif 800w, ../assets/hero-fleet-1200.avif 1200w, ../assets/hero-fleet-1672.avif 1672w" imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="../css/style.css?v=de89a8bd9d">
+<link rel="stylesheet" href="../css/home.css?v=c9dbbf07fe">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://airportsplittransfer.com/#organization", "name": "Airport Split Transfer", "legalName": "De Niro, obrt za prijevoz", "url": "https://airportsplittransfer.com/", "logo": "https://airportsplittransfer.com/assets/logo-icon.png", "image": "https://airportsplittransfer.com/assets/og-image.jpg?v=2", "email": "info@airportsplittransfer.com", "telephone": "+385 91 785 6056", "address": {"@type": "PostalAddress", "addressLocality": "Kaštela", "addressCountry": "HR"}, "contactPoint": {"@type": "ContactPoint", "telephone": "+385 91 785 6056", "email": "info@airportsplittransfer.com", "contactType": "customer service", "availableLanguage": ["English", "German", "Swedish", "Norwegian", "Croatian", "Italian"]}, "sameAs": ["https://www.instagram.com/airport.taxi.split", "https://www.tiktok.com/@airport.split.transfer", "https://maps.app.goo.gl/Uxt5aKhvFQ8sofAFA"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Airport Split Transfer", "image": "https://airportsplittransfer.com/assets/og-image.jpg?v=2", "url": "https://airportsplittransfer.com/sv/", "telephone": "+385 91 785 6056", "priceRange": "€€€", "address": {"@type": "PostalAddress", "addressLocality": "Split", "addressCountry": "HR"}, "areaServed": "Split-Dalmatia County, Croatia", "openingHours": "Mo-Su 00:00-23:59", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "40", "bestRating": "5"}, "sameAs": ["https://www.instagram.com/airport.taxi.split", "https://www.tiktok.com/@airport.split.transfer", "https://maps.app.goo.gl/Uxt5aKhvFQ8sofAFA"]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Hur mycket kostar en privat transfer från Split flygplats?", "acceptedAnswer": {"@type": "Answer", "text": "Det exakta priset beror på din upphämtnings- och destinationsadress samt vilket fordon du väljer. Ange dina uppgifter ovan i bokningsformuläret för ett direkt, fast pris: vägavgifter, bränsle och mottagande vid ankomsten ingår alltid, utan dolda avgifter."}}, {"@type": "Question", "name": "Var lämnar chauffören av mig?", "acceptedAnswer": {"@type": "Answer", "text": "Där du vill: på adressen till ditt boende eller hotell, i centrum av den ort du väljer eller på en annan adress du anger. På sommaren kan det alltid bli förseningar i trafiken, så räkna med lite extra tid."}}, {"@type": "Question", "name": "Vilka resmål täcker ni från Split flygplats?", "acceptedAnswer": {"@type": "Answer", "text": "Vi erbjuder privata transfers till fast pris från Split flygplats till Split, Trogir, Omiš, Makarska, Šibenik, Zadar, Dubrovnik, Plitvicesjöarna och alla andra större städer och byar längs den dalmatiska kusten."}}, {"@type": "Question", "name": "Vad händer om mitt flyg blir försenat?", "acceptedAnswer": {"@type": "Answer", "text": "Vi följer ditt flygnummer i realtid, så din förare anpassar upphämtningen automatiskt. Det tillkommer ingen extra kostnad vid flygförseningar: på flygplatsen är de första 60 minuterna efter landning gratis, och vid upphämtning från en adress väntar föraren upp till 15 minuter efter den bokade tiden."}}, {"@type": "Question", "name": "Kan jag boka en returtransfer?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, välj \"Retur\" vid bokning för att planera båda delarna av resan tillsammans, med 5% rabatt på totalpriset."}}, {"@type": "Question", "name": "Vilka fordon kan jag välja mellan?", "acceptedAnswer": {"@type": "Answer", "text": "En Škoda Superb (1–4 passagerare), en Mercedes-Benz V-Class (1–7 passagerare) eller en Renault Trafic (1–8 passagerare), alla till fast pris per fordon."}}, {"@type": "Question", "name": "Finns barnstolar tillgängliga?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, barnstolar tillhandahålls kostnadsfritt på begäran, nämn det bara vid bokningen."}}, {"@type": "Question", "name": "Hur betalar jag för min transfer?", "acceptedAnswer": {"@type": "Answer", "text": "Vi accepterar både kort och kontant. Priset avtalas och bekräftas innan resan, så det blir inga överraskningar på resdagen."}}]}</script>
@@ -88,16 +89,14 @@
     </a>
     <div class="nav-links">
       <a href="index.html" class="active">Hem</a>
-      <a href="destinations.html">Populära Resmål</a>
+      <a href="destinations.html">Transfers</a>
       <a href="hotel-transfers.html">Hotell</a>
       <a href="day-trips.html">Dagsutflykter</a>
       <a href="fleet.html">Fordon</a>
-      <a href="services.html">Tjänster</a>
-      <a href="blog/index.html">Blogg</a>
       <a href="about.html">Om oss</a>
       <a href="contact.html">Kontakt</a>
     </div>
-    <a href="https://wa.me/385917856056" target="_blank" rel="noopener" class="nav-whatsapp" aria-label="WhatsApp" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.3A8.9 8.9 0 0 0 12 4a9 9 0 0 0-7.8 13.4L3 21l3.7-1.2A9 9 0 0 0 12 21a9 9 0 0 0 5.6-14.7ZM12 19.5a7.4 7.4 0 0 1-3.8-1l-.3-.2-2.3.7.7-2.2-.2-.3A7.5 7.5 0 1 1 19.5 12 7.4 7.4 0 0 1 12 19.5Zm4.1-5.6c-.2-.1-1.3-.7-1.5-.7s-.4-.1-.5.1-.5.7-.6.8-.2.2-.4.1a6.1 6.1 0 0 1-1.8-1.1 6.8 6.8 0 0 1-1.2-1.5c-.1-.2 0-.3.1-.4l.3-.4.2-.3a.5.5 0 0 0 0-.4c0-.1-.5-1.3-.7-1.7s-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2.1 4.8 4.8 0 0 0 1 2.5 10.9 10.9 0 0 0 4.2 3.7c.6.2 1 .4 1.4.5a3.4 3.4 0 0 0 1.5.1 2.5 2.5 0 0 0 1.6-1.1 1.9 1.9 0 0 0 .1-1.1c-.1-.1-.2-.2-.4-.3Z"/></svg></a>
+    <a href="index.html#booking" class="nav-book">Boka nu</a>
     <div class="lang-dropdown">
       <button type="button" class="lang-dropdown-btn" aria-haspopup="true" aria-expanded="false">
         <span>SV</span>
@@ -117,107 +116,184 @@
   <div class="mobile-nav">
     <button class="mobile-close" aria-label="Close menu">&times;</button>
     <a href="index.html" class="active">Hem</a>
-      <a href="destinations.html">Populära Resmål</a>
-      <a href="hotel-transfers.html">Hotell</a>
-      <a href="day-trips.html">Dagsutflykter</a>
-      <a href="fleet.html">Fordon</a>
-      <a href="services.html">Tjänster</a>
-      <a href="blog/index.html">Blogg</a>
-      <a href="about.html">Om oss</a>
-      <a href="contact.html">Kontakt</a>
+    <a href="destinations.html">Transfers</a>
+    <a href="hotel-transfers.html">Hotell</a>
+    <a href="day-trips.html">Dagsutflykter</a>
+    <a href="fleet.html">Fordon</a>
+    <a href="services.html">Tjänster</a>
+    <a href="blog/index.html">Blogg</a>
+    <a href="about.html">Om oss</a>
+    <a href="contact.html">Kontakt</a>
     <div class="mobile-lang" role="group" aria-label="Language"><a href="../index.html" class="mobile-lang-opt">EN</a><a href="../de/index.html" class="mobile-lang-opt">DE</a><a href="index.html" class="mobile-lang-opt active" aria-current="page">SV</a><a href="../no/index.html" class="mobile-lang-opt">NO</a><a href="../hr/index.html" class="mobile-lang-opt">HR</a><a href="../it/index.html" class="mobile-lang-opt">IT</a></div>
   </div>
 </header>
 <main>
-<section class="hero hero--booking">
-  <div class="hero-content">
-    <h1 class="reveal">Transfer Split flygplats</h1>
-    <p class="lead reveal">Privat transfer till fast pris från Split flygplats längs Dalmatiska kusten.</p>
-    <div class="hero-trust-bar reveal">
+<section class="hf" id="booking" aria-labelledby="hf-title">
+  <div class="hf-media">
+    <picture>
+      <source type="image/avif" srcset="../assets/hero-fleet-800.avif 800w, ../assets/hero-fleet-1200.avif 1200w, ../assets/hero-fleet-1672.avif 1672w" sizes="100vw">
+      <source type="image/webp" srcset="../assets/hero-fleet-800.webp 800w, ../assets/hero-fleet-1200.webp 1200w, ../assets/hero-fleet-1672.webp 1672w" sizes="100vw">
+      <img src="../assets/hero-fleet-1672.webp" width="1672" height="941" alt="Škoda Superb, Mercedes-Benz V-Class och Renault Trafic parkerade vid havet i Dalmatien" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="hf-inner">
+    <h1 id="hf-title">Privata flygplatstransfers i Split och Dalmatien</h1>
+    <div class="hf-rating">
       <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.1-.4-4.6H24v9h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.6Z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46Z"/><path fill="#FBBC05" d="M11.8 28.3c-.45-1.3-.7-2.8-.7-4.3s.25-3 .7-4.3v-5.7H4.5A22 22 0 0 0 2 24c0 3.6.85 6.9 2.5 9.9l7.3-5.6Z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9.3 12.2-9.3Z"/></svg>
       <span class="hero-trust-score count-up">5.0</span>
       <span class="hero-trust-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
       <span class="hero-trust-divider"></span>
       <span class="hero-trust-count count-up">40+ Google-recensioner</span>
     </div>
-    <div class="hero-badges reveal">
-      <div class="hero-badge"><span class="hero-badge-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12.5l2 2 4-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Licensierad Taxi</span></div>
-      <div class="hero-badge"><span class="hero-badge-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 4h6a2 2 0 0 1 2 2v6a2 2 0 0 1-.6 1.4l-7.5 7.5a2 2 0 0 1-2.8 0l-5-5a2 2 0 0 1 0-2.8L10.6 4.6A2 2 0 0 1 11 4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="15.5" cy="8.5" r="1.4" stroke="currentColor" stroke-width="1.6"/></svg></span><span>Fasta Priser</span></div>
-      <div class="hero-badge"><span class="hero-badge-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.6"/><path d="M7 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span>Kort &amp; Kontant</span></div>
-      <div class="hero-badge"><span class="hero-badge-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="6" r="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M7 20v-5a5 5 0 0 1 10 0v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 20h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span>Gratis Barnstolar</span></div>
+    <p class="hf-lead">Pålitliga flygplatstransfers, privata resor och dagsutflykter i hela Kroatien. Professionella förare, bekväma fordon och transparenta priser.</p>
+    <div class="hf-form">
+      <div id="booking-widget-mount"></div>
     </div>
   </div>
-  <div class="quick-booking-wrap" id="booking" style="scroll-margin-top:100px;">
-    <picture class="hero-skoda" aria-hidden="true">
-      <source srcset="../assets/hero-skoda.avif" type="image/avif">
-      <img src="../assets/hero-skoda.webp" alt="" width="230" height="536" loading="eager" fetchpriority="low" decoding="async">
-    </picture>
-    <picture class="hero-vclass" aria-hidden="true">
-      <source srcset="../assets/hero-vclass.avif" type="image/avif">
-      <img src="../assets/hero-vclass.webp" alt="" width="230" height="577" loading="eager" fetchpriority="low" decoding="async">
-    </picture>
-    <div id="booking-widget-mount"></div>
-  </div>
-  <ul class="hero-assure"><li>Kostnadsfri avbokning</li><li>60 min gratis väntetid</li><li>Kort &amp; kontant</li></ul>
-  <p class="hero-wa reveal">Hellre chatta? <a href="https://wa.me/385917856056" target="_blank" rel="noopener">Skriv på WhatsApp</a></p>
 </section>
+<div class="hf-strip">
+  <div class="hf-strip-inner">
+    <ul class="hero-assure"><li>Kostnadsfri avbokning</li><li>60 min gratis väntetid</li><li>Kort &amp; kontant</li></ul>
+    <p class="hero-wa">Hellre chatta? <a href="https://wa.me/385917856056" target="_blank" rel="noopener">Skriv på WhatsApp</a></p>
+  </div>
+</div>
 <script src="../js/booking-widget.js?v=ca91ba0fdc" defer></script>
-<section class="bg-2">
+<section>
+  <div class="wrap">
+    <div class="section-head reveal" style="display:flex; align-items:baseline; justify-content:space-between; max-width:none; flex-wrap:wrap; gap:16px;">
+      <div><div class="eyebrow">Vår Fordonsflotta</div><h2>Tre Fordon, En Standard</h2></div>
+      <a href="fleet.html" class="link" style="font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); border-bottom:1px solid var(--gold); padding-bottom:2px;">Visa Alla Fordon &rarr;</a>
+    </div>
+    <div class="fleet-layout">
+      <div class="fleet-grid">
+        <div class="fleet-card reveal">
+      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-skoda-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-skoda-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-skoda.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-skoda.webp?v=2" type="image/webp"><img src="../assets/vehicle-skoda.webp?v=2" alt="Vit Škoda Superb för privata transfers från Split flygplats" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
+      <div class="fleet-body">
+        <span class="fleet-class">Vit &middot; Business-limousin</span>
+        <h3>Limousin</h3>
+        <p class="fleet-model">Škoda Superb eller likvärdig</p>
+        <p class="fleet-desc">En bekväm executive-sedan för privata transfers med upp till fyra passagerare.</p>
+        <div class="fleet-spec-icons">
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5" stroke="currentColor" stroke-width="1.6"/></svg>1–4</span>
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6"/></svg>3</span>
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke="currentColor" stroke-width="1.6"/></svg>AC</span>
+        </div>
+        <a href="#booking" class="fleet-book" onclick="try{selectVehicle('skoda')}catch(e){}">Boka nu</a>
+      </div>
+    </div>
+    <div class="fleet-card reveal">
+      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-vclass-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-vclass-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-vclass.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-vclass.webp?v=2" type="image/webp"><img src="../assets/vehicle-vclass.webp?v=2" alt="Svart Mercedes-Benz V-Class för grupptransfers från Split flygplats" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
+      <div class="fleet-body">
+        <span class="fleet-class">Svart &middot; Premium-van</span>
+        <h3>Business-Van</h3>
+        <p class="fleet-model">Mercedes-Benz V-Class</p>
+        <p class="fleet-desc">Förstklassig gruppresa för upp till sju passagerare, med plats för allt bagage.</p>
+        <div class="fleet-spec-icons">
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5" stroke="currentColor" stroke-width="1.6"/></svg>1–7</span>
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6"/></svg>7</span>
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke="currentColor" stroke-width="1.6"/></svg>AC</span>
+        </div>
+        <a href="#booking" class="fleet-book" onclick="try{selectVehicle('vclass')}catch(e){}">Boka nu</a>
+      </div>
+    </div>
+    <div class="fleet-card reveal">
+      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-trafic-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-trafic-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-trafic.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-trafic.webp?v=2" type="image/webp"><img src="../assets/vehicle-trafic.webp?v=2" alt="Vit Renault Trafic för större grupptransfers från Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
+      <div class="fleet-body">
+        <span class="fleet-class">Vit &middot; Grupptransfer</span>
+        <h3>Van</h3>
+        <p class="fleet-model">Renault Trafic eller likvärdig</p>
+        <p class="fleet-desc">En rymlig van för familjer och större sällskap med upp till åtta passagerare.</p>
+        <div class="fleet-spec-icons">
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5" stroke="currentColor" stroke-width="1.6"/></svg>1–8</span>
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6"/></svg>8</span>
+          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke="currentColor" stroke-width="1.6"/></svg>AC</span>
+        </div>
+        <a href="#booking" class="fleet-book" onclick="try{selectVehicle('trafic')}catch(e){}">Boka nu</a>
+      </div>
+    </div>
+    
+      </div>
+      <ul class="fleet-checklist">
+        <li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Rena &amp; bekväma fordon</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Klimatanläggning i alla fordon</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gott om plats för bagage</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bilbarnstolar på begäran</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Rökfritt</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="rt">
   <div class="wrap">
     <div class="section-head reveal" style="display:flex; align-items:baseline; justify-content:space-between; max-width:none; flex-wrap:wrap; gap:16px;">
       <div><div class="eyebrow">Populära Resmål</div><h2>Vart Vi Tar Dig</h2></div>
       <a href="destinations.html" class="link" style="font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); border-bottom:1px solid var(--gold); padding-bottom:2px;">Visa Alla Resmål &rarr;</a>
     </div>
-    <div class="dest-grid dest-grid--home">
-      <a href="destinations/split.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-split-card-sm.avif 420w, ../assets/dest-split-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-split-card.webp" srcset="../assets/dest-split-card-sm.webp 420w, ../assets/dest-split-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Split centrum / Färjeterminal</h3>
-      <span class="dest-from">Från <span data-price="split:skoda">€50</span></span></span>
-    </a>
-    <a href="destinations/podstrana.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-podstrana-card-sm.avif 420w, ../assets/dest-podstrana-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-podstrana-card.webp" srcset="../assets/dest-podstrana-card-sm.webp 420w, ../assets/dest-podstrana-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Podstrana</h3>
-      <span class="dest-from">Från <span data-price="podstrana:skoda">€60</span></span></span>
-    </a>
-    <a href="destinations/omis.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-omis-card-sm.avif 420w, ../assets/dest-omis-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-omis-card.webp" srcset="../assets/dest-omis-card-sm.webp 420w, ../assets/dest-omis-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Omiš</h3>
-      <span class="dest-from">Från <span data-price="omis:skoda">€90</span></span></span>
-    </a>
-    <a href="destinations/makarska.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-makarska-card-sm.avif 420w, ../assets/dest-makarska-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-makarska-card.webp" srcset="../assets/dest-makarska-card-sm.webp 420w, ../assets/dest-makarska-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Makarska</h3>
-      <span class="dest-from">Från <span data-price="makarska:skoda">€150</span></span></span>
-    </a>
-    <a href="destinations/dubrovnik.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-dubrovnik-card-sm.avif 420w, ../assets/dest-dubrovnik-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-dubrovnik-card.webp" srcset="../assets/dest-dubrovnik-card-sm.webp 420w, ../assets/dest-dubrovnik-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Dubrovnik</h3>
-      <span class="dest-from">Från <span data-price="dubrovnik:skoda">€370</span></span></span>
-    </a>
-    <a href="destinations/plitvice.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/daytrips-plitvice-hero-card-sm.avif 420w, ../assets/daytrips-plitvice-hero-card.avif 900w" sizes="(max-width:640px) 40vw, 210px" type="image/avif"><img src="../assets/daytrips-plitvice-hero-card.webp" srcset="../assets/daytrips-plitvice-hero-card-sm.webp 420w, ../assets/daytrips-plitvice-hero-card.webp 900w" sizes="(max-width:640px) 40vw, 210px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Plitvice Lakes</h3>
-      <span class="dest-from">Från <span data-price="plitvice:skoda">€320</span></span></span>
-    </a>
-    <a href="destinations/zadar.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-zadar-card-sm.avif 420w, ../assets/dest-zadar-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-zadar-card.webp" srcset="../assets/dest-zadar-card-sm.webp 420w, ../assets/dest-zadar-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Zadar</h3>
-      <span class="dest-from">Från <span data-price="zadar:skoda">€195</span></span></span>
-    </a>
-    <a href="destinations/brela.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-brela-card-sm.avif 420w, ../assets/dest-brela-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-brela-card.webp" srcset="../assets/dest-brela-card-sm.webp 420w, ../assets/dest-brela-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Brela</h3>
-      <span class="dest-from">Från <span data-price="brela:skoda">€140</span></span></span>
-    </a>
-    <a href="destinations/trogir.html" class="dest-card dest-card--photo reveal">
-      <picture class="dest-photo" aria-hidden="true"><source srcset="../assets/dest-trogir-card-sm.avif 420w, ../assets/dest-trogir-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-trogir-card.webp" srcset="../assets/dest-trogir-card-sm.webp 420w, ../assets/dest-trogir-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture>
-      <span class="dest-card-text"><h3>Trogir</h3>
-      <span class="dest-from">Från <span data-price="trogir:skoda">€35</span></span></span>
-    </a>
-    
-    </div>
+    <ul class="rt-grid">
+      <li class="rt-item reveal">
+        <a href="destinations/split.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-split-card-sm.avif 420w, ../assets/dest-split-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-split-card.webp" srcset="../assets/dest-split-card-sm.webp 420w, ../assets/dest-split-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/split.html">Split centrum / Färjeterminal</a></h3>
+          <p>Stadskärnan, Diocletianus palats och färjehamnen.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="split:skoda">€50</span></span><a href="destinations/split.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+<li class="rt-item reveal">
+        <a href="destinations/trogir.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-trogir-card-sm.avif 420w, ../assets/dest-trogir-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-trogir-card.webp" srcset="../assets/dest-trogir-card-sm.webp 420w, ../assets/dest-trogir-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/trogir.html">Trogir</a></h3>
+          <p>Gamla stan på UNESCO:s lista och strandpromenaden, nära flygplatsen.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="trogir:skoda">€35</span></span><a href="destinations/trogir.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+<li class="rt-item reveal">
+        <a href="destinations/makarska.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-makarska-card-sm.avif 420w, ../assets/dest-makarska-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-makarska-card.webp" srcset="../assets/dest-makarska-card-sm.webp 420w, ../assets/dest-makarska-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/makarska.html">Makarska</a></h3>
+          <p>Porten till Makarskas riviera och Biokovo.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="makarska:skoda">€150</span></span><a href="destinations/makarska.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+<li class="rt-item reveal">
+        <a href="destinations/omis.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-omis-card-sm.avif 420w, ../assets/dest-omis-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-omis-card.webp" srcset="../assets/dest-omis-card-sm.webp 420w, ../assets/dest-omis-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/omis.html">Omiš</a></h3>
+          <p>Där floden Cetina möter havet.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="omis:skoda">€90</span></span><a href="destinations/omis.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+<li class="rt-item reveal">
+        <a href="destinations/brela.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-brela-card-sm.avif 420w, ../assets/dest-brela-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-brela-card.webp" srcset="../assets/dest-brela-card-sm.webp 420w, ../assets/dest-brela-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/brela.html">Brela</a></h3>
+          <p>Småstensstränder vid Makarskas riviera.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="brela:skoda">€140</span></span><a href="destinations/brela.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+<li class="rt-item reveal">
+        <a href="destinations/podstrana.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-podstrana-card-sm.avif 420w, ../assets/dest-podstrana-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-podstrana-card.webp" srcset="../assets/dest-podstrana-card-sm.webp 420w, ../assets/dest-podstrana-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/podstrana.html">Podstrana</a></h3>
+          <p>Kustort strax söder om Split.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="podstrana:skoda">€60</span></span><a href="destinations/podstrana.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+<li class="rt-item reveal">
+        <a href="destinations/zadar.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-zadar-card-sm.avif 420w, ../assets/dest-zadar-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-zadar-card.webp" srcset="../assets/dest-zadar-card-sm.webp 420w, ../assets/dest-zadar-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/zadar.html">Zadar</a></h3>
+          <p>Gamla stan och havsorgeln på norra kusten.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="zadar:skoda">€195</span></span><a href="destinations/zadar.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+<li class="rt-item reveal">
+        <a href="destinations/dubrovnik.html" class="rt-photo" tabindex="-1" aria-hidden="true"><picture class="rt-img" aria-hidden="true"><source srcset="../assets/dest-dubrovnik-card-sm.avif 420w, ../assets/dest-dubrovnik-card.avif 720w" sizes="(max-width:640px) 50vw, 300px" type="image/avif"><img src="../assets/dest-dubrovnik-card.webp" srcset="../assets/dest-dubrovnik-card-sm.webp 420w, ../assets/dest-dubrovnik-card.webp 720w" sizes="(max-width:640px) 50vw, 300px" alt="" width="720" height="480" loading="lazy" decoding="async"></picture></a>
+        <div class="rt-body">
+          <h3><a href="destinations/dubrovnik.html">Dubrovnik</a></h3>
+          <p>Staden innanför murarna längst i söder i Kroatien.</p>
+          <div class="rt-foot"><span class="rt-from">Från <span data-price="dubrovnik:skoda">€370</span></span><a href="destinations/dubrovnik.html" class="rt-link">Boka den här rutten &rarr;</a></div>
+        </div>
+      </li>
+    </ul>
   </div>
-</section><section class="section-tight dt-strip-section">
+</section>
+<section class="section-tight dt-strip-section">
   <div class="wrap">
     <div class="section-head reveal" style="display:flex; align-items:baseline; justify-content:space-between; max-width:none; flex-wrap:wrap; gap:16px;">
       <div><div class="eyebrow">Även från Split</div><h2>Privata dagsutflykter</h2></div>
@@ -276,120 +352,18 @@
     <a class="link-more dt-more" href="day-trips.html">Alla dagsutflykter &rarr;</a>
   </div>
 </section>
-<section>
-  <div class="wrap">
-    <div class="section-head reveal" style="display:flex; align-items:baseline; justify-content:space-between; max-width:none; flex-wrap:wrap; gap:16px;">
-      <div><div class="eyebrow">Vår Fordonsflotta</div><h2>Tre Fordon, En Standard</h2></div>
-      <a href="fleet.html" class="link" style="font-size:0.76rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cream); border-bottom:1px solid var(--gold); padding-bottom:2px;">Visa Alla Fordon &rarr;</a>
-    </div>
-    <div class="fleet-layout">
-      <div class="fleet-grid">
-        <div class="fleet-card reveal">
-      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-skoda-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-skoda-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-skoda.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-skoda.webp?v=2" type="image/webp"><img src="../assets/vehicle-skoda.webp?v=2" alt="Vit Škoda Superb för privata transfers från Split flygplats" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
-      <div class="fleet-body">
-        <span class="fleet-class">Vit &middot; Business-limousin</span>
-        <h3>Limousin</h3>
-        <p class="fleet-model">Škoda Superb eller likvärdig</p>
-        <div class="fleet-spec-icons">
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5" stroke="currentColor" stroke-width="1.6"/></svg>1–4</span>
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6"/></svg>3</span>
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke="currentColor" stroke-width="1.6"/></svg>AC</span>
-        </div>
-      </div>
-    </div>
-    <div class="fleet-card reveal">
-      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-vclass-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-vclass-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-vclass.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-vclass.webp?v=2" type="image/webp"><img src="../assets/vehicle-vclass.webp?v=2" alt="Svart Mercedes-Benz V-Class för grupptransfers från Split flygplats" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
-      <div class="fleet-body">
-        <span class="fleet-class">Svart &middot; Premium-van</span>
-        <h3>Business-Van</h3>
-        <p class="fleet-model">Mercedes-Benz V-Class</p>
-        <div class="fleet-spec-icons">
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5" stroke="currentColor" stroke-width="1.6"/></svg>1–7</span>
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6"/></svg>7</span>
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke="currentColor" stroke-width="1.6"/></svg>AC</span>
-        </div>
-      </div>
-    </div>
-    <div class="fleet-card reveal">
-      <div class="fleet-media"><picture><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-trafic-sm.avif?v=2" type="image/avif"><source media="(max-width:640px), (min-width:901px)" srcset="../assets/vehicle-trafic-sm.webp?v=2" type="image/webp"><source srcset="../assets/vehicle-trafic.avif?v=2" type="image/avif"><source srcset="../assets/vehicle-trafic.webp?v=2" type="image/webp"><img src="../assets/vehicle-trafic.webp?v=2" alt="Vit Renault Trafic för större grupptransfers från Split" width="1600" height="900" loading="lazy" decoding="async"></picture></div>
-      <div class="fleet-body">
-        <span class="fleet-class">Vit &middot; Grupptransfer</span>
-        <h3>Van</h3>
-        <p class="fleet-model">Renault Trafic eller likvärdig</p>
-        <div class="fleet-spec-icons">
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5" stroke="currentColor" stroke-width="1.6"/></svg>1–8</span>
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="8" width="12" height="12" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="1.6"/></svg>8</span>
-          <span class="fleet-spec-icon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke="currentColor" stroke-width="1.6"/></svg>AC</span>
-        </div>
-      </div>
-    </div>
-    
-      </div>
-      <ul class="fleet-checklist">
-        <li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Rena &amp; bekväma fordon</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Klimatanläggning i alla fordon</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Gott om plats för bagage</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Bilbarnstolar på begäran</li><li><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" fill="currentColor" fill-opacity="0.15"/><path d="M7 12.5l3.2 3.2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Rökfritt</li>
-      </ul>
-    </div>
-  </div>
-</section><div class="trust-strip">
-  <div class="trust-item reveal"><b>60 min</b><span>Gratis väntetid på flygplatsen</span></div>
-  <div class="trust-item reveal"><b>Live</b><span>Flygövervakning</span></div>
-  <div class="trust-item reveal"><b>Kostnadsfri</b><span>Avbokning</span></div>
-</div><section class="bg-2">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Hotelltransfer</div>
-      <h2>Hela v&auml;gen till hotelld&ouml;rren</h2>
-      <p>Transfer till fast pris till de hotell och resorter g&auml;sterna fr&aring;gar mest efter.</p>
-    </div>
-    <div class="hotel-rows">
-      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/amadria-park-sibenik-solaris.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-amadria-park-sibenik-solaris-card.avif" type="image/avif"><img src="../assets/hotel-amadria-park-sibenik-solaris-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Amadria Park &Scaron;ibenik (Solaris)</b><small>&Scaron;ibenik</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/le-meridien-lav.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-le-meridien-lav-card.avif" type="image/avif"><img src="../assets/hotel-le-meridien-lav-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Hotel Le Meridien Lav</b><small>Podstrana</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/radisson-blu-resort-split.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-radisson-blu-resort-split-card.avif" type="image/avif"><img src="../assets/hotel-radisson-blu-resort-split-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Radisson Blu Resort Split</b><small>Split</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/medora-auri-podgora.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-medora-auri-podgora-card.avif" type="image/avif"><img src="../assets/hotel-medora-auri-podgora-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Medora Auri</b><small>Podgora</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
-    </div>
-    <a class="link-more reveal" href="hotel-transfers.html">Alla hotelltransfer &rarr;</a>
-  </div>
-</section><section>
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Så Fungerar Det</div>
-      <h2>Från Bokning Till Ankomst</h2>
-    </div>
-    <div class="process-grid">
-      <div class="process-step reveal">
-      <span class="process-num">01</span>
-      <h3>Begär Transfer</h3>
-      <p>Ange flyguppgifter, destination och antal personer: se ditt fasta pris direkt, utan förpliktelser.</p>
-    </div>
-    <div class="process-step reveal">
-      <span class="process-num">02</span>
-      <h3>Bokningsförfrågan mottagen</h3>
-      <p>Vi bekräftar din transfer via e-post med information om upphämtningen.</p>
-    </div>
-    <div class="process-step reveal">
-      <span class="process-num">03</span>
-      <h3>Vi Följer Ditt Flyg</h3>
-      <p>Direkt flygövervakning innebär att din förare automatiskt anpassar upphämtningstiden om ditt flyg blir försenat.</p>
-    </div>
-    <div class="process-step reveal">
-      <span class="process-num">04</span>
-      <h3>Din Förare Väntar På Dig</h3>
-      <p>Din förare väntar i ankomsthallen med namnskylt. Hjälp med bagage och direkt körning till din adress.</p>
-    </div>
-    
-    </div>
-  </div>
-</section><section class="testimonials">
+<section class="testimonials">
   <div class="wrap">
     <div class="section-head center reveal">
       <div class="eyebrow">Kundomdömen</div>
       <h2>Vad Våra Kunder Säger</h2>
     </div>
-    <div class="review-stat reveal">
+    <div class="review-stat reveal"><svg class="review-g" aria-hidden="true" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.14-3.1-.4-4.6H24v9h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.6Z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41 15.4 46 24 46Z"/><path fill="#FBBC05" d="M11.8 28.3c-.45-1.3-.7-2.8-.7-4.3s.25-3 .7-4.3v-5.7H4.5A22 22 0 0 0 2 24c0 3.6.85 6.9 2.5 9.9l7.3-5.6Z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 7 4.5 14.3l7.3 5.7c1.7-5.2 6.5-9.3 12.2-9.3Z"/></svg>
       <span class="review-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
       <span class="review-score">5.0 <span class="review-count">baserat på 40+ Google-recensioner</span></span>
       <a href="https://maps.app.goo.gl/Uxt5aKhvFQ8sofAFA" target="_blank" rel="noopener" class="review-link">Läs våra Google-recensioner &rarr;</a>
     </div>
+    <div class="testi-carousel" role="region" aria-roledescription="carousel" aria-label="Google-recensioner">
     <div class="testi-grid">
       <div class="testi-card reveal">
         <div class="testi-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -422,7 +396,71 @@
         <cite>Karen Holland, Google-recension</cite>
       </div>
     </div>
-    <div class="carousel-dots" id="testi-dots"></div>
+    <div class="testi-controls">
+      <button type="button" class="testi-btn" data-dir="-1" aria-label="Föregående recension"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button type="button" class="testi-btn" data-dir="1" aria-label="Nästa recension"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="wc">
+  <div class="wrap">
+    <div class="section-head reveal"><div class="eyebrow">Därför Airport Split Transfer</div><h2>Därför ska du välja oss</h2></div>
+    <ul class="wc-grid">
+      <li class="wc-item reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg><h3>Professionella förare</h3><p>Vänliga, punktliga förare som hjälper dig med bagaget.</p></li>
+<li class="wc-item reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M6 17l1.5-6.5A2 2 0 0 1 9.4 9h5.2a2 2 0 0 1 1.9 1.5L18 17"/><circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/></svg><h3>Privata transfers</h3><p>Ditt eget fordon med förare, aldrig en delad shuttle.</p></li>
+<li class="wc-item reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V4h9l8.6 8.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg><h3>Fasta, transparenta priser</h3><p>Priset visas innan du bokar. Vägtullar, bränsle och mottagning på flygplatsen ingår.</p></li>
+<li class="wc-item reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="9" width="16" height="9" rx="2"/><path d="M7 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg><h3>Bekväma fordon</h3><p>Rena fordon med luftkonditionering och plats för ditt bagage.</p></li>
+<li class="wc-item reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 14.5 21 5l-3 14-5.5-3.5-3 3v-5L2.5 14.5Z"/></svg><h3>Hämtning på flygplatsen</h3><p>Din förare möter dig i ankomsthallen, och vi följer ditt flyg om det är försenat.</p></li>
+<li class="wc-item reveal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.800 12 21 12 21Z"/><circle cx="12" cy="9.500" r="2.500"/></svg><h3>Lokalkännedom</h3><p>Ärliga tips om kusten, från avlämningsplatser till dagsutflykter.</p></li>
+    </ul>
+  </div>
+</section>
+<section class="bg-2">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Hotelltransfer</div>
+      <h2>Hela v&auml;gen till hotelld&ouml;rren</h2>
+      <p>Transfer till fast pris till de hotell och resorter g&auml;sterna fr&aring;gar mest efter.</p>
+    </div>
+    <div class="hotel-rows">
+      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/amadria-park-sibenik-solaris.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-amadria-park-sibenik-solaris-card.avif" type="image/avif"><img src="../assets/hotel-amadria-park-sibenik-solaris-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Amadria Park &Scaron;ibenik (Solaris)</b><small>&Scaron;ibenik</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/le-meridien-lav.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-le-meridien-lav-card.avif" type="image/avif"><img src="../assets/hotel-le-meridien-lav-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Hotel Le Meridien Lav</b><small>Podstrana</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/radisson-blu-resort-split.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-radisson-blu-resort-split-card.avif" type="image/avif"><img src="../assets/hotel-radisson-blu-resort-split-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Radisson Blu Resort Split</b><small>Split</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+      <a class="hotel-row hotel-row--photo reveal" href="hotel-transfers/medora-auri-podgora.html"><picture class="hotel-row-thumb" aria-hidden="true"><source srcset="../assets/hotel-medora-auri-podgora-card.avif" type="image/avif"><img src="../assets/hotel-medora-auri-podgora-card.webp" alt="" width="800" height="600" loading="lazy" decoding="async"></picture><span class="hotel-row-text"><b>Medora Auri</b><small>Podgora</small></span><span class="hotel-row-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></span></a>
+    </div>
+    <a class="link-more reveal" href="hotel-transfers.html">Alla hotelltransfer &rarr;</a>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Så Fungerar Det</div>
+      <h2>Från Bokning Till Ankomst</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+      <span class="process-num">01</span>
+      <h3>Begär Transfer</h3>
+      <p>Ange flyguppgifter, destination och antal personer: se ditt fasta pris direkt, utan förpliktelser.</p>
+    </div>
+    <div class="process-step reveal">
+      <span class="process-num">02</span>
+      <h3>Bokningsförfrågan mottagen</h3>
+      <p>Vi bekräftar din transfer via e-post med information om upphämtningen.</p>
+    </div>
+    <div class="process-step reveal">
+      <span class="process-num">03</span>
+      <h3>Vi Följer Ditt Flyg</h3>
+      <p>Direkt flygövervakning innebär att din förare automatiskt anpassar upphämtningstiden om ditt flyg blir försenat.</p>
+    </div>
+    <div class="process-step reveal">
+      <span class="process-num">04</span>
+      <h3>Din Förare Väntar På Dig</h3>
+      <p>Din förare väntar i ankomsthallen med namnskylt. Hjälp med bagage och direkt körning till din adress.</p>
+    </div>
+    
+    </div>
   </div>
 </section>
 <section class="bg-2">
@@ -504,6 +542,8 @@
       <a href="split-airport-transfers.html">Taxi Split Flygplats</a>
       <a href="hotel-transfers.html">Hotelltransfer</a>
       <a href="day-trips.html">Dagsutflykter</a>
+      <a href="services.html" class="footer-svc">Tjänster</a>
+      <a href="blog/index.html">Blogg</a>
       <a href="fleet.html">Fordon</a>
       <a href="about.html">Om oss</a>
       <a href="contact.html">Kontakt</a>
@@ -531,7 +571,7 @@
   </div>
 </footer>
 <script src="../js/pricing.js?v=6c170c085b" defer></script>
-<script src="../js/main.js?v=27e8a26614" defer></script>
+<script src="../js/main.js?v=68c55b2f1e" defer></script>
 <!--/email_off-->
 </body>
 </html>

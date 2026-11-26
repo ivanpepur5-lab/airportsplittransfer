@@ -19,8 +19,8 @@
   --bg-3: #F1F5F9;
   --cream: #0F172A;
   --gray: #475569;
-  --gold: #0B3C7A;
-  --gold-text: #0B3C7A;
+  --gold: #10243B;
+  --gold-text: #10243B;
   --cta: #C2410C;
   --cta-hover: #9A3412;
   --line: #E2E8F0;
@@ -28,7 +28,7 @@
   --line-strong: rgba(16,19,24,0.18);
   --radius: 12px;
   --space-section: 104px;
-  --navy: #0B2545;
+  --navy: #10243B;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -703,7 +703,7 @@ section{padding:var(--space-section) 40px;}
   font-weight:600; border-bottom:1px solid var(--line-strong);
 }
 .price-table td.num{font-family:'Lexend',sans-serif; font-size:1.15rem;}
-@media (hover:hover) and (pointer:fine){.price-table tr:hover td{background:rgba(11,60,122,0.04);}}
+@media (hover:hover) and (pointer:fine){.price-table tr:hover td{background:rgba(16,36,59,0.04);}}
 
 .price-table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:12px;}
 
@@ -786,7 +786,7 @@ a.dest-card:active{transform:translateY(-1px) scale(0.98); transition:transform 
 
 /* ============ PROCESS ============ */
 .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:36px;}
-.process-num{font-family:'Lexend',sans-serif; font-weight:700; font-size:2.4rem; color:rgba(11,60,122,0.3); margin-bottom:12px; display:block;}
+.process-num{font-family:'Lexend',sans-serif; font-weight:700; font-size:2.4rem; color:rgba(16,36,59,0.3); margin-bottom:12px; display:block;}
 .process-step h3{font-size:1.05rem; margin-bottom:10px;}
 .process-step p{font-size:0.88rem; color:var(--gray);}
 @media (max-width:900px){.process-grid{grid-template-columns:1fr 1fr; gap:32px;}}
@@ -1046,7 +1046,7 @@ legend + *{clear:both;}
 @media (hover:hover) and (pointer:fine){.field input:hover,.field select:hover,.field textarea:hover{border-color:#CDD3DC;}}
 
 .field input:focus, .field select:focus, .field textarea:focus{
-  outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(11,60,122,0.12);
+  outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(16,36,59,0.12);
 }
 .field textarea{resize:vertical; min-height:90px;}
 .field-error{font-size:0.74rem; color:#D98E7A; display:none; margin:8px 0 0;}
@@ -1058,12 +1058,12 @@ legend + *{clear:both;}
   width:42px; height:42px; border-radius:50%; border:1px solid var(--line-strong);
   background:#fff; color:var(--gold); cursor:pointer; padding:0;
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  box-shadow:0 2px 8px rgba(11,37,69,0.10);
+  box-shadow:0 2px 8px rgba(16,36,59,0.10);
   transition:background .2s ease, color .2s ease, box-shadow .2s ease; margin-bottom:1px;
 }
 /* Arrows point sideways while the two fields sit side by side. */
 .swap-btn svg{width:19px; height:19px; transform:rotate(90deg); transition:transform .3s var(--ease-out, ease);}
-@media (hover:hover) and (pointer:fine){.swap-btn:hover{background:var(--gold); color:#fff; box-shadow:0 4px 12px rgba(11,60,122,0.25);}}
+@media (hover:hover) and (pointer:fine){.swap-btn:hover{background:var(--gold); color:#fff; box-shadow:0 4px 12px rgba(16,36,59,0.25);}}
 
 .swap-btn:active svg{transform:rotate(270deg);}
 @media (hover:hover) and (pointer:fine){.swap-btn:hover svg{transform:rotate(270deg);}}
@@ -1102,7 +1102,7 @@ legend + *{clear:both;}
 
 .vehicle-picker{display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;}
 .vehicle-opt{border:1px solid var(--line); padding:18px 14px; border-radius:12px; cursor:pointer; transition:border-color .2s ease, background-color .2s ease; text-align:center;}
-.vehicle-opt.active{border-color:var(--gold); background:rgba(11,60,122,0.05); box-shadow:inset 0 0 0 1px var(--gold);}
+.vehicle-opt.active{border-color:var(--gold); background:rgba(16,36,59,0.05); box-shadow:inset 0 0 0 1px var(--gold);}
 .vehicle-opt.disabled{opacity:0.35; pointer-events:none;}
 .vehicle-opt b{display:block; font-family:'Lexend',sans-serif; font-size:1.05rem; margin-bottom:4px;}
 .vehicle-opt span{font-size:0.76rem; color:var(--gray); display:block; margin-bottom:2px;}
@@ -1167,7 +1167,7 @@ legend + *{clear:both;}
 }
 
 .confirm-panel{
-  display:none; border:1px solid var(--gold); background:rgba(11,60,122,0.06); padding:30px; margin-top:24px; text-align:center;
+  display:none; border:1px solid var(--gold); background:rgba(16,36,59,0.06); padding:30px; margin-top:24px; text-align:center;
 }
 .confirm-panel.show{display:block;}
 .confirm-panel h3{color:var(--gold-text); margin-bottom:10px;}
@@ -1331,7 +1331,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
   body.page-home .hero p.lead{margin-bottom:22px;}
   body.page-home .hero .btn-gold.btn-hero{
     background:var(--cta); border-color:var(--cta);
-    box-shadow:0 10px 24px rgba(194,65,12,0.25);
+    box-shadow:0 10px 24px rgba(16,36,59,0.25);
   }
   @media (hover:hover) and (pointer:fine){body.page-home .hero .btn-gold.btn-hero:hover{background:var(--cta-hover); border-color:var(--cta-hover); filter:none;}}
 
@@ -1449,7 +1449,7 @@ footer{background:var(--navy); padding:70px 40px 30px; color:rgba(255,255,255,0.
 /* --- Sticky navbar: gains depth once the page is scrolled --- */
 header{transition:box-shadow .35s ease, background-color .35s ease;}
 header .brand-logo{transition:transform .35s var(--ease-out); transform-origin:left center;}
-header.is-scrolled{box-shadow:0 8px 28px rgba(11,37,69,0.10);}
+header.is-scrolled{box-shadow:0 8px 28px rgba(16,36,59,0.10);}
 /* The frosted glass lives on a pseudo-element, not on the header itself:
    a backdrop-filter on the header would become the containing block for
    the fixed full-screen .mobile-nav inside it, shrinking the open menu to
@@ -1465,7 +1465,7 @@ header.is-scrolled{box-shadow:0 8px 28px rgba(11,37,69,0.10);}
 }
 header.is-scrolled .brand-logo{transform:scale(.92);}
 @media (max-width:640px){
-  body.page-home header.is-scrolled{box-shadow:0 6px 20px rgba(11,37,69,0.09);}
+  body.page-home header.is-scrolled{box-shadow:0 6px 20px rgba(16,36,59,0.09);}
 }
 
 /* --- CTAs: tactile press, gentle lift, light sweep on primary buttons --- */
@@ -1479,7 +1479,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   transform:skewX(-18deg) translateX(0); opacity:0; pointer-events:none; z-index:-1;
 }
 @media (hover:hover) and (pointer:fine){
-  .btn-gold:hover{box-shadow:0 10px 24px rgba(194,65,12,0.28);}
+  .btn-gold:hover{box-shadow:0 10px 24px rgba(16,36,59,0.28);}
   .btn-gold:hover::after{animation:btn-sheen .8s var(--ease-out);}
   .btn-outline:hover, .btn-whatsapp-hero:hover{transform:translateY(-1px);}
 }
@@ -1495,7 +1495,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .fleet-card{transition:opacity .8s var(--ease-out), transform .45s var(--ease-out), box-shadow .45s ease;}
 .fleet-media img{transition:transform .9s var(--ease-out);}
 @media (hover:hover) and (pointer:fine){
-  .fleet-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(11,37,69,0.14);}
+  .fleet-card:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(16,36,59,0.14);}
   .fleet-card:hover .fleet-media img{transform:scale(1.045);}
 }
 
@@ -1516,7 +1516,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .dest-card, a.dest-card{transition:opacity .8s var(--ease-out), box-shadow .35s ease, transform .35s var(--ease-out), border-color .35s ease;}
 @media (hover:hover) and (pointer:fine){
   .trip-card:hover .trip-media img{transform:scale(1.05);}
-  .dest-card:hover{border-color:rgba(11,60,122,0.28);}
+  .dest-card:hover{border-color:rgba(16,36,59,0.28);}
 }
 
 /* --- Booking forms (airport widget + day-trip form) --- */
@@ -1524,7 +1524,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 .vehicle-opt:active{transform:scale(.98); transition-duration:.08s;}
 .vehicle-opt.active{animation:vopt-select .45s var(--ease-spring);}
 @media (hover:hover) and (pointer:fine){
-  .vehicle-opt:not(.active):not(.disabled):hover{border-color:rgba(11,60,122,0.45); transform:translateY(-2px); box-shadow:0 8px 18px rgba(11,37,69,0.08);}
+  .vehicle-opt:not(.active):not(.disabled):hover{border-color:rgba(16,36,59,0.45); transform:translateY(-2px); box-shadow:0 8px 18px rgba(16,36,59,0.08);}
 }
 @keyframes vopt-select{0%{transform:scale(.97);} 100%{transform:scale(1);}}
 .vehicle-opt.disabled{transition:opacity .3s ease;}
@@ -1713,7 +1713,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
   display:flex; align-items:center; justify-content:space-between; gap:18px 28px; flex-wrap:wrap;
   padding:22px 26px; border-radius:16px;
   background:linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%);
-  border:1px solid rgba(11,60,122,0.14);
+  border:1px solid rgba(16,36,59,0.14);
 }
 .price-cta p{margin:0; flex:1 1 320px; color:var(--cream); font-size:0.95rem; line-height:1.55;}
 .price-cta .btn{flex:0 0 auto; white-space:nowrap;}
@@ -1795,7 +1795,7 @@ header.is-scrolled .brand-logo{transform:scale(.92);}
 /* ============ HOTEL PHOTOS ============ */
 .hotel-photo{max-width:1280px; margin:0 auto 36px; padding:0 40px;}
 .hotel-photo picture{display:block;}
-.hotel-photo img{display:block; width:100%; height:auto; aspect-ratio:21/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(11,37,69,0.12);}
+.hotel-photo img{display:block; width:100%; height:auto; aspect-ratio:21/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(16,36,59,0.12);}
 @media (max-width:640px){
   .hotel-photo{padding:0 20px; margin-bottom:24px;}
   .hotel-photo img{aspect-ratio:4/3; border-radius:14px;}
@@ -1809,7 +1809,7 @@ a.dest-card.hotel-card h3{padding:18px 18px 22px;}
 /* Single photo under a page hero (V-Class above Dubrovnik on the Dubrovnik route and fleet pages) */
 .page-photo{max-width:1280px; margin:0 auto 36px; padding:0 40px;}
 .page-photo picture{display:block;}
-.page-photo img{display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(11,37,69,0.12);}
+.page-photo img{display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:18px; box-shadow:0 10px 30px rgba(16,36,59,0.12);}
 @media (max-width:640px){
   .page-photo{padding:0 20px; margin-bottom:24px;}
   .page-photo img{aspect-ratio:4/5; border-radius:14px;}
@@ -1823,7 +1823,7 @@ a.dest-card.hotel-card h3{padding:18px 18px 22px;}
 /* ============ HEADINGS ============
    h1 and h2 in Manrope, in the brand navy. The homepage headline is sized to
    the screen on phones (--h1-fit = its width in em) so it stays on one line. */
-:root{--heading:#0B2545;}
+:root{--heading:#10243B;}
 h1, h2{font-family:'Lexend',sans-serif; font-weight:800; letter-spacing:-0.025em; line-height:1.18; color:var(--heading); text-wrap:balance;}
 .hero h1{color:var(--heading);}
 body.page-home .hero h1{max-width:880px;}
@@ -1977,7 +1977,7 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .trip-card .btn,.trip-card .btn:active{transform:none;}
 @media (hover:hover) and (pointer:fine){.trip-card .btn:hover{transform:none;}}
 
-@media (hover:hover) and (pointer:fine){.trip-card:hover .btn-gold{background:var(--cta-hover); border-color:var(--cta-hover); box-shadow:0 10px 24px rgba(194,65,12,0.28);}}
+@media (hover:hover) and (pointer:fine){.trip-card:hover .btn-gold{background:var(--cta-hover); border-color:var(--cta-hover); box-shadow:0 10px 24px rgba(16,36,59,0.28);}}
 
 .trip-card:has(.btn:focus-visible){outline:3px solid var(--gold); outline-offset:3px;}
 .trip-card .btn:focus-visible{outline:none;}
@@ -1995,7 +1995,7 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .route-proof .route-proof-by{font-weight:600; color:var(--navy, #16202a);}
 .route-included{list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:8px 26px; margin:-46px 0 54px; padding:0;}
 .route-included li{font-size:0.92rem; color:var(--cream); display:flex; align-items:center; gap:8px;}
-.route-included li::before{content:'\2713'; color:var(--gold-text, #0b3c7a); font-weight:700;}
+.route-included li::before{content:'\2713'; color:var(--gold-text, #10243B); font-weight:700;}
 @media (max-width:640px){.route-included{flex-direction:column; align-items:flex-start; gap:6px; margin:-40px 0 44px;}}
 
 /* ============ HOMEPAGE POLISH (2026-11-12) ============ */
@@ -2005,7 +2005,7 @@ details.faq-item--blog > p{margin:12px 0 0; font-size:0.96rem;}
 .process-step{position:relative; padding-top:20px;}
 .process-step::before{
   content:""; position:absolute; left:0; right:0; top:0; height:2px; border-radius:2px;
-  background:linear-gradient(90deg, var(--gold), rgba(11,60,122,0.18));
+  background:linear-gradient(90deg, var(--gold), rgba(16,36,59,0.18));
   transform:scaleX(0); transform-origin:left center;
   transition:transform 1s var(--ease-out); transition-delay:inherit;
 }
@@ -2120,3 +2120,51 @@ h1, h2{font-weight:600;}
 .toggle-opt.active .toggle-badge{background:none; color:#fff;}
 /* No image zoom on the day-trip and hotel cards. */
 @media (hover:hover){ .dt-card:hover img, .hotel-row--photo:hover .hotel-row-thumb img{transform:none;} }
+
+
+/* ============ DESIGN REFRESH (2026-11) ============
+   Restrained palette: navy, white, light grey, slate, a muted gold accent.
+   Tokens first, then the shared header, buttons and footer. The homepage
+   sections live in css/home.css. */
+:root{
+  --navy:#10243B; --heading:#10243B; --cream:#16263B;
+  --gray:#5B6B80; --bg-2:#F7F8FA; --bg-3:#EEF1F5; --line:#E3E8EF; --line-strong:rgba(16,36,59,0.18);
+  --gold:#10243B; --gold-text:#10243B; --accent:#C6A66B;
+  --cta:#10243B; --cta-hover:#1C3A5E; --radius:8px;
+}
+.btn{border-radius:6px;}
+.btn-submit{border-radius:8px; height:52px; letter-spacing:0.02em; text-transform:none; font-size:0.95rem;}
+h1,h2{font-weight:600; letter-spacing:-0.02em;}
+
+/* Header: compact, quiet navigation, one clear Book Now button */
+header{box-shadow:none; border-bottom:1px solid var(--line);}
+header.is-scrolled, body.page-home header.is-scrolled{box-shadow:0 8px 24px rgba(16,36,59,0.06);}
+.nav{height:68px; padding:0 32px; max-width:1320px; column-gap:20px;}
+.brand-logo, body.page-home .brand-logo{height:44px; width:auto;}
+.nav-links{gap:26px; font-size:0.9rem; font-weight:500; letter-spacing:0; text-transform:none;}
+.nav-links a{color:var(--gray); padding-bottom:4px;}
+.nav-links a.active{color:var(--navy);}
+.nav-links a::after{background:var(--accent); height:2px;}
+.nav-book{
+  grid-area:whatsapp; display:inline-flex; align-items:center; justify-content:center;
+  height:40px; padding:0 18px; border-radius:6px; flex-shrink:0;
+  background:var(--navy); color:#fff; font-size:0.9rem; font-weight:600; letter-spacing:0;
+  transition:background-color .2s ease;
+}
+@media (hover:hover) and (pointer:fine){.nav-book:hover{background:var(--cta-hover);}}
+.lang-dropdown-btn{height:40px; border-radius:6px; font-size:0.82rem; letter-spacing:0.04em; border-color:var(--line); }
+.lang-dropdown-menu{border-radius:8px; box-shadow:0 12px 32px rgba(16,36,59,0.14);}
+.lang-option{border-radius:6px;}
+@media (max-width:1100px){ .nav-links{gap:18px; font-size:0.86rem;} .nav-book{padding:0 14px;} }
+@media (max-width:1023px){
+  .nav{height:60px; padding:0 16px 0 14px;}
+  .brand-logo, body.page-home .brand-logo{height:40px;}
+  .nav-book{display:none;}
+  body.page-home .nav{height:60px; padding:0 16px 0 14px;}
+}
+
+/* Footer: same content, calmer typography */
+footer{padding:64px 32px 28px;}
+.footer-col h3, .footer-col h4{font-size:0.8rem; letter-spacing:0.02em; text-transform:none; font-weight:600; color:rgba(255,255,255,0.7);}
+.footer-col a{font-size:0.9rem;}
+.footer-social a{border-radius:6px;}
