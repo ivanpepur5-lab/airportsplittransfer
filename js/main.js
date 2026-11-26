@@ -576,10 +576,21 @@ function submitContactForm(e) {
   let bar = document.getElementById("mobile-cta");
   const form = document.getElementById("booking");
   if (bar && form) {
+    // Shown once the booking form has scrolled up out of view, and hidden again
+    // while the closing WhatsApp banner or the footer is on screen.
+    let passedForm = false;
+    const blocking = new Set();
+    const update = () => bar.classList.toggle("is-visible", passedForm && blocking.size === 0);
     new IntersectionObserver(function (entries) {
-      const e = entries[0];
-      bar.classList.toggle("is-visible", !e.isIntersecting && e.boundingClientRect.top < 0);
+      const e = entries[entries.length - 1];
+      passedForm = !e.isIntersecting && e.boundingClientRect.top < 0;
+      update();
     }).observe(form);
+    const zio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) blocking.add(e.target); else blocking.delete(e.target); });
+      update();
+    });
+    document.querySelectorAll(".wa-banner, footer").forEach(function (z) { zio.observe(z); });
   } else if (!bar) {
     const main = document.querySelector("main") || document.body;
     const src = main.querySelector('a.btn-gold[href*="#booking"], a.trip-hero-cta');

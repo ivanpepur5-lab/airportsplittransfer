@@ -35,4 +35,7 @@ T = {
  'Previous review': 'Recensione precedente',
  'Next review': 'Recensione successiva',
  'Google reviews': 'Recensioni Google',
+ 'Fixed and Transparent Pricing': 'Prezzi fissi e trasparenti',
+ 'Comfortable Vehicles and Reliable Airport Pick-up': 'Veicoli comodi e ritiro affidabile in aeroporto',
+ 'Clean, air-conditioned vehicles with room for your luggage. Your driver meets you at arrivals, and we follow your flight if it is delayed.': "Veicoli puliti e climatizzati con spazio per i bagagli. L'autista vi aspetta agli arrivi e, se il volo è in ritardo, lo seguiamo.",
 }

@@ -35,4 +35,7 @@ T = {
  'Previous review': 'Prethodna recenzija',
  'Next review': 'Sljedeća recenzija',
  'Google reviews': 'Google recenzije',
+ 'Fixed and Transparent Pricing': 'Fiksne i transparentne cijene',
+ 'Comfortable Vehicles and Reliable Airport Pick-up': 'Udobna vozila i pouzdan prihvat na aerodromu',
+ 'Clean, air-conditioned vehicles with room for your luggage. Your driver meets you at arrivals, and we follow your flight if it is delayed.': 'Čista klimatizirana vozila s mjestom za vaš prtljag. Vozač vas dočekuje u dolascima, a ako vaš let kasni, pratimo ga.',
 }
