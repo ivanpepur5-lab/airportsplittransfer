@@ -177,4 +177,10 @@ Give us the address and that is where you are dropped. A hotel, an apartment, pr
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-26 16:08 UTC — Day trip post — Plitvice Lakes
+
+Plitvice Lakes is on the UNESCO World Heritage list, and the day is easier when no timetable decides how long you stay. We drive you from Split in a private car or van, with an English-speaking driver who waits at the park while you walk the lakes. One fixed price covers the whole 10-12 hour trip: €475 by car, €545 by van.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
