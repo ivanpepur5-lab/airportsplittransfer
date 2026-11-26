@@ -7,18 +7,16 @@
    stamp_prices.py, tools/test_pricing.js) run it with node. Do not copy the
    rates anywhere else.
 
-   Two calculation modes, set per vehicle by `pricing`:
+   One scheme for every vehicle: PROGRESSIVE. Each kilometre is charged at the
+   rate of the tier it falls in (the first 100 km at one rate, every km beyond
+   at the next), then the vehicle's minimum fare applies, then the total is
+   rounded to the nearest 5 EUR. The price therefore grows steadily with the
+   distance: there are no jumps at the tier boundaries.
 
-   "progressive"  Each kilometre is charged at the rate of the tier it falls
-                  in: the first 100 km at one rate, every km beyond at the
-                  next. The price grows steadily with distance, there are no
-                  jumps at the tier boundaries. Used for the Škoda Superb.
-
-   "flat"         The tier the TOTAL distance falls into sets one per-km rate
-                  that is charged for the whole distance (the older scheme).
-                  Used for the V-Class and the Trafic until their new tariff
-                  is defined. Note this scheme drops in price when a trip
-                  crosses a tier boundary (e.g. 50 km vs 50.1 km).
+   Škoda Superb:                 1.50 EUR/km to 100 km, 1.30 beyond, minimum 30
+   V-Class and Trafic (same):    1.90 EUR/km to 100 km, 1.70 beyond, minimum 45
+   Beyond 200 km the second rate simply continues.
+   Return = 2 x one way x 0.95, rounded to the nearest 5 EUR.
 
    Works for ANY address Google Maps can resolve a driving distance for, not
    just a hardcoded destination list.
@@ -35,7 +33,6 @@ const VEHICLES = {
     maxPax: 4,
     suitcases: 3,
     minPrice: 30,
-    pricing: "progressive",
     // 1.50 EUR/km for the first 100 km, 1.30 EUR/km for every km after that
     // (also beyond 200 km, until a different rate is decided).
     tiers: [
@@ -52,13 +49,12 @@ const VEHICLES = {
     minPax: 1,
     maxPax: 7,
     suitcases: 7,
-    minPrice: 44,
-    pricing: "flat",
+    minPrice: 45,
+    // 1.90 EUR/km for the first 100 km, 1.70 EUR/km for every km after that
+    // (also beyond 200 km).
     tiers: [
-      { upToKm: 20, ratePerKm: 3.872 },
-      { upToKm: 50, ratePerKm: 3.146 },
       { upToKm: 100, ratePerKm: 1.9 },
-      { upToKm: Infinity, ratePerKm: 1.8 }
+      { upToKm: Infinity, ratePerKm: 1.7 }
     ]
   },
   trafic: {
@@ -70,14 +66,11 @@ const VEHICLES = {
     minPax: 1,
     maxPax: 8,
     suitcases: 8,
-    minPrice: 44,
-    // Same per-km tariff as the V-Class, as specified.
-    pricing: "flat",
+    minPrice: 45,
+    // Same tariff as the V-Class, as specified.
     tiers: [
-      { upToKm: 20, ratePerKm: 3.872 },
-      { upToKm: 50, ratePerKm: 3.146 },
       { upToKm: 100, ratePerKm: 1.9 },
-      { upToKm: Infinity, ratePerKm: 1.8 }
+      { upToKm: Infinity, ratePerKm: 1.7 }
     ]
   }
 };
@@ -140,29 +133,23 @@ const DESTINATION_NAMES = {
 };
 
 /**
- * Raw (unrounded, no minimum) price for a distance, per the vehicle's mode.
+ * Raw (unrounded, no minimum) price for a distance: each km at the rate of its tier.
  *
- * Progressive, Škoda, 150 km: 100 x 1.50 + 50 x 1.30 = 215.
- * Flat, V-Class, 105 km: the 100+ tier applies to everything, 105 x 1.80 = 189.
+ * Škoda, 150 km: 100 x 1.50 + 50 x 1.30 = 215.
+ * V-Class, 150 km: 100 x 1.90 + 50 x 1.70 = 275.
  *
  * The last tier's upToKm is Infinity, so any distance is always covered.
  */
-function calculateTieredPrice(distanceKm, tiers, mode) {
+function calculateTieredPrice(distanceKm, tiers) {
   if (!distanceKm || distanceKm <= 0) return 0;
-
-  if (mode === "progressive") {
-    let total = 0;
-    let from = 0;
-    for (const tier of tiers) {
-      if (distanceKm <= from) break;
-      total += (Math.min(distanceKm, tier.upToKm) - from) * tier.ratePerKm;
-      from = tier.upToKm;
-    }
-    return total;
+  let total = 0;
+  let from = 0;
+  for (const tier of tiers) {
+    if (distanceKm <= from) break;
+    total += (Math.min(distanceKm, tier.upToKm) - from) * tier.ratePerKm;
+    from = tier.upToKm;
   }
-
-  const bracket = tiers.find(tier => distanceKm <= tier.upToKm) || tiers[tiers.length - 1];
-  return distanceKm * bracket.ratePerKm;
+  return total;
 }
 
 function roundToNearest5(amount) {
@@ -179,7 +166,7 @@ function roundToNearest5(amount) {
 function priceForDistance(distanceKm, vehicleKey) {
   const vehicle = VEHICLES[vehicleKey];
   if (!vehicle || distanceKm == null) return null;
-  const raw = calculateTieredPrice(distanceKm, vehicle.tiers, vehicle.pricing);
+  const raw = calculateTieredPrice(distanceKm, vehicle.tiers);
   const withMinimum = Math.max(raw, vehicle.minPrice);
   return roundToNearest5(withMinimum);
 }

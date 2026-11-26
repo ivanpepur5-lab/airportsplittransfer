@@ -182,16 +182,20 @@ for lang in LANGS:
             problems.append(f"{p}: {route} van {van} != {PRICES[route]['vclass']}")
 
 # 3c. the tariff itself must not have been touched by accident (pins today's rules)
-# Škoda: progressive, 1.50 EUR/km for the first 100 km and 1.30 EUR/km beyond, minimum 30, nearest 5.
-# V-Class / Trafic: unchanged older scheme until their new tariff is defined.
+# Progressive for every vehicle: each km at the rate of its tier, then the minimum fare, then nearest 5.
+#   Škoda:                       1.50 EUR/km to 100 km, 1.30 beyond (also beyond 200 km), minimum 30
+#   V-Class and Trafic (same):   1.90 EUR/km to 100 km, 1.70 beyond (also beyond 200 km), minimum 45
 TARIFF = [  # (km, vehicle, trip, expected total)
     (3, "skoda", "oneway", 30), (7, "skoda", "oneway", 30), (20, "skoda", "oneway", 30), (22.8, "skoda", "oneway", 35),
     (41.2, "skoda", "oneway", 60), (45, "skoda", "oneway", 70), (50, "skoda", "oneway", 75), (89, "skoda", "oneway", 135),
     (100, "skoda", "oneway", 150), (101.3, "skoda", "oneway", 150), (150, "skoda", "oneway", 215),
-    (200, "skoda", "oneway", 280), (230, "skoda", "oneway", 320), (250, "skoda", "oneway", 345),
+    (200, "skoda", "oneway", 280), (230, "skoda", "oneway", 320), (250, "skoda", "oneway", 345), (300, "skoda", "oneway", 410),
     (41.2, "skoda", "return", 115), (100, "skoda", "return", 285), (250, "skoda", "return", 655),
-    (41.2, "vclass", "oneway", 130), (41.2, "trafic", "oneway", 130), (230, "vclass", "oneway", 415),
-    (101.3, "vclass", "oneway", 180), (3, "vclass", "oneway", 45),
+    (3, "vclass", "oneway", 45), (22.8, "vclass", "oneway", 45), (41.2, "vclass", "oneway", 80), (50, "vclass", "oneway", 95),
+    (100, "vclass", "oneway", 190), (101.3, "vclass", "oneway", 190), (150, "vclass", "oneway", 275),
+    (200, "vclass", "oneway", 360), (230, "vclass", "oneway", 410), (250, "vclass", "oneway", 445), (300, "vclass", "oneway", 530),
+    (41.2, "vclass", "return", 150), (100, "vclass", "return", 360), (250, "vclass", "return", 845),
+    (41.2, "trafic", "oneway", 80), (100, "trafic", "oneway", 190), (250, "trafic", "oneway", 445), (250, "trafic", "return", 845),
 ]
 calls = ";".join(f"out.push(calculateTotal({k}, '{v}', '{t}'))" for k, v, t, _ in TARIFF)
 js = ("const fs=require('fs'),vm=require('vm');const c={};vm.createContext(c);"
