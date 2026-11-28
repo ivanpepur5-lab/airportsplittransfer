@@ -183,4 +183,10 @@ Plitvice Lakes is on the UNESCO World Heritage list, and the day is easier when 
 
 Book your transfer → airportsplittransfer.com
 
+## 2026-11-28 08:16 UTC — Customer review post — Vivian Wan (10 of 10)
+
+Some pickups start long before sunrise. Vivian Wan wrote in her Google review: "We had a 04:45 pickup and Josip was not only early but also kind, helpful with our bags, friendly, and personable." Early starts are part of the job, and the pickup time is agreed with you in advance. 5.0 stars from 40+ Google reviews.
+
+Book your transfer → airportsplittransfer.com
+
 <!-- New entries are appended above this line by each scheduled firing. -->
